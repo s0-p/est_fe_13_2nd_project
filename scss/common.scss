@@ -1,0 +1,124 @@
+/* Varients */
+:root {
+  /* Base units */
+  --unit-row: 20px;
+  --unit-m-gutter: 16px;
+  --unit-t-gutter: 20px;
+  --unit-pc-gutter: 24px;
+
+  /* Color Style */
+  --primary: #1729ec;
+  --primary-subtle: #3f4ef3;
+  --primary-muted: #6572fe;
+  --surface-tint: #eef1fc;
+
+  --secondary: #7f33b5;
+  --secondary-subtle: #906bb9;
+  --secondary-muted: #8c7ccd;
+
+  --text-default: #000000;
+  --text-muted: #7b8191;
+  --Text-light: #94969e;
+  --stroke: #e6e6e6;
+  --surface-bg: #ffffff;
+
+  --dim-bg: rgba(0, 0, 0, 0.25);
+  --gradient: linear-gradient(
+    to right,
+    color-mix(in srgb, var(--primary-muted) 70%, transparent) 0%,
+    color-mix(in srgb, var(--secondary) 70%, transparent) 100%
+  );
+}
+
+/* Typography */
+@font-face {
+  font-family: 'Pretendard';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-display: swap;
+}
+@mixin set-font($size, $family: 'Pretendard', $weight: 400, $lh: 20px) {
+  font-family: $family, sans-serif;
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $lh;
+}
+/* Pretendard */
+.pre_reg_10 {
+  @include set-font(10px);
+}
+.pre_reg_12 {
+  @include set-font(12px);
+}
+.pre_reg_14 {
+  @include set-font(14px);
+}
+.pre_reg_16 {
+  @include set-font(16px);
+}
+.pre_reg_18 {
+  @include set-font(18px);
+}
+
+.pre_bold_14 {
+  @include set-font(14px, $weight: 700);
+}
+.pre_bold_16 {
+  @include set-font(16px, $weight: 700);
+}
+.pre_bold_20 {
+  @include set-font(20px, $weight: 700);
+}
+
+/* Montserrat */
+.mont_reg_14 {
+  @include set-font(14px, 'Montserrat');
+}
+.mont_reg_16 {
+  @include set-font(16px, 'Montserrat');
+}
+.mont_reg_18 {
+  @include set-font(18px, 'Montserrat');
+}
+
+.mont_bold_14 {
+  @include set-font(14px, 'Montserrat', 700);
+}
+.mont_bold_16 {
+  @include set-font(16px, 'Montserrat', 700);
+}
+
+.material-icons.icon_16 {
+  font-size: 16px;
+  line-height: 20px;
+}
+.material-icons.icon_20 {
+  font-size: 20px;
+  line-height: 20px;
+}
+.material-icons.icon_24 {
+  font-size: 24px;
+  line-height: 30px;
+}
+
+/* Layout */
+body {
+  margin: 20px;
+}
+@media (min-width: 768px) {
+  body {
+    margin: 40px;
+  }
+}
+@media (min-width: 1280px) {
+  body {
+    margin: 60px;
+  }
+}
