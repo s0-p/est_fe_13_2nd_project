@@ -1,0 +1,25 @@
+{
+  "name": "est_fe_13_2nd_project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/s0-p/est_fe_13_2nd_project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/s0-p/est_fe_13_2nd_project/issues"
+  },
+  "homepage": "https://github.com/s0-p/est_fe_13_2nd_project#readme",
+  "dependencies": {
+    "axios": "^1.17.0",
+    "cheerio": "^1.2.0"
+  }
+}
