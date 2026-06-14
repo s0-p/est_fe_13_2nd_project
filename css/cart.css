@@ -54,6 +54,9 @@ a {
 
 .option_modal {
   margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 header {
@@ -523,7 +526,7 @@ header {
   .option_list_box {
     display: grid;
     width: calc(100% - 80px);
-    margin: 20px auto 0;
+    margin-top: 20px;
     padding: 20px 10px;
     border: 1px solid var(--text-default);
     gap: var(--unit-row);
@@ -669,6 +672,27 @@ header {
   }
   .bottom_sheet_bar {
     display: none;
+  }
+  .option_list_box {
+    margin: 0 auto;
+  }
+  .option_modal.modal {
+    align-items: center;
+  }
+  .modal_panel {
+    width: 696px;
+    padding: 20px 0;
+  }
+  .modal_header {
+    display: flex;
+    justify-content: space-between;
+    border: none;
+    padding: 0 24px;
+    margin-bottom: 20px;
+    font-family: "Pretendard", sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 40px;
   }
   .option_select_container {
     display: none;
