@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,9 +13,172 @@
     <link rel="stylesheet" href="../css/reset.css" />
     <link rel="stylesheet" href="../css/normalize.css" />
     <link rel="stylesheet" href="../css/common.css" />
-    <title>Document</title>
+    <link rel="stylesheet" href="../css/product-detail.css" />
+    <title>ROUNZ Product Detail</title>
   </head>
-  <body>
-    <section class="contents"></section>
+  <body class="product-detail-page">
+    <header></header>
+    <main>
+      <section class="product-info contents display-flex flex-column">
+        <div class="info-badge align-items-center pre_bold_10_auto">당일배송</div>
+        <a href="#" class="info-brand display-flex align-items-center mont_reg_16">
+          Ray-Ban
+          <span class="material-icons icon_16">chevron_right</span>
+        </a>
+        <h1 class="info-title mont_bold_20">실버 메탈 RB3774D 003/87 55MM 레이배 선글라스</h1>
+        <div class="info-meta display-flex pre_reg_12">
+          <div class="meta-item display-flex align-items-center">
+            <span class="material-icons icon_20">favorite_border</span>
+            <span>찜 23</span>
+          </div>
+          <div class="meta-item display-flex align-items-center">
+            <span class="material-icons icon_20">chat</span>
+            <span>후기 23</span>
+          </div>
+        </div>
+        <div class="info-price-row display-flex justify-content-between align-items-center">
+          <div class="price-discount-group display-flex align-items-center">
+            <span class="price-original pre_reg_14">999,999원</span>
+            <span class="price-discount pre_bold_14">10%</span>
+          </div>
+          <div class="price-current mont_bold_20">899,999원</div>
+        </div>
+        <div class="info-benefit-accordion">
+          <div class="info-benefit-heading display-flex justify-content-between">
+            <div class="display-flex align-items-center pre_reg_12">
+              신규 회원님 최대 할인 가격 <span class="material-icons icon_20">expand_more</span>
+            </div>
+            <div class="mont_bold_16">999,999원</div>
+          </div>
+          <div class="panel-body display-none">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad aliquid voluptate fugit quaerat non molestiae
+              quo magni soluta minima corporis! Soluta, ipsa et.
+            </p>
+            <p>Quos quibusdam, nesciunt totam ullam quasi neque!</p>
+          </div>
+        </div>
+      </section>
+      <section class="product-content contents display-flex flex-column">
+        <div class="content-tab-menu">
+          <ul class="tab-menu-list display-flex mont_reg_14">
+            <li class="tab-item is-active">
+              <button type="button" class="tab-button">상세정보</button>
+            </li>
+            <li class="tab-item">
+              <button type="button" class="tab-button">후기<span class="count">(99+)</span></button>
+            </li>
+            <li class="tab-item">
+              <button type="button" class="tab-button">문의<span class="count">(99+)</span></button>
+            </li>
+            <li class="tab-item">
+              <button type="button" class="tab-button">구매정보</button>
+            </li>
+          </ul>
+        </div>
+        <!-- 탭에 따라 바뀌는 컨텐츠 영역 -->
+        <ul class="content-details">
+          <li class="detail-spec">
+            <!-- <div class="spec-header text-center">
+              <h3 class="mont_bold_16">PRODUCT INFO</h3>
+              <p class="pre_reg_12">사이즈는 측정 방법에 따라 약간의 차이가 있을 수 있습니다.</p>
+            </div>
+            <div class="spec-table-container">
+              <dl class="spec-row display-flex align-items-center mont_reg_14">
+                <dt class="spec-label display-flex justify-content-center pre_bold_14">
+                  <span>렌</span><span>즈</span>
+                </dt>
+                <dd class="spec-value">다크 그레이 렌즈 / 100% UV PROTECTION</dd>
+              </dl>
+              <dl class="spec-row display-flex align-items-center">
+                <dt class="spec-label text-center pre_bold_14">프레임</dt>
+                <dd class="spec-value">실버 메탈 프레임</dd>
+              </dl>
+            </div> -->
+            <!-- 여기에 이미지 -->
+            <div class="spec-image-container display-flex justify-content-center">
+              <div class="spec-image-wrapper">
+                <!-- <img src="https://image.rounz.com/_data/detail/RAYBAN/SU/RB3774D-003_87(55)/RB3774D-003_87(55)_SIZE.jpg" alt="spec-image" class="spec-image"> -->
+                <figure>
+                  <img
+                    src="https://image.rounz.com/_data/detail/RAYBAN/SU/RB3774D-003_87(55)/RB3774D-003_87(55)_SIZE.jpg"
+                    alt="안경 상세 수치 가이드"
+                    class="spec-image"
+                  />
+                </figure>
+
+                <ul>
+                  <li>
+                    <img
+                      src="https://image.rounz.com/_data/detail/RAYBAN/SU/RB3774D-003_87(55)/RB3774D-003_87(55)_01.jpg"
+                      alt="레이밴 RB3774D 선글라스 정면 컷"
+                      class="spec-image"
+                    />
+                  </li>
+                  <li>
+                    <img
+                      src="https://image.rounz.com/_data/detail/RAYBAN/SU/RB3774D-003_87(55)/RB3774D-003_87(55)_02.jpg"
+                      alt="레이밴 RB3774D 선글라스 정면 컷"
+                      class="spec-image"
+                    />
+                  </li>
+                  <li>
+                    <img
+                      src="https://image.rounz.com/_data/detail/RAYBAN/SU/RB3774D-003_87(55)/RB3774D-003_87(55)_03.jpg"
+                      alt="레이밴 RB3774D 선글라스 정면 컷"
+                      class="spec-image"
+                    />
+                  </li>
+                  <li>
+                    <img
+                      src="https://image.rounz.com/_data/detail/RAYBAN/SU/RB3774D-003_87(55)/RB3774D-003_87(55)_04.jpg"
+                      alt="레이밴 RB3774D 선글라스 정면 컷"
+                      class="spec-image"
+                    />
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- <div class="plus-info-container">
+              <div class="plus-info-column">
+                <div><h4 class="plus-info-title display-flex align-items-center pre_bold_14">도수 렌즈 삽입</h4></div>
+                <ul class="plus-info-list display-flex flex-column mont_reg_12">
+                  <li class="status-item is-active">
+                    <span class="status-indicator"></span>
+                    <span>가능</span>
+                  </li>
+                  <li class="status-item">
+                    <span class="status-indicator"></span>
+                    <span>불가능</span>
+                  </li>
+                  <li class="status-item">
+                    <span class="status-indicator"></span>
+                    <span>상담 필요</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="plus-info-column">
+                <div><h4 class="plus-info-title display-flex align-items-center pre_bold_14">무게감<span class="mont_reg_12">*500원 동전: 7.7g</span></h4></div>
+                <ul class="plus-info-list display-flex flex-column mont_reg_12">
+                  <li class="status-item">
+                    <span class="status-indicator"></span>
+                    <span>초경량 (~20g)</span>
+                  </li>
+                  <li class="status-item is-active">
+                    <span class="status-indicator"></span>
+                    <span>가벼움 (21~30g)</span>
+                  </li>
+                  <li class="status-item">
+                    <span class="status-indicator"></span>
+                    <span>일반 (31g~)</span>
+                  </li>
+                </ul>
+              </div>
+            </div> -->
+          </li>
+        </ul>
+      </section>
+    </main>
   </body>
 </html>
