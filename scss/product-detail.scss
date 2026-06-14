@@ -156,53 +156,41 @@ main {
   }
 
   .detail-spec {
-    padding: calc(var(--unit-row) * 2) calc(var(--unit-m-margin) * 3);
-
-    .spec-header {
-      margin-bottom: var(--unit-row);
-
-      h3 {
-        margin-bottom: calc(var(--unit-row) * 0.25); // 5px
-        letter-spacing: 0.05em;
-      }
-
-      p {
-        color: var(--text-muted);
-      }
-    }
-
-    .spec-table-container {
-      border-top: 1.5px solid var(--text-default);
-      border-bottom: 1px solid var(--stroke);
-
-      .spec-row {
-        margin: 0;
-        border-bottom: 1px solid var(--stroke);
-
-        &:last-child {
-          border-bottom: none;
-        }
-
-        .spec-label {
-          flex: 1;
-          padding: calc(var(--unit-row) * 0.25) calc(var(--unit-m-gutter) * 0.5);
-          color: var(--text-default);
-
-          &:first-child {
-            gap: 1em;
-          }
-        }
-
-        .spec-value {
-          flex: 7;
-          padding: 12px 8px;
-          color: var(--text-default);
-          margin: 0;
-        }
-      }
-    }
+    padding: 0 var(--unit-m-margin);
 
     // --- 수치 이미지 삽입 위치 ---
+    // 1. 최상위 자식 컨테이너 (부모의 패딩 80px을 제외한 나머지 공간을 100% 채움)
+    .spec-image-container {
+      width: 100%;
+
+      .spec-image-wrapper {
+        // 조건 ①: 해상도 480px ~ 768px 구간
+        // 상위 컨테이너 너비를 100% 차지하면서 비율대로 유연하게 늘어남
+        @media (min-width: 480px) and (max-width: 767px) {
+          width: 100%;
+          max-width: 100%;
+        }
+        
+        // 조건 ②: 해상도 768px 이상 구간
+        // 이미지 원본 크기(예: 600px 가정)로 가로폭을 딱 고정시키고 중앙 배치
+        @media (min-width: 768px) {
+          width: 600px; // 안경 수치 이미지의 원본 가로 크기에 맞게 이 값을 조절해주세요.
+          margin: 0 auto;
+        }
+        
+        .spec-image {
+          width: 100%;
+          height: auto;
+
+          // 수치 텍스트 이미지가 해상도 대응 시 흐려지는 것을 방지
+          image-rendering: -webkit-optimize-contrast;
+        }
+      }
+    }
+
+    // 2. 미디어 쿼리 조건 제어 래퍼
+
+    // 3. 이미지 태그 자체 속성 제어
 
     .plus-info-container {
       display: grid;
@@ -211,7 +199,6 @@ main {
       border-bottom: 1.5px solid var(--stroke);
 
       .plus-info-column {
-
         > div {
           padding: calc(var(--unit-row) * 0.5) var(--unit-m-gutter); // 10px 16px
           border-bottom: 1.5px solid var(--stroke);
