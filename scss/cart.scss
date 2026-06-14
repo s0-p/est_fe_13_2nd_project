@@ -1,0 +1,735 @@
+/* Typography */
+@font-face {
+  font-family: 'Pretendard';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-display: swap;
+}
+@mixin set-font($size, $family: 'Pretendard', $weight: 400, $lh: 20px) {
+  font-family: $family, sans-serif;
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $lh;
+}
+
+body {
+  color: var(--text-default);
+  background: var(--surface-tint);
+}
+
+.pre_bold_12 {
+  font-family: 'Pretendard', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 20px;
+}
+
+button,
+a {
+  color: inherit;
+}
+
+button {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+.sr_only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.option_modal {
+  margin: 0 auto;
+}
+
+// 헤더 (나중에 삭제)
+header {
+  text-align: center;
+  border-bottom: 1px solid var(--text-default);
+}
+
+// Content
+.cart_page {
+  margin: 20px 0 0;
+  padding-bottom: calc(var(--unit-row) * 2);
+}
+
+.shopping_bag {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  min-height: 680px;
+  margin-top: 0;
+}
+
+.shopping_bag_tab {
+  width: fit-content;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 119px;
+  height: 40px;
+  margin: 0 0 var(--unit-row);
+  padding: 0 26px;
+  color: var(--surface-bg);
+  text-align: center;
+  background: var(--primary-subtle);
+  border-radius: 9999px;
+}
+
+.cart_container {
+  display: flex;
+  flex-direction: column;
+}
+
+.cart_product {
+  display: grid;
+  gap: 20px;
+}
+
+// 카트 아이템
+.product_item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 159px minmax(0, 1fr);
+  column-gap: 30px;
+  width: 100%;
+  min-height: 100px;
+}
+
+.product_image {
+  width: 159px;
+  height: 100px;
+  border: 1px solid var(--stroke);
+}
+
+.product_content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  // min-width: 0;
+  height: 100px;
+  padding-right: 42px;
+}
+
+.product_info {
+  display: grid;
+  gap: 0;
+}
+
+.product_brand,
+.product_name,
+.product_option {
+  overflow: hidden;
+  line-height: 20px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.option_edit {
+  margin-left: 10px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.option_edit:hover {
+  color: var(--secondary);
+  font-weight: bold;
+}
+
+.product_footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.quantity_control {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  width: 76px;
+  height: 20px;
+  text-align: center;
+  border: 1px solid var(--dim-bg);
+}
+
+.quantity_control button,
+.quantity_control span {
+  min-width: 20px;
+  height: 20px;
+}
+
+.product_price {
+  min-width: 82px;
+  text-align: right;
+}
+
+.delete_icon {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+}
+
+.desktop_checkout,
+.quick_sidebar,
+.site_footer {
+  display: none;
+}
+
+.order_info {
+  margin-top: 40px;
+}
+
+.order_info_content {
+  display: grid;
+}
+
+.delivery_info,
+.order_summary {
+  border-bottom: 1px solid var(--text-muted);
+}
+
+.delivery_info {
+  display: grid;
+  gap: 20px;
+  padding: 0 20px 20px;
+}
+
+.summary_label {
+  line-height: 20px;
+}
+
+.delivery_info .summary_label {
+  padding-top: 0;
+}
+
+.summary_row,
+.discount_row,
+.total_price_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  min-height: 20px;
+}
+
+.summary_row strong {
+  font-weight: 400;
+}
+
+.order_summary {
+  padding: 20px;
+}
+
+.order_summary dl {
+  display: grid;
+  gap: 20px;
+}
+
+.discount_row dd {
+  display: grid;
+  grid-template-columns: 72px auto;
+  gap: 40px;
+  align-items: start;
+  text-align: right;
+}
+
+.coupon_button {
+  width: 72px;
+  height: 20px;
+  background-color: var(--primary-muted);
+  color: var(--surface-bg);
+  text-align: center;
+  box-shadow: 2px 2px 4px 0 var(--surface-bg);
+}
+.coupon_button:hover {
+  box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, 0.2);
+}
+
+.total_price_container {
+  height: 40px;
+  padding: 20px;
+}
+
+.total_price_container h2,
+.total_price_container p {
+  line-height: 20px;
+}
+
+// CTA 버튼
+.mobile_cta {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 60px;
+
+  gap: 5px;
+  width: calc(100% - 40px);
+  height: 60px;
+  margin: 40px auto 0;
+
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.checkout_button {
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  min-height: 60px;
+  color: #ffffff;
+  background: var(--primary);
+}
+.checkout_button:active {
+  box-shadow: 1px 1px 4px 0 var(--dim-bg);
+  background: var(--surface-bg);
+  color: var(--text-muted);
+}
+
+.ask_button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  color: var(--text-default);
+  background: var(--surface-bg);
+  border: 1px solid var(--primary);
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.modal[hidden] {
+  display: none;
+}
+
+.modal_dim {
+  position: absolute;
+  inset: 0;
+  background: var(--dim-bg);
+}
+
+.modal_panel {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  background: var(--surface-bg);
+}
+
+.option_panel {
+  min-height: 280px;
+  padding: 20px;
+}
+
+.coupon_panel {
+  min-height: 160px;
+  padding: 20px;
+}
+
+.bottom_sheet_bar {
+  display: block;
+  width: 60px;
+  height: 2px;
+  margin: 0 auto 20px;
+  background: var(--text-default);
+}
+
+.modal_header {
+  display: none;
+}
+
+.option_select_container {
+  display: grid;
+  gap: 20px;
+}
+
+.option_select {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  padding: 10px;
+  color: var(--text-default);
+  text-align: left;
+  border: 1px solid var(--text-muted);
+}
+
+.option_select::after {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: 'Material Icons';
+  content: 'expand_more';
+}
+
+.option_list_box {
+  display: none;
+}
+
+.modal_total {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  line-height: 20px;
+}
+
+.apply_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+  margin-top: 20px;
+  color: var(--surface-bg);
+  background: var(--primary);
+}
+
+// 삭제 모달
+.delete_modal {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.delete_panel {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  justify-items: center;
+  width: 440px;
+  min-height: 240px;
+  background: var(--surface-bg);
+}
+
+.delete_panel h2,
+.delete_panel p {
+  text-align: center;
+  margin-top: 20px;
+}
+.delete_panel > span {
+  margin-top: 30px;
+}
+.delete_actions {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0px;
+  width: 100%;
+  margin-top: 40px;
+}
+
+.cancel_button {
+  border-right: 1px solid var(--stroke);
+}
+.cancel_button,
+.confirm_delete_button {
+  height: 56px;
+  background-color: var(--surface-tint);
+}
+
+.confirm_delete_button:active {
+  color: var(--surface-bg);
+  background: var(--primary);
+}
+.cancel_button:active {
+  color: var(--surface-bg);
+  background: var(--primary);
+}
+
+// 태블릿
+@media (min-width: 768px) {
+  .cart_page {
+    margin: 20px 40px;
+  }
+
+  .shopping_bag {
+    min-height: 880px;
+  }
+
+  .shopping_bag_tab {
+    margin-bottom: calc(var(--unit-row) * 2);
+  }
+
+  .cart_product {
+    justify-items: center;
+    gap: 40px;
+  }
+
+  .product_item {
+    grid-template-columns: 181px minmax(0, 353px);
+    width: 544px;
+    column-gap: 10px;
+  }
+
+  .product_image {
+    width: 181px;
+  }
+
+  .product_content {
+    padding-right: 32px;
+  }
+
+  .delete_icon {
+    right: 2px;
+  }
+
+  .order_info {
+    margin-top: 40px;
+  }
+
+  .delivery_info,
+  .order_summary,
+  .total_price_container {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .mobile_cta {
+    grid-template-columns: 1fr 60px;
+    gap: 5px;
+    margin: 40px auto 0;
+    width: calc(100% - 80px);
+  }
+
+  .option_panel {
+    min-height: 380px;
+    padding: 20px 40px;
+  }
+
+  .coupon_panel {
+    min-height: 160px;
+    padding: 20px 40px;
+  }
+
+  .option_select_container {
+    display: none;
+  }
+
+  .modal_total,
+  .apply_button {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .option_list_box {
+    display: grid;
+    width: calc(100% - 80px);
+    margin: 20px auto 0;
+    padding: 20px 10px;
+    border: 1px solid var(--text-default);
+    gap: var(--unit-row);
+  }
+
+  .option_item {
+    grid-template-columns: 80px 1fr;
+    gap: 24px;
+
+    border-bottom: 1px solid var(--text-light);
+  }
+
+  .option_list {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .option_list span {
+    color: var(--secondary-subtle);
+  }
+  .option_list label > span {
+    display: flex;
+    flex-direction: column;
+
+    min-width: 60px;
+  }
+}
+
+// 데스크탑
+@media (min-width: 1200px) {
+  .cart_page {
+    max-width: 1920px;
+    margin: 20px auto 0;
+  }
+
+  .shopping_bag {
+    min-height: 1700px;
+  }
+
+  .shopping_bag_tab {
+    margin-bottom: calc(var(--unit-row) * 3);
+  }
+
+  .cart_container {
+    display: grid;
+    grid-template-columns: 760px 448px;
+    justify-content: center;
+    gap: 112px;
+    min-height: 1600px;
+  }
+
+  .cart_product {
+    gap: 80px;
+    justify-items: stretch;
+  }
+
+  .product_item {
+    grid-template-columns: 336px minmax(0, 414px);
+    width: 760px;
+    min-height: 200px;
+    column-gap: 10px;
+  }
+
+  .product_image {
+    width: 336px;
+    height: 200px;
+  }
+
+  .product_content {
+    height: 200px;
+    padding-right: 0;
+  }
+
+  .product_info {
+    padding-top: 0;
+    gap: var(--unit-row);
+  }
+
+  .product_name,
+  .product_option {
+    @include set-font(14px);
+  }
+  .product_price {
+    @include set-font(16px, $weight: 700);
+  }
+
+  .product_footer {
+    height: 30px;
+  }
+
+  .product_item:nth-of-type(n + 4) {
+    display: grid;
+  }
+
+  // 주문 정보
+  .order_info {
+    position: sticky;
+    top: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 448px;
+    height: 620px;
+    margin-top: calc(var(--unit-row) * 3);
+    border-radius: 999px;
+
+    background: rgba(194, 203, 255, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(100px);
+    border: 1px solid transparent;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.2)),
+      linear-gradient(-135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    box-shadow: 2px 2px 5px 0px rgba(194, 203, 255, 0.8);
+  }
+
+  .order_info_content {
+    width: 348px;
+    gap: 0;
+  }
+
+  .delivery_info,
+  .order_summary {
+    border-bottom: 1px solid var(--text-muted);
+  }
+
+  .delivery_info {
+    padding: 0 15px 20px;
+    gap: var(--unit-row);
+  }
+
+  .order_summary {
+    padding: 20px 15px;
+  }
+
+  .discount_row dd {
+    grid-template-columns: 72px;
+    gap: var(--unit-row);
+  }
+
+  .total_price_container {
+    padding: 20px 15px;
+  }
+
+  .desktop_checkout {
+    display: inline-flex;
+    width: 249px;
+    margin: 0 auto 0;
+  }
+
+  .mobile_cta {
+    display: none;
+  }
+
+  .site_footer {
+    // 나중에 삭제
+    display: block;
+    height: 380px;
+    margin-top: 80px;
+    border-top: 1px solid var(--text-default);
+    text-align: center;
+  }
+
+  // 데스크탑 모달창
+  .option_list_box,
+  .modal_total,
+  .apply_button {
+    max-width: 648px;
+  }
+  .bottom_sheet_bar {
+    display: none;
+  }
+
+  .option_select_container {
+    display: none;
+  }
+
+  .coupon_select {
+    margin-top: 20px;
+  }
+}
