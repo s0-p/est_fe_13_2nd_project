@@ -109,16 +109,16 @@
 }
 
 /* Layout */
-body {
+.contents {
   margin: 20px;
 }
 @media (min-width: 768px) {
-  body {
+  .contents {
     margin: 40px;
   }
 }
 @media (min-width: 1280px) {
-  body {
+  .contents {
     margin: 60px;
   }
 }
