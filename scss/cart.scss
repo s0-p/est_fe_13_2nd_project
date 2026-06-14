@@ -60,7 +60,8 @@ a {
   border: 0;
 }
 
-.option_modal {
+.option_modal,
+.coupon_modal {
   margin: 0 auto;
   display: flex;
   justify-content: center;
@@ -392,7 +393,7 @@ header {
   border: 1px solid var(--text-muted);
 }
 
-.option_select::after {
+.option_select:after {
   position: absolute;
   right: 10px;
   top: 50%;
@@ -435,25 +436,25 @@ header {
   z-index: 1;
   display: grid;
   justify-items: center;
-  width: 440px;
-  min-height: 240px;
+  width: 352px;
+  height: 181px;
+  min-height: 181px;
   background: var(--surface-bg);
 }
 
-.delete_panel h2,
 .delete_panel p {
   text-align: center;
   margin-top: 20px;
 }
 .delete_panel > span {
-  margin-top: 30px;
+  margin: 10px 0;
 }
 .delete_actions {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 0px;
   width: 100%;
-  margin-top: 40px;
+  margin-top: 10px;
 }
 
 .cancel_button {
@@ -551,7 +552,6 @@ header {
 
   .option_list_box {
     display: grid;
-    width: calc(100% - 80px);
     margin-top: 20px;
     padding: 20px 10px;
     border: 1px solid var(--text-default);
@@ -730,9 +730,11 @@ header {
   .option_list_box {
     margin: 0 auto;
   }
-  .option_modal.modal {
+  .option_modal.modal,
+  .coupon_modal.modal {
     align-items: center;
   }
+
   .modal_panel {
     width: 696px;
     padding: 20px 0;
@@ -749,8 +751,34 @@ header {
   .option_select_container {
     display: none;
   }
-
+  .option_select {
+    max-width: 648px;
+    margin: 0 auto;
+  }
+  .coupon_panel {
+    padding: 20px 24px;
+  }
   .coupon_select {
-    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 648px;
+  }
+
+  .delete_panel {
+    width: 440px;
+    min-height: 240px;
+  }
+  .delete_panel > span {
+    margin: 30px 0;
+  }
+  .delete_actions {
+    margin-top: 40px;
+  }
+  .delete_panel h2 {
+    @include set-font(16px, $weight: 700);
+  }
+  .delete_panel p {
+    @include set-font(16px);
   }
 }

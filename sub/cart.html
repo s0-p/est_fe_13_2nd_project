@@ -244,7 +244,7 @@
       role="dialog"
       aria-modal="true"
       aria-labelledby="option_modal_title"
-      
+      hidden
     >
       <div class="modal_dim"></div>
       <article class="modal_panel option_panel">
@@ -341,12 +341,14 @@
       <article class="modal_panel coupon_panel">
         <span class="bottom_sheet_bar" aria-hidden="true"></span>
         <header class="modal_header">
-          <h2 id="coupon_modal_title" class="pre_bold_20">쿠폰 적용</h2>
+          <h2 id="coupon_modal_title">쿠폰 적용</h2>
           <button class="modal_close" type="button" aria-label="닫기">
             <span class="material-icons icon_24" aria-hidden="true">close</span>
           </button>
         </header>
-        <button class="option_select coupon_select pre_reg_16" type="button">쿠폰을 선택해주세요.</button>
+        <select class="option_select coupon_select pre_reg_16">
+          <option>쿠폰을 선택해주세요.</option>
+        </select>
         <div class="modal_total pre_bold_16">
           <span>Total Price</span>
           <strong>₩ ---,---</strong>
@@ -354,14 +356,15 @@
         <button class="apply_button pre_reg_16" type="button">적용하기</button>
       </article>
     </section>
+
     <!-- 상품 삭제 모달 -->
-    <section class="delete_modal modal contents" role="dialog" aria-modal="true" aria-labelledby="delete_modal_title" hidden>
+    <section class="delete_modal modal contents" role="dialog" aria-modal="true" aria-labelledby="delete_modal_title">
       <div class="modal_dim"></div>
       <article class="delete_panel">
           <span class="material-icons icon_24">remove_shopping_cart</span>
         </div>
-        <h2 id="delete_modal_title" class="pre_bold_16">상품을 삭제 하시겠습니까?</h2>
-        <p class="pre_reg_16">삭제한 상품은 장바구니에서 사라집니다.</p>
+        <h2 id="delete_modal_title" class="pre_bold_14">상품을 삭제 하시겠습니까?</h2>
+        <p class="pre_reg_14">삭제한 상품은 장바구니에서 사라집니다.</p>
         <div class="delete_actions">
           <button class="cancel_button pre_reg_16" type="button">취소</button>
           <button class="confirm_delete_button pre_reg_16" type="button">삭제</button>
