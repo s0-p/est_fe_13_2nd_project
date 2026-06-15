@@ -5,6 +5,8 @@
   --unit-m-gutter: 16px;
   --unit-t-gutter: 20px;
   --unit-pc-gutter: 24px;
+  --unit-m-margin: 20px;
+  --unit-t-margin: 40px;
 
   /* Color Style */
   --primary: #1729ec;
@@ -28,6 +30,11 @@
     color-mix(in srgb, var(--primary-muted) 70%, transparent) 0%,
     color-mix(in srgb, var(--secondary) 70%, transparent) 100%
   );
+
+  /* [user variants: product-detail] */
+  /* Color Style */
+  --transparent: #ffffff00;
+  /* [user variants: product-detail] */
 }
 
 /* Typography */
@@ -122,3 +129,50 @@
     margin: 60px;
   }
 }
+
+/* Flex Utilities */
+.display_flex {
+  display: flex;
+}
+.display_block {
+  display: block;
+}
+.display_none {
+  display: none;
+}
+.flex_column {
+  flex-direction: column;
+}
+.justify_content_center {
+  justify-content: center;
+}
+.justify_content_between {
+  justify-content: space-between;
+}
+.align_items_center {
+  align-items: center;
+}
+.text_center {
+  text-align: center;
+}
+
+/* [user class: product-detail] */
+/* Pretendard */
+.pre_bold_10_auto {
+  @include set-font(10px, $weight: 700, $lh: normal);
+}
+
+/* Montserrat */
+.mont_reg_12 {
+  @include set-font(12px, 'Montserrat');
+}
+.mont_reg_12_auto {
+  @include set-font(12px, 'Montserrat', $lh: normal);
+}
+.mont_bold_12 {
+  @include set-font(12px, 'Montserrat', $weight: 700);
+}
+.mont_bold_20 {
+  @include set-font(20px, 'Montserrat', $weight: 700);
+}
+/* [user class: product-detail] */
