@@ -102,6 +102,27 @@
   @include set-font(16px, 'Montserrat', 700);
 }
 
+/* [user class: product-detail] */
+/* Pretendard */
+.pre_bold_10_auto {
+  @include set-font(10px, $weight: 700, $lh: normal);
+}
+
+/* Montserrat */
+.mont_reg_12 {
+  @include set-font(12px, 'Montserrat');
+}
+.mont_reg_12_auto {
+  @include set-font(12px, 'Montserrat', $lh: normal);
+}
+.mont_bold_12 {
+  @include set-font(12px, 'Montserrat', $weight: 700);
+}
+.mont_bold_20 {
+  @include set-font(20px, 'Montserrat', $weight: 700);
+}
+/* [user class: product-detail] */
+
 .material-icons.icon_16 {
   font-size: 16px;
   line-height: 20px;
@@ -155,24 +176,3 @@
 .text_center {
   text-align: center;
 }
-
-/* [user class: product-detail] */
-/* Pretendard */
-.pre_bold_10_auto {
-  @include set-font(10px, $weight: 700, $lh: normal);
-}
-
-/* Montserrat */
-.mont_reg_12 {
-  @include set-font(12px, 'Montserrat');
-}
-.mont_reg_12_auto {
-  @include set-font(12px, 'Montserrat', $lh: normal);
-}
-.mont_bold_12 {
-  @include set-font(12px, 'Montserrat', $weight: 700);
-}
-.mont_bold_20 {
-  @include set-font(20px, 'Montserrat', $weight: 700);
-}
-/* [user class: product-detail] */
