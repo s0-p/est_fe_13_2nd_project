@@ -27,28 +27,28 @@ h1 {
 }
 
 // Flex Utilities ==================
-.display-flex {
+.display_flex {
   display: flex;
 }
-.display-block {
+.display_block {
   display: block;
 }
-.display-none {
+.display_none {
   display: none;
 }
-.flex-column {
+.flex_column {
   flex-direction: column;
 }
-.justify-content-center {
+.justify_content_center {
   justify-content: center;
 }
-.justify-content-between {
+.justify_content_between {
   justify-content: space-between;
 }
-.align-items-center {
+.align_items_center {
   align-items: center;
 }
-.text-center {
+.text_center {
   text-align: center;
 }
 
@@ -63,12 +63,12 @@ main {
   background-color: var(--transparent);
 }
 
-.product-info {
+.product_info {
   padding-top: calc(var(--unit-row) * 1.5);
   padding-bottom: 0;
   gap: calc(var(--unit-row) / 2);
 
-  .info-badge {
+  .info_badge {
     align-self: flex-start;
     vertical-align: middle;
     padding: 5px 10px;
@@ -76,11 +76,11 @@ main {
     color: var(--surface-bg);
   }
 
-  .info-meta {
+  .info_meta {
     gap: var(--unit-m-gutter);
     padding: 10px 0;
 
-    .meta-item {
+    .meta_item {
       gap: calc(var(--unit-m-gutter) * 0.25); // 4px
       color: var(--text-muted);
 
@@ -90,38 +90,299 @@ main {
     }
   }
 
-  .info-price-row {
+  .info_price_row {
     padding-bottom: calc(var(--unit-row) * 0.25);
 
-    .price-discount-group {
+    .price_discount_group {
       gap: calc(var(--unit-m-gutter) * 0.5);
     }
 
-    .price-original {
+    .price_original {
       text-decoration: line-through;
       color: var(--text-light);
     }
   }
 
-  .info-benefit-heading {
+  .info_benefit_heading {
     padding-top: calc(var(--unit-row) * 0.75);
     border-top: 1px solid var(--stroke);
   }
 }
 
-.product-content {
-  gap: calc(var(--unit-row) * 4); // 80px
+.card_slide {
+  padding-top: calc(var(--unit-row) * 4);
+  gap: var(--unit-row);
 
-  .content-tab-menu {
+  .card_slide_container {
+    width: 100%;
+    overflow: hidden;
+
+    .card_group {
+      gap: var(--unit-m-gutter);
+
+      .card_item {
+        position: relative;
+        width: calc((100% - var(--unit-m-gutter)) / 2);
+        flex-shrink: 0;
+        gap: var(--unit-row);
+
+        &:hover {
+          cursor: pointer;
+
+          .card_product_img {
+            transform: scale(1.05);
+          }
+
+          .card_info_wrapper {
+            p {
+              text-decoration: underline;
+              color: var(--text-light);
+            }
+          }
+        }
+
+        &:nth-child(n + 3) {
+          display: none;
+        }
+
+        @media (min-width: 768px) {
+          width: calc((100% - (var(--unit-m-gutter) * 2)) / 3);
+
+          &:nth-child(3) {
+            display: flex;
+          }
+
+          &:nth-child(n + 4) {
+            display: none;
+          }
+        }
+
+        .card_visual_wrapper {
+          overflow: hidden;
+
+          .card_product_img {
+            width: 100%;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+          }
+        }
+
+        .card_info_wrapper {
+          gap: calc(var(--unit-row) * 0.25);
+
+          .model_description {
+            color: var(--text-muted);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+        }
+      }
+    }
+  }
+
+  .slider_pagination_controls {
+    margin-top: calc(var(--unit-row) * 2);
+    margin-bottom: var(--unit-row);
+    gap: var(--unit-m-gutter);
+
+    .ctrl_btn {
+      // display: grid;
+      place-items: center;
+      cursor: pointer;
+      background-color: var(--transparent);
+      border: none;
+      transition: opacity 0.2s ease;
+
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+
+    .page_number_indicator {
+      display: flex;
+      align-items: center;
+      gap: calc(var(--unit-m-gutter) * 0.5);
+    }
+  }
+
+  // ===============================
+  // [오버라이딩] 포토 후기 슬라이드 
+  // ===============================
+
+  h2 {
+    display: block;
+    margin-bottom: calc(var(--unit-row) * 2);
+  }
+
+  .card_item {
+    // 후기 카드는 마우스 오버 시 텍스트 밑줄 인터랙션 제외
+    &:hover {
+      .card_info_wrapper {
+        text-decoration: none;
+      }
+    }
+
+    .card_info_wrapper {
+      text-decoration: none;
+      gap: var(--unit-row);
+
+      // 1. 유저 프로필 메타 영역 (원형 프로필 정렬)
+      .review_meta_box {
+        gap: 10px;
+        width: 100%;
+
+        .avatar_box {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          overflow: hidden;
+          flex-shrink: 0;
+
+          .avatar_img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+
+        .review_heading {
+          align-items: end;
+
+          // 별점 아이콘 노란색 및 평점 정렬
+          .rating_box {
+            .star_icon {
+              color: #ffcc00; // 별 아이콘 노란색 조건 반영
+            }
+
+            .score {
+              color: var(--text-muted);
+            }
+          }
+        }
+      }
+
+      // 2. 후기 본문 텍스트 (3줄 이상 시 '...' 처리 조건 반영)
+      .review_text_content {
+        // color: #222222;
+        margin-top: var(--unit-row);
+
+        // 멀티라인 말줄임 표준 렌더링 스펙
+        display: -webkit-box;
+        -webkit-line-clamp: 3; // 3줄 제한 고정
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+}
+
+.detail_review{
+  gap: calc(var(--unit-row) * 4);
+
+  .review_normal_section {
+
+  // Flex 계층 간격 씹힘 방지 표준 스펙 적용
+  .card_slide_container {
+    margin-top: calc(var(--unit-row) * 1.5);
+  }
+
+  .card_item {
+    // 일반 후기는 이미지 영역이 없으므로 너비 100%를 자연스럽게 유지합니다.
+    background-color: transparent;
+
+    // 호버 인터랙션 초기화 (언더라인 제거)
+    &:hover {
+      .card_info_wrapper {
+        text-decoration: none;
+      }
+    }
+
+    .card_info_wrapper {
+      width: 100%;
+      text-decoration: none;
+      gap: 0; // 내부 수동 간격 제어를 위해 초기화
+
+      // 1. 유저 프로필 및 별점 레이아웃 (가로 정렬)
+      .review_meta_box {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        width: 100%;
+
+        .avatar_box {
+          width: 36px;
+          height: 36px;
+          border-radius: 50%; // 아바타 원형 마스킹
+          overflow: hidden;
+          flex-shrink: 0;
+
+          .avatar_img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+
+        .review_heading {
+          gap: 2px;
+
+          .model_code {
+            color: #111111;
+            line-height: 1.2;
+          }
+
+          // 별 아이콘 노란색 컴포넌트 명세
+          .rating_box {
+            gap: 2px;
+
+            .star_icon {
+              font-size: 14px;
+              color: #ffcc00; // 별 아이콘 골드 옐로우 고정
+            }
+            .score {
+              color: var(--text-muted);
+              margin-left: 2px;
+            }
+          }
+        }
+      }
+
+      // 2. 일반 후기 본문 텍스트 (3줄 클램프 렌더링 스펙 반영)
+      .review_text_content {
+        color: #222222;
+        margin-top: calc(var(--unit-row) * 0.75); // 프로필 박스와 본문 사이 세로 마진
+        line-height: 1.5;
+
+        // 멀티라인 표준 말줄임 설계 (에디터 경고 완벽 제거)
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        -webkit-line-clamp: 3; // 구형 브라우저 대응
+        line-clamp: 3; // 표준 웹 스펙 대응 명시
+      }
+    }
+  }
+}
+}
+
+
+
+.product_content {
+  // gap: calc(var(--unit-row) * 4); // 80px
+
+  .content_tab_menu {
     width: 100%;
     border-bottom: 1.5px solid var(--stroke);
 
-    .tab-item {
+    .tab_item {
       flex: 1;
-      @extend .text-center;
+      @extend .text_center;
       position: relative;
 
-      .tab-button {
+      .tab_button {
         border: none;
         width: 100%;
         padding: calc(var(--unit-row) * 0.75) 0; // 15px
@@ -134,8 +395,8 @@ main {
         }
       }
 
-      &.is-active {
-        .tab-button {
+      &.is_active {
+        .tab_button {
           color: var(--primary);
           font-weight: 700;
         }
@@ -155,99 +416,47 @@ main {
     }
   }
 
-  .detail-spec {
-    padding: 0 var(--unit-m-margin);
+  .detail_spec {
+    padding: calc(var(--unit-row) * 4) var(--unit-m-margin) 0;
 
     // --- 수치 이미지 삽입 위치 ---
     // 1. 최상위 자식 컨테이너 (부모의 패딩 80px을 제외한 나머지 공간을 100% 채움)
-    .spec-image-container {
+    .spec_image_container {
       width: 100%;
 
-      .spec-image-wrapper {
+      .spec_image_wrapper {
         // 조건 ①: 해상도 480px ~ 768px 구간
         // 상위 컨테이너 너비를 100% 차지하면서 비율대로 유연하게 늘어남
         @media (min-width: 480px) and (max-width: 767px) {
           width: 100%;
           max-width: 100%;
         }
-        
+
         // 조건 ②: 해상도 768px 이상 구간
         // 이미지 원본 크기(예: 600px 가정)로 가로폭을 딱 고정시키고 중앙 배치
         @media (min-width: 768px) {
-          width: 600px; // 안경 수치 이미지의 원본 가로 크기에 맞게 이 값을 조절해주세요.
+          width: 600px;
           margin: 0 auto;
         }
-        
-        .spec-image {
+
+        figure {
+          margin-bottom: calc(var(--unit-row) * 4); // 80px
+        }
+
+        .spec_image {
           width: 100%;
           height: auto;
-
           // 수치 텍스트 이미지가 해상도 대응 시 흐려지는 것을 방지
           image-rendering: -webkit-optimize-contrast;
         }
-      }
-    }
 
-    // 2. 미디어 쿼리 조건 제어 래퍼
-
-    // 3. 이미지 태그 자체 속성 제어
-
-    .plus-info-container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      border-top: 1.5px solid var(--text-default);
-      border-bottom: 1.5px solid var(--stroke);
-
-      .plus-info-column {
-        > div {
-          padding: calc(var(--unit-row) * 0.5) var(--unit-m-gutter); // 10px 16px
-          border-bottom: 1.5px solid var(--stroke);
-        }
-
-        &:first-child {
-          border-right: 1px solid var(--stroke);
-        }
-
-        .plus-info-title {
-          @extend .justify-content-between;
-
-          span {
-            color: var(--text-muted);
-            font-weight: 400;
-          }
-        }
-
-        .plus-info-list {
-          gap: calc(var(--unit-row) * 0.5); // 10px
-          padding: calc(var(--unit-row) * 0.5) var(--unit-m-gutter);
-          margin: 0;
-          list-style: none;
-
-          .status-item {
-            display: flex;
-            align-items: center;
-            gap: calc(var(--unit-m-gutter) / 2);
-            color: var(--text-light); // 기본 선택 안 된 텍스트 색상
-
-            // 체크 박스 역할을 하는 사각형 지시자
-            .status-indicator {
-              width: 14px;
-              height: 14px;
-              background-color: #e5e7eb; // 기본 비활성화 사각형 컬러
-              display: inline-block;
-              border-radius: 2px;
-            }
-
-            // 활성화(선택) 상태 스타일 분기
-            &.is-active {
-              color: var(--text-default);
-              font-weight: 700;
-
-              .status-indicator {
-                background-color: var(--primary); // 활성화된 블루 컬러 인디케이터
-              }
-            }
-          }
+        .spec_photos {
+          position: relative;
+          width: 100vw;
+          left: 50%;
+          right: 50%;
+          margin-left: -50vw;
+          margin-right: -50vw;
         }
       }
     }
