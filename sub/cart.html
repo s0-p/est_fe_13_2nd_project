@@ -23,7 +23,7 @@
 
     <main class="contents cart_page">
       <section class="shopping_bag" aria-labelledby="shopping_bag_title">
-        <h1 id="shopping_bag_title" class="shopping_bag_tab pre_reg_14">장바구니(0)</h1>
+        <h1 id="shopping_bag_title" class="shopping_bag_tab pre_reg_14">장바구니(<span>0</span>)</h1>
 
         <div class="cart_container">
           <section class="cart_product" aria-label="장바구니 상품 목록">
@@ -40,15 +40,15 @@
                 </div>
                 <div class="product_footer">
                   <div class="quantity_control pre_reg_12">
-                    <button type="button" aria-label="수량 감소">-</button>
-                    <span>1</span>
-                    <button type="button" aria-label="수량 증가">+</button>
+                    <button type="button" class="minus_btn" aria-label="수량 감소">-</button>
+                    <span id="quantity">1</span>
+                    <button type="button" class="plus_btn" aria-label="수량 증가">+</button>
                   </div>
                   <p class="product_price pre_bold_14">₩1,000,000</p>
                 </div>
               </div>
               <button class="delete_icon" type="button" aria-label="상품 삭제" aria-haspopup="dialog">
-                <span class="material-icons icon_20" aria-hidden="true">close</span>
+                <span class="material-icons icon_20 close_button" aria-hidden="true">close</span>
               </button>
             </article>
 
@@ -346,7 +346,7 @@
             <span class="material-icons icon_24" aria-hidden="true">close</span>
           </button>
         </header>
-        <select class="option_select coupon_select pre_reg_16">
+        <select class="option_select coupon_select pre_reg_16" name="coupon_select">
           <option>쿠폰을 선택해주세요.</option>
         </select>
         <div class="modal_total pre_bold_16">
@@ -376,5 +376,6 @@
         </div>
       </article>
     </section>
+    <script src="../js/cart.js"></script>
   </body>
 </html>

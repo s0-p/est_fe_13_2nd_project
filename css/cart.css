@@ -701,9 +701,6 @@ header {
     max-width: 648px;
     margin: 0 auto;
   }
-  .coupon_panel {
-    padding: 20px 24px;
-  }
   .coupon_select {
     display: flex;
     justify-content: center;
