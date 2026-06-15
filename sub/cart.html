@@ -23,7 +23,7 @@
 
     <main class="contents cart_page">
       <section class="shopping_bag" aria-labelledby="shopping_bag_title">
-        <h1 id="shopping_bag_title" class="shopping_bag_tab pre_reg_14">장바구니(<span>0</span>)</h1>
+        <h1 id="shopping_bag_title" class="shopping_bag_tab pre_reg_14">장바구니(0)</h1>
 
         <div class="cart_container">
           <section class="cart_product" aria-label="장바구니 상품 목록">
@@ -39,7 +39,7 @@
                   </p>
                 </div>
                 <div class="product_footer">
-                  <div class="quantity_control pre_reg_12" aria-label="수량 선택">
+                  <div class="quantity_control pre_reg_12">
                     <button type="button" aria-label="수량 감소">-</button>
                     <span>1</span>
                     <button type="button" aria-label="수량 증가">+</button>
@@ -64,7 +64,7 @@
                   </p>
                 </div>
                 <div class="product_footer">
-                  <div class="quantity_control" aria-label="수량 선택">
+                  <div class="quantity_control">
                     <button type="button" aria-label="수량 감소">-</button>
                     <span>1</span>
                     <button type="button" aria-label="수량 증가">+</button>
@@ -89,7 +89,7 @@
                   </p>
                 </div>
                 <div class="product_footer">
-                  <div class="quantity_control" aria-label="수량 선택">
+                  <div class="quantity_control">
                     <button type="button" aria-label="수량 감소">-</button>
                     <span>1</span>
                     <button type="button" aria-label="수량 증가">+</button>
@@ -114,7 +114,7 @@
                   </p>
                 </div>
                 <div class="product_footer">
-                  <div class="quantity_control" aria-label="수량 선택">
+                  <div class="quantity_control">
                     <button type="button" aria-label="수량 감소">-</button>
                     <span>1</span>
                     <button type="button" aria-label="수량 증가">+</button>
@@ -139,7 +139,7 @@
                   </p>
                 </div>
                 <div class="product_footer">
-                  <div class="quantity_control" aria-label="수량 선택">
+                  <div class="quantity_control">
                     <button type="button" aria-label="수량 감소">-</button>
                     <span>1</span>
                     <button type="button" aria-label="수량 증가">+</button>
@@ -164,7 +164,7 @@
                   </p>
                 </div>
                 <div class="product_footer">
-                  <div class="quantity_control" aria-label="수량 선택">
+                  <div class="quantity_control">
                     <button type="button" aria-label="수량 감소">-</button>
                     <span>1</span>
                     <button type="button" aria-label="수량 증가">+</button>
@@ -358,11 +358,16 @@
     </section>
 
     <!-- 상품 삭제 모달 -->
-    <section class="delete_modal modal contents" role="dialog" aria-modal="true" aria-labelledby="delete_modal_title" hidden>
+    <section
+      class="delete_modal modal contents"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="delete_modal_title"
+      hidden
+    >
       <div class="modal_dim"></div>
       <article class="delete_panel">
-          <span class="material-icons icon_24">remove_shopping_cart</span>
-        </div>
+        <span class="material-icons icon_24">remove_shopping_cart</span>
         <h2 id="delete_modal_title" class="pre_bold_14">상품을 삭제 하시겠습니까?</h2>
         <p class="pre_reg_14">삭제한 상품은 장바구니에서 사라집니다.</p>
         <div class="delete_actions">
