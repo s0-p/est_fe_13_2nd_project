@@ -141,6 +141,10 @@ body {
   border: 0;
 }
 
+.list_category {
+  text-align: center;
+}
+
 /* Detailed Filter Modal*/
 .filter_modal_wrapper {
   position: fixed;
