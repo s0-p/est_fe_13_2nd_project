@@ -1,13 +1,13 @@
 /* Typography */
 @font-face {
-  font-family: "Pretendard";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Regular.woff2") format("woff2");
+  font-family: 'Pretendard';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Regular.woff2') format('woff2');
   font-weight: 400;
   font-display: swap;
 }
 @font-face {
-  font-family: "Pretendard";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Bold.woff2") format("woff2");
+  font-family: 'Pretendard';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Bold.woff2') format('woff2');
   font-weight: 700;
   font-display: swap;
 }
@@ -17,7 +17,7 @@ body {
 }
 
 .pre_bold_12 {
-  font-family: "Pretendard", sans-serif;
+  font-family: 'Pretendard', sans-serif;
   font-size: 12px;
   font-weight: 700;
   line-height: 20px;
@@ -383,8 +383,8 @@ header {
   right: 10px;
   top: 50%;
   transform: translateY(-50%);
-  font-family: "Material Icons";
-  content: "expand_more";
+  font-family: 'Material Icons';
+  content: 'expand_more';
 }
 
 .option_list_box {
@@ -591,13 +591,13 @@ header {
   }
   .product_name,
   .product_option {
-    font-family: "Pretendard", sans-serif;
+    font-family: 'Pretendard', sans-serif;
     font-size: 14px;
     font-weight: 400;
     line-height: 20px;
   }
   .product_price {
-    font-family: "Pretendard", sans-serif;
+    font-family: 'Pretendard', sans-serif;
     font-size: 16px;
     font-weight: 700;
     line-height: 20px;
@@ -622,7 +622,9 @@ header {
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(100px);
     border: 1px solid transparent;
-    background-image: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.2)), linear-gradient(-135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.2)),
+      linear-gradient(-135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
     background-origin: border-box;
     background-clip: padding-box, border-box;
     box-shadow: 2px 2px 5px 0px rgba(194, 203, 255, 0.8);
@@ -689,7 +691,7 @@ header {
     border: none;
     padding: 0 24px;
     margin-bottom: 20px;
-    font-family: "Pretendard", sans-serif;
+    font-family: 'Pretendard', sans-serif;
     font-size: 24px;
     font-weight: 400;
     line-height: 40px;
@@ -718,13 +720,13 @@ header {
     margin-top: 40px;
   }
   .delete_panel h2 {
-    font-family: "Pretendard", sans-serif;
+    font-family: 'Pretendard', sans-serif;
     font-size: 16px;
     font-weight: 700;
     line-height: 20px;
   }
   .delete_panel p {
-    font-family: "Pretendard", sans-serif;
+    font-family: 'Pretendard', sans-serif;
     font-size: 16px;
     font-weight: 400;
     line-height: 20px;

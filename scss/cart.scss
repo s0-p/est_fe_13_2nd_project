@@ -5,7 +5,13 @@
 .pre_reg_24 {
   @include set-font(24px, $lh: 40px);
 }
+// 헤더 (나중에 삭제)
+header {
+  text-align: center;
+  border-bottom: 1px solid var(--text-default);
+}
 
+// Body
 body {
   color: var(--text-default);
   background: var(--surface-tint);
@@ -48,13 +54,7 @@ a {
   align-items: center;
 }
 
-// 헤더 (나중에 삭제)
-header {
-  text-align: center;
-  border-bottom: 1px solid var(--text-default);
-}
-
-// Content
+//Cart Page
 .cart_page {
   margin-top: 20px;
   padding-bottom: calc(var(--unit-row) * 2);
@@ -384,6 +384,24 @@ header {
 
 .option_list_box {
   display: none;
+}
+
+.select_list[hidden] {
+  display: none;
+}
+.select_list {
+  border: 1px solid var(--text-default);
+}
+.select_list button {
+  width: 100% !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  padding: 10px;
+  cursor: pointer;
+  background-color: red;
+}
+.select_item {
+  border-bottom: 1px solid var(--text-default);
 }
 
 .modal_total {
