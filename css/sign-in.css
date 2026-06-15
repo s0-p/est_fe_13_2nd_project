@@ -1,3 +1,4 @@
+
 body {
   color: var(--text-default);
   background: var(--surface-tint);
@@ -37,44 +38,44 @@ button {
   transform: translateX(-50%);
 }
 
-.sign-box .img img {
+.sign_box img {
   max-width: 767px;
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
 
-.sign-in {
+.sign_in {
   width: 100%;
   align-content: center;
 }
 
-.sing-sns {
+.sing_sns {
   display: grid;
   gap: 20px;
   padding: 40px 0;
 }
 
-.sign-in .sing-sns button {
+.sign_in .sing_sns button {
   width: 100%;
   height: 40px;
   border: 1px solid var(--text-light);
   cursor: pointer;
 }
 
-.sign-in .sing-sns a:nth-child(1) button {
+.sign_in .sing_sns a:nth-child(1) button {
   background-color: #FAE000;
 }
 
-.sign-in .sing-sns a:nth-child(2) button {
+.sign_in .sing_sns a:nth-child(2) button {
   background-color: #2DB400;
 }
 
-.sign-in .sing-sns a:nth-child(3) button {
+.sign_in .sing_sns a:nth-child(3) button {
   background-color: var(--surface-bg);
 }
 
-.sign-in .sing-sns button img {
+.sign_in .sing_sns button img {
   width: 16px;
   margin-right: 10px;
 }
@@ -85,79 +86,79 @@ button {
   justify-content: space-between;
 }
 
-.sing-text {
+.sing_text {
   padding: 0 0 20px 0;
   display: grid;
   gap: 20px;
   width: calc(100% - 114px);
 }
 
-.sing-text > input {
+.sing_text > input {
   width: 100%;
   height: 40px;
   padding: 0;
   border: 1px solid var(--text-light);
 }
 
-.sing-text .check-box {
+.sing_text .check_box {
   display: flex;
 }
 
-.sing-text .check-box input {
+.sing_text .check_box input {
   width: 20px;
   height: 20px;
   margin-right: 10px;
 }
 
-.login-bt {
+.login_bt {
   width: 98px;
   height: 103.2px;
   background-color: var(--primary);
   color: var(--surface-bg);
 }
 
-.login-box {
+.login_box {
   display: flex;
   justify-content: space-evenly;
   text-align: center;
 }
 
-.login-box .text {
+.login_box .text {
   width: 160px;
 }
 
 @media (min-width: 768px) {
-  .sign-contents {
+  .sign_contents {
     display: grid;
     justify-items: center;
   }
-  .sign-box {
+  .sign_box {
     display: flex;
   }
-  .sign-box > img {
+  .sign_box > img {
     width: 335px;
     height: 460px;
   }
   .login {
     display: block;
   }
-  .sing-text {
+  .sing_text {
     padding: 0 0 20px 0;
     gap: 20px;
     width: 100%;
   }
-  .sing-sns {
+  .sing_sns {
     display: grid;
     gap: 20px;
     padding: 0 0 20px 0;
   }
-  .login-bt {
+  .login_bt {
     width: 100%;
     height: 40px;
     background-color: var(--primary);
     color: var(--surface-bg);
   }
-  .login-box {
+  .login_box {
     padding-top: 20px;
   }
 }
@@ -165,19 +166,19 @@ button {
   .sign_header {
     height: 80px;
   }
-  .sign-box > img {
+  .sign_box > img {
     width: 100%;
     height: 100%;
     -o-object-fit: cover;
        object-fit: cover;
   }
-  .sign-box {
+  .sign_box {
     max-width: 1320px;
   }
-  .sing-text {
+  .sing_text {
     padding: 40px 0 20px 0;
   }
-  .login-bt {
+  .login_bt {
     height: 60px;
   }
 }/*# sourceMappingURL=sign-in.css.map */
