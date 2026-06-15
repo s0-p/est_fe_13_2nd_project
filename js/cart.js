@@ -30,7 +30,7 @@ function renderCart() {
       // cartItems 임시데이터
       (item) =>
         `<article class="product_item">
-              <img class="product_image" src="" alt="${item.title}" />
+              <img class="product_image" src="${item.thumbnail}" alt="${item.title}" />
               <div class="product_content">
                 <div class="product_info">
                   <p class="product_brand pre_bold_14">${item.brand}</p>
@@ -96,10 +96,11 @@ const couponModal = document.querySelector('.coupon_modal');
 const deleteModal = document.querySelector('.delete_modal');
 const optionBtn = document.querySelector('.option_edit');
 const couponBtn = document.querySelector('.coupon_button');
+const closeBtn = document.querySelectorAll('.modal_close');
 const deleteBtn = document.querySelector('.close_button');
 const deleteCancel = document.querySelector('.cancel_button');
 const deleteItem = document.querySelector('.confirm_delete_button');
-
+// 모달 열기
 optionBtn.addEventListener('click', () => {
   optionModal.removeAttribute('hidden');
 });
@@ -109,18 +110,20 @@ couponBtn.addEventListener('click', () => {
 deleteBtn.addEventListener('click', () => {
   deleteModal.removeAttribute('hidden');
 });
-
+// 모달 닫기
 function closeModal(modal) {
   modal.setAttribute('hidden', '');
 }
+
 modals.forEach((modal) => {
   const dim = modal.querySelector('.modal_dim');
   dim.addEventListener('click', () => {
     closeModal(modal);
   });
 });
-
-deleteCancel.addEventListener('click', () => {
-  const modal = deleteCancel.closest('.modal');
-  closeModal(modal);
+document.querySelectorAll('.modal_close, .cancel_button').forEach((btn) => {
+  const modal = btn.closest('.modal');
+  btn.addEventListener('click', () => {
+    closeModal(modal);
+  });
 });

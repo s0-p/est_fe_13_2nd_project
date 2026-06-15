@@ -109,6 +109,7 @@ a {
 .product_image {
   width: 159px;
   height: 100px;
+  object-fit: cover;
   border: 1px solid var(--stroke);
 }
 
@@ -497,6 +498,7 @@ a {
 
   .product_image {
     width: 181px;
+    object-fit: cover;
   }
 
   .product_content {
@@ -614,6 +616,7 @@ a {
   .product_image {
     width: 336px;
     height: 200px;
+    object-fit: cover;
   }
 
   .product_content {
