@@ -1,34 +1,14 @@
 /* Typography */
-@font-face {
-  font-family: 'Pretendard';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Regular.woff2') format('woff2');
-  font-weight: 400;
-  font-display: swap;
+.pre_bold_12 {
+  @include set-font(12px, $weight: 700);
 }
-
-@font-face {
-  font-family: 'Pretendard';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Bold.woff2') format('woff2');
-  font-weight: 700;
-  font-display: swap;
-}
-@mixin set-font($size, $family: 'Pretendard', $weight: 400, $lh: 20px) {
-  font-family: $family, sans-serif;
-  font-size: $size;
-  font-weight: $weight;
-  line-height: $lh;
+.pre_reg_24 {
+  @include set-font(24px, $lh: 40px);
 }
 
 body {
   color: var(--text-default);
   background: var(--surface-tint);
-}
-
-.pre_bold_12 {
-  font-family: 'Pretendard', sans-serif;
-  font-size: 12px;
-  font-weight: 700;
-  line-height: 20px;
 }
 
 button,
@@ -76,7 +56,7 @@ header {
 
 // Content
 .cart_page {
-  // margin-top: 20px;
+  margin-top: 20px;
   padding-bottom: calc(var(--unit-row) * 2);
 }
 
