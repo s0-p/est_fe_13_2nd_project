@@ -105,7 +105,6 @@ body {
 .filters .sort_panel {
   display: none;
   position: absolute;
-  top: 100%;
 }
 .filters .sort_panel > li {
   padding: 10px;
