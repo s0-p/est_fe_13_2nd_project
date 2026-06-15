@@ -4,7 +4,7 @@ let cartItems = [
     productIndex: '3024875',
     title: '하바나&블랙 RB2489 1441/R5 레이밴 선글라스',
     brand: 'Ray-Ban',
-    price: 289000,
+    price: '289000',
     thumbnail: 'https://image.rounz.com/_data/product/RAYBAN/RB2489-1441_R5/RB2489-1441_R5_03.JPG',
     quantity: 1,
   },
@@ -69,10 +69,12 @@ function totalCartCount() {
 totalCartCount();
 
 // 수량 증가, 감소
-const quantity_control = document.querySelector('.quantity_control');
+const quantityControl = document.querySelector('.quantity_control');
 const quantityEl = document.querySelector('#quantity');
+const productAmount = document.querySelector('.product_price');
+const totalAmount = document.querySelectorAll('.total_price');
 
-quantity_control.addEventListener('click', (e) => {
+quantityControl.addEventListener('click', (e) => {
   const btn = e.target.closest('button');
 
   if (!btn) return;
@@ -87,7 +89,21 @@ quantity_control.addEventListener('click', (e) => {
     currentQty++;
   }
   quantityEl.textContent = currentQty;
+  updateTotalAmount();
 });
+
+// 수량 변경 시 .total_price 에 총 가격 출력 => 내일 수정
+
+function updateTotalAmount() {
+  const quantity = Number(quantityEl.textContent);
+
+  const total = cartItems.price * cartItems.quantity;
+  productAmount.textContent = `₩${total}`;
+  totalAmount.forEach((e) => {
+    e.textContent = `₩${total}`;
+  });
+}
+updateTotalAmount();
 
 // 모달 열고 닫기
 const modals = document.querySelectorAll('.modal');
