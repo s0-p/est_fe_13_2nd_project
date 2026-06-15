@@ -86,12 +86,12 @@
 
               <section class="total_price_container" aria-label="총 결제 금액">
                 <h2 class="pre_bold_16">Total Price</h2>
-                <p class="mont_bold_16">₩ ---,---</p>
+                <p class="mont_bold_16 total_price">₩ ---,---</p>
               </section>
 
               <button class="checkout_button desktop_checkout pre_bold_20" type="button">
                 <span>결제하기</span>
-                <span>₩ ---,---</span>
+                <span class="total_price">₩ ---,---</span>
               </button>
             </div>
           </aside>
@@ -100,7 +100,7 @@
         <div class="mobile_cta">
           <button class="checkout_button pre_bold_20" type="button">
             <span>결제하기</span>
-            <span>₩ ---,---</span>
+            <span class="total_price">₩ ---,---</span>
           </button>
           <button class="ask_button" type="button" aria-label="Try on">
             <span class="material-icons icon_24" aria-hidden="true">face</span>
@@ -135,38 +135,50 @@
           <button class="option_select pre_reg_16" type="button">프레임 색상을 선택해주세요.</button>
           <ul class="select_list">
             <li class="select_item">
-              <span>색상 1</span>
-              <span>₩ price</span>
+              <button type="button" data-price="0">
+                색상 1
+                <span>₩ 0</span>
+              </button>
             </li>
 
             <li class="select_item">
-              <span>색상 2</span>
-              <span>₩ price</span>
+              <button type="button" data-price="10000">
+                색상 2
+                <span>₩ 10,000</span>
+              </button>
             </li>
           </ul>
           <button class="option_select pre_reg_16" type="button">렌즈 색상을 선택해주세요.</button>
-          <ul class="select_list">
+          <ul class="select_list" hidden>
             <li class="select_item">
-              <span>색상 1</span>
-              <span>₩ price</span>
+              <button type="button" data-price="0">
+                색상 1
+                <span>₩ 0</span>
+              </button>
             </li>
 
             <li class="select_item">
-              <span>색상 2</span>
-              <span>₩ price</span>
+              <button type="button" data-price="10000">
+                색상 2
+                <span>₩ 10,000</span>
+              </button>
             </li>
           </ul>
 
           <button class="option_select pre_reg_16" type="button">렌즈 크기를 선택해주세요.</button>
-          <ul class="select_list">
+          <ul class="select_list" hidden>
             <li class="select_item">
-              <span>크기 1</span>
-              <span>₩ 10,000</span>
+              <button type="button" data-price="0">
+                크기 1
+                <span>₩ 0</span>
+              </button>
             </li>
 
             <li class="select_item">
-              <span>크기 2</span>
-              <span>₩ 15,000</span>
+              <button type="button" data-price="15000">
+                크기 2
+                <span>₩ 15,000</span>
+              </button>
             </li>
           </ul>
         </div>
