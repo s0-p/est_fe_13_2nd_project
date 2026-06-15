@@ -85,6 +85,13 @@ body {
   color: var(--primary-subtle);
   /* Keyword filters */
   .keyword_filters {
+gap: var(--unit-m-gutter);
+    @media (min-width: 768px) {
+      gap: var(--unit-t-gutter);
+    }
+    @media (min-width: 1280px) {
+      gap: var(--unit-pc-gutter);
+    }
     .keyword {
       background: var(--surface-bg);
       padding: 3px 7px;
