@@ -11,6 +11,9 @@
 .display_inline_flex {
   display: inline-flex;
 }
+.display_grid {
+  display: grid;
+}
 .flex_column {
   flex-direction: column;
 }
@@ -181,14 +184,15 @@ body {
 
 /* Product List */
 .product_list {
-  gap: calc(var(--unit-row) * 2);
+  // grid-template-columns: repeat(2, auto);
+  gap: calc(var(--unit-row) * 2) 0;
 
   @media (min-width: 768px) {
-    display: grid;
+    gap: calc(var(--unit-row) * 2) var(--unit-t-gutter);
     grid-template-columns: repeat(2, auto);
   }
   @media (min-width: 1280px) {
-    display: grid;
+    gap: calc(var(--unit-row) * 5) var(--unit-pc-gutter);
     grid-template-columns: repeat(4, auto);
   }
 }
