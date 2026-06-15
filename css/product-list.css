@@ -47,20 +47,6 @@
   align-items: end;
 }
 
-.gap {
-  gap: var(--unit-m-gutter);
-}
-@media (min-width: 768px) {
-  .gap {
-    gap: var(--unit-t-gutter);
-  }
-}
-@media (min-width: 1280px) {
-  .gap {
-    gap: var(--unit-pc-gutter);
-  }
-}
-
 .border_round {
   border-radius: 999px;
 }
@@ -219,6 +205,7 @@ body {
 /* Product List */
 .product_list {
   gap: calc(var(--unit-row) * 2) 0;
+  grid-template-columns: none;
 }
 @media (min-width: 768px) {
   .product_list {
@@ -230,6 +217,7 @@ body {
   .product_list {
     gap: calc(var(--unit-row) * 5) var(--unit-pc-gutter);
     grid-template-columns: repeat(4, auto);
+    gap: calc(var(--unit-row) * 5) var(--unit-pc-gutter);
   }
 }
 
