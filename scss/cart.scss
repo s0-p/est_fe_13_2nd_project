@@ -1,3 +1,4 @@
+@use 'common' as *;
 /* Typography */
 .pre_bold_12 {
   @include set-font(12px, $weight: 700);
@@ -393,15 +394,11 @@ a {
   border: 1px solid var(--text-default);
 }
 .select_list button {
-  width: 100% !important;
-  display: flex !important;
-  justify-content: space-between !important;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
   padding: 10px;
   cursor: pointer;
-  background-color: red;
-}
-.select_item {
-  border-bottom: 1px solid var(--text-default);
 }
 
 .modal_total {
