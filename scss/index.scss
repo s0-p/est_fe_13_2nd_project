@@ -1,0 +1,475 @@
+$max_width: 1100px;
+$blue: #1729ec;
+$navy: #020a55;
+$section_bg: #eef3ff;
+$text: #111;
+$muted: #666b78;
+
+@mixin inner {
+  width: min(100% - 40px, $max_width);
+  margin: 0 auto;
+}
+
+@mixin section_title {
+  margin: 0 0 28px;
+  color: #222;
+  font-family: 'Montserrat', 'Pretendard', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+@mixin glasses_lens($color, $border: #151515) {
+  background:
+    radial-gradient(ellipse at 27% 48%, $color 0 34px, transparent 35px),
+    radial-gradient(ellipse at 73% 48%, $color 0 34px, transparent 35px),
+    linear-gradient($border, $border) 50% 45% / 28px 10px no-repeat;
+}
+
+body {
+  margin: 0;
+  color: $text;
+  font-family: 'Pretendard', sans-serif;
+  background: #fff;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  border: 0;
+  font-family: inherit;
+  background: transparent;
+}
+
+.material-symbols-outlined {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Material Symbols Outlined';
+  font-size: 18px;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 500,
+    'GRAD' 0,
+    'opsz' 24;
+}
+
+.contents {
+  width: 100%;
+  min-width: 320px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.main_header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 50;
+  height: 80px;
+  border-bottom: 1px solid #dfe4f1;
+  background: #eef3ff;
+}
+
+/* 헤더 header */
+
+.main_header_inner {
+  @include inner;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+}
+
+.main_logo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: 0;
+  transform: translate(-50%, -50%);
+}
+
+.main_logo_link {
+  display: block;
+  width: 90px;
+  color: transparent;
+  font-size: 0;
+  line-height: 1;
+  text-align: center;
+
+  &::before {
+    content: 'ROUNZ';
+    color: $blue;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0;
+  }
+}
+
+.main_nav {
+  margin-right: auto;
+}
+
+.main_nav_list {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.main_nav_link {
+  display: block;
+  min-width: max-content;
+  color: transparent;
+  font-size: 0;
+  line-height: 1;
+
+  &::before {
+    color: #171b25;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 40px;
+    white-space: nowrap;
+  }
+}
+
+.main_nav_item:nth-child(1) .main_nav_link::before {
+  content: '선글라스';
+}
+
+.main_nav_item:nth-child(2) .main_nav_link::before {
+  content: '안경테';
+}
+
+.main_nav_item:nth-child(3) .main_nav_link::before {
+  content: 'BEST';
+}
+
+.main_nav_item:nth-child(4) .main_nav_link::before {
+  content: '브랜드';
+}
+
+.main_nav_item:nth-child(5) .main_nav_link::before {
+  content: '라운즈 Only';
+}
+
+.main_nav_item:nth-child(6) .main_nav_link::before {
+  content: '더 알아보기';
+}
+
+.main_header_actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-left: auto;
+
+  &::before {
+    content: '검색어';
+    margin-right: -2px;
+    color: #222;
+    font-size: 11px;
+    font-weight: 600;
+  }
+}
+
+.main_icon_button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  color: #111;
+  cursor: pointer;
+}
+
+.icon_search,
+.icon_cart {
+  font-size: 16px;
+}
+
+.main_login_link {
+  position: relative;
+  width: 16px;
+  height: 18px;
+  overflow: hidden;
+  color: transparent;
+  font-size: 0;
+
+  &::before {
+    content: 'person';
+    color: #111;
+    font-family: 'Material Symbols Outlined';
+    font-size: 16px;
+    line-height: 18px;
+  }
+}
+
+/* 메인히어로 mainhero */
+
+.mainpage {
+  width: 100%;
+  padding-top: 80px;
+}
+
+.mainhero {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: url(/images/mainhero1.png) center;
+  aspect-ratio: 4 / 5;
+
+  @media (min-width: 1024px) {
+    aspect-ratio: 16 / 7;
+  }
+}
+.mainhero_visual,
+.mainhero_bg_image,
+.swiper-wrapper,
+.mainhero_item {
+  width: 100%;
+  height: 100%;
+}
+
+.mainhero_visual {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  .mainhero_bg_image {
+    background: url('../images/mainhero.jpg') center / cover no-repeat;
+  }
+}
+.mainhero_item {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+}
+.mainhero_inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px 40px 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: var(--surface-bg);
+}
+.mainhero_title {
+  font-size: 20px;
+  font-weight: bold;
+  line-height: var(--unit-row);
+}
+.swiper-pagination {
+  position: absolute;
+  bottom: calc(var(--unit-row) * 2);
+  left: 20px;
+  z-index: 10;
+  color: var(--surface-bg);
+  display: flex;
+  gap: 5px;
+}
+
+/* 베스트 프레임 mainbf */
+#mainbf {
+  padding: 80px 20px;
+}
+
+.mainbf_head {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
+}
+.mainbf_more {
+  margin-top: 10px;
+}
+
+.product_list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.product_card {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 40px;
+  width: 100%;
+  align-items: start;
+}
+.product_visual {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.thumb_box {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 180 / 170;
+}
+.product_thumb {
+  height: 100%;
+  width: 100%;
+  background: var(--stroke);
+  overflow: hidden;
+}
+.product_keyword {
+  display: flex;
+  gap: 5px;
+  color: var(--text-light);
+  list-style: none;
+}
+.product_ar {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  z-index: 2;
+  display: flex;
+  gap: 5px;
+  color: var(--surface-bg);
+  background: var(--primary);
+  border-radius: 999px;
+  padding: 0 7px;
+}
+.product_like_btn {
+  z-index: 2;
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  color: var(--secondary);
+  background: var(--surface-tint);
+  border-radius: 999px;
+}
+.product_content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.product_color {
+  display: flex;
+  gap: 10px;
+}
+.color_dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+}
+.color_dot_black {
+  background: var(--text-default);
+}
+.color_dot_gray {
+  background: var(--text-light);
+}
+.product_info_row {
+  text-align: right;
+}
+.product_cart_btn {
+  color: var(--secondary);
+  background: var(--surface-tint);
+  border-radius: 50%;
+  aspect-ratio: 1 / 1;
+}
+.product_price {
+  margin: 20px 0;
+}
+
+/* 메인페이지 얼굴형 분석 mainarface */
+#mainarface {
+  padding: 80px 20px;
+}
+
+.mainarface_head {
+  display: flex;
+  margin-bottom: 40px;
+  width: 100%;
+  justify-content: space-between;
+}
+.mainarface_btn {
+  display: flex;
+  gap: 5px;
+}
+.apple_btn,
+.google_btn {
+  padding: 0;
+}
+
+.mainarface_content {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px;
+  background: #2868f7;
+  border-radius: 16px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 200px 1fr;
+  gap: 30px;
+  align-items: center;
+}
+
+.mainarface_copy {
+  grid-column: 1;
+  z-index: 2;
+}
+
+.mainarface_phone {
+  grid-column: 2;
+  grid-row: 1 / 3;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 196px;
+  aspect-ratio: 196 / 400;
+
+  .video_box {
+    width: 100%;
+    height: 100%;
+
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+.mainarface_features {
+  grid-column: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  z-index: 2;
+}
+
+.feature_card {
+  background: var(--surface-tint);
+  border-radius: 999px;
+  padding: 10px 30px;
+  width: 100%;
+}
+
+.feature_desc {
+  margin: 0;
+  color: var(--primary);
+}
