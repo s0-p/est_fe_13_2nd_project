@@ -380,9 +380,10 @@ async function crawlProductLists() {
           const productIndex = href ? href.split('productIndex=')[1] : null;
           const thumbnail = $(elem).find('.thumb img').attr('src') || $(elem).find('.thumb img').attr('data-src');
 
-          let brandAndModel = $(elem).find('dl dt').text().trim().split('\n');
-          const brand = brandAndModel[0] ? brandAndModel[0].trim() : '';
-          const modelName = brandAndModel[1] ? brandAndModel[1].trim() : '';
+          const $dt = $(elem).find('dl dt');
+
+          const brand = $dt.contents().first().text().trim();
+          const modelName = $dt.contents().last().text().trim();
 
           const title = $(elem).find('dl .title').text().trim();
 
