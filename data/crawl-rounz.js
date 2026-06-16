@@ -517,6 +517,71 @@ async function crawlProductDetails(productList) {
   console.log(`\n[성공] 상품 상세 데이터 저장 완료: products.json`);
 }
 
+// 7. 기획전 목록 페이지 크롤링 (https://rounz.com/collection_list.php)
+async function crawlCollectionsList() {
+  console.log('\n[추가] 기획전 전체 목록 페이지 수집 시작...');
+  try {
+    const response = await axios.get(`${BASE_URL}/collection_list.php`, {
+      headers: {
+        'User-Agent':
+          'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+      },
+    });
+    const $ = cheerio.load(response.data);
+    const collections = [];
+
+    const listItems = $('.collection_list ul li, .template.type_collection ul.list li, .magazine_list ul li');
+    const targets = listItems.length > 0 ? listItems : $('.contents a[href*="collectionIndex="]').parent();
+
+    targets.each((i, elem) => {
+      const $anchor = $(elem).find('a').first().length ? $(elem).find('a').first() : $(elem).closest('a');
+      const href = $anchor.attr('href') || '';
+
+      let collectionId = null;
+      const idMatch = href.match(/collectionIndex=(\d+)/);
+      if (idMatch && idMatch[1]) {
+        collectionId = idMatch[1]; // 예: "9145"
+      }
+
+      const $img = $(elem).find('img');
+      const imageUrl = $img.attr('src') || $img.attr('data-src') || $img.attr('data-original') || '';
+
+      let title = $(elem).find('.title, dt, .tit, h3').text().trim();
+      let subtitle = $(elem).find('.subtitle, dd, .desc, p').text().trim();
+
+      if (!title) {
+        title = $img.attr('alt') || `라운즈 기획전 ${collectionId || i + 1}`;
+      }
+
+      if (imageUrl && !imageUrl.includes('blank.gif')) {
+        const fullImageUrl = imageUrl.startsWith('http') ? imageUrl : `${BASE_URL}${imageUrl}`;
+        const fullHref = href ? (href.startsWith('http') ? href : `${BASE_URL}/${href}`) : null;
+
+        collections.push({
+          collectionId,
+          title: title.replace(/\s+/g, ' '),
+          subtitle: subtitle.replace(/\s+/g, ' '), 
+          image: fullImageUrl,
+          href: fullHref
+        });
+      }
+    });
+
+    fs.writeFileSync(
+      path.join(__dirname, 'collections_list.json'), 
+      JSON.stringify(collections, null, 2), 
+      'utf-8'
+    );
+    
+    console.log(`[성공] 기획전 목록 데이터 저장 완료 (총 ${collections.length}개 발견 / ID 추출 완료): collections_list.json`);
+    return collections;
+
+  } catch (error) {
+    console.error('[오류] 기획전 목록 수집 중 에러 발생:', error.message);
+    return null;
+  }
+}
+
 // 전체 실행 오케스트레이터
 async function run() {
   console.log('==========================================');
@@ -547,6 +612,10 @@ async function run() {
   if (products && products.length > 0) {
     await crawlProductDetails(products);
   }
+
+  // 7. 기획전 목록 페이지 수집
+  await crawlCollectionsList();
+  await delay(DELAY_MS);
 
   console.log('\n==========================================');
   console.log('   모든 수집이 정상적으로 끝났습니다!   ');
