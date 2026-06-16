@@ -1,0 +1,88 @@
+/* Layout */
+.display_none {
+  display: none;
+}
+.display_block {
+  display: block;
+}
+.display_inline_block {
+  display: inline-block;
+}
+.display_flex {
+  display: flex;
+}
+.display_inline_flex {
+  display: inline-flex;
+}
+.display_grid {
+  display: grid;
+}
+.flex_column {
+  flex-direction: column;
+}
+.flex_wrap {
+  flex-wrap: wrap;
+}
+.justify_content_center {
+  justify-content: center;
+}
+.justify_content_between {
+  justify-content: space-between;
+}
+.justify_content_end {
+  justify-content: end;
+}
+.align_items_center {
+  align-items: center;
+}
+.align_items_end {
+  align-items: end;
+}
+@mixin set-grid($tbGap: 0, $lrGap: 0, $columns: none) {
+  gap: $tbGap $lrGap;
+  grid-template-columns: $columns;
+}
+.col_gutter_gap {
+  gap: var(--unit-m-gutter);
+  @media (min-width: 768px) {
+    gap: var(--unit-t-gutter);
+  }
+  @media (min-width: 1280px) {
+    gap: var(--unit-pc-gutter);
+  }
+}
+/* Layout */
+
+/* Apply Gradient Color */
+.gradient_text {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.gradient_light_text {
+  background: var(--gradient-light);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.gradient_light_border {
+  border-bottom: 1px solid transparent;
+  border-image: var(--gradient-light) 1;
+}
+/* Apply Gradient Color */
+
+/* Glassmorphism */
+.glassmorphism {
+  background: color-mix(in srgb, var(--surface-bg) 30%, transparent);
+  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
+  border: 1px solid color-mix(in srgb, var(--surface-bg) 30%, transparent);
+  box-shadow: 0 8px 32px 0 color-mix(in srgb, var(--text-default) 15%, transparent);
+}
+/* Glassmorphism */
+.border_round {
+  border-radius: 999px;
+}
+
+.text_center {
+  text-align: center;
+}

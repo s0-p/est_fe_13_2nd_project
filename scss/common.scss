@@ -35,6 +35,14 @@
   /* Color Style */
   --transparent: #ffffff00;
   /* [user variants: product-detail] */
+
+  /* [user variants: product-list] */
+  --gradient-light: linear-gradient(
+    to right,
+    color-mix(in srgb, var(--primary-muted) 15%, transparent) 0%,
+    color-mix(in srgb, var(--secondary) 15%, transparent) 100%
+  );
+  /* [user variants: product-list] */
 }
 
 /* Typography */
@@ -149,30 +157,4 @@
   .contents {
     margin: 60px;
   }
-}
-
-/* Flex Utilities */
-.display_flex {
-  display: flex;
-}
-.display_block {
-  display: block;
-}
-.display_none {
-  display: none;
-}
-.flex_column {
-  flex-direction: column;
-}
-.justify_content_center {
-  justify-content: center;
-}
-.justify_content_between {
-  justify-content: space-between;
-}
-.align_items_center {
-  align-items: center;
-}
-.text_center {
-  text-align: center;
 }
