@@ -22,8 +22,43 @@ subChecks.forEach(check => {
   });
 });
 
-
 signupBtn.addEventListener('click', () => {
+  const name = document.getElementById('name').value.trim();
+  const userId = document.getElementById('user_id').value.trim();
+  const password = document.getElementById('password').value;
+  const passwordConfirm = document.getElementById('password_confirm').value;
+
+  // 이름 검사
+  if (!name) {
+    alert('이름을 입력해주세요.');
+    return;
+  }
+
+  // 아이디 검사
+  if (!userId) {
+    alert('아이디를 입력해주세요.');
+    return;
+  }
+
+  // 비밀번호 검사
+  if (!password) {
+    alert('비밀번호를 입력해주세요.');
+    return;
+  }
+
+  // 비밀번호 확인 검사
+  if (!passwordConfirm) {
+    alert('비밀번호 확인을 입력해주세요.');
+    return;
+  }
+
+  // 비밀번호 일치 검사
+  if (password !== passwordConfirm) {
+    alert('비밀번호가 일치하지 않습니다.');
+    return;
+  }
+
+  // 필수 약관 검사
   const requiredChecks = [
     document.getElementById('terms_check'),
     document.getElementById('privacy_check'),
@@ -37,6 +72,7 @@ signupBtn.addEventListener('click', () => {
     return;
   }
 
+  // 회원가입 완료 화면
   const signUp = document.querySelector('.sign_up');
 
   signUp.innerHTML = `
