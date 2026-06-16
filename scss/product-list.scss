@@ -140,14 +140,13 @@ body {
 
 /* Product List */
 .product_list {
-  // grid-template-columns: repeat(2, auto);
   @include set-grid(calc(var(--unit-row) * 2), 0);
 
   @media (min-width: 768px) {
-    @include set-grid(calc(var(--unit-row) * 2), var(--unit-t-gutter), repeat(2, auto));
+    @include set-grid(calc(var(--unit-row) * 2), var(--unit-t-gutter), repeat(2, 1fr));
   }
   @media (min-width: 1280px) {
-    @include set-grid(calc(var(--unit-row) * 5), var(--unit-pc-gutter), repeat(4, auto));
+    @include set-grid(calc(var(--unit-row) * 5), var(--unit-pc-gutter), repeat(4, 1fr));
     gap: calc(var(--unit-row) * 5) var(--unit-pc-gutter);
   }
 }
