@@ -85,7 +85,7 @@ async function loadProducts() {
       // Swiper Slide
       let swiper = new Swiper(card.querySelector('.image_slider'), {
         slidesPerView: 1,
-        spaceBetween: 0,
+        spaceBetween: 1,
         loop: true,
         navigation: {
           nextEl: card.querySelector('.image_next'),
@@ -94,7 +94,11 @@ async function loadProducts() {
         pagination: {
           el: card.querySelector('.read_only_pagers'),
           clickable: false,
+          bulletClass: 'read_only_pager',
+          bulletActiveClass: 'read_only_pager_active',
         },
+        allowTouchMove: true,
+        simulateTouch: true,
         mousewheel: true,
         keyboard: true,
       });
