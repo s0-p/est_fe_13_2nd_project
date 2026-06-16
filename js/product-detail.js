@@ -5,12 +5,16 @@ let slideOtherColor = null;
 let slideOtherColorWrapper = null;
 let slideSimilar = null;
 let slideSimilarWrapper = null;
+let imgSpecSizeWrapper = null;
+let imgSpecMainWrapper = null;
 
 document.addEventListener('DOMContentLoaded', () => {
   slideHeroWrapper = document.querySelector('.hero .swiper-wrapper');
   slideOtherColorWrapper = document.querySelector('.product_other_color .swiper-wrapper');
   slideSimilarWrapper = document.querySelector('.product_similar .swiper-wrapper');
   productInfoSection = document.querySelector('.product_info');
+  imgSpecSizeWrapper = document.querySelector('.spec_image_wrapper > figure');
+  imgSpecMainWrapper = document.querySelector('.spec_photos');
 
   initSwiper();
   initProduct();
@@ -95,6 +99,9 @@ async function initProduct() {
     const currentProduct = productsList[0];
     /**test */
 
+    // filterCmsDescriptionImages(currentProduct.cmsDescriptionImages);
+
+    renderSpec(currentProduct);
     renderSlide(currentProduct, 0);
     renderSlide(currentProduct, 1);
     const similarProducts = getSimilarProducts(currentProduct);
@@ -165,9 +172,60 @@ function renderInfo(data) {
 }
 
 /**
- * render images in content
+ * render images in spec content
+ *
+ * @param {*} data
  */
-function renderContent() {}
+function renderSpec(data) {
+  if (!imgSpecSizeWrapper || !imgSpecMainWrapper) return;
+  if (!data || !data.cmsDescriptionImages) return;
+
+  // {
+  //   sizeImages: [],
+  //   productImages: [],
+  //   brandImages: []
+  // }
+  const filteredResults = filterCmsDescriptionImages(data.cmsDescriptionImages);
+
+  if (filteredResults.sizeImages && filteredResults.sizeImages.length > 0) {
+    imgSpecSizeWrapper.innerHTML = `
+      <img
+        src="${filteredResults.sizeImages[0]}"
+        alt="${data.title || '제품'} 상세 수치 이미지"
+        class="spec_image"
+      />`;
+  } else {
+    imgSpecSizeWrapper.innerHTML = ''; // 데이터가 없으면 비워주기
+  }
+
+  const productTemplate = filteredResults.productImages
+    .map(
+      (spec) => `
+        <li>
+          <img
+            src="${spec}"
+            alt="${data.title || '제품'} 이미지"
+            class="spec_image"
+          />
+        </li>`,
+    )
+    .join('');
+
+  const brandTemplate = filteredResults.brandImages
+    .map(
+      (spec) => `
+        <li>
+          <img
+            src="${spec}"
+            alt="${data.title || '제품'} 브랜드 이미지"
+            class="spec_image"
+          />
+        </li>`,
+    )
+    .join('');
+
+  imgSpecMainWrapper.innerHTML = productTemplate + brandTemplate;
+}
 
 /**
  * render slides
@@ -311,6 +369,50 @@ function getSimilarProducts(currentProduct) {
       // 3. [자르기] 상위 6개만 추출
       .slice(0, 6)
   );
+}
+
+/**
+ * filter cms description images
+ *
+ * @param {Array} images - 원본 cmsDescriptionImages 배열
+ * @returns {Object} 브랜드, 사이즈, 제품 이미지 배열을 갖는 배열 객체
+ */
+function filterCmsDescriptionImages(images) {
+  const result = {
+    sizeImages: [], // 1. 사이즈 규격 이미지 배열
+    productImages: [], // 2. 제품 이미지 배열
+    brandImages: [], // 3. 브랜드 이미지 배열
+  };
+
+  if (!images || !Array.isArray(images)) return result;
+
+  images.forEach((url) => {
+    const lowerUrl = url.toLowerCase();
+
+    // 규칙 1. 브랜드 이미지 분리 ('BRAND' 문자열 포함)
+    if (lowerUrl.includes('brand')) {
+      result.brandImages.push(url);
+      return;
+    }
+
+    // 규칙 2. 사이즈 규격 이미지 분리 (확장자 제외하고 '_size'로 끝남)
+    // 정규식 설명: _size 뒤에 .jpg나 .png 등 확장자가 붙어 끝나는 구조 매칭
+    if (/_size\.[a-z]+$/i.test(lowerUrl)) {
+      result.sizeImages.push(url);
+      return;
+    }
+
+    // 규칙 3. 제품 이미지 분리 ('detail' 포함하면서 '_숫자'로 끝남)
+    // 정규식 설명: _ 뒤에 숫자가 붙고 확장자로 끝나는 구조 매칭 (예: _01.jpg, _02.png)
+    if (lowerUrl.includes('detail') && /_[0-9]+\.[a-z]+$/i.test(lowerUrl)) {
+      result.productImages.push(url);
+      return;
+    }
+  });
+
+  console.log(result);
+
+  return result;
 }
 
 /**
