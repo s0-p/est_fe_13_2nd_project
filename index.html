@@ -15,7 +15,6 @@
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/common.css" />
-    <link rel="stylesheet" href="../css/utilities.css" />
     <link rel="stylesheet" href="css/index.css" />
     <title>ROUNZ</title>
   </head>
@@ -27,7 +26,7 @@
         </div>
       </header>
 
-      <main class="mainpage">
+      <div class="mainpage">
         <section class="mainhero swiper">
           <div class="swiper-wrapper">
             <div class="swiper-slide mainhero_item">
@@ -47,7 +46,7 @@
           <div class="swiper-pagination pre_reg_14"></div>
         </section>
 
-        <section class="main_bf" id="main_bf" aria-labelledby="main_bf_title">
+        <section class="main_bf section_inner" id="main_bf" aria-labelledby="main_bf_title">
           <div class="main_bf_head">
             <h2 class="main_bf_title mont_reg_18" id="main_bf_title">BEST FRAME</h2>
             <p class="main_bf_more pre_reg_12">더보기</p>
@@ -124,7 +123,7 @@
           </div>
         </section>
 
-        <section class="main_ar" id="main_ar" aria-labelledby="main_ar_title">
+        <section class="main_ar section_inner" id="main_ar" aria-labelledby="main_ar_title">
           <div class="main_ar_head">
             <h2 class="main_ar_title mont_reg_18">AR & Face Analysis</h2>
             <div class="main_ar_btn">
@@ -167,7 +166,7 @@
           </div>
         </section>
 
-        <section class="main_collect" id="main_collect">
+        <section class="main_collect section_inner" id="main_collect">
           <div class="main_collect_head">
             <div class="main_collect_info">
               <p class="main_collect_title">COLLECTION</p>
@@ -198,7 +197,7 @@
           </div>
         </section>
 
-        <section class="main_celeb" id="main_celeb" aria-labelledby="main_celeb_title">
+        <section class="main_celeb section_inner" id="main_celeb" aria-labelledby="main_celeb_title">
           <div class="main_celeb_head">
             <div class="main_celeb_text">
               <p class="main_section_title mont_reg_18">CELEBRITY'S PICK</p>
@@ -208,15 +207,13 @@
           </div>
 
           <div class="celeb_showcase">
-            <article class="celeb_card">
-              <div class="celeb_image"><img src="./images/celeb_1.png" alt="지디 사진" /></div>
-            </article>
-            <article class="celeb_card">
-              <div class="celeb_image"><img src="./images/celeb_2.png" alt="신세경 사진" /></div>
-            </article>
-            <article class="celeb_card">
-              <div class="celeb_image"><img src="./images/celeb_3.png" alt="덱스 사진" /></div>
-            </article>
+            <ul class="celeb_slider">
+              <li class="celeb_image"><img src="./images/celeb_1.png" alt="지디 사진" /></li>
+              <li class="celeb_image"><img src="./images/celeb_2.png" alt="신세경 사진" /></li>
+              <li class="celeb_image"><img src="./images/celeb_3.png" alt="덱스 사진" /></li>
+              <li class="celeb_image"><img src="./images/celeb_4.png" alt="김우빈 사진" /></li>
+              <li class="celeb_image"><img src="./images/celeb_5.png" alt="구교환 사진" /></li>
+            </ul>
           </div>
 
           <ul class="celeb_tag_list pre_reg_12">
@@ -232,24 +229,29 @@
 
         <section class="main_rzstore" id="main_rzstore" aria-labelledby="main_rzstore_title">
           <div class="main_rzstore_inner">
-            <div class="main_rzstore_copy">
-              <h2 class="main_rzstore_title" id="main_rzstore_title">ROUNZ STORE</h2>
-              <p class="main_rzstore_desc">
-                Experience ROUNZ sunglasses in person. Visit our stores for expert fitting and style consultation.
+            <div class="main_rzstore_con">
+              <h2 class="main_rzstore_title" id="main_rzstore_title mont">ROUNZ STORE</h2>
+              <p class="main_rzstore_desc pre_bold_14">
+                라운즈 플래그십 스토어와 파트너 안경원에서 <br />아이웨어 쇼핑을 즐겨보세요.
               </p>
+              <p class="main_rzstore_polic pre_reg_12">(라운즈는 온/오프라인 스토어의 가격 정책이 동일합니다.)</p>
             </div>
-            <a href="sub/map.html" class="main_rz_btn">
-              <span class="main_butn_label0.">라운즈 방문 예약하기</span>
-            </a>
-            <a href="sub/map.html" class="main_rz_btn">
-              <span class="main_butn_label">가까운 파트너 안경원 찾기</span>
-            </a>
+            <div class="main_rzstore_btn pre_reg_12">
+              <a href="sub/map.html" class="main_rz_btn">
+                <span class="main_butn_label0.">라운즈 방문 예약하기</span>
+              </a>
+              <a href="sub/map.html" class="main_rz_btn">
+                <span class="main_butn_label">가까운 파트너 안경원 찾기</span>
+              </a>
+            </div>
           </div>
         </section>
-      </main>
+      </div>
 
       <footer class="main_footer">
-        <div class="main_footer_inner"></div>
+        <div class="main_footer_inner">
+          <h1>FOOTER</h1>
+        </div>
       </footer>
     </section>
   </body>
