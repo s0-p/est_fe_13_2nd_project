@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* Layout */
 .display_none {
   display: none;
@@ -156,107 +157,193 @@ h1 {
   border-top: 1px solid var(--stroke);
 }
 
+/*
 .card_slide {
   margin-top: 0 !important;
   margin-bottom: 0 !important;
+
+  .card_slide_container {
+    width: 100%;
+    overflow: hidden;
+
+    .card_group {
+      gap: var(--unit-m-gutter);
+
+      .card_item {
+        position: relative;
+        width: calc((100% - var(--unit-m-gutter)) / 2);
+        flex-shrink: 0;
+        gap: var(--unit-row);
+
+        &:hover {
+          cursor: pointer;
+
+          .card_product_img {
+            transform: scale(1.05);
+          }
+
+          .card_info_wrapper {
+            p {
+              text-decoration: underline;
+              color: var(--text-light);
+            }
+          }
+        }
+
+        &:nth-child(n + 3) {
+          display: none;
+        }
+
+        @media (min-width: 768px) {
+          width: calc((100% - (var(--unit-m-gutter) * 2)) / 3);
+
+          &:nth-child(3) {
+            display: flex;
+          }
+
+          &:nth-child(n + 4) {
+            display: none;
+          }
+        }
+
+        .card_visual_wrapper {
+          overflow: hidden;
+
+          .card_product_img {
+            width: 100%;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+          }
+        }
+
+        .card_info_wrapper {
+          gap: calc(var(--unit-row) * 0.25);
+
+          .model_description {
+            color: var(--text-muted);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+        }
+      }
+    }
+  }
+
+  // ===============================
+  // [오버라이딩] 포토 후기 슬라이드
+  // ===============================
+
+  h2 {
+    display: block;
+    margin-bottom: calc(var(--unit-row) * 2);
+  }
+
+  .card_item {
+    // 후기 카드는 마우스 오버 시 텍스트 밑줄 인터랙션 제외
+    &:hover {
+      .card_info_wrapper {
+        text-decoration: none;
+      }
+    }
+
+    .card_info_wrapper {
+      text-decoration: none;
+      gap: var(--unit-row);
+
+      // 1. 유저 프로필 메타 영역 (원형 프로필 정렬)
+      .review_meta_box {
+        gap: 10px;
+        width: 100%;
+
+        .avatar_box {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          overflow: hidden;
+          flex-shrink: 0;
+
+          .avatar_img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+
+        .review_heading {
+          align-items: end;
+
+          // 별점 아이콘 노란색 및 평점 정렬
+          .rating_box {
+            .star_icon {
+              color: #ffcc00; // 별 아이콘 노란색 조건 반영
+            }
+
+            .score {
+              color: var(--text-muted);
+            }
+          }
+        }
+      }
+
+      // 2. 후기 본문 텍스트 (3줄 이상 시 '...' 처리 조건 반영)
+      .review_text_content {
+        // color: #222222;
+        margin-top: var(--unit-row);
+
+        // 멀티라인 말줄임 표준 렌더링 스펙
+        display: -webkit-box;
+        line-clamp: 3;
+        -webkit-line-clamp: 3; // 3줄 제한 고정
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
 }
-.card_slide .card_slide_container {
-  width: 100%;
-  overflow: hidden;
+  */
+.slide_basic {
+  margin-top: var(--unit-row);
 }
-.card_slide .card_slide_container .card_group {
-  gap: var(--unit-m-gutter);
-}
-.card_slide .card_slide_container .card_group .card_item {
-  position: relative;
-  width: calc((100% - var(--unit-m-gutter)) / 2);
-  flex-shrink: 0;
+.slide_basic .card_ui {
   gap: var(--unit-row);
 }
-.card_slide .card_slide_container .card_group .card_item:hover {
-  cursor: pointer;
-}
-.card_slide .card_slide_container .card_group .card_item:hover .card_product_img {
-  transform: scale(1.05);
-}
-.card_slide .card_slide_container .card_group .card_item:hover .card_info_wrapper p {
-  text-decoration: underline;
-  color: var(--text-light);
-}
-.card_slide .card_slide_container .card_group .card_item:nth-child(n+3) {
-  display: none;
-}
-@media (min-width: 768px) {
-  .card_slide .card_slide_container .card_group .card_item {
-    width: calc((100% - var(--unit-m-gutter) * 2) / 3);
-  }
-  .card_slide .card_slide_container .card_group .card_item:nth-child(3) {
-    display: flex;
-  }
-  .card_slide .card_slide_container .card_group .card_item:nth-child(n+4) {
-    display: none;
-  }
-}
-.card_slide .card_slide_container .card_group .card_item .card_visual_wrapper {
+.slide_basic .card_ui .card_ui_img_wrapper {
+  aspect-ratio: 1/1;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.card_slide .card_slide_container .card_group .card_item .card_visual_wrapper .card_product_img {
+.slide_basic .card_ui .card_ui_img_wrapper img {
   width: 100%;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.card_slide .card_slide_container .card_group .card_item .card_info_wrapper {
-  gap: calc(var(--unit-row) * 0.25);
-}
-.card_slide .card_slide_container .card_group .card_item .card_info_wrapper .model_description {
-  color: var(--text-muted);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.card_slide h2 {
-  display: block;
-  margin-bottom: calc(var(--unit-row) * 2);
-}
-.card_slide .card_item:hover .card_info_wrapper {
-  text-decoration: none;
-}
-.card_slide .card_item .card_info_wrapper {
-  text-decoration: none;
-  gap: var(--unit-row);
-}
-.card_slide .card_item .card_info_wrapper .review_meta_box {
-  gap: 10px;
-  width: 100%;
-}
-.card_slide .card_item .card_info_wrapper .review_meta_box .avatar_box {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  overflow: hidden;
-  flex-shrink: 0;
-}
-.card_slide .card_item .card_info_wrapper .review_meta_box .avatar_box .avatar_img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.card_slide .card_item .card_info_wrapper .review_meta_box .review_heading {
-  align-items: end;
-}
-.card_slide .card_item .card_info_wrapper .review_meta_box .review_heading .rating_box .star_icon {
-  color: #ffcc00;
-}
-.card_slide .card_item .card_info_wrapper .review_meta_box .review_heading .rating_box .score {
+.slide_basic .card_ui .card_ui_info_wrapper .info_description {
   color: var(--text-muted);
 }
-.card_slide .card_item .card_info_wrapper .review_text_content {
-  margin-top: var(--unit-row);
-  display: -webkit-box;
-  line-clamp: 3;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.slide_basic .card_ui:hover {
+  cursor: pointer;
+}
+.slide_basic .card_ui:hover .card_ui_img_wrapper img {
+  transform: scale(1.05);
+  opacity: 0.75;
+}
+.slide_basic .card_ui:hover .card_ui_info_wrapper {
+  color: var(--text-light);
+}
+.slide_basic .card_ui:hover .card_ui_info_wrapper .info-code {
+  text-transform: uppercase;
+}
+.slide_basic .card_ui:hover .card_ui_info_wrapper .info_description {
+  text-decoration: underline;
+}
+
+.product_other_color,
+.product_similar {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
 }
 
 .slider_pagination_controls {
