@@ -53,7 +53,7 @@ function renderCart() {
                     <span class="quantity">${item.quantity}</span>
                     <button type="button" class="plus_btn" aria-label="수량 증가">+</button>
                   </div>
-                  <p class="product_price pre_bold_14">₩${item.price}</p>
+                  <p class="product_price pre_bold_14">₩${item.price.toLocaleString()}</p>
                 </div>
               </div>
               <button class="delete_icon" type="button" aria-label="상품 삭제" aria-haspopup="dialog">
@@ -82,7 +82,7 @@ const coupons = [
 let selectedCoupon = null;
 
 const couponList = document.querySelector('.coupon_select');
-const discountPrice = document.querySelector('.discount_price');
+const discountPrice = document.querySelectorAll('.discount_price');
 
 function renderCoupon() {
   couponList.innerHTML =
@@ -94,6 +94,22 @@ function renderCoupon() {
       .join('');
 }
 renderCoupon();
+
+couponList.addEventListener('change', (e) => {
+  const couponId = Number(e.target.value);
+
+  selectedCoupon = coupons.find((coupon) => coupon.id === couponId);
+
+  if (!selectedCoupon) {
+    discountPrice.forEach((item) => {
+      item.textContent = '₩---,---';
+    });
+    return;
+  }
+  discountPrice.forEach((item) => {
+    item.textContent = `-₩${selectedCoupon.discount.toLocaleString()}`;
+  });
+});
 
 // 장바구니 총 상품 수량 합계 함수
 // function getCartCount() {
@@ -131,27 +147,32 @@ cartList.addEventListener('click', (e) => {
   updateTotalAmount();
 });
 
-// 수량 변경 시 총 금액 계산
+// 수량 변경 시 총 금액 계산 (할인 전, 할인 후)
 const productAmount = document.querySelector('.product_price');
 const totalAmount = document.querySelectorAll('.total_price');
-// const productTotal = document.querySelectorAll('.before_discount_price');
+const bfDiscount = document.querySelector('.before_discount_price');
 
 function updateTotalAmount() {
   if (cartItems.length === 0) {
+    bfDiscount.textContent = '₩0';
+
     totalAmount.forEach((e) => {
       e.textContent = '₩0';
     });
     return;
   }
 
-  const item = cartItems[0];
-  const total = Number(item.price) * item.quantity;
+  // const item = cartItems[0];
+  const total = cartItems.reduce((sum, item) => sum + Number(item.price) * item.quantity, 0);
+
   const discount = selectedCoupon?.discount || 0;
   const finalTotal = total - discount;
 
+  bfDiscount.textContent = `₩${total.toLocaleString()}`; // 할인 전
+
   totalAmount.forEach((e) => {
     e.textContent = `₩${finalTotal.toLocaleString()}`;
-  });
+  }); // 할인 후
 }
 updateTotalAmount();
 
@@ -160,22 +181,28 @@ const modals = document.querySelectorAll('.modal');
 const optionModal = document.querySelector('.option_modal');
 const couponModal = document.querySelector('.coupon_modal');
 const deleteModal = document.querySelector('.delete_modal');
-const optionBtn = document.querySelector('.option_edit');
 const couponBtn = document.querySelector('.coupon_button');
 const closeBtn = document.querySelectorAll('.modal_close');
-const deleteBtn = document.querySelector('.close_button');
 const deleteCancel = document.querySelector('.cancel_button');
 const deleteItemBtn = document.querySelector('.confirm_delete_button');
+const applyBtn = document.querySelectorAll('.apply_button');
+
 // 모달 열기
-optionBtn.addEventListener('click', () => {
-  optionModal.removeAttribute('hidden');
+cartList.addEventListener('click', (e) => {
+  const optionBtn = e.target.closest('.option_edit');
+  const deleteBtn = e.target.closest('.close_button');
+
+  if (optionBtn) {
+    optionModal.removeAttribute('hidden');
+  }
+  if (deleteBtn) {
+    deleteModal.removeAttribute('hidden');
+  }
 });
 couponBtn.addEventListener('click', () => {
   couponModal.removeAttribute('hidden');
 });
-deleteBtn.addEventListener('click', () => {
-  deleteModal.removeAttribute('hidden');
-});
+
 // 모달 닫기
 function closeModal(modal) {
   modal.setAttribute('hidden', '');
@@ -191,6 +218,18 @@ document.querySelectorAll('.modal_close, .cancel_button').forEach((btn) => {
   const modal = btn.closest('.modal');
   btn.addEventListener('click', () => {
     closeModal(modal);
+  });
+});
+// 쿠폰 모달 닫고 할인가 계산
+applyBtn.forEach((btn) => {
+  btn.addEventListener('click', () => {
+    // if (!selectedCoupon) {
+    //   alert('쿠폰을 선택해주세요');
+    //   return;
+    // }
+    closeModal(couponModal);
+    closeModal(optionModal);
+    updateTotalAmount();
   });
 });
 
