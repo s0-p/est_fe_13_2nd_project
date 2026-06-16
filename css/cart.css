@@ -654,12 +654,13 @@ a {
   }
   .cart_product {
     justify-items: center;
+    width: 100%;
     gap: 40px;
   }
   .product_item {
     grid-template-columns: 181px minmax(0, 353px);
     width: 544px;
-    column-gap: 10px;
+    column-gap: auto;
   }
   .product_image {
     width: 181px;
