@@ -1,3 +1,6 @@
+import headerModule from './components/header.js';
+headerModule();
+
 // Fillters
 const filters = document.querySelector('.filters');
 

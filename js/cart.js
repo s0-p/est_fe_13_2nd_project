@@ -4,7 +4,7 @@ let cartItems = [
     productIndex: '3024875',
     title: '하바나&블랙 RB2489 1441/R5 레이밴 선글라스',
     brand: 'Ray-Ban',
-    price: 289000,
+    price: '289000',
     thumbnail: 'https://image.rounz.com/_data/product/RAYBAN/RB2489-1441_R5/RB2489-1441_R5_03.JPG',
     quantity: 1,
   },
@@ -12,25 +12,26 @@ let cartItems = [
 
 // 장바구니 상품 로드
 const cartList = document.querySelector('.cart_product');
-let cartHTML = [];
 
 function renderCart() {
-  cartList.querySelectorAll('product_item').forEach((item) => {
+  cartList.innerHTML = '';
+  let cartHTML = [];
+  cartList.querySelectorAll('.product_item').forEach((item) => {
     item.remove();
   });
-  if (cartItems === 0) {
+  if (cartItems.length === 0) {
     // cartItems 임시데이터
     cartHTML.push(
-      `<article>
-  장바구니가 비어있습니다.
-</article>`,
+      `<article class="empty_cart">
+        장바구니가 비어있습니다.
+        </article>`,
     );
   } else {
     cartHTML = cartItems.map(
       // cartItems 임시데이터
       (item) =>
         `<article class="product_item">
-              <img class="product_image" src="" alt="${item.title}" />
+              <img class="product_image" src="${item.thumbnail}" alt="${item.title}" />
               <div class="product_content">
                 <div class="product_info">
                   <p class="product_brand pre_bold_14">${item.brand}</p>
@@ -69,10 +70,12 @@ function totalCartCount() {
 totalCartCount();
 
 // 수량 증가, 감소
-const quantity_control = document.querySelector('.quantity_control');
+const quantityControl = document.querySelector('.quantity_control');
 const quantityEl = document.querySelector('#quantity');
+const productAmount = document.querySelector('.product_price');
+const totalAmount = document.querySelectorAll('.total_price');
 
-quantity_control.addEventListener('click', (e) => {
+quantityControl.addEventListener('click', (e) => {
   const btn = e.target.closest('button');
 
   if (!btn) return;
@@ -87,7 +90,22 @@ quantity_control.addEventListener('click', (e) => {
     currentQty++;
   }
   quantityEl.textContent = currentQty;
+
+  updateTotalAmount();
 });
+
+// 수량 변경 시 .total_price 에 총 가격 출력 , 임시데이터로 작성
+function updateTotalAmount() {
+  const quantity = Number(quantityEl.textContent);
+  const item = cartItems[0];
+  const total = Number(item.price) * quantity;
+
+  // productAmount.textContent = `₩${total}`;
+  totalAmount.forEach((e) => {
+    e.textContent = `₩${total}`;
+  });
+}
+updateTotalAmount();
 
 // 모달 열고 닫기
 const modals = document.querySelectorAll('.modal');
@@ -96,10 +114,11 @@ const couponModal = document.querySelector('.coupon_modal');
 const deleteModal = document.querySelector('.delete_modal');
 const optionBtn = document.querySelector('.option_edit');
 const couponBtn = document.querySelector('.coupon_button');
+const closeBtn = document.querySelectorAll('.modal_close');
 const deleteBtn = document.querySelector('.close_button');
 const deleteCancel = document.querySelector('.cancel_button');
-const deleteItem = document.querySelector('.confirm_delete_button');
-
+const deleteItemBtn = document.querySelector('.confirm_delete_button');
+// 모달 열기
 optionBtn.addEventListener('click', () => {
   optionModal.removeAttribute('hidden');
 });
@@ -109,18 +128,28 @@ couponBtn.addEventListener('click', () => {
 deleteBtn.addEventListener('click', () => {
   deleteModal.removeAttribute('hidden');
 });
-
+// 모달 닫기
 function closeModal(modal) {
   modal.setAttribute('hidden', '');
 }
+
 modals.forEach((modal) => {
   const dim = modal.querySelector('.modal_dim');
   dim.addEventListener('click', () => {
     closeModal(modal);
   });
 });
+document.querySelectorAll('.modal_close, .cancel_button').forEach((btn) => {
+  const modal = btn.closest('.modal');
+  btn.addEventListener('click', () => {
+    closeModal(modal);
+  });
+});
 
-deleteCancel.addEventListener('click', () => {
-  const modal = deleteCancel.closest('.modal');
-  closeModal(modal);
+// 상품 목록에서 삭제
+deleteItemBtn.addEventListener('click', () => {
+  cartItems = [];
+  console.log(cartItems);
+  closeModal(deleteModal);
+  renderCart();
 });

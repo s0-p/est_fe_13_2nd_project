@@ -1,6 +1,10 @@
-/* Component Name */
+/* Layout */
 .display_none {
   display: none;
+}
+
+.display_block {
+  display: block;
 }
 
 .display_inline_block {
@@ -31,7 +35,7 @@
   justify-content: center;
 }
 
-.justify_content_space_between {
+.justify_content_between {
   justify-content: space-between;
 }
 
@@ -61,18 +65,8 @@
   }
 }
 
-.border_round {
-  border-radius: 999px;
-}
-
-:root {
-  --gradient-light: linear-gradient(
-    to right,
-    color-mix(in srgb, var(--primary-muted) 15%, transparent) 0%,
-    color-mix(in srgb, var(--secondary) 15%, transparent) 100%
-  );
-}
-
+/* Layout */
+/* Apply Gradient Color */
 .gradient_text {
   background: var(--gradient);
   -webkit-background-clip: text;
@@ -90,6 +84,7 @@
   border-image: var(--gradient-light) 1;
 }
 
+/* Apply Gradient Color */
 /* Glassmorphism */
 .glassmorphism {
   background: color-mix(in srgb, var(--surface-bg) 30%, transparent);
@@ -98,4 +93,12 @@
   border: 1px solid color-mix(in srgb, var(--surface-bg) 30%, transparent);
   box-shadow: 0 8px 32px 0 color-mix(in srgb, var(--text-default) 15%, transparent);
 }
->>>>>>>>> Temporary merge branch 2
+
+/* Glassmorphism */
+.border_round {
+  border-radius: 999px;
+}
+
+.text_center {
+  text-align: center;
+}
