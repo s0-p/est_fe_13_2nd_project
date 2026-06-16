@@ -85,35 +85,28 @@ function totalCartCount() {
 totalCartCount();
 
 // 수량 증가, 감소
-const quantityControlBtn = document.querySelector('.quantity_control');
-const quantityEl = document.querySelector('.quantity');
+cartList.addEventListener('click', (e) => {
+  const plusBtn = e.target.closest('.plus_btn');
+  const minusBtn = e.target.closest('.minus_btn');
+
+  if (!plusBtn && !minusBtn) return;
+
+  const item = cartItems[0];
+  if (plusBtn) {
+    tem.quantity++;
+  }
+  if (minusBtn && item.quantity > 1) {
+    item.quantity--;
+  }
+
+  saveCartItems(cartItems);
+  renderCart();
+  totalCartCount();
+  updateTotalAmount();
+});
+
 const productAmount = document.querySelector('.product_price');
 const totalAmount = document.querySelectorAll('.total_price');
-
-function quantityControl() {
-  quantityControlBtn.addEventListener('click', (e) => {
-    const btn = e.target.closest('button');
-
-    if (!btn) return;
-
-    let currentQty = Number(quantityEl.textContent);
-
-    if (btn.textContent === '-') {
-      if (currentQty > 1) {
-        currentQty--;
-      }
-    } else {
-      currentQty++;
-    }
-    // quantityEl.textContent = currentQty;
-    cartItems[0].quantity = currentQty;
-    renderCart();
-    saveCartItems(cartItems);
-    updateTotalAmount();
-  });
-}
-quantityControl();
-
 // 수량 변경 시 .total_price 에 총 가격 출력 , 임시데이터로 작성
 function updateTotalAmount() {
   if (cartItems.length === 0) {
