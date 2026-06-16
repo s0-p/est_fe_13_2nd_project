@@ -14,11 +14,10 @@ let cartItems = getCartItems();
 function getCartItems() {
   return JSON.parse(localStorage.getItem('cartItems')) || [];
 }
-
-function saveCartItems(cartItems) {
-  localStorage.setItem('cartItems', JSON.stringify(cartItems));
-}
 console.log(cartItems);
+function saveCartItems(cartItems) {
+  window.localStorage.setItem('cartItems', JSON.stringify(cartItems));
+}
 
 // 장바구니 상품 로드
 const cartList = document.querySelector('.cart_product');
@@ -113,16 +112,17 @@ couponList.addEventListener('change', (e) => {
 
 // 장바구니 총 상품 수량 합계 함수
 // function getCartCount() {
-//   const cart = readCart(); // 아직 함수 안만들었음 . 로컬에서 카트 읽어오는 함수
+//   const cart = getCartItems()
 //   return cart.reduce((total, item) => total + item.quantity, 0);
 // }
 
 // 상단 장바구니 상품 전체 수량 출력
 const cartCount = document.querySelector('.shopping_bag_tab > span');
-let cart_total = `로컬 스토리지에 담긴 장바구니 아이템 개수`; // 로컬스토리지에서 카트 읽어오는 함수 추가 해야됨.
 
 function totalCartCount() {
-  cartCount.textContent = `${cartItems.length}`; // 임시데이터로 테스트. cartItems => cart_total 로 나중에 변경
+  const totalQuantity = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+
+  cartCount.textContent = totalQuantity;
 }
 totalCartCount();
 
@@ -133,7 +133,7 @@ cartList.addEventListener('click', (e) => {
 
   if (!plusBtn && !minusBtn) return;
 
-  const item = cartItems[0];
+  const item = cartItems[0]; //
   if (plusBtn) {
     item.quantity++;
   }
@@ -234,12 +234,25 @@ applyBtn.forEach((btn) => {
 });
 
 // 상품 목록에서 삭제
-deleteItemBtn.addEventListener('click', () => {
-  cartItems = [];
+let selectedDeleteId = null;
 
-  closeModal(deleteModal);
+cartList.addEventListener('click', (e) => {
+  const deleteBtn = e.target.closest('.close_button');
+  if (!deleteBtn) return;
+
+  const productItem = deleteBtn.closest('.product_item');
+  const productIndex = Number(productItem.dataset.productIndex);
+
+  deleteModal.removeAttribute('hidden');
+
+  selectedDeleteId = productIndex;
+});
+deleteItemBtn.addEventListener('click', () => {
+  cartItems = cartItems.filter((item) => item.productIndex !== selectedDeleteId);
+
+  saveCartItems(cartItems);
   renderCart();
   totalCartCount();
   updateTotalAmount();
-  saveCartItems(cartItems);
+  closeModal(deleteModal);
 });
