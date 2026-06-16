@@ -254,7 +254,7 @@ nav .type_wrapper .type_square .type_image {
     -webkit-text-fill-color: transparent;
   }
 }
-.product_card .actions .top .whish_btn {
+.product_card .actions .top .wish_btn {
   padding: 3px;
   color: var(--secondary);
   background: var(--surface-tint);
@@ -263,6 +263,10 @@ nav .type_wrapper .type_square .type_image {
   padding: 0 7px;
   color: var(--surface-tint);
   background: var(--primary);
+}
+.product_card .actions .ar_btn:active {
+  background: var(--surface-tint);
+  color: var(--primary);
 }
 .product_card .actions .slider_btns {
   width: 100%;

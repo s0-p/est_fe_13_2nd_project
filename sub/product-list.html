@@ -23,19 +23,19 @@
     <section class="contents display_flex flex_column justify_content_center">
       <div class="filters display_flex justify_content_between">
         <div class="keyword_filters display_flex col_gutter_gap">
-          <div class="keyword pre_reg_16 border_round">키워드</div>
-          <div class="keyword pre_reg_16 border_round">키워드</div>
+          <button class="keyword pre_reg_16 border_round">키워드</button>
+          <button class="keyword pre_reg_16 border_round">키워드</button>
         </div>
         <div>
           <div class="btns_wrapper display_flex align_items_center col_gutter_gap">
-            <div class="display_flex sort_btn display_inline_flex align_items_center">
+            <button class="display_flex sort_btn display_inline_flex align_items_center">
               <div class="material-icons icon_24">sort</div>
               <div class="pre_reg_16 display_none">인기순</div>
-            </div>
-            <div class="filter_btn display_inline_flex align_items_center">
+            </button>
+            <button class="filter_btn display_inline_flex align_items_center">
               <div class="material-icons icon_24">tune</div>
               <div class="mont_reg_16 display_none">Filter</div>
-            </div>
+            </button>
           </div>
           <ul class="sort_panel glassmorphism display_none">
             <li class="gradient_light_border">
@@ -85,6 +85,18 @@
           <div class="reset_btn border_round">초기화</div>
           <div class="apply_btn border_round">30개 상품보기</div>
         </div>
+      </div>
+    </div>
+    <div class="toast_wrapper display_flex">
+      <div class="toast_cart glassmorphism border_round display_flex justify_content_between align_items_center">
+        <div class="message display_flex align_items_center">
+          <div class="material-icons icon_24 gradient_text">check_circle</div>
+          <div class="toast_text_wrapper">
+            <span class="pre_reg_16">장바구니 담기 완료!</span>
+            <span class="product_name pre_reg_14 truncate">상품명</span>
+          </div>
+        </div>
+        <a href="./cart.html" class="material-icons icon_24 gradient_text">arrow_forward_ios</a>
       </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>

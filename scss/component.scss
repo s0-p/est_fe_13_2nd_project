@@ -222,7 +222,7 @@ nav {
       -webkit-text-fill-color: transparent;
     }
   }
-  .actions .top .whish_btn {
+  .actions .top .wish_btn {
     padding: 3px;
     color: var(--secondary);
     background: var(--surface-tint);
@@ -231,6 +231,10 @@ nav {
     padding: 0 7px;
     color: var(--surface-tint);
     background: var(--primary);
+    &:active {
+      background: var(--surface-tint);
+      color: var(--primary);
+    }
   }
   .actions .slider_btns {
     width: 100%;

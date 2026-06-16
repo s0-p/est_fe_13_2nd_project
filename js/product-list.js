@@ -85,7 +85,7 @@ async function loadProducts() {
       // Swiper Slide
       let swiper = new Swiper(card.querySelector('.image_slider'), {
         slidesPerView: 1,
-        spaceBetween: 0,
+        spaceBetween: 1,
         loop: true,
         navigation: {
           nextEl: card.querySelector('.image_next'),

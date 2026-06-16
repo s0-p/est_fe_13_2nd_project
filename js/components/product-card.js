@@ -1,25 +1,25 @@
 function createProductCard(p) {
-  const productCard = document.createElement('a');
+  const productCard = document.createElement('div');
   productCard.className = 'product_card display_flex flex_column';
   productCard.innerHTML = `
       <div class="swiper image_slider">
         <ul class="swiper-wrapper">
         </ul>
         <div class="actions display_flex flex_column justify_content_between align_items_end">
-          <div class="top display_flex justify_content_between">
+          <div class="top display_flex justify_content_end">
             <div class="badge display_none">BEST</div>
-            <div class="whish_btn material-icons icon_24 border_round">favorite_border</div>
+            <button class="wish_btn material-icons icon_24 border_round">favorite_border</button>
           </div>
           <div class="slider_btns display_none justify_content_between">
-            <div class="image_prev material-icons">chevron_left</div>
-            <div class="image_next material-icons">chevron_right</div>
+            <button class="image_prev material-icons">chevron_left</button>
+            <button class="image_next material-icons">chevron_right</button>
           </div>
           <div class="bottom display_flex justify_content_between">
             <div class="read_only_pagers"></div>
-            <div class="ar_btn border_round display_inline_flex align_items_center">
+            <a href="https://abr.ge/fd5dbs" class="ar_btn border_round display_inline_flex align_items_center">
               <span class="material-icons icon_16">fullscreen</span>
               <span class="mont_reg_14">AR</span>
-            </div>
+            </a>
           </div>
         </div>
       </div>
@@ -36,11 +36,11 @@ function createProductCard(p) {
               <div class="color border_round"></div>
               <div class="color border_round"></div>
             </div>
-            <div class="cart_btn material-icons icon_24">add_shopping_cart</div>
+            <button class="cart_btn material-icons icon_24">add_shopping_cart</button>
           </div>
           <div class="summary display_flex justify_content_between">
             <div class="name pre_reg_14 truncate">${p.title}</div>
-            <div class="price pre_reg_14">₩ ${p.price}</div>
+            <div class="price pre_bold_14">₩ ${p.price}</div>
           </div>
         </div>
       </div>
@@ -65,9 +65,40 @@ function createProductCard(p) {
       sliderBtns.classList.remove('display_flex');
     });
   }
-  const badge = productCard.querySelector('.actions .badge');
+
+  const actionTop = productCard.querySelector('.actions .top');
+  const badge = actionTop.querySelector('.badge');
   if (p.reviewCount >= 500) {
     badge.classList.remove('display_none');
+    actionTop.classList.remove('justify_content_end');
+    actionTop.classList.add('justify_content_between');
+  }
+  const wishBtn = actionTop.querySelector('.wish_btn');
+  wishBtn.addEventListener('click', () => {
+    wishBtn.textContent = wishBtn.textContent === 'favorite_border' ? 'favorite' : 'favorite_border';
+  });
+
+  const details = productCard.querySelector('.details');
+  const cartBtn = details.querySelector('.cart_btn');
+  const toastCart = document.querySelector('.toast_cart');
+  const toastProductName = toastCart.querySelector('.message .product_name');
+  cartBtn.addEventListener('click', () => {
+    toastProductName.textContent = p.title;
+
+    toastCart.style.animation = 'none';
+    void toastCart.offsetWidth;
+    toastCart.style.animation = 'cart-fade 3s ease-in-out';
+    console.log('animation start');
+  });
+
+  toastCart.addEventListener('animationend', () => {
+    toastCart.style.animation = 'none';
+    console.log('animation end');
+  });
+
+  if (p.isSoldOut) {
+    const price = details.querySelector('.price');
+    price.textContent = '일시품절';
   }
 
   return productCard;
