@@ -36,6 +36,9 @@ button {
   left: 50%;
   transform: translateX(-50%);
 }
+.sign_contents{
+  padding-top: 60px;
+}
 .sign_contents h2{
   font-family: "Pretendard", sans-serif;
   font-size: 24px;
@@ -137,7 +140,7 @@ button {
   .sign_contents {
     display: grid;
     justify-items: center;
-    gap: 20px;
+    gap: 40px;
   }
   .sign_box {
     display: flex;
