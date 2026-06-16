@@ -7,6 +7,7 @@
   --unit-pc-gutter: 24px;
   --unit-m-margin: 20px;
   --unit-t-margin: 40px;
+  --unit-pc-margin: 60px;
   /* Color Style */
   --primary: #1729ec;
   --primary-subtle: #3f4ef3;
@@ -30,6 +31,13 @@
   /* Color Style */
   --transparent: #ffffff00;
   /* [user variants: product-detail] */
+  /* [user variants: product-list] */
+  --gradient-light: linear-gradient(
+    to right,
+    color-mix(in srgb, var(--primary-muted) 15%, transparent) 0%,
+    color-mix(in srgb, var(--secondary) 15%, transparent) 100%
+  );
+  /* [user variants: product-list] */
 }
 
 /* Typography */
@@ -194,48 +202,16 @@
 
 /* Layout */
 .contents {
-  margin: 20px;
+  margin: 0 var(--unit-m-margin);
 }
 
 @media (min-width: 768px) {
   .contents {
-    margin: 40px;
+    margin: 0 var(--unit-t-margin);
   }
 }
 @media (min-width: 1280px) {
   .contents {
-    margin: 60px;
+    margin: 0 var(--unit-pc-margin);
   }
-}
-/* Flex Utilities */
-.display_flex {
-  display: flex;
-}
-
-.display_block {
-  display: block;
-}
-
-.display_none {
-  display: none;
-}
-
-.flex_column {
-  flex-direction: column;
-}
-
-.justify_content_center {
-  justify-content: center;
-}
-
-.justify_content_between {
-  justify-content: space-between;
-}
-
-.align_items_center {
-  align-items: center;
-}
-
-.text_center {
-  text-align: center;
 }

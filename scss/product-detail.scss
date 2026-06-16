@@ -1,3 +1,5 @@
+@use 'utilities' as *;
+
 body {
   box-sizing: border-box;
   background-color: var(--surface-bg);

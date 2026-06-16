@@ -1,34 +1,21 @@
+@use 'mixins' as *;
 /* Typography */
-@font-face {
-  font-family: 'Pretendard';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Regular.woff2') format('woff2');
-  font-weight: 400;
-  font-display: swap;
+.pre_bold_12 {
+  @include set-font(12px, $weight: 700);
+}
+.pre_reg_24 {
+  @include set-font(24px, $lh: 40px);
+}
+// 헤더 (나중에 삭제)
+header {
+  text-align: center;
+  border-bottom: 1px solid var(--text-default);
 }
 
-@font-face {
-  font-family: 'Pretendard';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Bold.woff2') format('woff2');
-  font-weight: 700;
-  font-display: swap;
-}
-@mixin set-font($size, $family: 'Pretendard', $weight: 400, $lh: 20px) {
-  font-family: $family, sans-serif;
-  font-size: $size;
-  font-weight: $weight;
-  line-height: $lh;
-}
-
+// Body
 body {
   color: var(--text-default);
   background: var(--surface-tint);
-}
-
-.pre_bold_12 {
-  font-family: 'Pretendard', sans-serif;
-  font-size: 12px;
-  font-weight: 700;
-  line-height: 20px;
 }
 
 button,
@@ -68,15 +55,9 @@ a {
   align-items: center;
 }
 
-// 헤더 (나중에 삭제)
-header {
-  text-align: center;
-  border-bottom: 1px solid var(--text-default);
-}
-
-// Content
+//Cart Page
 .cart_page {
-  // margin-top: 20px;
+  margin-top: 20px;
   padding-bottom: calc(var(--unit-row) * 2);
 }
 
@@ -108,6 +89,7 @@ header {
 .cart_container {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .cart_product {
@@ -128,6 +110,7 @@ header {
 .product_image {
   width: 159px;
   height: 100px;
+  object-fit: cover;
   border: 1px solid var(--stroke);
 }
 
@@ -406,6 +389,20 @@ header {
   display: none;
 }
 
+.select_list[hidden] {
+  display: none;
+}
+.select_list {
+  border: 1px solid var(--text-default);
+}
+.select_list button {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  cursor: pointer;
+}
+
 .modal_total {
   display: flex;
   justify-content: space-between;
@@ -502,6 +499,7 @@ header {
 
   .product_image {
     width: 181px;
+    object-fit: cover;
   }
 
   .product_content {
@@ -619,6 +617,7 @@ header {
   .product_image {
     width: 336px;
     height: 200px;
+    object-fit: cover;
   }
 
   .product_content {
@@ -779,4 +778,9 @@ header {
   .delete_panel p {
     @include set-font(16px);
   }
+}
+
+// 빈 장바구니
+.empty_cart {
+  text-align: center;
 }
