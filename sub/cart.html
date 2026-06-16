@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="../css/normalize.css" />
     <link rel="stylesheet" href="../css/common.css" />
     <link rel="stylesheet" href="../css/utilities.css" />
+    <link rel="stylesheet" href="../css/component.css" />
     <link rel="stylesheet" href="../css/cart.css" />
     <title>Cart</title>
   </head>
@@ -77,7 +78,7 @@
                     <dt class="summary_label pre_bold_14">할인 금액</dt>
                     <dd>
                       <button class="coupon_button pre_reg_12" type="button" aria-haspopup="dialog">쿠폰 적용</button>
-                      <span class="pre_reg_14">₩ ---,---</span>
+                      <span class="pre_reg_14 discount_price">₩ ---,---</span>
                     </dd>
                   </div>
                 </dl>
@@ -237,7 +238,7 @@
         </select>
         <div class="modal_total pre_bold_16">
           <span>Total Price</span>
-          <strong>₩ ---,---</strong>
+          <strong class="discount_price">₩ ---,---</strong>
         </div>
         <button class="apply_button pre_reg_16" type="button">적용하기</button>
       </article>

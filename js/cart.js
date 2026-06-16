@@ -19,6 +19,7 @@ function saveCartItems(cartItems) {
   localStorage.setItem('cartItems', JSON.stringify(cartItems));
 }
 console.log(cartItems);
+
 // 장바구니 상품 로드
 const cartList = document.querySelector('.cart_product');
 
@@ -65,6 +66,35 @@ function renderCart() {
 }
 renderCart();
 
+// 쿠폰 목업 데이터
+const coupons = [
+  {
+    id: 1,
+    name: '신규 회원 쿠폰',
+    discount: 5000,
+  },
+  {
+    id: 2,
+    name: '여름 할인 쿠폰',
+    discount: 10000,
+  },
+];
+let selectedCoupon = null;
+
+const couponList = document.querySelector('.coupon_select');
+const discountPrice = document.querySelector('.discount_price');
+
+function renderCoupon() {
+  couponList.innerHTML =
+    `<option value="">
+        쿠폰을 선택해주세요
+      </option>` +
+    coupons
+      .map((coupon) => `<option value="${coupon.id}">${coupon.name} (-${coupon.discount.toLocaleString()}원)</option>`)
+      .join('');
+}
+renderCoupon();
+
 // 장바구니 총 상품 수량 합계 함수
 // function getCartCount() {
 //   const cart = readCart(); // 아직 함수 안만들었음 . 로컬에서 카트 읽어오는 함수
@@ -104,6 +134,7 @@ cartList.addEventListener('click', (e) => {
 // 수량 변경 시 총 금액 계산
 const productAmount = document.querySelector('.product_price');
 const totalAmount = document.querySelectorAll('.total_price');
+// const productTotal = document.querySelectorAll('.before_discount_price');
 
 function updateTotalAmount() {
   if (cartItems.length === 0) {
@@ -115,9 +146,11 @@ function updateTotalAmount() {
 
   const item = cartItems[0];
   const total = Number(item.price) * item.quantity;
+  const discount = selectedCoupon?.discount || 0;
+  const finalTotal = total - discount;
 
   totalAmount.forEach((e) => {
-    e.textContent = `₩${total.toLocaleString()}`;
+    e.textContent = `₩${finalTotal.toLocaleString()}`;
   });
 }
 updateTotalAmount();
@@ -171,28 +204,3 @@ deleteItemBtn.addEventListener('click', () => {
   updateTotalAmount();
   saveCartItems(cartItems);
 });
-
-// 쿠폰 목업 데이터
-const coupons = [
-  {
-    id: 1,
-    name: '신규 회원 쿠폰',
-    discount: 5000,
-  },
-  {
-    id: 2,
-    name: '여름 할인 쿠폰',
-    discount: 10000,
-  },
-];
-let selectedCoupon = null;
-
-const couponList = document.querySelector('.coupon_select');
-
-function renderCoupon() {
-  couponList.innerHTML = coupons.map(
-    (coupon) => `<option data-id="${coupon.id}">${coupon.name} ${coupon.discount}</option>`,
-  );
-  couponList.join('');
-}
-renderCoupon();
