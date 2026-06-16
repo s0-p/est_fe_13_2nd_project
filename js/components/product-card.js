@@ -39,7 +39,7 @@ function createProductCard(p) {
             <div class="cart_btn material-icons icon_24">add_shopping_cart</div>
           </div>
           <div class="summary display_flex justify_content_between">
-            <div class="name pre_reg_14">${p.title}</div>
+            <div class="name pre_reg_14 truncate">${p.title}</div>
             <div class="price pre_reg_14">₩ ${p.price}</div>
           </div>
         </div>
