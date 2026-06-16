@@ -240,3 +240,5 @@ deleteItemBtn.addEventListener('click', () => {
   updateTotalAmount();
   closeModal(deleteModal);
 });
+
+///////test
