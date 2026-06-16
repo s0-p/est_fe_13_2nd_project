@@ -351,7 +351,7 @@
   background: #2868f7 url("/images/m_ar_bg.png") no-repeat top center/100% auto;
 }
 
-.main_ar_title {
+.main_ar_con_title {
   color: var(--surface-bg);
   width: 100%;
   text-align: left;
@@ -362,17 +362,28 @@
   align-items: center;
   justify-content: center;
   max-width: 196px;
-  aspect-ratio: 196/400;
+  aspect-ratio: 49/100;
   background: none;
 }
 .main_ar_phone .video_box {
   width: 100%;
   height: 100%;
+  overflow: hidden;
 }
 .main_ar_phone .video_box video {
   width: 100%;
-  height: 100%;
+  height: 104%;
   object-fit: cover;
+  border: none;
+}
+
+.main_ar_phone .video_box video::-webkit-media-controls-enclosure {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.main_ar_phone .video_box:hover video::-webkit-media-controls-enclosure {
+  opacity: 1;
 }
 
 .main_ar_features {
@@ -398,60 +409,140 @@
   color: var(--primary);
 }
 
+.main_ar_qr {
+  display: none;
+}
+
 @media (min-width: 768px) {
+  .main_ar_head {
+    margin-bottom: var(--unit-row);
+  }
   .main_ar_content {
     display: grid;
-    grid-template-columns: 1.2fr 1fr;
+    grid-template-columns: 1.4fr 1fr;
     grid-template-rows: 1fr;
-    padding: 0;
+    position: relative;
     background: #2868f7 url("/images/t_ar_bg.png") no-repeat top center/100% auto;
+    overflow: visible;
   }
-  .main_ar_content .main_ar_title {
-    /*     grid-column: 1;
-    grid-row: 1; */
-    margin-top: 0;
+  .main_ar_con_title {
+    width: 100%;
+    position: absolute;
+    top: calc(var(--unit-row) * 2);
+    left: calc(var(--unit-t-gutter) * 3);
+  }
+  .main_ar_btn {
+    padding: 5px 10px;
   }
   .main_ar_features {
+    position: absolute;
+    left: calc(var(--unit-t-gutter) * 1);
+    bottom: calc(var(--unit-row) * 4);
+    width: 70%;
     grid-column: 1;
     grid-row: 2;
     display: flex;
+    align-items: end;
     flex-direction: column;
     gap: var(--unit-row);
+    z-index: 10;
   }
   .main_ar_phone {
     grid-column: 2;
-    grid-row: 1/span 2;
-    max-width: 280px;
+    max-width: 196px;
     width: 100%;
-    margin-left: auto;
+    z-index: 11;
   }
   .feature_card {
-    border-radius: 24px;
-    padding: 20px 24px;
+    border-radius: 999px;
+    padding: 10px calc(var(--unit-t-gutter) * 2);
     box-sizing: border-box;
   }
   .feature_title {
-    margin-bottom: 8px;
     font-weight: bold;
-    color: var(--text-default);
   }
   .feature_desc {
-    margin-right: 0;
-    color: var(--text-light);
-    line-height: 1.5;
+    /*  margin-right: 0; */
+    color: var(--primary);
   }
 }
 @media (min-width: 1024px) {
   .main_ar_content {
     background: #2868f7 url("/images/pc_ar_bg.png") no-repeat top center/100% auto;
+    grid-template-columns: 1.8fr 1fr;
+    padding: 0;
+  }
+  .main_ar_con_title {
+    left: calc(var(--unit-pc-gutter) * 6);
+    top: calc(var(--unit-row) * 1);
+    overflow: visible;
+  }
+  .main_ar_con_title h2 {
+    font-size: 24px;
+    line-height: calc(var(--unit-row) * 2);
+  }
+  .main_ar_features {
+    left: calc(var(--unit-pc-gutter) * 5);
+    bottom: calc(var(--unit-row) * 1);
+  }
+  .main_ar_qr {
+    display: block;
+    position: absolute;
+    top: calc(var(--unit-row) * 3);
+    left: 55%;
+    width: 10%;
+  }
+  .main_ar_qr img {
+    width: 100%;
+    height: auto;
   }
 }
 /* 컬렉션 모음 main_collect */
-.main_collect_head {
+.main_collect_title {
   margin-bottom: var(--unit-row);
+}
+
+.collect_list_wrap {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--unit-t-gutter);
+}
+.collect_list_wrap .collect_card:nth-child(n+2) {
+  display: none;
+}
+
+.collect_card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--unit-row);
+}
+
+.collect_card_head {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+}
+
+.collect_card_info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.collect_name {
+  color: var(--text-default);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: calc(var(--unit-row) * 2);
+}
+@media (min-width: 768px) {
+  .collect_name {
+    font-size: 20px;
+  }
+}
+
+.collect_meta {
+  color: var(--text-muted);
 }
 
 .collect_main_image {
@@ -461,41 +552,57 @@
 }
 
 .collect_thumb_list {
-  gap: 4px;
   margin-top: 4px;
 }
-
-.collect_thumb {
-  aspect-ratio: 1/1;
-  background: var(--text-light);
-}
-
 .collect_thumb_list ul {
-  display: flex;
-  gap: 16px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
-
 .collect_thumb_list li {
   aspect-ratio: 1/1;
   border: 1px solid var(--stroke);
-  list-style: none;
 }
 
-.collect_name {
-  order: -2;
-  color: var(--text-default);
-  font-size: 24px;
-  font-weight: 700;
-  line-height: calc(var(--unit-row) * 2);
-  margin: var(--unit-row) 0 10px 0;
+.collect_brand {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
 .collect_brand_name {
-  margin-top: 10px;
+  color: var(--text-default);
 }
 
+.collect_brand_desc {
+  color: var(--text-muted);
+}
+
+@media (min-width: 768px) {
+  .collect_list_wrap {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .collect_list_wrap .collect_card:nth-child(n+2) {
+    display: flex;
+  }
+  .collect_list_wrap .collect_card:nth-child(n+3) {
+    display: none;
+  }
+}
+@media (min-width: 1024px) {
+  .collect_list_wrap {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .collect_list_wrap .collect_card:nth-child(n+3) {
+    display: flex;
+  }
+  .collect_list_wrap .collect_card:nth-child(n+4) {
+    display: none;
+  }
+}
 /* 셀럽 픽 main_celeb */
 .main_celeb {
   width: 100%;
@@ -549,7 +656,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--unit-m-gutter);
-  margin: var(--unit-row) var(--unit-m-gutter) 0 var(--unit-m-gutter);
+  padding: 0 var(--unit-m-gutter);
   box-sizing: border-box;
 }
 .celeb_tag_list::before {
@@ -558,6 +665,7 @@
   width: 100%;
   height: 1px;
   background: var(--surface-bg);
+  margin-top: var(--unit-row);
 }
 
 .celeb_tag {
@@ -575,12 +683,50 @@
     gap: var(--unit-t-gutter);
   }
   .celeb_image {
-    /* 태블릿 화면에서도 유연하게 3개 유지 */
     width: calc((100% - var(--unit-t-gutter) * 2) / 3);
   }
   .celeb_tag_list {
-    margin-left: var(--unit-t-gutter);
-    margin-right: var(--unit-t-gutter);
+    padding: 0 calc(var(--unit-t-gutter) * 2);
+    justify-content: space-between;
+  }
+  .celeb_tag {
+    padding: 7px calc(var(--unit-t-gutter) * 1.1);
+    font-size: 14px;
+  }
+}
+@media (min-width: 1024px) {
+  .main_celeb_title,
+  .celeb_tag_list {
+    display: none;
+  }
+  .main_celeb_head {
+    margin-left: 0;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: var(--unit-row);
+  }
+  .celeb_slider {
+    margin-left: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 10px;
+  }
+  .celeb_slider .celeb_image:first-child {
+    grid-column: 1/2;
+    grid-row: 1/3;
+    width: 100%;
+    aspect-ratio: 3/4;
+  }
+  .celeb_slider .celeb_image {
+    width: 100%;
+    aspect-ratio: 4/3;
+    flex-shrink: unset;
+  }
+  .celeb_tag_list {
+    padding: 0;
+    margin-top: var(--unit-row);
   }
 }
 /* 라운즈 스토어 main_rz */
@@ -588,7 +734,7 @@
   position: relative;
   text-align: center;
   padding: calc(var(--unit-row) * 6) 0;
-  background: url(/images/rzstore.png);
+  background: url(/images/rzstore.png) no-repeat top center/100% auto;
 }
 .main_rzstore::before {
   content: "ROUNZ";
@@ -624,11 +770,7 @@
 }
 
 .main_rzstore_desc {
-  max-width: 560px;
   margin-top: var(--unit-row);
-  font-size: 15px;
-  font-weight: 700;
-  line-height: 28px;
 }
 
 .main_rzstore_btn {
@@ -650,6 +792,39 @@
   padding: 10px 0;
 }
 
+@media (min-width: 768px) {
+  .main_rzstore::before {
+    display: none;
+  }
+  .main_rzstore_title {
+    font-size: 24px;
+    line-height: calc(var(--unit-row) * 2);
+  }
+  .main_rzstore_btn {
+    padding: 0 calc(var(--unit-t-gutter) * 8);
+  }
+}
+@media (min-width: 1024px) {
+  .main_rzstore_title {
+    font-size: 48px;
+    line-height: calc(var(--unit-row) * 3);
+    font-weight: 900;
+  }
+  .main_rzstore_con p {
+    font-size: 24px;
+    line-height: calc(var(--unit-row) * 2);
+  }
+  .main_rzstore_btn a {
+    font-size: 24px;
+    line-height: calc(var(--unit-row) * 2);
+  }
+  .main_rzstore_btn {
+    padding: 0 calc(var(--unit-pc-gutter) * 6);
+  }
+  .main_rzstore_btn a {
+    padding: var(--unit-row) 0;
+  }
+}
 /* 푸터 footer */
 .main_footer {
   background: var(--surface-tint);
@@ -669,4 +844,10 @@
   border-bottom: 1px solid #b8bfce;
   font-size: 14px;
   font-weight: 700;
+}
+
+@media (min-width: 1024px) {
+  .main_footer::before {
+    font-size: 24px;
+  }
 }
