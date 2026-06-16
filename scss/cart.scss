@@ -6,11 +6,6 @@
 .pre_reg_24 {
   @include set-font(24px, $lh: 40px);
 }
-// 헤더 (나중에 삭제)
-header {
-  text-align: center;
-  border-bottom: 1px solid var(--text-default);
-}
 
 // Body
 body {
