@@ -97,6 +97,8 @@ async function loadProducts() {
           bulletClass: 'read_only_pager',
           bulletActiveClass: 'read_only_pager_active',
         },
+        allowTouchMove: true,
+        simulateTouch: true,
         mousewheel: true,
         keyboard: true,
       });

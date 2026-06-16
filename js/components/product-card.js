@@ -7,10 +7,10 @@ function createProductCard(p) {
         </ul>
         <div class="actions display_flex flex_column justify_content_between align_items_end">
           <div class="top display_flex justify_content_between">
-            <div class="badge gradient_text">New</div>
+            <div class="badge display_none">BEST</div>
             <div class="whish_btn material-icons icon_24 border_round">favorite_border</div>
           </div>
-          <div class="slider_btns display_flex justify_content_between">
+          <div class="slider_btns display_none justify_content_between">
             <div class="image_prev material-icons">chevron_left</div>
             <div class="image_next material-icons">chevron_right</div>
           </div>
@@ -54,10 +54,25 @@ function createProductCard(p) {
     li.innerHTML = `<img src="${p.detailImages[i]}" alt="" />`;
     // <li class="swiper-slide"><img src="" alt="" /></li>
     images_wrapper.append(li);
+
+    const sliderBtns = productCard.querySelector('.slider_btns');
+    productCard.addEventListener('mouseenter', () => {
+      sliderBtns.classList.remove('display_none');
+      sliderBtns.classList.add('display_flex');
+    });
+    productCard.addEventListener('mouseleave', () => {
+      sliderBtns.classList.add('display_none');
+      sliderBtns.classList.remove('display_flex');
+    });
+  }
+  const badge = productCard.querySelector('.actions .badge');
+  if (p.reviewCount >= 500) {
+    badge.classList.remove('display_none');
   }
 
   return productCard;
 }
 
 function renderSkeleton() {}
+
 export default createProductCard;
