@@ -6,7 +6,7 @@ function createHeader() {
   const header = document.querySelector('header');
 
   const newHeader = document.createElement('header');
-  newHeader.className = 'header_default display_flex justify_content_space_between align_items_center';
+  newHeader.className = 'header_default display_flex justify_content_between align_items_center';
   const screenWidth = window.innerWidth;
   if (screenWidth < 1280) {
     newHeader.innerHTML = `
@@ -25,7 +25,7 @@ function createHeader() {
     `;
   } else {
     newHeader.innerHTML = `
-      <div class="nav_wrapper display_flex">
+      <div class="nav_wrapper display_flex col_gutter_gap">
         <div class="pre_reg_16">선글라스</div>
         <div class="pre_reg_16">안경테</div>
         <div class="mont_reg_16">BEST</div>
@@ -34,7 +34,7 @@ function createHeader() {
         <div class="pre_reg_16">더 알아보기</div>
       </div>
       <a href="/index.html"><h1>ROUNZ</h1></a>
-      <div class="display_flex align_items_center">
+      <div class="display_flex align_items_center col_gutter_gap">
         <div class="display_flex align_items_center">
           <div class="pre_reg_16">검색어</div>
           <a class="material-icons icon_24">search</a>
@@ -76,7 +76,7 @@ function createNav() {
         </div>
       </div>
       <div class="tab display_flex flex_column">
-        <div class="categories_wrapper display_flex justify_content_space_between">
+        <div class="categories_wrapper display_flex justify_content_between">
           <div class="categories display_flex col_gutter_gap">
             <div class="pre_reg_14">모양</div>
             <div class="pre_reg_14">브랜드</div>

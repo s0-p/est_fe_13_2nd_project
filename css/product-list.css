@@ -1,70 +1,3 @@
-/* layout */
-.display_none {
-  display: none;
-}
-
-.display_inline_block {
-  display: inline-block;
-}
-
-.display_flex {
-  display: flex;
-}
-
-.display_inline_flex {
-  display: inline-flex;
-}
-
-.display_grid {
-  display: grid;
-}
-
-.flex_column {
-  flex-direction: column;
-}
-
-.flex_wrap {
-  flex-wrap: wrap;
-}
-
-.justify_content_center {
-  justify-content: center;
-}
-
-.justify_content_space_between {
-  justify-content: space-between;
-}
-
-.justify_content_end {
-  justify-content: end;
-}
-
-.align_items_center {
-  align-items: center;
-}
-
-.align_items_end {
-  align-items: end;
-}
-
-.col_gutter_gap {
-  gap: var(--unit-m-gutter);
-}
-@media (min-width: 768px) {
-  .col_gutter_gap {
-    gap: var(--unit-t-gutter);
-  }
-}
-@media (min-width: 1280px) {
-  .col_gutter_gap {
-    gap: var(--unit-pc-gutter);
-  }
-}
-
-.border_round {
-  border-radius: 999px;
-}
-
 :root {
   --gradient-light: linear-gradient(
     to right,
@@ -146,10 +79,6 @@ body {
   .filters .filter_btn div:last-child {
     display: block;
   }
-}
-
-.list_category {
-  text-align: center;
 }
 
 /* Detailed Filter Modal*/

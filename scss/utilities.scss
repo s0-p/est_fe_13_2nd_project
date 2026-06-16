@@ -38,10 +38,7 @@
 .align_items_end {
   align-items: end;
 }
-@mixin set-grid($tbGap: 0, $lrGap: 0, $columns: none) {
-  gap: $tbGap $lrGap;
-  grid-template-columns: $columns;
-}
+
 .col_gutter_gap {
   gap: var(--unit-m-gutter);
   @media (min-width: 768px) {

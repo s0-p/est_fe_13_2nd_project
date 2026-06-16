@@ -1,3 +1,5 @@
+@use 'mixins' as *;
+
 :root {
   --gradient-light: linear-gradient(
     to right,
