@@ -25,9 +25,6 @@ const cartList = document.querySelector('.cart_product');
 function renderCart() {
   cartList.innerHTML = '';
   let cartHTML = [];
-  // cartList.querySelectorAll('.product_item').forEach((item) => {
-  //   item.remove();
-  // });
   if (cartItems.length === 0) {
     // cartItems 임시데이터
     cartHTML.push(
@@ -37,7 +34,6 @@ function renderCart() {
     );
   } else {
     cartHTML = cartItems.map(
-      // cartItems 임시데이터
       (item) =>
         `<article class="product_item" data-product-index="${item.productIndex}">
               <img class="product_image" src="${item.thumbnail}" alt="${item.title}" />
@@ -93,7 +89,7 @@ cartList.addEventListener('click', (e) => {
 
   const item = cartItems[0];
   if (plusBtn) {
-    tem.quantity++;
+    item.quantity++;
   }
   if (minusBtn && item.quantity > 1) {
     item.quantity--;
@@ -105,9 +101,10 @@ cartList.addEventListener('click', (e) => {
   updateTotalAmount();
 });
 
+// 수량 변경 시 총 금액 계산
 const productAmount = document.querySelector('.product_price');
 const totalAmount = document.querySelectorAll('.total_price');
-// 수량 변경 시 .total_price 에 총 가격 출력 , 임시데이터로 작성
+
 function updateTotalAmount() {
   if (cartItems.length === 0) {
     totalAmount.forEach((e) => {
@@ -174,3 +171,28 @@ deleteItemBtn.addEventListener('click', () => {
   updateTotalAmount();
   saveCartItems(cartItems);
 });
+
+// 쿠폰 목업 데이터
+const coupons = [
+  {
+    id: 1,
+    name: '신규 회원 쿠폰',
+    discount: 5000,
+  },
+  {
+    id: 2,
+    name: '여름 할인 쿠폰',
+    discount: 10000,
+  },
+];
+let selectedCoupon = null;
+
+const couponList = document.querySelector('.coupon_select');
+
+function renderCoupon() {
+  couponList.innerHTML = coupons.map(
+    (coupon) => `<option data-id="${coupon.id}">${coupon.name} ${coupon.discount}</option>`,
+  );
+  couponList.join('');
+}
+renderCoupon();
