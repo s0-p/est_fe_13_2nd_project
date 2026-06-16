@@ -7,6 +7,7 @@
   --unit-pc-gutter: 24px;
   --unit-m-margin: 20px;
   --unit-t-margin: 40px;
+  --unit-pc-margin: 60px;
   /* Color Style */
   --primary: #1729ec;
   --primary-subtle: #3f4ef3;
@@ -201,16 +202,16 @@
 
 /* Layout */
 .contents {
-  margin: 20px;
+  margin: 0 var(--unit-m-margin);
 }
 
 @media (min-width: 768px) {
   .contents {
-    margin: 40px;
+    margin: 0 var(--unit-t-margin);
   }
 }
 @media (min-width: 1280px) {
   .contents {
-    margin: 60px;
+    margin: 0 var(--unit-pc-margin);
   }
 }
