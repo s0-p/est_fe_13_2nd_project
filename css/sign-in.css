@@ -1,4 +1,3 @@
-
 body {
   color: var(--text-default);
   background: var(--surface-tint);
@@ -63,15 +62,15 @@ button {
   cursor: pointer;
 }
 
-.sign_in .sing_sns a:nth-child(1) button {
+.sign_in .sing_sns button:nth-child(1) {
   background-color: #FAE000;
 }
 
-.sign_in .sing_sns a:nth-child(2) button {
+.sign_in .sing_sns button:nth-child(2) {
   background-color: #2DB400;
 }
 
-.sign_in .sing_sns a:nth-child(3) button {
+.sign_in .sing_sns button:nth-child(3) {
   background-color: var(--surface-bg);
 }
 

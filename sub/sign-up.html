@@ -13,9 +13,95 @@
     <link rel="stylesheet" href="../css/reset.css" />
     <link rel="stylesheet" href="../css/normalize.css" />
     <link rel="stylesheet" href="../css/common.css" />
-    <title>Document</title>
+    <link rel="stylesheet" href="../css/sign-up.css" />
+    <title>sign-up</title>
   </head>
   <body>
-    <section class="contents"></section>
+    <header class="sign_header">
+      <button onclick="history.back()" class="material-icons icon_14">arrow_back_ios</button>
+      <h1><a href="#">ROUNZ</a></h1>
+    </header>
+    <section class="contents sign_contents">
+      <h2>회원가입</h2>
+      <div class="sign_box">
+          <img src="../images/promotion.jpg" alt="">
+        <div class="sign_up">
+          <div class="sign_up_box">
+            <p class="pre_reg_10">이름</p>
+            <input type="text" class="text_box pre_reg_16" placeholder="이름을 입력해주세요">
+            <p class="pre_reg_10">아이디</p>
+            <div class="sign_id">
+              <input type="text" class="text_box pre_reg_16" placeholder="아이디를 입력해주세요">
+              <button>중복 확인</button>
+            </div>
+            <p class="pre_reg_10">비밀번호</p>
+            <input type="password" class="password_box pre_reg_16" placeholder="비밀번호를 입력해주세요."> 
+            <p class="pre_reg_10">비밀번호 확인</p>
+            <input type="password" class="password_box pre_reg_16" placeholder="비밀번호를 다시 입력해주세요."> 
+          </div>
+
+          <div class="sing_text">
+            <div class="check_box">
+              <input type="checkbox" id="all_check">
+              <label for="all_check" class="pre_bold_14">전체 동의합니다</label>
+            </div>
+
+            <div class="check_box">
+              <input type="checkbox" class="sub_check" id="terms_check">
+              <label for="terms_check" class="pre_reg_12">이용약관 동의</label>
+              <span class="pre_reg_12">(필수)</span>
+              <button type="button" class="view_btn pre_reg_14" data-type="terms">보기</button>
+            </div>
+
+            <div class="check_box">
+              <input type="checkbox" class="sub_check" id="privacy_check">
+              <label for="privacy_check" class="pre_reg_12">개인정보 처리방침 동의</label>
+              <span class="pre_reg_12">(필수)</span>
+              <button type="button" class="view_btn pre_reg_14" data-type="privacy">보기</button>
+            </div>
+
+            <div class="check_box">
+              <input type="checkbox" class="sub_check" id="marketing_check">
+              <label for="marketing_check" class="pre_reg_12">마케팅 정보 수신 동의</label>
+              <span class="pre_reg_12">(선택)</span>
+              <button type="button" class="view_btn pre_reg_14" data-type="marketing">보기</button>
+            </div>
+            <div class="check_box">
+              <input type="checkbox" class="sub_check" id="age_check">
+              <label for="age_check" class="pre_reg_12">만 14세 이상입니다</label>
+              <span class="pre_reg_12">(필수)</span>
+            </div>
+            <button class="login_bt pre_bold_20">회원가입</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 약관 팝업 -->
+<div class="sign_modal" id="terms_modal">
+  <div class="modal_content">
+    <div class="modal_header">
+      <h3>이용약관</h3>
+      <button type="button" class="close_btn">&times;</button>
+    </div>
+
+    <div class="modal_body">
+      <!-- <p>
+        제1조 (목적)<br>
+        본 약관은 서비스 이용과 관련하여 회사와 회원 간의 권리, 의무 및 책임사항을 규정함을 목적으로 합니다.
+      </p>
+
+      <p>
+        제2조 (회원가입)<br>
+        회원은 회사가 정한 절차에 따라 가입 신청을 하여야 합니다.
+      </p>
+
+      <p>
+        제3조 (서비스 이용)<br>
+        회원은 관련 법령 및 본 약관을 준수하여 서비스를 이용하여야 합니다.
+      </p> -->
+    </div>
+  </div>
+</div>
+    <script src="../js/sign_up.js"></script>
   </body>
 </html>
