@@ -94,6 +94,8 @@ async function loadProducts() {
         pagination: {
           el: card.querySelector('.read_only_pagers'),
           clickable: false,
+          bulletClass: 'read_only_pager',
+          bulletActiveClass: 'read_only_pager_active',
         },
         mousewheel: true,
         keyboard: true,

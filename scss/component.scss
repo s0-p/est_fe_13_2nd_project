@@ -233,15 +233,15 @@ nav {
   .actions .read_only_pagers {
     bottom: 50%;
   }
-  .actions .read_only_pagers .swiper-pagination-bullet {
-    margin: 0;
+  .actions .read_only_pagers .read_only_pager {
+    display: inline-block;
     width: 25px;
     height: 2px;
-    background: var(--text-muted);
-    margin: 0 6px;
+    background: var(--dim-bg);
+    margin: 0 1px;
     transition: all 0.3s;
   }
-  .actions .read_only_pagers .swiper-pagination-bullet-active {
+  .actions .read_only_pagers .read_only_pager_active {
     background: var(--primary-muted);
   }
 
