@@ -5,6 +5,8 @@
   --unit-m-gutter: 16px;
   --unit-t-gutter: 20px;
   --unit-pc-gutter: 24px;
+  --unit-m-margin: 20px;
+  --unit-t-margin: 40px;
   /* Color Style */
   --primary: #1729ec;
   --primary-subtle: #3f4ef3;
@@ -24,6 +26,10 @@
     color-mix(in srgb, var(--primary-muted) 70%, transparent) 0%,
     color-mix(in srgb, var(--secondary) 70%, transparent) 100%
   );
+  /* [user variants: product-detail] */
+  /* Color Style */
+  --transparent: #ffffff00;
+  /* [user variants: product-detail] */
 }
 
 /* Typography */
@@ -132,6 +138,45 @@
   line-height: 20px;
 }
 
+/* [user class: product-detail] */
+/* Pretendard */
+.pre_bold_10_auto {
+  font-family: "Pretendard", sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: normal;
+}
+
+/* Montserrat */
+.mont_reg_12 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.mont_reg_12_auto {
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.mont_bold_12 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 20px;
+}
+
+.mont_bold_20 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 20px;
+}
+
+/* [user class: product-detail] */
 .material-icons.icon_16 {
   font-size: 16px;
   line-height: 20px;
@@ -161,4 +206,36 @@
   .contents {
     margin: 60px;
   }
+}
+/* Flex Utilities */
+.display_flex {
+  display: flex;
+}
+
+.display_block {
+  display: block;
+}
+
+.display_none {
+  display: none;
+}
+
+.flex_column {
+  flex-direction: column;
+}
+
+.justify_content_center {
+  justify-content: center;
+}
+
+.justify_content_between {
+  justify-content: space-between;
+}
+
+.align_items_center {
+  align-items: center;
+}
+
+.text_center {
+  text-align: center;
 }

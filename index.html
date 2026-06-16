@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,13 +9,247 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/common.css" />
-    <title>Document</title>
+    <link rel="stylesheet" href="css/index.css" />
+    <title>ROUNZ</title>
   </head>
   <body>
-    <section class="contents"></section>
+    <section class="contents">
+      <header class="main_header">
+        <div class="main_header_inner">
+          <h1 class="mont_bold_16">HEADER</h1>
+        </div>
+      </header>
+
+      <main class="mainpage">
+        <section class="mainhero swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide mainhero_item">
+              <div class="mainhero_visual" aria-hidden="true">
+                <div class="mainhero_bg_image"></div>
+              </div>
+              <div class="mainhero_inner">
+                <h2 class="mainhero_title">
+                  최대 71% 할인<br />
+                  스포츠 선글라스 최저가 특가
+                </h2>
+                <p class="mainhero_desc pre_reg_16">한정 수량, 지금 가장 좋은 혜택으로 준비하세요!</p>
+                <span>1/5</span>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-pagination pre_reg_14"></div>
+        </section>
+
+        <section class="main_bf" id="main_bf" aria-labelledby="main_bf_title">
+          <div class="main_bf_head">
+            <h2 class="main_bf_title mont_reg_18" id="main_bf_title">BEST FRAME</h2>
+            <p class="main_bf_more pre_reg_12">더보기</p>
+          </div>
+
+          <div class="product_list" data-render-target="best_fit_products">
+            <article class="product_card" data-product-id="sample_01">
+              <div class="product_visual">
+                <div class="thumb_box">
+                  <div class="product_thumb"></div>
+                  <button class="product_ar" aria-label="ar써보기">
+                    <span class="material-symbols-outlined icon_16">fullscreen</span>
+                    <span class="like_count mont_reg_14">AR</span>
+                  </button>
+                  <button class="product_like_btn" aria-label="좋아요">
+                    <span class="material-symbols-outlined icon_24">favorite</span>
+                  </button>
+                </div>
+                <ul class="product_keyword pre_reg_10">
+                  <li>라운드베이직</li>
+                  <li>모델</li>
+                  <li>선글라스</li>
+                </ul>
+              </div>
+
+              <div class="product_content">
+                <div class="product_color">
+                  <button class="color_dot color_dot_black" aria-label="검은색"></button>
+                  <button class="color_dot color_dot_gray" aria-label="회색"></button>
+                </div>
+                <h3 class="product_name pre_reg_14">ROUNZ BASIC TR90-12 C18 라운즈...</h3>
+                <div class="product_info_row">
+                  <p class="product_price pre_reg_14">₩ 39,000</p>
+                  <button class="product_cart_btn" aria-label="장바구니 추가">
+                    <span class="material-symbols-outlined icon_2">add_shopping_cart</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article class="product_card" data-product-id="sample_02">
+              <div class="product_visual">
+                <div class="thumb_box">
+                  <div class="product_thumb"></div>
+                  <button class="product_ar" aria-label="ar써보기">
+                    <span class="material-symbols-outlined icon_16">fullscreen</span>
+                    <span class="like_count mont_reg_14">AR</span>
+                  </button>
+                  <button class="product_like_btn" aria-label="좋아요">
+                    <span class="material-symbols-outlined icon_24">favorite</span>
+                  </button>
+                </div>
+                <ul class="product_keyword pre_reg_10">
+                  <li>라운드베이직</li>
+                  <li>모델</li>
+                  <li>선글라스</li>
+                </ul>
+              </div>
+
+              <div class="product_content">
+                <div class="product_color">
+                  <button class="color_dot color_dot_black" aria-label="검은색"></button>
+                  <button class="color_dot color_dot_gray" aria-label="회색"></button>
+                </div>
+                <h3 class="product_name pre_reg_14">ROUNZ BASIC TR90-12 C18 라운즈...</h3>
+                <div class="product_info_row">
+                  <p class="product_price pre_reg_14">₩ 39,000</p>
+                  <button class="product_cart_btn" aria-label="장바구니 추가">
+                    <span class="material-symbols-outlined icon_2">add_shopping_cart</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="main_ar" id="main_ar" aria-labelledby="main_ar_title">
+          <div class="main_ar_head">
+            <h2 class="main_ar_title mont_reg_18">AR & Face Analysis</h2>
+            <div class="main_ar_btn">
+              <a href="#" class="app_button apple_btn" aria-label="App Store에서 다운로드">
+                <img src="images/apple_store.png" alt="" />
+              </a>
+              <a href="#" class="app_button google_btn" aria-label="Google Play에서 다운로드">
+                <img src="images/google_store.png" alt="" />
+              </a>
+            </div>
+          </div>
+
+          <div class="main_ar_content">
+            <div class="main_ar_title">
+              <h2 class="pre_bold_20" id="main_ar_title">AR 얼굴형 분석 가능<br />: 내 얼굴형에 어울리는 안경은?</h2>
+            </div>
+
+            <div class="main_ar_phone">
+              <div class="video_box">
+                <video src="images/ar_video.mp4" controls playsinline aria-label="상품 소개 영상">
+                  브라우저가 비디오를 지원하지 않습니다.
+                </video>
+              </div>
+            </div>
+
+            <div class="main_ar_features">
+              <div class="feature_card">
+                <p class="feature_title pre_bold_14">'FIT' 하게</p>
+                <p class="feature_desc pre_reg_14">
+                  나의 얼굴형 67개의 정밀한 지표로 정확하게 분석해, 나에게 가장 이상적인 아이웨어를 추천해 드립니다.
+                </p>
+              </div>
+              <div class="feature_card">
+                <p class="feature_title pre_bold_14">'SMART' 하게</p>
+                <p class="feature_desc pre_reg_14">
+                  스마트폰 하나로 분석하는 스마트한 인공지능 분석 알고리즘! 데이터는 수집되지 않으니 안심하세요.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="main_collect" id="main_collect">
+          <div class="main_collect_head">
+            <div class="main_collect_info">
+              <p class="main_collect_title">COLLECTION</p>
+              <h2 class="collect_name">제니 컬렉션 🩷</h2>
+              <span class="collect_meta mont_reg_16">JUST LIKE JENNIE</span>
+            </div>
+            <a href="#" class="collect_more pre_reg_12">더보기</a>
+          </div>
+
+          <div class="collect_main_image"></div>
+
+          <div class="collect_thumb_list" data-render-target="collection_products">
+            <ul>
+              <!-- todo 지울 것 -->
+              <li>1</li>
+              <li>2</li>
+              <li>3</li>
+            </ul>
+            <!-- todo JS로 렌더링 -->
+          </div>
+
+          <div class="collect_brand">
+            <p class="collect_brand_name mont_bold_16">RAY-BAN</p>
+            <p class="collect_brand_desc pre_reg_16">
+              '빛(Ray)을 차단(Ban)하다'라는 브랜드 네이밍처럼 선글라스 본연의 역할에 충실하면서도, 레트로한 감성과
+              세련된 디자인을 함께 담아낸 브...
+            </p>
+          </div>
+        </section>
+
+        <section class="main_celeb" id="main_celeb" aria-labelledby="main_celeb_title">
+          <div class="main_celeb_head">
+            <div class="main_celeb_text">
+              <p class="main_section_title mont_reg_18">CELEBRITY'S PICK</p>
+              <a href="sub/product-list.html" class="celeb_more pre_reg_12">더보기</a>
+            </div>
+            <h2 class="main_celeb_title pre_reg_18">셀럽들이 선택한<br />트렌디한 아이웨어</h2>
+          </div>
+
+          <div class="celeb_showcase">
+            <article class="celeb_card">
+              <div class="celeb_image"><img src="./images/celeb_1.png" alt="지디 사진" /></div>
+            </article>
+            <article class="celeb_card">
+              <div class="celeb_image"><img src="./images/celeb_2.png" alt="신세경 사진" /></div>
+            </article>
+            <article class="celeb_card">
+              <div class="celeb_image"><img src="./images/celeb_3.png" alt="덱스 사진" /></div>
+            </article>
+          </div>
+
+          <ul class="celeb_tag_list pre_reg_12">
+            <li class="celeb_tag">#지디</li>
+            <li class="celeb_tag">#신세경</li>
+            <li class="celeb_tag">#덱스</li>
+            <li class="celeb_tag">#하정우</li>
+            <li class="celeb_tag">#김우빈</li>
+            <li class="celeb_tag">#제니</li>
+            <li class="celeb_tag">#제시카</li>
+          </ul>
+        </section>
+
+        <section class="main_rzstore" id="main_rzstore" aria-labelledby="main_rzstore_title">
+          <div class="main_rzstore_inner">
+            <div class="main_rzstore_copy">
+              <h2 class="main_rzstore_title" id="main_rzstore_title">ROUNZ STORE</h2>
+              <p class="main_rzstore_desc">
+                Experience ROUNZ sunglasses in person. Visit our stores for expert fitting and style consultation.
+              </p>
+            </div>
+            <a href="sub/map.html" class="main_rz_btn">
+              <span class="main_butn_label0.">라운즈 방문 예약하기</span>
+            </a>
+            <a href="sub/map.html" class="main_rz_btn">
+              <span class="main_butn_label">가까운 파트너 안경원 찾기</span>
+            </a>
+          </div>
+        </section>
+      </main>
+
+      <footer class="main_footer">
+        <div class="main_footer_inner"></div>
+      </footer>
+    </section>
   </body>
 </html>

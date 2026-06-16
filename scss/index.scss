@@ -1,0 +1,659 @@
+.contents {
+  margin: 0;
+  padding: 0;
+  min-width: 320px;
+  overflow: hidden;
+}
+
+.main_header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 50;
+  height: 80px;
+  border-bottom: 1px solid transparent;
+  border-image: var(--gradient);
+  background: var(--surface-tint);
+  width: 100%;
+}
+.main_header_inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+}
+
+/* 헤더 header */
+.main_header_inner {
+  align-items: center;
+  height: 80px;
+}
+
+/* 메인히어로 mainhero */
+.mainpage #main_bf {
+  width: 100%;
+}
+
+.mainhero {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: url('../images/mainhero1.png') center / cover no-repeat;
+  aspect-ratio: 96 / 103;
+  margin-top: 80px;
+  /* min-height: 300px; */
+
+  @media (min-width: 1024px) {
+    aspect-ratio: 16 / 7;
+  }
+}
+.mainhero_visual,
+.mainhero_bg_image,
+.swiper-wrapper,
+.mainhero_item {
+  width: 100%;
+  height: 100%;
+}
+
+.mainhero_visual {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+}
+.mainhero_item {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+}
+.mainhero_inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px 40px 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: var(--surface-bg);
+}
+.mainhero_title {
+  font-size: 20px;
+  font-weight: bold;
+  line-height: var(--unit-row);
+}
+
+/* 베스트 프레임 main_bf */
+#main_bf {
+  padding: 80px 20px;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.main_bf_head {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
+}
+.main_bf_more {
+  margin-top: 10px;
+}
+
+.product_list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.product_card {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 40px;
+  width: 100%;
+  align-items: start;
+}
+.product_visual {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.thumb_box {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 180 / 170;
+}
+.product_thumb {
+  height: 100%;
+  width: 100%;
+  background: var(--stroke);
+  overflow: hidden;
+}
+.product_keyword {
+  display: flex;
+  gap: 5px;
+  color: var(--text-light);
+  list-style: none;
+}
+.product_ar,
+.product_like_btn,
+.product_cart_btn,
+.color_dot {
+  border: none;
+}
+.product_ar {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  z-index: 2;
+  display: flex;
+  gap: 5px;
+  color: var(--surface-bg);
+  background: var(--primary);
+  border-radius: 999px;
+  padding: 0 7px;
+}
+.product_like_btn {
+  z-index: 2;
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  color: var(--secondary);
+  background: var(--surface-tint);
+  border-radius: 999px;
+}
+.product_content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.product_color {
+  display: flex;
+  gap: 10px;
+}
+.color_dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+}
+.color_dot_black {
+  background: var(--text-default);
+}
+.color_dot_gray {
+  background: var(--text-light);
+}
+.product_info_row {
+  text-align: right;
+}
+.product_cart_btn {
+  color: var(--secondary);
+  background: var(--surface-tint);
+  border-radius: 50%;
+  aspect-ratio: 1 / 1;
+}
+.product_price {
+  margin: 20px 0;
+}
+@media (min-width: 768px) {
+  .product_card {
+    grid-template-columns: 1fr 1fr;
+  }
+  .product_keyword {
+    font-size: 12px;
+  }
+}
+
+/* 얼굴형 분석 main_ar */
+#main_ar {
+  padding: 80px 20px;
+}
+
+.main_ar_head {
+  display: flex;
+  margin-bottom: 40px;
+  width: 100%;
+  justify-content: space-between;
+}
+.main_ar_head h2 {
+  color: var(--text-default);
+}
+.main_ar_btn {
+  display: flex;
+  gap: 5px;
+}
+.apple_btn,
+.google_btn {
+  padding: 0;
+}
+
+.main_ar_content {
+  position: relative;
+  padding: 20px;
+  background: #2868f7;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.main_ar_title {
+  color: var(--surface-bg);
+  width: 100%;
+  text-align: left;
+  margin-top: 40px;
+}
+.main_ar_phone {
+  align-items: center;
+  justify-content: center;
+  max-width: 196px;
+  aspect-ratio: 196 / 400;
+  background: none;
+
+  .video_box {
+    width: 100%;
+    height: 100%;
+
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+.main_ar_features {
+  grid-column: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.main_ar_features div:last-child {
+  margin-bottom: 40px;
+}
+.feature_card {
+  background: var(--surface-tint);
+  border-radius: 999px;
+  padding: 10px 30px;
+  width: 100%;
+}
+.feature_desc {
+  margin-right: 10px;
+  color: var(--primary);
+}
+
+/* 컬렉션 모음 main_collect */
+.main_collect {
+  padding: 80px 20px;
+}
+
+.main_collect_head {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.collect_main_image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: var(--text-light);
+}
+.collect_thumb_list {
+  gap: 4px;
+  margin-top: 4px;
+}
+.collect_thumb {
+  aspect-ratio: 1 / 1;
+  background: var(--text-light);
+}
+.collect_thumb_list ul {
+  display: flex;
+  gap: 16px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.collect_thumb_list li {
+  aspect-ratio: 1 / 1;
+  border: 1px solid var(--stroke);
+  list-style: none;
+}
+.collect_name {
+  order: -2;
+  color: var(--text-default);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 40px;
+  margin: 20px 0 10px 0;
+}
+
+/* 셀럽 픽 main_celeb */
+.main_celeb {
+  width: 100%;
+  padding: 80px 0;
+  background-color: #050b53;
+}
+.main_celeb_head {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 20px 20px;
+  color: var(--surface-bg);
+}
+.main_celeb_text {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 20px;
+}
+.celeb_showcase {
+  display: flex;
+  gap: 16px;
+  overflow: hidden;
+}
+.swiper-wrapper {
+  display: flex;
+}
+.celeb_card {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+}
+.celeb_tag_list {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  &::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: var(--surface-bg);
+    margin: 10px 0;
+  }
+}
+.celeb_tag {
+  border-radius: 999px;
+  padding: 0 10px;
+  background-color: var(--surface-tint);
+}
+.collect_brand_name {
+  margin-top: 10px;
+}
+
+/* 라운즈 스토어 main_rz */
+.main_rzstore {
+  position: relative;
+  padding: 80px;
+  text-align: center;
+  background: url(/images/rzstore.png);
+
+  &::before {
+    content: 'ROUNZ';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    color: var(--stroke);
+    opacity: 20%;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 120px;
+    font-weight: 900;
+    letter-spacing: 2px;
+  }
+}
+
+.main_rzstore_inner {
+  position: relative;
+  z-index: 2;
+  display: block;
+}
+
+.main_rzstore_copy .main_section_eyebrow {
+  display: none;
+}
+
+.main_rzstore_title {
+  color: var(--surface-bg);
+  font-size: 35px;
+  font-weight: 900;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.main_rzstore_desc {
+  max-width: 560px;
+  margin: 20px auto 34px;
+  color: var(--surface-bg);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 28px;
+}
+
+.main_secondary_button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  height: 54px;
+  margin: 0 8px;
+  border: 1px solid #d9dce8;
+  color: #111;
+  font-size: 14px;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.icon_location {
+  display: none;
+}
+
+.main_footer {
+  border-top: 1px solid #b8bfce;
+  background: #eef3ff;
+}
+
+.main_footer::before {
+  content: '라운즈 플래그십 스토어 통합 앱 바로가기';
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 62px;
+  border-bottom: 1px solid #b8bfce;
+  color: #141414;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.main_footer_inner {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr 1fr;
+  gap: 40px;
+  padding: 38px 0 48px;
+  color: #555b68;
+}
+
+/* @media (max-width: 1024px) {
+  $max_width_tablet: 900px;
+
+  .main_header_inner,
+  .mainhero_inner,
+  .main_section,
+  .main_ar_inner,
+  .main_celeb > .main_section_head,
+  .celeb_showcase,
+  .main_rzstore_inner,
+  .main_footer_inner {
+    width: min(100% - 32px, $max_width_tablet);
+  }
+
+  .main_nav_list {
+    gap: 14px;
+  }
+
+  .mainhero::after {
+    width: 470px;
+    height: 190px;
+  }
+
+  .product_list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .collection_grid {
+    grid-template-columns: 1fr;
+  }
+
+  .collection_item {
+    height: auto;
+  }
+
+  .celeb_showcase {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 300px);
+  }
+
+  .celeb_card_primary {
+    grid-row: auto;
+  }
+
+  .main_ar_inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 767px) {
+  .main_header {
+    height: auto;
+  }
+
+  .main_header_inner {
+    justify-content: space-between;
+    height: auto;
+    min-height: 54px;
+    padding: 8px 0;
+  }
+
+  .main_logo {
+    position: static;
+    transform: none;
+  }
+
+  .main_nav {
+    display: none;
+  }
+
+  .main_header_actions::before {
+    display: none;
+  }
+
+  .mainpage {
+    padding-top: 54px;
+  }
+
+  .mainhero,
+  .mainhero_inner {
+    min-height: 420px;
+  }
+
+  .mainhero_inner {
+    padding-top: 245px;
+  }
+
+  .mainhero::after {
+    left: 52%;
+    bottom: 108px;
+    width: 330px;
+    height: 138px;
+    border-width: 8px;
+  }
+
+  .mainhero_title::before {
+    font-size: 20px;
+    line-height: 1.35;
+  }
+
+  .product_list {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .main_ar_inner {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .main_ar_panel {
+    height: 390px;
+  }
+
+  .main_ar_panel::before {
+    left: 24px;
+    top: 42px;
+  }
+
+  .main_ar_panel::after {
+    right: 24px;
+    top: 92px;
+    width: 132px;
+    height: 220px;
+  }
+
+  .main_ar_scan {
+    right: 54px;
+    top: 150px;
+    width: 72px;
+    height: 100px;
+  }
+
+  .main_ar_palette {
+    left: 18px;
+    right: 18px;
+    bottom: 26px;
+    width: auto;
+  }
+
+  .collection_grid {
+    gap: 48px;
+  }
+
+  .main_rzstore {
+    padding: 110px 0;
+  }
+
+  .main_rzstore::before {
+    left: 50%;
+    font-size: 70px;
+    transform: translateX(-50%);
+  }
+
+  .main_secondary_button {
+    width: min(100%, 280px);
+    margin-top: 10px;
+  }
+
+  .main_footer_inner {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .main_section_title {
+    font-size: 20px;
+  }
+
+  .main_section_head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .main_more_link {
+    align-self: flex-start;
+  }
+}  */
