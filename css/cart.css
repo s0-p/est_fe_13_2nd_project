@@ -13,11 +13,6 @@
   line-height: 40px;
 }
 
-header {
-  text-align: center;
-  border-bottom: 1px solid var(--text-default);
-}
-
 body {
   color: var(--text-default);
   background: var(--surface-tint);
