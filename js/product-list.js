@@ -66,7 +66,7 @@ filterApplyBtn.addEventListener('click', () => {
   filterModal.classList.add('display_none');
 });
 const productList = document.querySelector('.product_list');
-const DATA_PATH = '/data/products.json';
+const DATA_PATH = `https://s0-p.github.io/est_fe_13_2nd_project/data/products.json`;
 const LIMIT = 12;
 let total = 0;
 let skip = 0;
