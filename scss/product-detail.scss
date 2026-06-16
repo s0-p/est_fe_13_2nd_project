@@ -62,6 +62,7 @@ h1 {
   }
 }
 
+/*
 .card_slide {
   margin-top: 0 !important;
   margin-bottom: 0 !important;
@@ -205,14 +206,71 @@ h1 {
     }
   }
 }
+  */
+
+.slide_basic {
+  margin-top: var(--unit-row);
+
+  .card_ui {
+    // width: calc((100% - 16px) / 3);
+    gap: var(--unit-row);
+
+    .card_ui_img_wrapper {
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        width: 100%;
+        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+    }
+
+    .card_ui_info_wrapper {
+      .info_description {
+        color: var(--text-muted);
+      }
+    }
+
+    &:hover {
+      cursor: pointer;
+
+      .card_ui_img_wrapper {
+        img {
+          transform: scale(1.05);
+          opacity: 0.75;
+        }
+      }
+
+      .card_ui_info_wrapper {
+        color: var(--text-light);
+
+        .info-code{
+          text-transform: uppercase;
+        }
+
+        .info_description {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+.product_other_color,
+.product_similar {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
 
 .slider_pagination_controls {
   margin-top: calc(var(--unit-row) * 2);
-  // margin-bottom: var(--unit-row);
   gap: var(--unit-m-gutter);
 
   .ctrl_btn {
-    // display: grid;
     place-items: center;
     cursor: pointer;
     background-color: var(--transparent);
@@ -238,7 +296,7 @@ h1 {
 
     .tab_item {
       flex: 1;
-      @extend .text_center;
+      @extend .text_center !optional;
       position: relative;
 
       .tab_button {
