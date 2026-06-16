@@ -1,0 +1,10 @@
+@mixin set-grid($tbGap: 0, $lrGap: 0, $columns: none) {
+  gap: $tbGap $lrGap;
+  grid-template-columns: $columns;
+}
+@mixin set-font($size, $family: 'Pretendard', $weight: 400, $lh: 20px) {
+  font-family: $family, sans-serif;
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $lh;
+}
