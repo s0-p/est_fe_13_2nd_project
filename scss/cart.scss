@@ -600,13 +600,13 @@ a {
 
   .cart_product {
     gap: 80px;
-    justify-items: stretch;
+    align-content: start;
   }
 
   .product_item {
     grid-template-columns: 336px minmax(0, 414px);
     width: 760px;
-    min-height: 200px;
+    height: 200px;
     column-gap: 10px;
   }
 
