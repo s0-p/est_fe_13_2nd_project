@@ -89,6 +89,7 @@ a {
 .cart_container {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .cart_product {
@@ -777,4 +778,9 @@ a {
   .delete_panel p {
     @include set-font(16px);
   }
+}
+
+// 빈 장바구니
+.empty_cart {
+  text-align: center;
 }
