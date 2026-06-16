@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/common.css" />
     <link rel="stylesheet" href="css/index.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <title>ROUNZ</title>
   </head>
   <body>
@@ -28,25 +30,8 @@
 
       <div class="mainpage">
         <section class="mainhero swiper">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide mainhero_item">
-              <div class="mainhero_visual" aria-hidden="true">
-                <div class="mainhero_bg_image"></div>
-              </div>
-              <div class="mainhero_inner">
-                <h2 class="mainhero_title">
-                  최대 71% 할인<br />
-                  스포츠 선글라스 최저가 특가
-                </h2>
-                <p class="mainhero_desc pre_reg_16">한정 수량, 지금 가장 좋은 혜택으로 준비하세요!</p>
-                <a href="sub/product-list.html" class="mainhero_more pre_reg_12">
-                  더보기 <span class="material-symbols-outlined"> chevron_right </span>
-                </a>
-                <span>1/5</span
-                ><!-- todo 뺄것 -->
-              </div>
-            </div>
-          </div>
+          <div class="swiper-wrapper" id="mainhero-wrapper"></div>
+
           <div class="swiper-pagination pre_reg_14"></div>
         </section>
 
@@ -308,7 +293,7 @@
         <section class="main_rzstore" id="main_rzstore" aria-labelledby="main_rzstore_title">
           <div class="main_rzstore_inner">
             <div class="main_rzstore_con">
-              <h2 class="main_rzstore_title" id="main_rzstore_title mont">ROUNZ STORE</h2>
+              <h2 class="main_rzstore_title" id="main_rzstore_title">ROUNZ STORE</h2>
               <p class="main_rzstore_desc pre_bold_14">
                 라운즈 플래그십 스토어와 파트너 안경원에서 <br />아이웨어 쇼핑을 즐겨보세요.
               </p>
@@ -332,5 +317,7 @@
         </div>
       </footer>
     </section>
+    ]
+    <script src="./js/main.js" type="module"></script>
   </body>
 </html>
