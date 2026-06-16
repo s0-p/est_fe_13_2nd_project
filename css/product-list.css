@@ -148,13 +148,13 @@ body {
 @media (min-width: 768px) {
   .product_list {
     gap: calc(var(--unit-row) * 2) var(--unit-t-gutter);
-    grid-template-columns: repeat(2, auto);
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 @media (min-width: 1280px) {
   .product_list {
     gap: calc(var(--unit-row) * 5) var(--unit-pc-gutter);
-    grid-template-columns: repeat(4, auto);
+    grid-template-columns: repeat(4, 1fr);
     gap: calc(var(--unit-row) * 5) var(--unit-pc-gutter);
   }
 }

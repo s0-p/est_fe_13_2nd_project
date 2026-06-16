@@ -170,26 +170,23 @@ nav {
 /* Product Card */
 .product_card {
   width: 100%;
-
+  align-items: stretch;
   .image_slider {
     width: 100%;
     height: 260px;
+    aspect-ratio: 440 / 260;
     position: relative;
   }
   ul {
-    width: 100%;
+    width: max-content;
     height: 100%;
   }
-  li {
-    //img
-    display: block;
+  li img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    background: #fff;
   }
   .actions {
-    height: 100%;
     position: absolute;
     top: 0;
     left: 0;
