@@ -1,8 +1,8 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF_8" />
+    <meta name="viewport" content="width=device_width, initial_scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -21,55 +21,61 @@
   <body>
     <header class="site_header"></header>
 
-    <main class="contents store-search-container">
+    <main class="contents store_search_container">
       <h2 class="pre_bold_16">매장 선택</h2>
 
-      <section class="store-tabs-section">
+      <section class="store_tabs_section filters">
         <div class="keyword_filters" role="tablist">
-          <button type="button" class="keyword border_round active" role="tab" aria-selected="true">전체</button>
-          <button type="button" class="keyword border_round" role="tab" aria-selected="false">예약 매장</button>
-          <button type="button" class="keyword border_round" role="tab" aria-selected="false">관심 매장</button>
+          <button type="button" class="keyword border_round pre_reg_16 active" role="tab" aria-selected="true">
+            전체
+          </button>
+          <button type="button" class="keyword border_round pre_reg_16" role="tab" aria-selected="false">
+            예약 매장
+          </button>
+          <button type="button" class="keyword border_round pre_reg_16" role="tab" aria-selected="false">
+            관심 매장
+          </button>
         </div>
       </section>
 
-      <section class="store-map-section">
-        <h3 class="screen-out">지도 및 검색</h3>
+      <section class="store_map_section">
+        <h3 class="screen_out">지도 및 검색</h3>
 
-        <article class="store-sidebar">
-          <div class="search-box-wrapper">
+        <article class="store_sidebar">
+          <div class="search_box_wrapper">
             <form action="#" method="get" onsubmit="return false;">
               <fieldset>
-                <legend class="screen-out">매장 검색</legend>
-                <input type="search" id="storeSearch" class="input-search" placeholder="검색어" />
-                <button type="submit" class="btn-search-submit" aria-label="검색"></button>
+                <legend class="screen_out">매장 검색</legend>
+                <input type="search" id="storeSearch" class="input_search" placeholder="검색어" />
+                <button type="submit" class="btn_search_submit" aria-label="검색"></button>
               </fieldset>
             </form>
           </div>
 
-          <div class="list-toggle-bar">
-            <button type="button" class="btn-toggle-list" aria-expanded="false">매장 목록 열기</button>
+          <div class="list_toggle_bar">
+            <button type="button" class="btn_toggle_list" aria-expanded="false">매장 목록 열기</button>
           </div>
 
-          <div class="store-list-wrapper" id="storeList">
-            <ul class="store-list">
-              <li class="store-item active">
-                <button type="button" class="btn-favorite" aria-label="관심 매장 등록"></button>
-                <strong class="store-name">라운즈 강남역점</strong>
-                <address class="store-address">서울 강남구 역삼로 109 1층</address>
-                <span class="store-tel">0507-1387-1041</span>
-                <a href="#" class="btn-detail">상세보기</a>
+          <div class="store_list_wrapper" id="storeList">
+            <ul class="store_list">
+              <li class="store_item active">
+                <button type="button" class="btn_favorite" aria-label="관심 매장 등록"></button>
+                <strong class="store_name">라운즈 강남역점</strong>
+                <address class="store_address">서울 강남구 역삼로 109 1층</address>
+                <span class="store_tel">0507-1387-1041</span>
+                <a href="#" class="btn_detail">상세보기</a>
               </li>
             </ul>
           </div>
         </article>
 
-        <article class="map-view-area">
+        <article class="map_view_area">
           <div id="map"></div>
-          <div class="map-overlay-card" style="display: none">
-            <button type="button" class="btn-favorite" aria-label="관심 매장 등록"></button>
-            <strong class="store-name">라운즈 강남역점</strong>
-            <address class="store-address">서울 강남구 역삼로 109 1층<br />0507-1387-1041</address>
-            <a href="#" class="btn-detail-blue">상세보기</a>
+          <div class="map_overlay_card" style="display: none">
+            <button type="button" class="btn_favorite" aria-label="관심 매장 등록"></button>
+            <strong class="store_name">라운즈 강남역점</strong>
+            <address class="store_address">서울 강남구 역삼로 109 1층<br />0507-1387-1041</address>
+            <a href="#" class="btn_detail_blue">상세보기</a>
           </div>
         </article>
       </section>
