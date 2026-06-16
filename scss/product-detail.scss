@@ -8,7 +8,10 @@ body {
 
 main {
   background-color: var(--transparent);
-  gap: calc(var(--unit-row) * 4);
+
+  .main_contents {
+    gap: calc(var(--unit-row) * 4);
+  }
 }
 
 h1 {
@@ -19,6 +22,7 @@ h1 {
   margin-top: 0 !important;
   margin-bottom: 0 !important;
 
+  padding-top: calc(var(--unit-row) * 1.5);
   gap: calc(var(--unit-row) / 2);
 
   .info_badge {
@@ -208,6 +212,24 @@ h1 {
 }
   */
 
+.hero {
+  .slide_basic {
+    margin-top: 0 !important;
+
+    .swiper-slide {
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      img{
+        width: 100%;
+      }
+    }
+  }
+}
+
 .slide_basic {
   margin-top: var(--unit-row);
 
@@ -232,6 +254,12 @@ h1 {
     .card_ui_info_wrapper {
       .info_description {
         color: var(--text-muted);
+        display: -webkit-box;
+        line-clamp: 2;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
     }
 
@@ -247,10 +275,6 @@ h1 {
 
       .card_ui_info_wrapper {
         color: var(--text-light);
-
-        .info-code{
-          text-transform: uppercase;
-        }
 
         .info_description {
           text-decoration: underline;
@@ -296,7 +320,6 @@ h1 {
 
     .tab_item {
       flex: 1;
-      @extend .text_center !optional;
       position: relative;
 
       .tab_button {

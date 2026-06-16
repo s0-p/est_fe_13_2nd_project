@@ -100,7 +100,7 @@
   border-radius: 999px;
 }
 
-.text_center, .product_content .content_tab_menu .tab_item {
+.text_center {
   text-align: center;
 }
 
@@ -112,6 +112,8 @@ body {
 
 main {
   background-color: var(--transparent);
+}
+main .main_contents {
   gap: calc(var(--unit-row) * 4);
 }
 
@@ -122,6 +124,7 @@ h1 {
 .product_info {
   margin-top: 0 !important;
   margin-bottom: 0 !important;
+  padding-top: calc(var(--unit-row) * 1.5);
   gap: calc(var(--unit-row) / 2);
 }
 .product_info .info_badge {
@@ -302,6 +305,20 @@ h1 {
   }
 }
   */
+.hero .slide_basic {
+  margin-top: 0 !important;
+}
+.hero .slide_basic .swiper-slide {
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero .slide_basic .swiper-slide img {
+  width: 100%;
+}
+
 .slide_basic {
   margin-top: var(--unit-row);
 }
@@ -322,6 +339,12 @@ h1 {
 }
 .slide_basic .card_ui .card_ui_info_wrapper .info_description {
   color: var(--text-muted);
+  display: -webkit-box;
+  line-clamp: 2;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .slide_basic .card_ui:hover {
   cursor: pointer;
@@ -332,9 +355,6 @@ h1 {
 }
 .slide_basic .card_ui:hover .card_ui_info_wrapper {
   color: var(--text-light);
-}
-.slide_basic .card_ui:hover .card_ui_info_wrapper .info-code {
-  text-transform: uppercase;
 }
 .slide_basic .card_ui:hover .card_ui_info_wrapper .info_description {
   text-decoration: underline;
