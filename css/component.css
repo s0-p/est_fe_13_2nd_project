@@ -300,6 +300,9 @@ nav .type_wrapper .type_square .type_image {
 .product_card .info .details .cart_btn {
   color: var(--secondary);
 }
+.product_card .info .details .name {
+  max-width: 50%;
+}
 
 /* Product Card */
 /* Skeleton Card*/
