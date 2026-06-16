@@ -909,3 +909,7 @@ a {
     line-height: 20px;
   }
 }
+.empty_cart {
+  display: grid;
+  text-align: center;
+}

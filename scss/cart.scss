@@ -778,3 +778,9 @@ a {
     @include set-font(16px);
   }
 }
+
+// 빈 장바구니
+.empty_cart {
+  display: grid;
+  text-align: center;
+}

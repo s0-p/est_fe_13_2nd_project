@@ -12,18 +12,19 @@ let cartItems = [
 
 // 장바구니 상품 로드
 const cartList = document.querySelector('.cart_product');
-let cartHTML = [];
 
 function renderCart() {
-  cartList.querySelectorAll('product_item').forEach((item) => {
+  cartList.innerHTML = '';
+  let cartHTML = [];
+  cartList.querySelectorAll('.product_item').forEach((item) => {
     item.remove();
   });
-  if (cartItems === 0) {
+  if (cartItems.length === 0) {
     // cartItems 임시데이터
     cartHTML.push(
-      `<article>
-  장바구니가 비어있습니다.
-</article>`,
+      `<article class="empty_cart">
+        장바구니가 비어있습니다.
+        </article>`,
     );
   } else {
     cartHTML = cartItems.map(
@@ -116,7 +117,7 @@ const couponBtn = document.querySelector('.coupon_button');
 const closeBtn = document.querySelectorAll('.modal_close');
 const deleteBtn = document.querySelector('.close_button');
 const deleteCancel = document.querySelector('.cancel_button');
-const deleteItem = document.querySelector('.confirm_delete_button');
+const deleteItemBtn = document.querySelector('.confirm_delete_button');
 // 모달 열기
 optionBtn.addEventListener('click', () => {
   optionModal.removeAttribute('hidden');
@@ -143,4 +144,12 @@ document.querySelectorAll('.modal_close, .cancel_button').forEach((btn) => {
   btn.addEventListener('click', () => {
     closeModal(modal);
   });
+});
+
+// 상품 목록에서 삭제
+deleteItemBtn.addEventListener('click', () => {
+  cartItems = [];
+  console.log(cartItems);
+  closeModal(deleteModal);
+  renderCart();
 });
