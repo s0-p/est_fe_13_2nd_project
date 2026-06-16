@@ -1,0 +1,14 @@
+.filters {
+  color: var(--primary-subtle);
+}
+/* Keyword filters */
+.keyword_filters {
+  .keyword {
+    background: var(--surface-bg);
+    padding: 3px 7px;
+  }
+  .active {
+    color: var(--surface-bg);
+    background: var(--primary);
+  }
+}

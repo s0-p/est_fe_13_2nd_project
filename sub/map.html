@@ -14,9 +14,80 @@
     <link rel="stylesheet" href="../css/normalize.css" />
     <link rel="stylesheet" href="../css/common.css" />
     <link rel="stylesheet" href="../css/utilities.css" />
-    <title>Document</title>
+    <link rel="stylesheet" href="../css/component.css" />
+    <link rel="stylesheet" href="../css/map.css" />
+    <title>Map</title>
   </head>
   <body>
-    <section class="contents"></section>
+    <header class="site_header"></header>
+
+    <main class="contents store-search-container">
+      <h2 class="pre_bold_16">매장 선택</h2>
+
+      <section class="store-tabs-section">
+        <div class="keyword_filters" role="tablist">
+          <button type="button" class="keyword border_round active" role="tab" aria-selected="true">전체</button>
+          <button type="button" class="keyword border_round" role="tab" aria-selected="false">예약 매장</button>
+          <button type="button" class="keyword border_round" role="tab" aria-selected="false">관심 매장</button>
+        </div>
+      </section>
+
+      <section class="store-map-section">
+        <h3 class="screen-out">지도 및 검색</h3>
+
+        <article class="store-sidebar">
+          <div class="search-box-wrapper">
+            <form action="#" method="get" onsubmit="return false;">
+              <fieldset>
+                <legend class="screen-out">매장 검색</legend>
+                <input type="search" id="storeSearch" class="input-search" placeholder="검색어" />
+                <button type="submit" class="btn-search-submit" aria-label="검색"></button>
+              </fieldset>
+            </form>
+          </div>
+
+          <div class="list-toggle-bar">
+            <button type="button" class="btn-toggle-list" aria-expanded="false">매장 목록 열기</button>
+          </div>
+
+          <div class="store-list-wrapper" id="storeList">
+            <ul class="store-list">
+              <li class="store-item active">
+                <button type="button" class="btn-favorite" aria-label="관심 매장 등록"></button>
+                <strong class="store-name">라운즈 강남역점</strong>
+                <address class="store-address">서울 강남구 역삼로 109 1층</address>
+                <span class="store-tel">0507-1387-1041</span>
+                <a href="#" class="btn-detail">상세보기</a>
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="map-view-area">
+          <div id="map"></div>
+          <div class="map-overlay-card" style="display: none">
+            <button type="button" class="btn-favorite" aria-label="관심 매장 등록"></button>
+            <strong class="store-name">라운즈 강남역점</strong>
+            <address class="store-address">서울 강남구 역삼로 109 1층<br />0507-1387-1041</address>
+            <a href="#" class="btn-detail-blue">상세보기</a>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer class="site_footer">
+      <h1>Footer</h1>
+    </footer>
+
+    <!-- <aside class="floating-quick-menu">
+      <button type="button" class="btn-gotop" aria-label="페이지 맨 위로 이동"></button>
+      <a href="#" class="link-virtual-fitting" aria-label="가상 피팅"></a>
+      <button type="button" class="btn-chatbot" aria-label="챗봇 상담"></button>
+    </aside> -->
+    <script type="module">
+      import renderHeader from '../js/components/header.js';
+      renderHeader();
+    </script>
+    <script type="module" src="../js/map.js"></script>
   </body>
 </html>
