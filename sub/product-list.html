@@ -16,47 +16,197 @@
     <link rel="stylesheet" href="../css/component.css" />
     <link rel="stylesheet" href="../css/product-list.css" />
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
   </head>
   <body>
-    <section class="contents display-flex flex_column justify_content_center">
+    <!-- <nav class="navigation glassmorphism display_none">
+      <div class="container display_flex justify_content_center">
+        <div class="menu_wrapper display_flex flex_column">
+          <div class="navs display_flex flex_column">
+            <div class="pre_reg_14">선글라스</div>
+            <div class="pre_reg_14">안경테</div>
+            <div class="pre_reg_14">BEST</div>
+            <div class="pre_reg_14">브랜드</div>
+            <div class="pre_reg_14">라운즈 <span class="mont_reg_14">Only</span></div>
+          </div>
+          <div class="links display_flex flex_column">
+            <div class="pre_reg_14 gradient_text">안경원<span class="material-icons icon_16">arrow_forward</span></div>
+            <div class="pre_reg_14 gradient_text">안경원<span class="material-icons icon_16">arrow_forward</span></div>
+            <div class="pre_reg_14 gradient_text">안경원<span class="material-icons icon_16">arrow_forward</span></div>
+            <div class="pre_reg_14 gradient_text">안경원<span class="material-icons icon_16">arrow_forward</span></div>
+            <div class="pre_reg_14 gradient_text">안경원<span class="material-icons icon_16">arrow_forward</span></div>
+            <div class="pre_reg_14 gradient_text">안경원<span class="material-icons icon_16">arrow_forward</span></div>
+          </div>
+        </div>
+        <div class="tab display_flex flex_column">
+          <div class="categories_wrapper display_flex justify_content_space_between">
+            <div class="categories display_flex col_gutter_gap">
+              <div class="pre_reg_14">모양</div>
+              <div class="pre_reg_14">브랜드</div>
+            </div>
+            <a href="/sub/product-list.html" class="pre_reg_14">전체보기</a>
+          </div>
+          <div class="type_wrapper display_grid">
+            <div class="type_round display_flex flex_column align_items_center">
+              <div class="type_image border_round"></div>
+              <div class="type_text pre_reg_12">유형</div>
+            </div>
+            <div class="type_round display_flex flex_column align_items_center">
+              <div class="type_image border_round"></div>
+              <div class="type_text pre_reg_12">유형</div>
+            </div>
+            <div class="type_round display_flex flex_column align_items_center">
+              <div class="type_image border_round"></div>
+              <div class="type_text pre_reg_12">유형</div>
+            </div>
+            <div class="type_round display_flex flex_column align_items_center">
+              <div class="type_image border_round"></div>
+              <div class="type_text pre_reg_12">유형</div>
+            </div>
+            <div class="type_square display_flex flex_column">
+              <div class="type_image"></div>
+              <div class="type_text pre_reg_12">유형</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav> -->
+    <section class="contents display_flex flex_column justify_content_center">
       <div class="filters display_flex justify_content_space_between">
-        <div class="keyword_filters display_flex gap">
-          <div class="keyword pre_reg_16">키워드</div>
-          <div class="keyword pre_reg_16">키워드</div>
+        <div class="keyword_filters display_flex col_gutter_gap">
+          <div class="keyword pre_reg_16 border_round">키워드</div>
+          <div class="keyword pre_reg_16 border_round">키워드</div>
         </div>
         <div>
-          <div class="btns_wrapper display_flex align_items_center">
-            <div class="display-flex sort_btn display_inline_flex align_items_center">
-              <div class="material-icons">sort</div>
-              <div class="pre_reg_16">인기순</div>
+          <div class="btns_wrapper display_flex align_items_center col_gutter_gap">
+            <div class="display_flex sort_btn display_inline_flex align_items_center">
+              <div class="material-icons icon_24">sort</div>
+              <div class="pre_reg_16 display_none">인기순</div>
             </div>
             <div class="filter_btn display_inline_flex align_items_center">
-              <div class="material-icons">tune</div>
-              <div class="mont_reg_16">Filter</div>
+              <div class="material-icons icon_24">tune</div>
+              <div class="mont_reg_16 display_none">Filter</div>
             </div>
           </div>
           <ul class="sort_panel glassmorphism display_none">
-            <li>
+            <li class="gradient_light_border">
               <input type="radio" id="popularity" name="sort" value="popularity" checked />
               <label for="popularity" class="pre_reg_14">인기순</label>
             </li>
-            <li>
+            <li class="gradient_light_border">
               <input type="radio" id="latest" name="sort" value="latest" />
               <label for="latest" class="pre_reg_14">최신순</label>
             </li>
-            <li>
+            <li class="gradient_light_border">
               <input type="radio" id="lowest_price" name="sort" value="lowest_price" />
               <label for="lowest_price" class="pre_reg_14">낮은 가격순</label>
             </li>
-            <li>
+            <li class="gradient_light_border">
               <input type="radio" id="highest_price" name="sort" value="highest_price" />
               <label for="highest_price" class="pre_reg_14">높은 가격순</label>
             </li>
-            <li>
+            <li class="gradient_light_border">
               <input type="radio" id="most_reviews" name="sort" value="most_reviews" />
               <label for="most_reviews" class="pre_reg_14">후기순</label>
             </li>
           </ul>
+        </div>
+      </div>
+      <h2 class="list_category pre_bold_20">카테고리</h2>
+      <div class="product_list display_grid flex_column align_items_center">
+        <div class="product_card">
+          <div class="swiper image_slider">
+            <ul class="swiper-wrapper">
+              <li class="swiper-slide"><img src="" alt="" /></li>
+              <li class="swiper-slide"><img src="" alt="" /></li>
+              <li class="swiper-slide"><img src="" alt="" /></li>
+            </ul>
+            <div class="actions display_flex flex_column justify_content_space_between align_items_end">
+              <div class="top display_flex justify_content_space_between">
+                <div class="badge gradient_text">New</div>
+                <div class="whish_btn material-icons icon_24 border_round">favorite_border</div>
+              </div>
+              <div class="slider_btns display_flex justify_content_space_between">
+                <div class="image_prev material-icons">chevron_left</div>
+                <div class="image_next material-icons">chevron_right</div>
+              </div>
+              <div class="bottom display_flex justify_content_space_between">
+                <div class="read_only_pagers"></div>
+                <div class="ar_btn border_round display_inline_flex align_items_center">
+                  <span class="material-icons icon_16">fullscreen</span>
+                  <span class="mont_reg_14">AR</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="info display_flex flex_column">
+            <div class="tags display_flex">
+              <div class="tag pre_reg_12">키워드</div>
+              <div class="tag pre_reg_12">키워드</div>
+              <div class="tag pre_reg_12">키워드</div>
+            </div>
+            <div class="details display_flex flex_column">
+              <div class="purchase display_flex justify_content_space_between">
+                <div class="color_options display_flex">
+                  <div class="color border_round"></div>
+                  <div class="color border_round"></div>
+                  <div class="color border_round"></div>
+                </div>
+                <div class="cart_btn material-icons icon_24">add_shopping_cart</div>
+              </div>
+              <div class="summary display_flex justify_content_space_between">
+                <div class="name pre_reg_14">상품명</div>
+                <div class="price pre_reg_14">₩ 000,000</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="product_card">
+          <div class="swiper image_slider">
+            <ul class="swiper-wrapper">
+              <li class="swiper-slide"><img src="" alt="" /></li>
+              <li class="swiper-slide"><img src="" alt="" /></li>
+              <li class="swiper-slide"><img src="" alt="" /></li>
+            </ul>
+            <div class="actions display_flex flex_column justify_content_space_between align_items_end">
+              <div class="top display_flex justify_content_space_between">
+                <div class="badge gradient_text">New</div>
+                <div class="whish_btn material-icons icon_24 border_round">favorite_border</div>
+              </div>
+              <div class="slider_btns display_flex justify_content_space_between">
+                <div class="image_prev material-icons">chevron_left</div>
+                <div class="image_next material-icons">chevron_right</div>
+              </div>
+              <div class="bottom display_flex justify_content_space_between">
+                <div class="read_only_pagers"></div>
+                <div class="ar_btn border_round display_inline_flex align_items_center">
+                  <span class="material-icons icon_16">fullscreen</span>
+                  <span class="mont_reg_14">AR</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="info display_flex flex_column">
+            <div class="tags display_flex">
+              <div class="tag pre_reg_12">키워드</div>
+              <div class="tag pre_reg_12">키워드</div>
+              <div class="tag pre_reg_12">키워드</div>
+            </div>
+            <div class="details display_flex flex_column">
+              <div class="purchase display_flex justify_content_space_between">
+                <div class="color_options display_flex">
+                  <div class="color border_round"></div>
+                  <div class="color border_round"></div>
+                  <div class="color border_round"></div>
+                </div>
+                <div class="cart_btn material-icons icon_24">add_shopping_cart</div>
+              </div>
+              <div class="summary display_flex justify_content_space_between">
+                <div class="name pre_reg_14">상품명</div>
+                <div class="price pre_reg_14">₩ 000,000</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -70,22 +220,10 @@
               <div class="material-icons icon_20">keyboard_arrow_down</div>
             </div>
             <div class="filter_options_wrapper">
-              <div class="filter_option pre_reg_18 display_inline_block">라운드</div>
-              <div class="filter_option pre_reg_18 display_inline_block">라운드</div>
-              <div class="filter_option pre_reg_18 display_inline_block">라운드</div>
-              <div class="filter_option pre_reg_18 display_inline_block">라운드</div>
-            </div>
-          </div>
-          <div class="filter_set display_flex flex_column display_flex flex_wrap">
-            <div class="display_flex">
-              <div class="filter_type pre_bold_14">모양</div>
-              <div class="material-icons icon_20">keyboard_arrow_down</div>
-            </div>
-            <div class="filter_options_wrapper">
-              <div class="filter_option pre_reg_18 display_inline_block">라운드</div>
-              <div class="filter_option pre_reg_18 display_inline_block">라운드</div>
-              <div class="filter_option pre_reg_18 display_inline_block">라운드</div>
-              <div class="filter_option pre_reg_18 display_inline_block">라운드</div>
+              <div class="filter_option pre_reg_18 border_round display_inline_block">라운드</div>
+              <div class="filter_option pre_reg_18 border_round display_inline_block">라운드</div>
+              <div class="filter_option pre_reg_18 border_round display_inline_block">라운드</div>
+              <div class="filter_option pre_reg_18 border_round display_inline_block">라운드</div>
             </div>
           </div>
         </div>
@@ -95,6 +233,7 @@
         </div>
       </div>
     </div>
-    <script src="../js/product-list.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <script type="module" src="../js/product-list.js"></script>
   </body>
 </html>
