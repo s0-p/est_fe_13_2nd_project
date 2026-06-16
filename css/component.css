@@ -203,13 +203,13 @@ nav .type_wrapper .type_square .type_image {
 /* Product Card */
 .product_card {
   width: 100%;
-  align-items: stretch;
 }
 .product_card .image_slider {
   width: 100%;
   height: 260px;
   aspect-ratio: 440/260;
   position: relative;
+  overflow: hidden;
 }
 .product_card ul {
   width: max-content;
