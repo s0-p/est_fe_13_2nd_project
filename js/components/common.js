@@ -1,11 +1,15 @@
 // 로컬스토리지에서 장바구니 읽기
-let cartItems = getCartItems();
-function getCartItems() {
-  return JSON.parse(localStorage.getItem('cartItems')) || [];
+export function getCartItems() {
+  try {
+    return JSON.parse(localStorage.getItem('cartItems')) || [];
+  } catch (error) {
+    console.error('장바구니 데이터를 읽는 중 오류 발생', error);
+    return [];
+  }
 }
 
 //로컬스토리지에서 장바구니 쓰기
-function saveCartItems(cartItems) {
+export function saveCartItems(cartItems) {
   window.localStorage.setItem('cartItems', JSON.stringify(cartItems));
 }
 
@@ -27,7 +31,7 @@ export function addToCart(product, qty = 1) {
       productIndex: currentProduct.productIndex,
       title: currentProduct.title,
       brand: currentProduct.brand,
-      price: currentProduct.price,
+      price: Number(currentProduct.price.replaceAll(',', '')),
       thumbnail: currentProduct.thumbnail,
       qty: qty,
     });

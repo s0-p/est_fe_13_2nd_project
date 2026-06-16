@@ -1,13 +1,6 @@
-// 로컬스토리지에서 장바구니 읽
+import { getCartItems, saveCartItems } from './components/common.js';
+
 let cartItems = getCartItems();
-function getCartItems() {
-  return JSON.parse(localStorage.getItem('cartItems')) || [];
-}
-//로컬스토리지에서 장바구니 쓰기
-console.log(cartItems);
-function saveCartItems(cartItems) {
-  window.localStorage.setItem('cartItems', JSON.stringify(cartItems));
-}
 
 // 장바구니 상품 로드
 const cartList = document.querySelector('.cart_product');
@@ -41,7 +34,7 @@ function renderCart() {
                     <span class="quantity" aria-live="polite">${item.quantity}</span>
                     <button type="button" class="plus_btn" aria-label="수량 증가">+</button>
                   </div>
-                  <p class="product_price pre_bold_14">₩${item.price.toLocaleString()}</p>
+                  <p class="product_price pre_bold_14">₩${item.price}</p>
                 </div>
               </div>
               <button class="delete_icon" type="button" aria-label="상품 삭제" aria-haspopup="dialog">
