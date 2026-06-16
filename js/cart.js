@@ -60,39 +60,48 @@ function renderCart() {
 }
 renderCart();
 
-// 상단 장바구니 전체 수량 출력
-const cart_total_count = document.querySelector('.shopping_bag_tab > span');
+// 장바구니 총 상품 수량 합계 함수
+function getCartCount() {
+  const cart = readCart(); // 아직 함수 안만들었음 . 로컬에서 카트 읽어오는 함수
+  return cart.reduce((total, item) => total + item.quantity, 0);
+}
+
+// 상단 장바구니 상품 전체 수량 출력
+const cartCount = document.querySelector('.shopping_bag_tab > span');
 let cart_total = `로컬 스토리지에 담긴 장바구니 아이템 개수`; // 로컬스토리지에서 카트 읽어오는 함수 추가 해야됨.
 
 function totalCartCount() {
-  cart_total_count.textContent = `${cartItems.length}`; // 임시데이터로 테스트. cartItems => cart_total 로 나중에 변경
+  cartCount.textContent = `${cartItems.length}`; // 임시데이터로 테스트. cartItems => cart_total 로 나중에 변경
 }
 totalCartCount();
 
 // 수량 증가, 감소
-const quantityControl = document.querySelector('.quantity_control');
+const quantityControlBtn = document.querySelector('.quantity_control');
 const quantityEl = document.querySelector('#quantity');
 const productAmount = document.querySelector('.product_price');
 const totalAmount = document.querySelectorAll('.total_price');
 
-quantityControl.addEventListener('click', (e) => {
-  const btn = e.target.closest('button');
+function quantityControl() {
+  quantityControlBtn.addEventListener('click', (e) => {
+    const btn = e.target.closest('button');
 
-  if (!btn) return;
+    if (!btn) return;
 
-  let currentQty = Number(quantityEl.textContent);
+    let currentQty = Number(quantityEl.textContent);
 
-  if (btn.textContent === '-') {
-    if (currentQty > 1) {
-      currentQty--;
+    if (btn.textContent === '-') {
+      if (currentQty > 1) {
+        currentQty--;
+      }
+    } else {
+      currentQty++;
     }
-  } else {
-    currentQty++;
-  }
-  quantityEl.textContent = currentQty;
+    quantityEl.textContent = currentQty;
 
-  updateTotalAmount();
-});
+    updateTotalAmount();
+  });
+}
+quantityControl();
 
 // 수량 변경 시 .total_price 에 총 가격 출력 , 임시데이터로 작성
 function updateTotalAmount() {
@@ -152,4 +161,6 @@ deleteItemBtn.addEventListener('click', () => {
   console.log(cartItems);
   closeModal(deleteModal);
   renderCart();
+  totalCartCount();
+  updateTotalAmount();
 });
