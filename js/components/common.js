@@ -27,7 +27,7 @@ export function addToCart(product, qty = 1) {
     existingItem.qty += qty;
   } else {
     //새 상품 추가, 수량 1
-    cart.push({
+    cartItems.push({
       productIndex: currentProduct.productIndex,
       title: currentProduct.title,
       brand: currentProduct.brand,
