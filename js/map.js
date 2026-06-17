@@ -44,26 +44,29 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // 관심 매장 등록 클릭 이벤트
-const wishBtn = document.querySelector('.wish_btn');
-wishBtn.addEventListener('click', () => {
+document.addEventListener('click', (e) => {
+  const wishBtn = e.target.closest('.wish_btn');
+  if (!wishBtn) return;
   const isFavorite = wishBtn.textContent.trim() === 'favorite_border';
-
   wishBtn.textContent = isFavorite ? 'favorite' : 'favorite_border';
-
   wishBtn.setAttribute('aria-label', isFavorite ? '관심 매장 해제' : '관심 매장 등록');
 });
 
 // 매장 목록 열고 닫기
+const toggleArea = document.querySelector('.list_toggle_bar');
 const toggleBtn = document.querySelector('.btn_toggle_list');
 const storeListWrapper = document.querySelector('.store_list_wrapper');
 const arrow = toggleBtn.querySelector('.arrow');
+const toggleText = document.querySelector('.toggle_text');
 
 toggleBtn.addEventListener('click', () => {
+  if (window.innerWidth >= 1280) return;
   const isOpen = storeListWrapper.classList.toggle('active');
+  toggleArea.classList.toggle('active', isOpen);
 
   toggleBtn.setAttribute('aria-expanded', isOpen);
 
-  toggleBtn.childNodes[2].textContent = isOpen ? '매장 목록 닫기' : '매장 목록 열기';
+  toggleText.childNodes[2].textContent = isOpen ? '매장 목록 닫기' : '매장 목록 열기';
 
   arrow.textContent = isOpen ? 'expand_less' : 'expand_more';
 });
