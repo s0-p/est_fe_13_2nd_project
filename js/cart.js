@@ -1,5 +1,13 @@
+import renderHeader from './components/header.js';
+import renderFooter from './components/footer.js';
+import renderSidebar from './components/side-bar-test.js';
 import { getCartItems, saveCartItems } from './components/common.js';
 
+renderHeader();
+renderSidebar();
+renderFooter();
+
+// 로컬스토리지 데이터 가져오기
 let cartItems = getCartItems();
 
 // 장바구니 상품 로드
@@ -34,7 +42,7 @@ function renderCart() {
                     <span class="quantity" aria-live="polite">${item.quantity}</span>
                     <button type="button" class="plus_btn" aria-label="수량 증가">+</button>
                   </div>
-                  <p class="product_price pre_bold_14">₩${item.price}</p>
+                  <p class="product_price pre_bold_14">₩${Number(item.price.toString().replaceAll(',', '')).toLocaleString('ko-KR')}</p>
                 </div>
               </div>
               <button class="delete_icon" type="button" aria-label="상품 삭제" aria-haspopup="dialog">
