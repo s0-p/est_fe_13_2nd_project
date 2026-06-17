@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF_8" />
-    <meta name="viewport" content="width=device_width, initial_scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -21,8 +21,8 @@
   <body>
     <header class="site_header"></header>
 
-    <main class="contents store_search_container">
-      <section class="store_tabs_section filters">
+    <main class="store_search_container">
+      <section class="store_tabs_section filters display_flex flex_column">
         <h2 class="pre_bold_16">매장 선택</h2>
         <div class="keyword_filters display_flex" role="tablist">
           <button type="button" class="keyword border_round pre_reg_16 active" role="tab" aria-selected="true">
@@ -69,7 +69,14 @@
         </article>
 
         <article class="map_view_area">
-          <div id="map"></div>
+          <!-- 맵 API 자리 -->
+          <div id="map" style="width: 100%; height: 350px"></div>
+          <p>
+            <button onclick="zoomIn()">지도레벨 - 1</button>
+            <button onclick="zoomOut()">지도레벨 + 1</button>
+            <span id="maplevel"></span>
+          </p>
+
           <div class="map_overlay_card" style="display: none">
             <button type="button" class="btn_favorite" aria-label="관심 매장 등록"></button>
             <strong class="store_name">라운즈 강남역점</strong>
@@ -93,6 +100,10 @@
       import renderHeader from '../js/components/header.js';
       renderHeader();
     </script>
-    <script type="module" src="../js/map.js"></script>
+    <script
+      type="text/javascript"
+      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7e81f14ae23ad2cb3747737e1524bd9a"
+    ></script>
+    <script src="../js/map.js"></script>
   </body>
 </html>
