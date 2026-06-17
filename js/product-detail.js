@@ -5,26 +5,169 @@ let slideOtherColor = null;
 let slideOtherColorWrapper = null;
 let slideSimilar = null;
 let slideSimilarWrapper = null;
+let slideReviewPhoto = null;
+let slideReviewPhotoWrapper = null;
 let imgSpecSizeWrapper = null;
 let imgSpecMainWrapper = null;
+let infoAccordionHeader = null;
+let infoAccordionPanel = null;
+let tabItems = [];
+let contentItems = [];
 
 document.addEventListener('DOMContentLoaded', () => {
   slideHeroWrapper = document.querySelector('.hero .swiper-wrapper');
   slideOtherColorWrapper = document.querySelector('.product_other_color .swiper-wrapper');
   slideSimilarWrapper = document.querySelector('.product_similar .swiper-wrapper');
+  slideReviewPhotoWrapper = document.querySelector('.review_photo_section .swiper-wrapper');
   productInfoSection = document.querySelector('.product_info');
   imgSpecSizeWrapper = document.querySelector('.spec_image_wrapper > figure');
   imgSpecMainWrapper = document.querySelector('.spec_photos');
 
   initSwiper();
   initProduct();
+  initTabMenu();
+  initResponsiveLayout();
 });
+
+/**
+ * change main layout by resolution changes
+ */
+function initResponsiveLayout() {
+  const main = document.querySelector('main');
+  if (!main) return;
+
+  const leftColumnWrapper = document.createElement('div');
+  leftColumnWrapper.className = 'left_column_wrapper';
+
+  let isPCLayout = false;
+
+  function handleLayoutChange() {
+    const isPC = window.innerWidth >= 1440;
+
+    // mobile -> pc
+    if (isPC && !isPCLayout) {
+      const hero = document.querySelector('.hero');
+      const mainContentsSection = document.querySelector('.main_contents');
+
+      if (hero && mainContentsSection) {
+        leftColumnWrapper.appendChild(hero);
+        leftColumnWrapper.appendChild(mainContentsSection);
+
+        main.insertBefore(leftColumnWrapper, main.firstChild);
+
+        isPCLayout = true;
+      }
+
+      if (slideHero) {
+        slideHero.update();
+      }
+    }
+    // pc -> mobile
+    else if (!isPC && isPCLayout) {
+      const hero = leftColumnWrapper.querySelector('.hero');
+      const mainContents = leftColumnWrapper.querySelector('.main_contents');
+      const sticky = document.querySelector('.sticky');
+
+      if (hero && mainContents && sticky) {
+        // hero -> sticky -> mainContents
+        main.insertBefore(hero, sticky);
+        main.insertBefore(mainContents, sticky.nextSibling);
+
+        if (leftColumnWrapper.parentNode === main) {
+          main.removeChild(leftColumnWrapper);
+        }
+
+        isPCLayout = false;
+      }
+
+      if (slideHero) {
+        slideHero.update();
+      }
+    }
+  }
+
+  handleLayoutChange();
+  window.addEventListener('resize', handleLayoutChange);
+}
+
+/**
+ * init info benefit section accordion
+ */
+function initInfoAccordion() {
+  infoAccordionHeader = document.querySelector('.info_benefit_heading');
+  infoAccordionPanel = document.querySelector('.info_benefit_accordion .panel_body');
+  const icon = document.querySelector('.info_benefit_heading .material-icons');
+  if (!infoAccordionHeader || !infoAccordionPanel) return;
+
+  infoAccordionHeader.addEventListener('click', () => {
+    const isClosed = infoAccordionPanel.classList.contains('display_none');
+
+    if (isClosed) {
+      infoAccordionPanel.classList.remove('display_none');
+      if (icon) icon.classList.add('is_rotated');
+    } else {
+      infoAccordionPanel.classList.add('display_none');
+      if (icon) icon.classList.remove('is_rotated');
+    }
+  });
+}
+
+/**
+ * init tab menus
+ */
+function initTabMenu() {
+  tabItems = document.querySelectorAll('.tab_item');
+  contentItems = document.querySelectorAll('.content_details > li');
+  if (tabItems.length === 0 || contentItems.length === 0) return;
+
+  let activeIndex = 0;
+  tabItems.forEach((item, index) => {
+    if (item.classList.contains('is_active')) {
+      activeIndex = index;
+    }
+  });
+
+  renderTabMenu(tabItems, contentItems, activeIndex);
+
+  tabItems.forEach((tab, clickedIndex) => {
+    tab.addEventListener('click', (e) => {
+      // e.preventDefault();
+      if (tab.classList.contains('is_active')) return;
+      renderTabMenu(tabItems, contentItems, clickedIndex);
+    });
+  });
+}
+
+/**
+ * render mobile env tab menus
+ *
+ * @param {*} tabs
+ * @param {*} contents
+ * @param {number} targetIndex
+ */
+function renderTabMenu(tabs, contents, targetIndex) {
+  tabs.forEach((tab, index) => {
+    const content = contents[index];
+    if (!content) return;
+
+    if (index === targetIndex) {
+      tab.classList.add('is_active');
+      content.classList.remove('display_none');
+    } else {
+      tab.classList.remove('is_active');
+      content.classList.add('display_none');
+    }
+  });
+}
 
 /**
  * init swiper parameters
  */
 function initSwiper() {
   slideHero = new Swiper('.slide_hero', {
+    direction: 'horizontal',
+    slidesPerView: 1,
+    spaceBetween: 0,
     loop: true,
     speed: 2000,
 
@@ -33,6 +176,15 @@ function initSwiper() {
       disableOnInteraction: false,
       pauseOnMouseEnter: true,
     },
+
+    breakpoints: {
+      1440: {
+        direction: 'vertical',
+      },
+    },
+
+    observer: true,
+    observeParents: true,
   });
 
   slideOtherColor = new Swiper('.slide_other_color', {
@@ -54,7 +206,10 @@ function initSwiper() {
       768: {
         slidesPerView: 3,
         slidesPerGroup: 3,
-        spaceBetween: 16,
+      },
+      1440: {
+        slidesPerView: 2,
+        slidesPerGroup: 2,
       },
     },
   });
@@ -82,6 +237,23 @@ function initSwiper() {
       },
     },
   });
+
+  slideReviewPhoto = new Swiper('.slide_review_photo', {
+    effect: 'coverflow',
+    grabCursor: true,
+    centeredSlides: true,
+    slidesPerView: 'auto',
+    coverflowEffect: {
+      rotate: 50,
+      stretch: 0,
+      depth: 100,
+      modifier: 1,
+      slideShadows: true,
+    },
+
+    observer: true,
+    observeParents: true,
+  });
 }
 
 /**
@@ -107,6 +279,7 @@ async function initProduct() {
     const similarProducts = getSimilarProducts(currentProduct);
     renderSlide(similarProducts, 2);
     renderInfo(currentProduct);
+    initInfoAccordion();
   } catch (error) {
     console.error('제품 데이터를 로드 중 오류가 발생했습니다: ', error);
   }
@@ -159,10 +332,7 @@ function renderInfo(data) {
         </div>
         <div class="mont_bold_16">${data.memberMaxPrice}원</div>
       </div>
-      <div class="panel_body display_none">
-        <p>
-          주문 시 원산지(${data.specifications['원산지'] || 'ITALY'}) 및 제조원(${data.specifications['제조원'] || 'LUXOTTICA'}) 규격을 반드시 확인해 주시기 바랍니다.
-        </p>
+      <div class="display_none panel_body pre_reg_12">
         <p>쿠폰 할인율 및 적립금 혜택은 회원 등급에 따라 차등 적용될 수 있습니다.</p>
       </div>
     </div>
@@ -410,8 +580,6 @@ function filterCmsDescriptionImages(images) {
     }
   });
 
-  console.log(result);
-
   return result;
 }
 
@@ -498,18 +666,3 @@ function getBrandNameSplitIndex(brandStr, thumbnailUrl) {
     return -1;
   }
 }
-
-// const cardImageLink = document.querySelector('.card_ui img');
-// const prevOtherColor = document.querySelector('.prev_other_color');
-// const nextOtherColor = document.querySelector('.next_other_color');
-
-// cardImageLink.addEventListener('click', (e) => {
-//   e.preventDefault();
-// });
-
-// prevOtherColor.addEventListener('click', () => {
-//   slideBasic.slidePrev();
-// });
-// nextOtherColor.addEventListener('click', () => {
-//   slideBasic.slideNext();
-// });
