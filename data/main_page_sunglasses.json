@@ -3,32 +3,38 @@
     {
       "href": "/collection.php?collectionIndex=13391",
       "imageUrl": "https://image.rounz.com/newrounz/banner/home/su/stylework2026_su.jpg",
-      "text": "여름 선글라스 특가전 6월 한정 특별 혜택 지금 바로 확인해보세요"
+      "text": "여름 선글라스 특가전 6월 한정 특별 혜택",
+      "subText": "지금 바로 확인해보세요"
     },
     {
       "href": "/collection.php?collectionIndex=2325",
       "imageUrl": "https://image.rounz.com/newrounz/collection/2025bliz/cover.jpg",
-      "text": "최대 71% 할인 스포츠 선글라스 최저가 특가 한정 수량,지금 가장 좋은 혜택으로 준비하세요!"
+      "text": "최대 71% 할인 스포츠 선글라스 최저가 특가",
+      "subText": "한정 수량,지금 가장 좋은 혜택으로 준비하세요!"
     },
     {
       "href": "/collection.php?collectionIndex=13323",
       "imageUrl": "https://image.rounz.com/newrounz/main/cover/cover_rayneo.jpg",
-      "text": "시야의 한계를 넘다 차원이 다른 시야를 경험해 보세요 AI 안경 무료 체험 예약하기"
+      "text": "시야의 한계를 넘다 차원이 다른 시야를 경험해 보세요",
+      "subText": "AI 안경 무료 체험 예약하기"
     },
     {
       "href": "/collection.php?collectionIndex=13339",
       "imageUrl": "https://image.rounz.com/newrounz/main/cover/cover_publcbeacon.jpg",
-      "text": "자유를 향해 달려가는 설렘 2026 PUBLC BEACON 한정판 포토카드 증정지금 구경하러 가기"
+      "text": "자유를 향해 달려가는 설렘 2026 PUBLC BEACON",
+      "subText": "한정판 포토카드 증정지금 구경하러 가기"
     },
     {
       "href": "https://rounz.com/series.php?contentIndex=184",
       "imageUrl": "https://image.rounz.com/newrounz/collection/store/260528_pohang_namgu/pohang_namgu_banner_cover.jpg",
-      "text": "라운즈 포항남구점 GRAND OPEN 세상에 없던 안경 쇼핑, 포항에서도!"
+      "text": "라운즈 포항남구점 GRAND OPEN",
+      "subText": "세상에 없던 안경 쇼핑, 포항에서도!"
     },
     {
       "href": "/collection.php?collectionIndex=13366",
       "imageUrl": "https://image.rounz.com/newrounz/collection/zeiss/zeiss_promotion_202605/cover_zeiss.jpg",
-      "text": "라운즈에서 자이스 렌즈 맞추면 10만원 상품권 드려요! 이벤트 참여방법 보러가기"
+      "text": "라운즈에서 자이스 렌즈 맞추면 10만원 상품권 드려요!",
+      "subText": "이벤트 참여방법 보러가기"
     }
   ],
   "menus": [],
@@ -181,31 +187,31 @@
       "promoLink": "/collection.php?collectionIndex=13362",
       "products": [
         {
-          "productIndex": "3005728",
+          "productIndex": "3025784",
           "brand": "MUSEUM BY BEACON",
-          "title": "MUSEUM1 CLIP C2 뮤지엄바이비컨 뮤지엄1 클립",
-          "price": "43,200",
+          "title": "골드 티타늄 MUSEUM S21 C4 뮤지엄바이비컨 뮤지엄S21 캡슐 선글라스",
+          "price": "214,200",
           "discountRate": "10",
-          "href": "product.php?productIndex=3005728",
-          "thumbnail": "https://image.rounz.com/_data/product/PUBLICBEACON/MUSEUM1-CLIP-C2/MUSEUM1-CLIP-C2_11.jpg"
+          "href": "product.php?productIndex=3025784",
+          "thumbnail": "https://image.rounz.com/_data/product/MUSEUMBYBEACON/MUSEUM-S21-C4/MUSEUM-S21-C4_03.JPG"
         },
         {
-          "productIndex": "3005729",
+          "productIndex": "3025783",
           "brand": "MUSEUM BY BEACON",
-          "title": "MUSEUM1 CLIP C1 뮤지엄바이비컨 뮤지엄1 클립",
-          "price": "43,200",
+          "title": "실버 티타늄 MUSEUM S21 C3 뮤지엄바이비컨 뮤지엄S21 캡슐 선글라스",
+          "price": "214,200",
           "discountRate": "10",
-          "href": "product.php?productIndex=3005729",
-          "thumbnail": "https://image.rounz.com/_data/product/PUBLICBEACON/MUSEUM1-CLIP-C1/MUSEUM1-CLIP-C1_11.jpg"
+          "href": "product.php?productIndex=3025783",
+          "thumbnail": "https://image.rounz.com/_data/product/MUSEUMBYBEACON/MUSEUM-S21-C3/MUSEUM-S21-C3_03.JPG"
         },
         {
-          "productIndex": "3010244",
+          "productIndex": "3025782",
           "brand": "MUSEUM BY BEACON",
-          "title": "레드 하바나 MUSEUM S2 C3 50mm 뮤지엄바이비컨 뮤지엄 선글라스",
-          "price": "178,200",
+          "title": "실버 티타늄 MUSEUM S21 C2 뮤지엄바이비컨 뮤지엄S21 캡슐 선글라스",
+          "price": "214,200",
           "discountRate": "10",
-          "href": "product.php?productIndex=3010244",
-          "thumbnail": "https://image.rounz.com/_data/product/MUSEUMBYBEACON/MUSEUM-S2-C3(50)/MUSEUM-S2-C3(50)_11.jpg"
+          "href": "product.php?productIndex=3025782",
+          "thumbnail": "https://image.rounz.com/_data/product/MUSEUMBYBEACON/MUSEUM-S21-C2/MUSEUM-S21-C2_03.JPG"
         }
       ]
     },
@@ -288,9 +294,9 @@
         {
           "productIndex": "3002940",
           "brand": "RUDY PROJECT",
-          "title": "[타임특가]루디 프로젝트 컷라인 선글라스 SP630969-0005",
-          "price": "150,000",
-          "discountRate": "53",
+          "title": "루디 프로젝트 컷라인 선글라스 SP630969-0005",
+          "price": "288,000",
+          "discountRate": "10",
           "href": "product.php?productIndex=3002940",
           "thumbnail": "https://image.rounz.com/_data/product/RUDYPROJECT/SP630969-0005/SP630969-0005_03.JPG"
         },
@@ -321,15 +327,6 @@
       "promoLink": "/collection.php?collectionIndex=4059",
       "products": [
         {
-          "productIndex": "3016693",
-          "brand": "OAKLEY",
-          "title": "오클리 아이자켓 리덕스 선글라스 OO9438 5종 택1",
-          "price": "195,200",
-          "discountRate": "20",
-          "href": "product.php?productIndex=3016693",
-          "thumbnail": "https://image.rounz.com/_data/product/OAKLEY/OO9438-0158/OO9438-0158_03.jpg"
-        },
-        {
           "productIndex": "3019193",
           "brand": "PRADA",
           "title": "프라다 선글라스 아시안핏 SPR17WF/SPR26ZF 5종 택1",
@@ -346,6 +343,15 @@
           "discountRate": "20",
           "href": "product.php?productIndex=3016108",
           "thumbnail": "https://image.rounz.com/_data/product/LESPECS/OUTTA-LOVE-1802189/OUTTA-LOVE-1802189_03.jpg"
+        },
+        {
+          "productIndex": "3015384",
+          "brand": "YELLOW BEE",
+          "title": "S/P009 C2 52mm 옐로우비 선글라스",
+          "price": "195,000",
+          "discountRate": "",
+          "href": "product.php?productIndex=3015384",
+          "thumbnail": "https://image.rounz.com/_data/product/YELLOWBEE/S_P009-C2(52)/S_P009-C2(52)_03.JPG"
         }
       ]
     }

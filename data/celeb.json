@@ -206,13 +206,6 @@
       "celeb": null,
       "brand": null,
       "productName": null,
-      "image": "https://image.rounz.com/_data/product/NISHIDEKAZUO/NK761-C2/NK761-C2_03.JPG",
-      "href": "product.php?productIndex=3016742"
-    },
-    {
-      "celeb": null,
-      "brand": null,
-      "productName": null,
       "image": "https://image.rounz.com/_data/product/YELLOWBEE/O_M003-C2(53)/O_M003-C2(53)_03.JPG",
       "href": "product.php?productIndex=3015364"
     },
@@ -250,6 +243,13 @@
       "productName": null,
       "image": "https://image.rounz.com/_data/product/CARVEN/TRUMP-C5(49)/TRUMP-C5(49)_03.JPG",
       "href": "product.php?productIndex=3014078"
+    },
+    {
+      "celeb": null,
+      "brand": null,
+      "productName": null,
+      "image": "https://image.rounz.com/_data/product/CARVEN/BOOSTER-52-C1(52)/BOOSTER-52-C1(52)_03.webp",
+      "href": "product.php?productIndex=3013403"
     },
     {
       "celeb": null,

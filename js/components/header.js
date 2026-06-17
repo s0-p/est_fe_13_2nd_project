@@ -11,11 +11,11 @@ function createHeader() {
   if (screenWidth < 1280) {
     newHeader.innerHTML = `
       <div class="display_flex align_items_center col_gutter_gap">
-        <div class="hamberger display_flex flex_column">
+        <button class="hamberger display_flex flex_column">
           <div class="top_line"></div>
           <div class="bottom_line"></div>
-        </div>
-        <a class="material-icons icon_24">search</a>
+        </button>
+        <button class="material-icons icon_24">search</button>
       </div>
       <a href="/index.html"><h1>ROUNZ</h1></a>
       <div class="display_flex align_items_center col_gutter_gap">

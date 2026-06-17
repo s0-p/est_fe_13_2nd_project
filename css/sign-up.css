@@ -103,6 +103,9 @@ button {
   display: grid;
   gap: 20px;
 }
+.sign_up_box  input::placeholder {
+  text-indent: 10px;
+}
 
 .sing_text .check_box input {
   width: 20px;
