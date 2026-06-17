@@ -7,6 +7,7 @@
 /* Keyword filters */
 .keyword_filters {
   gap: var(--unit-m-gutter);
+  color: var(--primary-subtle);
   .keyword {
     background: var(--surface-bg);
     padding: 3px 7px;
@@ -23,40 +24,45 @@
 .customoverlay {
   position: relative;
   bottom: 10px;
-  border-radius: 6px;
+  overflow: hidden;
   background: var(--surface-bg);
   border: none;
+}
+.customoverlay::after {
+  display: none;
 }
 
 .map-overlay-card {
   width: 212px;
+  box-sizing: border-box;
   background-color: var(--surface-bg);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
   overflow: hidden;
   position: relative;
+}
 
-  .card-body {
-    position: relative;
-    padding: 20px 16px 0;
+.card-body {
+  position: relative;
+  padding: 20px 16px 0;
+}
 
-    .wish_btn {
-      color: var(--secondary);
-      background: var(--surface-tint);
-      cursor: pointer;
-    }
+.wish_btn {
+  color: var(--secondary);
+  background: var(--surface-tint);
+  cursor: pointer;
+}
 
-    .card_header {
-      gap: 10px;
-    }
-  }
-  // 상세보기 버튼
-  .btn_detail_blue {
-    width: 212px;
-    height: 40px;
-    background: var(--primary);
-    color: var(--surface-bg);
-    text-decoration: none;
-  }
+.card_header {
+  gap: 10px;
+}
+
+// 상세보기 버튼
+.btn_detail_blue {
+  width: 100%;
+  height: 40px;
+  background: var(--primary);
+  color: var(--surface-bg);
+  text-decoration: none;
 }
 
 //검색창
@@ -71,12 +77,10 @@
 }
 .store_sidebar {
   position: absolute;
-  top: 20px;
-  left: 16px;
-  right: 16px;
-
-  z-index: 10;
+  inset: 0;
+  z-index: 100;
 }
+
 fieldset {
   position: relative;
 }
@@ -96,27 +100,134 @@ fieldset {
 }
 // 매장 목록 열기
 .list_toggle_bar {
-  position: fixed;
-  /* 또는 absolute */
-
+  position: absolute;
   bottom: 32px;
   left: 50%;
-
   transform: translateX(-50%);
-
-  z-index: 20;
+  z-index: 200;
+  transition: 0.3s;
+}
+.list_toggle_bar.active {
+  bottom: calc(70vh + 20px);
 }
 .btn_toggle_list {
   height: 40px;
   padding: 0 24px;
 }
+// 매장 목록
+.store_list_wrapper {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 72px;
+  width: 100%;
+  height: 70vh;
+  background: var(--surface-tint);
+  z-index: 100;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(100%);
+  transition: 0.3s;
+}
+.store_list_wrapper.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.bottom_sheet_handle {
+  width: 48px;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--text-light);
+  margin: 12px auto;
+}
+.btn_detail {
+  position: absolute;
+  bottom: 40%;
+  right: 20px;
+
+  transform: translateY(-50%);
+}
+
+.store_list {
+  height: calc(100% - 28px);
+  overflow-y: auto;
+  .store_item {
+    position: relative;
+    padding: 24px 20px;
+    border-bottom: 1px solid var(--stroke);
+    .store_address {
+      margin-bottom: 12px;
+    }
+    .store_header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      .wish_btn {
+        color: var(--secondary);
+        background: var(--surface-tint);
+        cursor: pointer;
+      }
+    }
+  }
+}
+
 // 태블릿
 @media (min-width: 768px) {
 }
 
 // 데스크탑
-@media (min-width: 1200px) {
+@media (min-width: 1280px) {
   .filters {
     align-items: center;
+  }
+  .map_view_area {
+    display: flex;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 40px 0;
+    justify-content: center;
+    gap: 112px;
+    background-color: var(--surface-bg);
+  }
+  .store_sidebar {
+    position: static;
+    inset: auto;
+    width: 508px;
+    padding: 20px 24px;
+    max-height: 544px;
+    border: 1px solid var(--stroke);
+    overflow-y: auto;
+  }
+  .desktop_search {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .search_box {
+    width: 100%;
+    z-index: auto;
+  }
+  .store_list_wrapper {
+    position: static;
+    width: 100%;
+    max-height: 460px;
+    flex: 1;
+    overflow-y: auto;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+  .list_toggle_bar {
+    display: none;
+  }
+  #map {
+    flex: 1;
+    min-width: 0;
+    max-height: 544px;
   }
 }

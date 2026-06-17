@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF_8" />
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -39,8 +39,58 @@
 
       <section class="map_view_area">
         <!-- 맵 API -->
+
+        <article class="store_sidebar display_flex flex_column">
+          <aside class="desktop_search">
+            <div class="search_box">
+              <!-- 검색창 -->
+              <form action="#" method="get" onsubmit="return false;">
+                <fieldset>
+                  <span class="material-icons icon_16 search_icon">search</span>
+                  <input
+                    type="search"
+                    id="storeSearch"
+                    class="input_search glassmorphism border_round pre_reg_16"
+                    placeholder="매장 검색"
+                  />
+                  <button type="submit" class="btn_search_submit" aria-label="검색"></button>
+                </fieldset>
+              </form>
+            </div>
+            <!-- 목록 열기 -->
+            <div class="list_toggle_bar display_flex align_items_center">
+              <button type="button" class="btn_toggle_list glassmorphism border_round pre_reg_16" aria-expanded="false">
+                <span class="material-icons icon_16">menu</span>
+                <span class="toggle_text">매장 목록 열기</span>
+                <span class="material-icons icon_16 arrow">expand_more</span>
+              </button>
+            </div>
+          </aside>
+          <!-- 바텀 시트 핸들 -->
+          <div class="store_list_wrapper">
+            <div class="bottom_sheet_handle"></div>
+            <!-- 매장 목록 -->
+            <ul class="store_list">
+              <!-- <li class="store_item">
+                <div class="store_header">
+                  <button
+                    type="button"
+                    class="wish_btn border_round material-icons icon_24"
+                    aria-label="관심 매장 등록"
+                  >
+                    favorite_border
+                  </button>
+                  <strong class="store_name display_block pre_bold_14">라운즈 강남역점</strong>
+                </div>
+                <address class="store_address pre_reg_12">서울 강남구 역삼로 109 1층</address>
+                <span class="store_tel pre_reg_12">0507-1387-1041</span>
+                <a href="#" class="btn_detail material-icons icon_16" aria-label="상세보기"> chevron_right </a>
+              </li> -->
+            </ul>
+          </div>
+        </article>
         <div id="map"></div>
-        <!-- <div class="map-overlay-card">
+        <!-- 인포윈도우 <div class="map-overlay-card">
               <div class="card-body display_flex flex_column">
                 <div class="card_header display_flex align_items_center">
                    <button type="button" class="wish_btn material-icons icon_24 border_round" aria-label="관심 매장 등록">
@@ -53,42 +103,6 @@
               </div>
               <a href="https://map.kakao.com/link/to/라운즈 강남역점,37.4935506,127.0310534" class="btn_detail_blue display_flex justify_content_center align_items_center pre_reg_14" target="_blank">상세보기</a>
             </div> -->
-        <article class="store_sidebar">
-          <div class="search_box">
-            <form action="#" method="get" onsubmit="return false;">
-              <fieldset>
-                <span class="material-icons icon_16 search_icon">search</span>
-                <input
-                  type="search"
-                  id="storeSearch"
-                  class="input_search glassmorphism border_round pre_reg_16"
-                  placeholder="매장 검색"
-                />
-                <button type="submit" class="btn_search_submit" aria-label="검색"></button>
-              </fieldset>
-            </form>
-          </div>
-
-          <div class="list_toggle_bar">
-            <button type="button" class="btn_toggle_list glassmorphism border_round pre_reg_16" aria-expanded="false">
-              매장 목록 열기
-            </button>
-          </div>
-
-          <div class="store_list_wrapper" id="storeList" hidden>
-            <ul class="store_list">
-              <li class="store_item active">
-                <button type="button" class="wish_btn material-icons icon_24 border_round" aria-label="관심 매장 등록">
-                  favorite_border
-                </button>
-                <strong class="store_name">라운즈 강남역점</strong>
-                <address class="store_address">서울 강남구 역삼로 109 1층</address>
-                <span class="store_tel">0507-1387-1041</span>
-                <a href="#" class="btn_detail">상세보기</a>
-              </li>
-            </ul>
-          </div>
-        </article>
       </section>
     </main>
 
@@ -100,10 +114,7 @@
       import renderHeader from '../js/components/header.js';
       renderHeader();
     </script>
-    <script
-      type="text/javascript"
-      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7e81f14ae23ad2cb3747737e1524bd9a"
-    ></script>
+    <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7e81f14ae23ad2cb3747737e1524bd9a"></script>
     <script src="../js/map.js"></script>
   </body>
 </html>

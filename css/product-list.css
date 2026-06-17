@@ -36,6 +36,7 @@ body {
 
 /* Filter */
 .filters {
+  width: 100%;
   color: var(--primary-subtle);
   /* Keyword filters */
 }
@@ -65,8 +66,12 @@ body {
 }
 .filters .sort_panel > li {
   padding: 10px;
+  cursor: pointer;
 }
-.filters .sort_panel > li > input {
+.filters .sort_panel > li label {
+  cursor: pointer;
+}
+.filters .sort_panel > li input {
   width: 1px;
   height: 1px;
   padding: 0;
@@ -159,6 +164,61 @@ body {
   }
 }
 
+.more_btn {
+  width: max-content;
+  padding: 10px;
+  color: var(--primary-subtle);
+  background: var(--surface-bg);
+}
+.more_btn:active {
+  background: var(--primary-subtle);
+  color: var(--surface-bg);
+}
+.more_btn:disabled {
+  color: var(--text-light);
+  background: var(--stroke);
+  cursor: not-allowed;
+}
+
+.skeleton_card {
+  gap: 8px;
+  padding: var(--unit-row) var(--unit-m-gutter);
+  background: var(--surface-bg);
+}
+.skeleton_card .skeleton {
+  position: relative;
+  overflow: hidden;
+  background: #eef1f6;
+}
+.skeleton_card .skeleton:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, transparent 0%, color-mix(in oklab, #e3e8f1 80%, transparent) 50%, transparent 100%);
+  animation: shimmer 1.2s infinite;
+}
+.skeleton_card .content {
+  gap: 8px;
+}
+.skeleton_card .skeleton.media {
+  aspect-ratio: 4/3;
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  background: linear-gradient(#eef1f6, #e3e8f1);
+}
+.skeleton_card .skeleton.line {
+  height: 12px;
+}
+
+@keyframes shimmer {
+  from {
+    transform: translate(-100%);
+  }
+  to {
+    transform: translate(100%);
+  }
+}
 /* Product List */
 /* Toast Cart */
 .toast_wrapper {
@@ -193,6 +253,7 @@ body {
   padding: var(--unit-m-gutter);
   pointer-events: auto;
   opacity: 0;
+  visibility: hidden;
 }
 .toast_cart .message {
   gap: 5px;
