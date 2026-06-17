@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   var map = new kakao.maps.Map(mapContainer, mapOption);
 
-  // 1. 마커 생성
+  // 마커 생성
   var marker = new kakao.maps.Marker({
     position: storePosition,
   });
@@ -31,12 +31,22 @@ document.addEventListener('DOMContentLoaded', function () {
     </div>
   `;
 
-  // 3. 커스텀 오버레이 생성 및 지도에 표시
+  // 커스텀 오버레이 생성 및 지도에 표시
   var customOverlay = new kakao.maps.CustomOverlay({
     position: storePosition,
     content: content,
-    yAnchor: 2.5, // 마커 정중앙 살짝 위에 안착하도록 높이 조절
+    yAnchor: 2.5, // 높이 조절
   });
 
   customOverlay.setMap(map);
+});
+
+// 관심 매장 등록 클릭 이벤트
+const wishBtn = document.querySelector('.wish_btn');
+wishBtn.addEventListener('click', () => {
+  const isFavorite = wishBtn.textContent.trim() === 'favorite_border';
+
+  wishBtn.textContent = isFavorite ? 'favorite' : 'favorite_border';
+
+  wishBtn.setAttribute('aria-label', isFavorite ? '관심 매장 해제' : '관심 매장 등록');
 });
