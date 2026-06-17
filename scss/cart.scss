@@ -181,9 +181,7 @@ a {
   height: 20px;
 }
 
-.desktop_checkout,
-.quick_sidebar,
-.site_footer {
+.desktop_checkout {
   display: none;
 }
 
@@ -306,6 +304,9 @@ a {
   color: var(--text-default);
   background: var(--surface-bg);
   border: 1px solid var(--primary);
+}
+.ask_button:active {
+  box-shadow: 1px 1px 10px 1px var(--secondary-muted);
 }
 
 .modal {
@@ -465,6 +466,9 @@ a {
 .cancel_button:active {
   color: var(--surface-bg);
   background: var(--primary);
+}
+.mobile_version {
+  display: none;
 }
 
 // 태블릿
@@ -699,15 +703,6 @@ a {
     display: none;
   }
 
-  .site_footer {
-    // 나중에 삭제
-    display: block;
-    height: 380px;
-    margin-top: 80px;
-    border-top: 1px solid var(--text-default);
-    text-align: center;
-  }
-
   // 데스크탑 모달창
   .option_list_box,
   .modal_total,
@@ -774,4 +769,9 @@ a {
 // 빈 장바구니
 .empty_cart {
   text-align: center;
+}
+
+// 사이드바
+.side_bar .pc_version {
+  display: flex;
 }
