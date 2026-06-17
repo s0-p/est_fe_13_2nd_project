@@ -70,3 +70,51 @@ toggleBtn.addEventListener('click', () => {
 
   arrow.textContent = isOpen ? 'expand_less' : 'expand_more';
 });
+/* 데이터 불러오기 */
+let stores = [];
+
+async function loadStores() {
+  try {
+    const response = await fetch('../data/stores.json');
+    stores = await response.json();
+
+    renderStoreList();
+  } catch (error) {
+    console.error('매장 데이터 로드 실패', error);
+  }
+}
+
+loadStores();
+//
+const storeList = document.querySelector('.store_list');
+function renderStoreList() {
+  storeList.innerHTML = stores
+    .map(
+      (store) => `
+      <li class="store_item">
+        <div class="store_header">
+          <button
+            type="button"
+            class="wish_btn border_round material-icons icon_24"
+            aria-label="관심 매장 등록"
+          >
+            favorite_border
+          </button>
+
+          <strong class="store_name display_block pre_bold_14">
+            ${store.name}
+          </strong>
+        </div>
+
+        <address class="store_address pre_reg_12">
+          ${store.address}
+        </address>
+
+        <span class="store_tel pre_reg_12">
+          ${store.tel}
+        </span>
+      </li>
+    `,
+    )
+    .join('');
+}
