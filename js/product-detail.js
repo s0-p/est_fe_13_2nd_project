@@ -1,3 +1,6 @@
+import renderHeader from './components/header.js';
+import { getCartItems, saveCartItems, addToCart } from './components/common.js';
+
 let productInfoSection = null;
 let slideHero = null;
 let slideHeroWrapper = null;
@@ -11,6 +14,12 @@ let imgSpecSizeWrapper = null;
 let imgSpecMainWrapper = null;
 let infoAccordionHeader = null;
 let infoAccordionPanel = null;
+let ctaQuantityInput = null;
+let ctaQuantityPlusBtn = null;
+let ctaQuantityMinusBtn = null;
+let ctaTotalPrice = null;
+let ctaCartBtn = null;
+let ctaPurchaseBtn = null;
 let tabItems = [];
 let contentItems = [];
 
@@ -22,12 +31,91 @@ document.addEventListener('DOMContentLoaded', () => {
   productInfoSection = document.querySelector('.product_info');
   imgSpecSizeWrapper = document.querySelector('.spec_image_wrapper > figure');
   imgSpecMainWrapper = document.querySelector('.spec_photos');
+  ctaQuantityInput = document.getElementById('quantity');
+  ctaQuantityPlusBtn = document.getElementById('plus');
+  ctaQuantityMinusBtn = document.getElementById('minus');
+  ctaTotalPrice = document.querySelector('.total_price');
+  ctaCartBtn = document.getElementById('addcart');
+  ctaPurchaseBtn = document.querySelector('.btn_purchase');
 
   initSwiper();
   initProduct();
   initTabMenu();
   initResponsiveLayout();
+  /**call import functions */
+  renderHeader();
 });
+
+/**
+ * init cta section
+ *
+ * @param {*} data
+ */
+function initCTA(data) {
+  if (
+    !ctaTotalPrice ||
+    !ctaQuantityInput ||
+    !ctaQuantityPlusBtn ||
+    !ctaQuantityMinusBtn ||
+    !ctaCartBtn ||
+    !ctaPurchaseBtn
+  )
+    return;
+
+  updateTotalPrice(data, 1);
+
+  ctaQuantityPlusBtn.addEventListener('click', () => {
+    let currentQuantity = parseInt(ctaQuantityInput.value, 10);
+    if (isNaN(currentQuantity)) currentQuantity = 1;
+
+    currentQuantity += 1;
+    ctaQuantityInput.value = currentQuantity;
+
+    updateTotalPrice(data, currentQuantity);
+  });
+
+  ctaQuantityMinusBtn.addEventListener('click', () => {
+    let currentQuantity = parseInt(ctaQuantityInput.value, 10);
+    if (isNaN(currentQuantity)) currentQuantity = 1;
+
+    if (currentQuantity > 1) {
+      currentQuantity -= 1;
+      ctaQuantityInput.value = currentQuantity;
+
+      updateTotalPrice(data, currentQuantity);
+    }
+  });
+
+  ctaCartBtn.addEventListener('click', (e) => {
+    let currentQuantity = parseInt(ctaQuantityInput.value, 10);
+    if (isNaN(currentQuantity)) currentQuantity = 1;
+
+    addToCart(data, currentQuantity);
+    alert('장바구니에 상품을 추가하였습니다.');
+    window.location.reload();
+  });
+
+  ctaPurchaseBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    // 1. 상품 구매 페이지로 이동합니다. << 메세지창 팝업
+    alert('상품 구매 페이지로 이동합니다.');
+    // 2. 페이지 새로고침
+    window.location.reload();
+  });
+}
+
+/**
+ * update total price
+ *
+ * @param {*} data
+ * @param {number} quantity
+ */
+function updateTotalPrice(data, quantity) {
+  const total = Number(data.price.replace(/[^0-9]/g, '')) * quantity;
+
+  ctaTotalPrice.textContent = `${total.toLocaleString()}원`;
+}
 
 /**
  * change main layout by resolution changes
@@ -152,10 +240,10 @@ function renderTabMenu(tabs, contents, targetIndex) {
 
     if (index === targetIndex) {
       tab.classList.add('is_active');
-      content.classList.remove('display_none');
+      content.classList.remove('display_none_priority');
     } else {
       tab.classList.remove('is_active');
-      content.classList.add('display_none');
+      content.classList.add('display_none_priority');
     }
   });
 }
@@ -268,7 +356,9 @@ async function initProduct() {
     productsList = Array.isArray(productsJson) ? productsJson : [productsJson];
 
     /**test */
-    const currentProduct = productsList[0];
+    let testIdx = Math.floor(Math.random() * productsList.length);
+    console.log(testIdx);
+    const currentProduct = productsList[testIdx];
     /**test */
 
     // filterCmsDescriptionImages(currentProduct.cmsDescriptionImages);
@@ -280,6 +370,7 @@ async function initProduct() {
     renderSlide(similarProducts, 2);
     renderInfo(currentProduct);
     initInfoAccordion();
+    initCTA(currentProduct);
   } catch (error) {
     console.error('제품 데이터를 로드 중 오류가 발생했습니다: ', error);
   }

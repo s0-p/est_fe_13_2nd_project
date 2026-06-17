@@ -1,5 +1,9 @@
 /* Layout */
 .display_none {
+  display: none;
+}
+
+.display_none_priority {
   display: none !important;
 }
 
@@ -87,11 +91,11 @@
 /* Apply Gradient Color */
 /* Glassmorphism */
 .glassmorphism {
-  background: color-mix(in srgb, var(--surface-bg) 30%, transparent);
+  background: color-mix(in oklab, var(--surface-bg) 30%, transparent);
   -webkit-backdrop-filter: blur(15px);
   backdrop-filter: blur(15px);
-  border: 1px solid color-mix(in srgb, var(--surface-bg) 30%, transparent);
-  box-shadow: 0 8px 32px 0 color-mix(in srgb, var(--text-default) 15%, transparent);
+  border: 1px solid color-mix(in oklab, var(--surface-bg) 30%, transparent);
+  box-shadow: 0 8px 32px 0 color-mix(in oklab, var(--text-default) 15%, transparent);
 }
 
 /* Glassmorphism */
@@ -103,6 +107,12 @@
   text-align: center;
 }
 
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 body {
   box-sizing: border-box;
   background-color: var(--surface-bg);
@@ -110,12 +120,12 @@ body {
 }
 @media (min-width: 1440px) {
   body {
-    background-color: #f5f5f5;
+    background-color: var(--surface-bg-beige);
   }
 }
 
 main {
-  background-color: #f5f5f5;
+  background-color: var(--surface-bg-beige);
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -125,7 +135,73 @@ main .hero {
 }
 main .sticky {
   width: 100%;
-  gap: 80px;
+  margin-bottom: 80px;
+  gap: var(--unit-row);
+}
+@media (min-width: 1440px) {
+  main .sticky {
+    margin-bottom: 0;
+  }
+}
+main .sticky .product_cta {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  gap: var(--unit-row);
+  width: 100%;
+  box-sizing: border-box;
+  padding: var(--unit-row) var(--unit-m-gutter);
+  margin: 0 !important;
+  background-color: var(--surface-bg-beige);
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.1);
+  z-index: 9999;
+}
+main .sticky .product_cta .quantity_box label {
+  width: fit-content;
+}
+main .sticky .product_cta .quantity_box .quantity_controller {
+  width: fit-content;
+  padding-bottom: 1px;
+  border: 1px solid var(--text-muted);
+}
+main .sticky .product_cta .quantity_box .quantity_controller button {
+  width: 20px;
+}
+main .sticky .product_cta .quantity_box .quantity_controller input {
+  width: 20px;
+  border: 0;
+  background-color: var(--transparent);
+  text-align: center;
+}
+main .sticky .product_cta .total_price_box {
+  gap: calc(var(--unit-row) * 0.25);
+}
+main .sticky .product_cta .cta_box {
+  gap: calc(var(--unit-m-gutter) * 0.5);
+  height: calc(var(--unit-row) * 3);
+}
+main .sticky .product_cta .cta_box button {
+  height: 100%;
+  aspect-ratio: 1/1;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  background-color: var(--transparent);
+}
+main .sticky .product_cta .cta_box a {
+  height: 100%;
+  width: 100%;
+  color: var(--surface-bg);
+  background-color: var(--primary);
+}
+@media (min-width: 1440px) {
+  main .sticky .product_cta {
+    position: static;
+    padding: 0 var(--unit-pc-margin);
+    box-shadow: none;
+  }
+  main .sticky .product_cta .cta_box {
+    height: calc(var(--unit-row) * 2);
+  }
 }
 main .main_contents {
   width: 100%;
@@ -312,6 +388,11 @@ h1 {
   margin-top: calc(var(--unit-row) * 4);
   margin-bottom: 0 !important;
 }
+@media (min-width: 1440px) {
+  .product_other_color {
+    margin-top: var(--unit-row);
+  }
+}
 
 .product_similar {
   margin-top: 0 !important;
@@ -339,7 +420,7 @@ h1 {
 }
 
 .product_content {
-  background-color: #f5f5f5;
+  background-color: var(--surface-bg-beige);
 }
 .product_content .content_tab_menu {
   position: sticky;
@@ -347,7 +428,7 @@ h1 {
   z-index: 100;
   width: 100%;
   border-bottom: 1.5px solid var(--stroke);
-  background-color: #f5f5f5;
+  background-color: var(--surface-bg-beige);
 }
 .product_content .content_tab_menu .tab_item {
   flex: 1;
@@ -381,7 +462,7 @@ h1 {
 .product_content .content_details {
   padding-top: calc(var(--unit-row) * 4 + 50px);
   gap: calc(var(--unit-row) * 4);
-  background-color: #f5f5f5;
+  background-color: var(--surface-bg-beige);
 }
 .product_content .content_details h2 {
   display: block;

@@ -1,5 +1,9 @@
 /* Layout */
 .display_none {
+  display: none;
+}
+
+.display_none_priority {
   display: none !important;
 }
 
