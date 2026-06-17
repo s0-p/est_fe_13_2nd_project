@@ -1,6 +1,6 @@
 /* Layout */
 .display_none {
-  display: none;
+  display: none !important;
 }
 
 .display_block {
