@@ -28,7 +28,7 @@ button {
 }
 
 .sign_header h1 {
-  font-family: "Pretendard", sans-serif;
+  font-family: 'Pretendard', sans-serif;
   font-size: 24px;
   font-weight: 700;
   line-height: 20px;
@@ -36,19 +36,16 @@ button {
   left: 50%;
   transform: translateX(-50%);
 }
-
 .sign_contents {
   padding-top: 60px;
 }
-
 .sign_contents h2 {
-  font-family: "Pretendard", sans-serif;
+  font-family: 'Pretendard', sans-serif;
   font-size: 24px;
   font-weight: 700;
   line-height: 20px;
   text-align: center;
 }
-
 .sign_box img {
   max-width: 767px;
   width: 100%;
@@ -65,26 +62,21 @@ button {
   display: grid;
   padding: 40px 0;
 }
-
 .sign_up_box input {
   width: 100%;
   height: 40px;
   border: 1px solid var(--text-light);
 }
-
 .sign_up_box p {
   height: 20px;
 }
-
 .sign_up_box .sign_id {
   display: flex;
   gap: 16px;
 }
-
 .sign_up_box .sign_id input {
   width: calc(100% - 114px);
 }
-
 .sign_up_box .sign_id button {
   width: 98px;
   height: 100%;
@@ -97,24 +89,20 @@ button {
   display: flex;
   position: relative;
 }
-
 .check_box span {
   padding-left: 10px;
   color: var(--text-light);
 }
-
 .check_box button {
   position: absolute;
   right: 0;
   color: var(--primary);
 }
-
 .sing_text {
   padding: 0 0 40px 0;
   display: grid;
   gap: 20px;
 }
-
 .sign_up_box input::placeholder {
   text-indent: 10px;
 }
@@ -141,12 +129,10 @@ button {
 .login_box .text {
   width: 160px;
 }
-
 .signup_complete {
   width: 100%;
   align-content: center;
 }
-
 .signup_complete img {
   height: calc(80% - 60px);
   display: block;
@@ -210,13 +196,15 @@ button {
   .signup_complete img {
     height: 510px;
   }
-} 
+} /*# sourceMappingURL=sign-in.css.map */
+
 .sign_modal {
   display: none;
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.5);
   z-index: 1000;
+
   justify-content: center;
   align-items: center;
 }
@@ -229,6 +217,7 @@ button {
   width: 500px;
   max-width: 90%;
   max-height: 80vh;
+
   background: #fff;
   border-radius: 12px;
   overflow: hidden;
@@ -238,6 +227,7 @@ button {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   padding: 20px;
   border-bottom: 1px solid #ddd;
 }
@@ -248,7 +238,6 @@ button {
   overflow-y: auto;
   line-height: 1.8;
 }
-
 .modal_body h4 {
   margin: 20px 0 10px;
   font-size: 16px;
@@ -268,7 +257,6 @@ button {
   line-height: 1.7;
   list-style: disc;
 }
-
 .close_btn {
   border: none;
   background: none;

@@ -1,22 +1,157 @@
 import headerModule from './components/header.js';
 import createProductCard from './components/product-card.js';
+import { parseNumber } from './components/common.js';
 headerModule();
+
+const productList = document.querySelector('.product_list');
+const DATA_PATH = `../data/products.json`;
+const LIMIT = 12;
+let skip = 0;
+let isLoading = false;
+
+let products = null;
+let filteredData = [];
+let productCategory = [];
+let sortCategory = [];
+
 // Fillters
 const filters = document.querySelector('.filters');
 
 // keyword filters
 const keywordFilters = filters.querySelectorAll('.keyword');
-keywordFilters.forEach((keyword) => {
-  keyword.addEventListener('click', () => {
-    keyword.classList.toggle('active');
-  });
-});
 
 // Sort
 const sortBtn = filters.querySelector('.sort_btn');
 const currentSortOption = sortBtn.querySelector('div:last-child');
 const sortOptionsWrapper = filters.querySelector('.sort_panel');
 const sortOptions = sortOptionsWrapper.querySelectorAll('li');
+
+// Detailed filter
+const filterBtn = filters.querySelector('.filter_btn');
+const filterModal = document.querySelector('.filter_modal_wrapper');
+const filterOptions = filterModal.querySelectorAll('.filter_option');
+const filterModalClosebtn = filterModal.querySelector('.close_btn');
+const filterBtnsWrapper = filterModal.querySelector('.btns_wrapper');
+const filterResetBtn = filterBtnsWrapper.querySelector('.reset_btn');
+const filterApplyBtn = filterBtnsWrapper.querySelector('.apply_btn');
+
+const moreBtn = document.querySelector('.more_btn');
+
+await fetchData();
+renderProducts(products);
+
+// Data Load
+async function fetchData() {
+  if (isLoading) return;
+  isLoading = true;
+  try {
+    const res = await fetch(DATA_PATH);
+    if (!res.ok) throw new Error(`DATA_PATH:${res.status}`);
+    products = await res.json();
+    filteredData = products;
+
+    productCategory = [...new Set(products.map((p) => p.category))];
+    console.log(productCategory);
+  } catch (err) {
+    console.log(err);
+  } finally {
+    isLoading = false;
+  }
+}
+// renderProducts
+function renderProducts(data) {
+  const count = Math.min(skip + LIMIT, data.length);
+  let frag = document.createDocumentFragment();
+  for (let i = skip; i < count; i++) {
+    let card = createProductCard(data[i]);
+    frag.appendChild(card);
+
+    // Swiper Slide
+    let swiper = new Swiper(card.querySelector('.image_slider'), {
+      slidesPerView: 1,
+      spaceBetween: 1,
+      loop: true,
+      navigation: {
+        nextEl: card.querySelector('.image_next'),
+        prevEl: card.querySelector('.image_prev'),
+      },
+      pagination: {
+        el: card.querySelector('.read_only_pagers'),
+        clickable: false,
+        bulletClass: 'read_only_pager',
+        bulletActiveClass: 'read_only_pager_active',
+      },
+      allowTouchMove: true,
+      simulateTouch: true,
+      mousewheel: true,
+      keyboard: true,
+    });
+  }
+  productList.appendChild(frag);
+  skip += LIMIT;
+  moreBtn.disabled = count >= data.length;
+}
+function clearProductList() {
+  productList.innerHTML = ``;
+}
+function sortData(data, option) {
+  let sortedData = [...data];
+  switch (option) {
+    case 'latest':
+      sortedData = products;
+      break;
+    case 'popularity':
+      sortedData.sort((a, b) => parseNumber(b.likeCount) - parseNumber(a.likeCount));
+      break;
+    case 'lowest_price':
+      sortedData.sort((a, b) => {
+        if (a.isSoldOut) return 1;
+        if (b.isSoldOut) return -1;
+        return parseNumber(a.price) - parseNumber(b.price);
+      });
+      break;
+    case 'highest_price':
+      sortedData.sort((a, b) => {
+        if (a.isSoldOut) return 1;
+        if (b.isSoldOut) return -1;
+        return parseNumber(b.price) - parseNumber(a.price);
+      });
+      break;
+    case 'most_reviews':
+      sortedData.sort((a, b) => parseNumber(b.reviewCount) - parseNumber(a.reviewCount));
+      break;
+    default:
+      break;
+  }
+  return sortedData;
+}
+function renderSkeleton(count = LIMIT) {
+  for (let i = 0; i < count; i++) {
+    const skeletonCard = document.createElement('article');
+    skeletonCard.className = 'skeleton_card display_flex flex_column';
+    skeletonCard.innerHTML = `
+      <div class="media skeleton"></div>
+      <div class="content display_flex flex_column">
+        <div class="skeleton line" style="width: 40%"></div>
+        <div class="skeleton line" style="width: 55%"></div>
+        <div class="skeleton line" style="width: 70%"></div>
+      </div>
+    `;
+    productList.appendChild(skeletonCard);
+  }
+}
+function clearSkeleton() {
+  const skeletonCardList = productList.querySelectorAll('.skeleton_card');
+  skeletonCardList.forEach((card) => {
+    card.remove();
+  });
+}
+
+keywordFilters.forEach((keyword) => {
+  keyword.addEventListener('click', () => {
+    keyword.classList.toggle('active');
+  });
+});
 
 sortBtn.addEventListener('click', () => {
   sortOptionsWrapper.style.display = 'block';
@@ -26,85 +161,49 @@ sortOptions.forEach((option) => {
     const label = option.querySelector('label');
     currentSortOption.innerText = label.textContent;
 
-    const input = option.querySelector('input');
-    input.setAttribute('checked', true);
+    sortOptions.forEach((o) => {
+      o.querySelector('input').checked = false;
+    });
+    const selectedOption = option.querySelector('input');
+    selectedOption.checked = true;
 
     sortOptionsWrapper.style.display = 'none';
+
+    filteredData = sortData(products, selectedOption.getAttribute('value'));
+    clearProductList();
+    skip = 0;
+    moreBtn.disabled = false;
+    renderProducts(filteredData);
   });
 });
-// Detailed filter
-const filterBtn = filters.querySelector('.filter_btn');
-const filterModal = document.querySelector('.filter_modal_wrapper');
+
 filterBtn.addEventListener('click', () => {
   filterModal.classList.remove('display_none');
   filterModal.classList.add('display_flex');
 });
 
-const filterOptions = filterModal.querySelectorAll('.filter_option');
 filterOptions.forEach((option) => {
   option.addEventListener('click', () => {
     option.classList.toggle('active');
   });
 });
 
-const filterModalClosebtn = filterModal.querySelector('.close_btn');
 filterModalClosebtn.addEventListener('click', () => {
   filterModal.classList.remove('display_flex');
   filterModal.classList.add('display_none');
 });
 
-const filterBtnsWrapper = filterModal.querySelector('.btns_wrapper');
-const filterResetBtn = filterBtnsWrapper.querySelector('.reset_btn');
 filterResetBtn.addEventListener('click', () => {
   filterOptions.forEach((option) => {
     option.classList.remove('active');
   });
 });
-const filterApplyBtn = filterBtnsWrapper.querySelector('.apply_btn');
 filterApplyBtn.addEventListener('click', () => {
   filterModal.classList.remove('display_flex');
   filterModal.classList.add('display_none');
 });
-const productList = document.querySelector('.product_list');
-const DATA_PATH = `../data/products.json`;
-const LIMIT = 12;
-let total = 0;
-let skip = 0;
 
-async function loadProducts() {
-  try {
-    const res = await fetch(DATA_PATH);
-    if (!res.ok) throw new Error(`DATA_PATH:${res.status}`);
-    const products = await res.json();
-    total = products.length;
-    console.log(total);
-    for (let i = skip; i < skip + LIMIT; i++) {
-      console.log(createProductCard(products[i]));
-      let card = createProductCard(products[i]);
-
-      // Swiper Slide
-      let swiper = new Swiper(card.querySelector('.image_slider'), {
-        slidesPerView: 1,
-        spaceBetween: 0,
-        loop: true,
-        navigation: {
-          nextEl: card.querySelector('.image_next'),
-          prevEl: card.querySelector('.image_prev'),
-        },
-        pagination: {
-          el: card.querySelector('.read_only_pagers'),
-          clickable: false,
-        },
-        mousewheel: true,
-        keyboard: true,
-      });
-      productList.append(card);
-    }
-
-    skip += LIMIT;
-  } catch (err) {
-    console.log(err);
-  } finally {
-  }
-}
-loadProducts();
+// More Load Products
+moreBtn.addEventListener('click', () => {
+  renderProducts(filteredData);
+});

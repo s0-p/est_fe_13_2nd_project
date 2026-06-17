@@ -40,3 +40,6 @@ export function addToCart(product, qty = 1) {
 
   // totalCartCount();
 }
+export function parseNumber(value) {
+  return Number(String(value).replaceAll(',', ''));
+}

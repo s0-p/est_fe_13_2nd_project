@@ -36,9 +36,11 @@ button {
   left: 50%;
   transform: translateX(-50%);
 }
-.sign_contents{
-  padding: 0 0 40px 0 ;
+
+.sign_contents {
+  padding: 0 0 40px 0;
 }
+
 .sign_box img {
   max-width: 767px;
   width: 100%;
@@ -65,16 +67,15 @@ button {
 }
 
 .sign_in .sing_sns button:nth-child(1) {
-  background-color: #FAE000;
-  
+  background-color: #fae000;
 }
 
 .sign_in .sing_sns button:nth-child(2) {
-  background-color: #2DB400;
+  background-color: #2db400;
   color: var(--surface-bg);
 }
 
-.sign_in .sing_sns a:nth-child(3) button {
+.sign_in .sing_sns button:nth-child(3) {
   background-color: var(--surface-bg);
 }
 
@@ -102,8 +103,9 @@ button {
   padding: 0;
   border: 1px solid var(--text-light);
 }
+
 .sing_text > input::placeholder {
-  text-indent: 10px; 
+  text-indent: 10px;
 }
 
 .sing_text .check_box {
@@ -130,7 +132,7 @@ button {
 }
 
 .login_box .text {
-  width: 160px;
+  width: 170px;
 }
 
 @media (min-width: 768px) {
@@ -170,6 +172,9 @@ button {
   }
 }
 @media (min-width: 1200px) {
+  .sign_in {
+    width: 535px;
+  }
   .sign_header {
     height: 80px;
   }
