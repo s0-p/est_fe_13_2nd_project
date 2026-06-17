@@ -46,10 +46,6 @@
 }
 
 /* 메인히어로 mainhero */
-.mainpage #main_bf {
-  width: 100%;
-  margin: 0;
-}
 
 .mainhero {
   position: relative;
@@ -57,14 +53,13 @@
   overflow: hidden;
   aspect-ratio: 480 / 515;
   margin-top: calc(var(--unit-row) * 4);
-  /* min-height: 300px; */
   display: block;
 }
 .mainhero .swiper-pagination-fraction {
   position: absolute;
-  bottom: calc(var(--unit-row) * 2); /* 💡 밑에서부터 20px 띄우기 (위치는 원하는 대로 조절!) */
+  bottom: calc(var(--unit-row) * 2);
   transform: translateX(30%);
-  z-index: 10;
+  z-index: 9;
   font-weight: bold;
   text-align: center;
   background: var(--surface-tint);
@@ -110,7 +105,6 @@
   bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 2;
   width: 100%;
   max-width: 1200px;
   padding: 0 var(--unit-m-gutter) calc(var(--unit-row) * 2) var(--unit-m-gutter);
@@ -118,6 +112,51 @@
   display: flex;
   flex-direction: column;
   color: var(--surface-bg);
+  z-index: 10;
+}
+.mainhero .swipe_hint {
+  position: absolute;
+  bottom: 40%;
+  right: 0.5%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--dim-bg);
+  color: var(--surface-tint);
+  padding: 40px 20px;
+  border-radius: 999px;
+  font-size: 14px;
+  z-index: 11;
+
+  animation: swipeHintFade 2.5s ease forwards;
+}
+.hint_arrow {
+  animation: swipeHintSlide 0.8s ease infinite alternate;
+}
+
+@keyframes swipeHintFade {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+@keyframes swipeHintSlide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(6px);
+  }
 }
 .mainhero_title {
   font-size: 20px;
@@ -129,6 +168,7 @@
 .mainhero_sub_text {
   margin: 10px 0;
 }
+
 @media (min-width: 768px) {
   .mainhero {
     aspect-ratio: 8 / 5;
@@ -300,7 +340,7 @@
   .product_list {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: var(--unit-pc-gutter); /* 데스크톱 가로 간격 적용 */
+    gap: var(--unit-pc-gutter);
   }
   .product_card {
     grid-template-columns: 1fr;
@@ -458,7 +498,6 @@
     font-weight: bold;
   }
   .feature_desc {
-    /*  margin-right: 0; */
     color: var(--primary);
   }
 }
@@ -583,7 +622,7 @@
     grid-template-columns: repeat(3, 1fr);
 
     .collect_card:nth-child(n + 3) {
-      display: flex; // 다시 풀어주고
+      display: flex;
     }
     .collect_card:nth-child(n + 4) {
       display: none;
