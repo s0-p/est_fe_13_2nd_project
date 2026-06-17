@@ -1,6 +1,7 @@
 let map;
 
 document.addEventListener('DOMContentLoaded', function () {
+  if (!map) return;
   var mapContainer = document.getElementById('map');
   var storePosition = new kakao.maps.LatLng(37.4935506, 127.0310534); // 라운즈 강남점
 
@@ -12,10 +13,10 @@ document.addEventListener('DOMContentLoaded', function () {
   map = new kakao.maps.Map(mapContainer, mapOption);
 });
 // 마커 생성
-var marker = new kakao.maps.Marker({
-  position: storePosition,
-});
-marker.setMap(map);
+// var marker = new kakao.maps.Marker({
+//   position: storePosition,
+// });
+// marker.setMap(map);
 
 let customOverlay;
 
@@ -119,8 +120,8 @@ const storeList = document.querySelector('.store_list');
 function renderStoreList() {
   storeList.innerHTML = stores
     .map(
-      (store) => `
-      <li class="store_item">
+      (store, index) => `
+      <li class="store_item" data-index="${index}">
         <div class="store_header">
           <button
             type="button"
@@ -159,6 +160,6 @@ storeList.addEventListener('click', (e) => {
 
   const position = new kakao.maps.LatLng(Number(store.latitude), Number(store.longitude));
 
-  map.panTo(moveLatLon);
-  showStoreOverlay(store);
+  map.panTo(position);
+  storeOverlay(store);
 });
