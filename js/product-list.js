@@ -77,9 +77,7 @@ async function loadProducts() {
     if (!res.ok) throw new Error(`DATA_PATH:${res.status}`);
     const products = await res.json();
     total = products.length;
-    console.log(total);
     for (let i = skip; i < skip + LIMIT; i++) {
-      console.log(createProductCard(products[i]));
       let card = createProductCard(products[i]);
 
       // Swiper Slide

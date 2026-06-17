@@ -1,3 +1,4 @@
+import { addToCart } from './common.js';
 function createProductCard(p) {
   const productCard = document.createElement('div');
   productCard.className = 'product_card display_flex flex_column';
@@ -83,17 +84,17 @@ function createProductCard(p) {
   const toastCart = document.querySelector('.toast_cart');
   const toastProductName = toastCart.querySelector('.message .product_name');
   cartBtn.addEventListener('click', () => {
+    addToCart(p);
+
     toastProductName.textContent = p.title;
 
     toastCart.style.animation = 'none';
     void toastCart.offsetWidth;
     toastCart.style.animation = 'cart-fade 3s ease-in-out';
-    console.log('animation start');
   });
 
   toastCart.addEventListener('animationend', () => {
     toastCart.style.animation = 'none';
-    console.log('animation end');
   });
 
   if (p.isSoldOut) {
