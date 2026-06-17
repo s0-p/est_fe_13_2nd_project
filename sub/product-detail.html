@@ -21,6 +21,7 @@
   </head>
   <body>
     <header></header>
+
     <main class="display_flex flex_column">
       <section class="hero">
         <div class="swiper slide_basic slide_hero">
@@ -34,7 +35,7 @@
           </div>
         </div>
       </section>
-      <section class="sticky">
+      <section class="sticky display_flex flex_column">
         <section class="product_info contents display_flex flex_column">
           <!-- <div class="info_badge align_items_center pre_bold_10_auto">당일배송</div>
             <a href="#" class="info_brand display_flex align_items_center mont_reg_16">
@@ -75,6 +76,38 @@
               </div>
             </div> -->
         </section>
+
+        <div class="product_cta contents display_flex flex_column">
+          <div class="display_flex justify_content_between">
+            <div class="quantity_box display_flex flex_column justify_content_between">
+              <label class="pre_reg_12" for="quantity">수량</label>
+              <div class="quantity_controller display_flex align_items_center">
+                <button id="minus" type="button" aria-label="수량 줄이기">
+                  <span class="material-icons icon_16">remove</span>
+                </button>
+                <input id="quantity" type="text" value="1" aria-label="수량" class="mont_bold_14" />
+                <button id="plus" type="button" aria-label="수량 늘리기">
+                  <span class="material-icons icon_16">add</span>
+                </button>
+              </div>
+            </div>
+            <div class="total_price_box display_flex flex_column align_items_end">
+              <label class="pre_reg_12">총 상품금액</label>
+              <div class="total_price mont_bold_16">239,000원</div>
+            </div>
+          </div>
+          <div class="cta_box display_flex justify_content_between">
+            <button id="addcart" type="button" class="btn_cart">
+              <span class="material-icons icon_16">local_mall</span>
+            </button>
+            <a
+              type="button"
+              href="#"
+              class="btn_purchase display_flex justify_content_center align_items_center pre_bold_16"
+              >구매하기</a
+            >
+          </div>
+        </div>
 
         <section class="product_other_color contents">
           <h2 class="pre_bold_20">이 상품의 다른 컬러</h2>
@@ -155,7 +188,7 @@
               </div>
             </li>
 
-            <li class="display_none detail_review contents flex_column">
+            <li class="display_none_priority detail_review contents flex_column">
               <section class="review_photo_section">
                 <h2 class="pre_bold_20">포토후기(99+)</h2>
                 <div class="swiper slide_review_photo">
@@ -472,7 +505,7 @@
               </section>
             </li>
 
-            <li class="display_none detail_qna contents flex_column">
+            <li class="display_none_priority detail_qna contents flex_column">
               <h2 class="pre_bold_20">상품문의(99+)</h2>
 
               <div class="qna_accordion_container">
@@ -590,7 +623,7 @@
               </div>
             </li>
 
-            <li class="display_none detail_purchase_info contents flex_column">
+            <li class="display_none_priority detail_purchase_info contents flex_column">
               <h2 class="purchase_main_title pre_bold_20">구매 정보</h2>
 
               <div class="purchase_sub_section_container display_flex flex_column mont_reg_12">
@@ -804,6 +837,6 @@
         </section>
       </section>
     </main>
-    <script src="../js/product-detail.js"></script>
+    <script type="module" src="../js/product-detail.js"></script>
   </body>
 </html>
