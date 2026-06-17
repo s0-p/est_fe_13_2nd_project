@@ -1,34 +1,40 @@
 {
   "banners": [
     {
-      "href": "/collection.php?collectionIndex=13391",
+      "href": "https://rounz.com/collection.php?collectionIndex=13391",
       "imageUrl": "https://image.rounz.com/newrounz/banner/home/su/stylework2026_su.jpg",
-      "text": "여름 선글라스 특가전 6월 한정 특별 혜택 지금 바로 확인해보세요"
+      "text": "여름 선글라스 특가전 6월 한정 특별 혜택",
+      "subText": "지금 바로 확인해보세요"
     },
     {
-      "href": "/collection.php?collectionIndex=2325",
+      "href": "https://rounz.com/collection.php?collectionIndex=2325",
       "imageUrl": "https://image.rounz.com/newrounz/collection/2025bliz/cover.jpg",
-      "text": "최대 71% 할인 스포츠 선글라스 최저가 특가 한정 수량,지금 가장 좋은 혜택으로 준비하세요!"
+      "text": "최대 71% 할인 스포츠 선글라스 최저가 특가",
+      "subText": "한정 수량,지금 가장 좋은 혜택으로 준비하세요!"
     },
     {
-      "href": "/collection.php?collectionIndex=13323",
+      "href": "https://rounz.com/collection.php?collectionIndex=13323",
       "imageUrl": "https://image.rounz.com/newrounz/main/cover/cover_rayneo.jpg",
-      "text": "시야의 한계를 넘다 차원이 다른 시야를 경험해 보세요 AI 안경 무료 체험 예약하기"
+      "text": "시야의 한계를 넘다 차원이 다른 시야를 경험해 보세요",
+      "subText": "AI 안경 무료 체험 예약하기"
     },
     {
-      "href": "/collection.php?collectionIndex=13339",
+      "href": "https://rounz.com/collection.php?collectionIndex=13339",
       "imageUrl": "https://image.rounz.com/newrounz/main/cover/cover_publcbeacon.jpg",
-      "text": "자유를 향해 달려가는 설렘 2026 PUBLC BEACON 한정판 포토카드 증정지금 구경하러 가기"
+      "text": "자유를 향해 달려가는 설렘 2026 PUBLC BEACON",
+      "subText": "한정판 포토카드 증정지금 구경하러 가기"
     },
     {
       "href": "https://rounz.com/series.php?contentIndex=184",
       "imageUrl": "https://image.rounz.com/newrounz/collection/store/260528_pohang_namgu/pohang_namgu_banner_cover.jpg",
-      "text": "라운즈 포항남구점 GRAND OPEN 세상에 없던 안경 쇼핑, 포항에서도!"
+      "text": "라운즈 포항남구점 GRAND OPEN",
+      "subText": "세상에 없던 안경 쇼핑, 포항에서도!"
     },
     {
-      "href": "/collection.php?collectionIndex=13366",
+      "href": "https://rounz.com/collection.php?collectionIndex=13366",
       "imageUrl": "https://image.rounz.com/newrounz/collection/zeiss/zeiss_promotion_202605/cover_zeiss.jpg",
-      "text": "라운즈에서 자이스 렌즈 맞추면 10만원 상품권 드려요! 이벤트 참여방법 보러가기"
+      "text": "라운즈에서 자이스 렌즈 맞추면 10만원 상품권 드려요!",
+      "subText": "이벤트 참여방법 보러가기"
     }
   ],
   "menus": [],
