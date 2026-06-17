@@ -4,13 +4,119 @@ body {
   box-sizing: border-box;
   background-color: var(--surface-bg);
   color: var(--text-default);
+
+  @media (min-width: 1440px) {
+    & {
+      background-color: #f5f5f5;
+    }
+  }
 }
 
 main {
   background-color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 
+  .hero {
+    width: 100%;
+  }
+  .sticky {
+    width: 100%;
+    gap: 80px;
+  }
   .main_contents {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
     gap: calc(var(--unit-row) * 4);
+  }
+
+  @media (min-width: 1440px) {
+    & {
+      display: grid !important;
+      grid-template-columns: 1fr 420px;
+      align-items: start;
+
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0;
+    }
+
+    // new wrapper for grid: left column
+    .left_column_wrapper {
+      grid-column: 1;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      min-width: 0;
+
+      .hero,
+      .main_contents {
+        width: 100%;
+      }
+
+      .main_contents {
+        .content_details {
+          .detail_spec {
+            .spec_image_container {
+              .spec_image_wrapper {
+                width: 100% !important; // PC에선 600px 제한 풀고 부모 꽉 채우기
+                max-width: 100% !important;
+
+                // anti-mobile layout
+                .spec_photos {
+                  position: relative !important;
+                  width: 100% !important;
+                  left: 0 !important;
+                  right: 0 !important;
+                  margin-left: 0 !important;
+                  margin-right: 0 !important;
+                }
+
+                .spec_image {
+                  width: 100% !important;
+                  height: auto !important;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .hero {
+        width: 100%;
+
+        .swiper {
+          width: 100%;
+          height: 750px;
+
+          .swiper-wrapper {
+            flex-direction: column;
+          }
+
+          .swiper-slide {
+            width: 100%;
+            height: 100%;
+
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+          }
+        }
+      }
+    }
+
+    // new wrapper for grid: right column
+    .sticky {
+      grid-column: 2;
+      position: sticky;
+      top: calc(var(--unit-row) * 4);
+      z-index: 10;
+      width: 100%;
+    }
   }
 }
 
@@ -60,157 +166,30 @@ h1 {
     }
   }
 
-  .info_benefit_heading {
-    padding-top: calc(var(--unit-row) * 0.75);
-    border-top: 1px solid var(--stroke);
-  }
-}
+  .info_benefit_accordion {
+    .info_benefit_heading {
+      padding-top: calc(var(--unit-row) * 0.75);
+      border-top: 1px solid var(--stroke);
+      cursor: pointer;
 
-/*
-.card_slide {
-  margin-top: 0 !important;
-  margin-bottom: 0 !important;
+      &:hover {
+        color: var(--text-muted);
+      }
 
-  .card_slide_container {
-    width: 100%;
-    overflow: hidden;
+      .material-icons {
+        transition: transform 0.3s ease;
 
-    .card_group {
-      gap: var(--unit-m-gutter);
-
-      .card_item {
-        position: relative;
-        width: calc((100% - var(--unit-m-gutter)) / 2);
-        flex-shrink: 0;
-        gap: var(--unit-row);
-
-        &:hover {
-          cursor: pointer;
-
-          .card_product_img {
-            transform: scale(1.05);
-          }
-
-          .card_info_wrapper {
-            p {
-              text-decoration: underline;
-              color: var(--text-light);
-            }
-          }
-        }
-
-        &:nth-child(n + 3) {
-          display: none;
-        }
-
-        @media (min-width: 768px) {
-          width: calc((100% - (var(--unit-m-gutter) * 2)) / 3);
-
-          &:nth-child(3) {
-            display: flex;
-          }
-
-          &:nth-child(n + 4) {
-            display: none;
-          }
-        }
-
-        .card_visual_wrapper {
-          overflow: hidden;
-
-          .card_product_img {
-            width: 100%;
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-          }
-        }
-
-        .card_info_wrapper {
-          gap: calc(var(--unit-row) * 0.25);
-
-          .model_description {
-            color: var(--text-muted);
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-          }
+        &.is_rotated {
+          transform: rotateZ(180deg);
         }
       }
     }
-  }
 
-  // ===============================
-  // [오버라이딩] 포토 후기 슬라이드
-  // ===============================
-
-  h2 {
-    display: block;
-    margin-bottom: calc(var(--unit-row) * 2);
-  }
-
-  .card_item {
-    // 후기 카드는 마우스 오버 시 텍스트 밑줄 인터랙션 제외
-    &:hover {
-      .card_info_wrapper {
-        text-decoration: none;
-      }
-    }
-
-    .card_info_wrapper {
-      text-decoration: none;
-      gap: var(--unit-row);
-
-      // 1. 유저 프로필 메타 영역 (원형 프로필 정렬)
-      .review_meta_box {
-        gap: 10px;
-        width: 100%;
-
-        .avatar_box {
-          width: 40px;
-          height: 40px;
-          border-radius: 50%;
-          overflow: hidden;
-          flex-shrink: 0;
-
-          .avatar_img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-          }
-        }
-
-        .review_heading {
-          align-items: end;
-
-          // 별점 아이콘 노란색 및 평점 정렬
-          .rating_box {
-            .star_icon {
-              color: #ffcc00; // 별 아이콘 노란색 조건 반영
-            }
-
-            .score {
-              color: var(--text-muted);
-            }
-          }
-        }
-      }
-
-      // 2. 후기 본문 텍스트 (3줄 이상 시 '...' 처리 조건 반영)
-      .review_text_content {
-        // color: #222222;
-        margin-top: var(--unit-row);
-
-        // 멀티라인 말줄임 표준 렌더링 스펙
-        display: -webkit-box;
-        line-clamp: 3;
-        -webkit-line-clamp: 3; // 3줄 제한 고정
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
+    .panel_body {
+      margin-top: calc(var(--unit-row) * 0.25);
     }
   }
 }
-  */
 
 .hero {
   .slide_basic {
@@ -284,7 +263,11 @@ h1 {
   }
 }
 
-.product_other_color,
+.product_other_color {
+  margin-top: calc(var(--unit-row) * 4);
+  margin-bottom: 0 !important;
+}
+
 .product_similar {
   margin-top: 0 !important;
   margin-bottom: 0 !important;
@@ -314,9 +297,13 @@ h1 {
 }
 
 .product_content {
-  background-color: var(--surface-bg);
+  background-color: #f5f5f5;
 
   .content_tab_menu {
+    position: sticky;
+    top: 0; // GNB(헤더)가 있다면 그 높이만큼 지정 (ex: 80px)
+    z-index: 100;
+
     width: 100%;
     border-bottom: 1.5px solid var(--stroke);
     background-color: #f5f5f5;
@@ -328,10 +315,11 @@ h1 {
       .tab_button {
         border: none;
         width: 100%;
-        padding: calc(var(--unit-row) * 0.75) 0; // 15px
+        padding: calc(var(--unit-row) * 0.75) 0;
         color: var(--text-muted);
         transition: color 0.3s ease;
         background-color: var(--transparent);
+        cursor: pointer;
 
         &:hover {
           color: var(--text-default);
@@ -344,7 +332,6 @@ h1 {
           font-weight: 700;
         }
 
-        // 활성화된 탭의 위치로 left 조정 -> 애니메이션
         &::after {
           content: '';
           position: absolute;
@@ -353,14 +340,14 @@ h1 {
           width: 100%;
           height: 2.5px;
           background-color: var(--primary);
-          // transition: left 0.3s ease;
         }
       }
     }
   }
 
   .content_details {
-    margin-top: calc(var(--unit-row) * 4);
+    // margin-top: calc(var(--unit-row) * 4);
+    padding-top: calc(var(--unit-row) * 4 + 50px);
     gap: calc(var(--unit-row) * 4);
     background-color: #f5f5f5;
 
@@ -417,7 +404,163 @@ h1 {
       margin-top: 0 !important;
       margin-bottom: 0 !important;
 
+      display: flex;
       gap: calc(var(--unit-row) * 4);
+
+      .review_photo_section {
+        .swiper {
+          width: 100%;
+        }
+
+        .swiper-slide {
+          background-position: center;
+          background-size: cover;
+          width: 300px;
+          height: 480px;
+        }
+
+        .swiper-slide img {
+          display: block !important;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        .slide_review_photo {
+          width: 100vw;
+          margin-left: calc(-50vw + 50%);
+          margin-right: calc(-50vw + 50%);
+        }
+
+        .card_ui {
+          position: relative;
+          overflow: hidden;
+          cursor: pointer;
+
+          .card_ui_img_wrapper {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+
+            img {
+              width: 100%;
+              object-fit: cover;
+            }
+          }
+
+          // 2. 하단 정보 콘텐츠 래퍼
+          .card_ui_info_wrapper {
+            position: absolute;
+            width: 100%;
+            height: 240px;
+            bottom: 0;
+            left: 0;
+            padding: 0 16px;
+            box-sizing: border-box;
+            transition: height 0.3s ease-in;
+
+            .review_meta_box_wrapper {
+              position: inherit;
+              width: calc(100% - (16px * 2));
+              bottom: 20px;
+              // 리뷰어 아바타 + 평점 메타 박스
+              .review_meta_box {
+                width: 100%;
+                gap: 12px;
+                margin-bottom: 12px;
+
+                // 원형 리뷰어 아바타 프로필 사진
+                .avatar_box {
+                  width: 36px;
+                  height: 36px;
+                  border-radius: 50%;
+                  overflow: hidden;
+                  flex-shrink: 0; // 플렉스 레이아웃 내 크기 찌그러짐 방지
+
+                  img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                  }
+                }
+
+                // 우측 텍스트 정보 헤딩 블록
+                .review_heading {
+                  // flex-grow: 1;
+                  // gap: 2px;
+                  text-align: end;
+
+                  // 제품 품명 코드
+                  .info_code {
+                    color: #111111;
+                    line-height: 1.2;
+                  }
+
+                  // 별점 배치 영역
+                  .rating_box {
+                    justify-content: end;
+
+                    .star_icon {
+                      color: #fbc02d;
+                    }
+
+                    .rate {
+                      color: var(--text-muted);
+                    }
+                  }
+                }
+              }
+            }
+
+            // 3. 후기 본문 텍스트 (요구사항: 3줄 클램프 생략 처리)
+            .review_text_content {
+              display: -webkit-box;
+              line-clamp: 3;
+              -webkit-line-clamp: 3;
+              -webkit-box-orient: vertical;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: normal;
+            }
+          }
+
+          &:hover,
+          &:active,
+          &:focus {
+            // 하단 박스를 카드 전체 높이(100%)로 부드럽게 채움
+            .card_ui_info_wrapper {
+              height: 100%;
+              background-color: #f5f5f5ee;
+
+              .review_meta_box_wrapper {
+                top: 25%;
+              }
+            }
+
+            // 핵심: 3줄 제한(클램프) 속성을 무력화하여 글 전체 노출
+            .review_text_content {
+              display: block;
+              overflow-y: auto;
+              line-clamp: unset;
+              -webkit-line-clamp: unset;
+            }
+          }
+        }
+
+        // PC (1440px)
+        @media (min-width: 1440px) {
+          & {
+            // remove vw
+            width: 100% !important;
+          }
+
+          .slide_review_photo {
+            width: 100% !important;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+          }
+        }
+      }
 
       .review_normal_section {
         .card_slide_container {
@@ -513,6 +656,8 @@ h1 {
       margin-top: 0 !important;
       margin-bottom: 0 !important;
 
+      display: flex;
+
       .qna_accordion_container {
         width: 100%;
 
@@ -559,6 +704,8 @@ h1 {
     .detail_purchase_info {
       margin-top: 0 !important;
       margin-bottom: 0 !important;
+
+      display: flex;
 
       .purchase_sub_section_container {
         gap: var(--unit-row);

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .filters {
   background-color: var(--surface-tint);
   gap: calc(var(--unit-row));
@@ -16,6 +17,93 @@
 .keyword_filters .active {
   color: var(--surface-bg);
   background: var(--primary);
+}
+
+/* kakao map infowindow */
+.customoverlay {
+  position: relative;
+  bottom: 10px;
+  border-radius: 6px;
+  background: var(--surface-bg);
+  border: none;
+}
+
+.map-overlay-card {
+  width: 212px;
+  background-color: var(--surface-bg);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  position: relative;
+}
+.map-overlay-card .card-body {
+  position: relative;
+  padding: 20px 16px 0;
+}
+.map-overlay-card .card-body .wish_btn {
+  color: var(--secondary);
+  background: var(--surface-tint);
+  cursor: pointer;
+}
+.map-overlay-card .card-body .card_header {
+  gap: 10px;
+}
+.map-overlay-card .btn_detail_blue {
+  width: 212px;
+  height: 40px;
+  background: var(--primary);
+  color: var(--surface-bg);
+  text-decoration: none;
+}
+
+.map_view_area {
+  position: relative;
+  width: 100%;
+  height: calc(100dvh - 60px - 72px);
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+}
+
+.store_sidebar {
+  position: absolute;
+  top: 20px;
+  left: 16px;
+  right: 16px;
+  z-index: 10;
+}
+
+fieldset {
+  position: relative;
+}
+
+.search_icon {
+  position: absolute;
+  left: 16px;
+  top: 37%;
+  transform: translateY(-50%);
+  z-index: 20;
+}
+
+.input_search {
+  width: 100%;
+  height: 40px;
+  padding: 0 var(--unit-m-gutter);
+}
+
+.list_toggle_bar {
+  position: fixed;
+  /* 또는 absolute */
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+}
+
+.btn_toggle_list {
+  height: 40px;
+  padding: 0 24px;
 }
 
 @media (min-width: 1200px) {
