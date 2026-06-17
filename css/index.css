@@ -184,7 +184,7 @@
     margin-top: calc(var(--unit-row) * 3);
   }
   .mainhero_inner {
-    color: var(--text-default);
+    color: var(--surface-bg);
     padding: 0 var(--unit-t-gutter) calc(var(--unit-row) * 2);
   }
   .mainhero_inner a {
@@ -207,203 +207,195 @@
     aspect-ratio: 16/7;
   }
   .mainhero_inner {
-    color: var(--text-default);
     margin: 0 auto;
     max-width: 1320px;
     padding: 0 var(--unit-pc-gutter) calc(var(--unit-row) * 2);
     box-sizing: border-box;
   }
 }
-/* 베스트 프레임 main_bf */
 #main_bf {
   width: 100%;
-  box-sizing: border-box;
   overflow: hidden;
 }
-
-.main_bf_head {
+#main_bf .main_bf_head {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
   margin-bottom: calc(var(--unit-row) * 2);
 }
-
-.main_bf_more {
-  margin-top: 10px;
+#main_bf .main_bf_head .main_bf_more {
+  cursor: pointer;
+  text-decoration: underline;
 }
 
-.product_list {
-  width: 100%;
-  overflow: hidden;
+.product_list_container {
   position: relative;
 }
+.product_list_container .swiper-wrapper {
+  display: flex !important;
+  flex-direction: row !important;
+}
 
-.product_list .swiper-wrapper {
+.drag_guide {
+  padding: var(--unit-row) 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: auto;
+  height: auto;
+  z-index: 20;
+  background: rgba(0, 0, 0, 0.85);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.drag_guide.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.guide_content {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--surface-bg);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.guide_content .material-icons {
+  font-size: 40px;
+  margin-bottom: 8px;
 }
 
 .product_card {
-  display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  gap: calc(var(--unit-row) * 2);
-  width: 100%;
-  align-items: start;
-  text-decoration: none;
-  color: inherit;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
 
 .product_card.swiper-slide {
-  display: flex;
-  flex-direction: column;
+  display: flex !important;
+  flex-direction: column !important;
   height: auto;
+  gap: 15px;
   text-decoration: none;
-  color: inherit;
+  /* 1. 이미지 슬라이더 영역 */
 }
-
-.product_visual {
+.product_card.swiper-slide .image_slider {
   position: relative;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.product_card.swiper-slide {
-  height: auto;
-  display: flex;
-  flex-direction: column;
-}
-
-.product_card .image_slider {
-  /* 내 코드 기준 .thumb_box */
-  position: relative;
-  width: 100%;
-  aspect-ratio: 180/170;
-  background: var(--stroke);
+  aspect-ratio: 1/1.1;
   overflow: hidden;
-  border-radius: 4px;
 }
-
-.product_card .image_slider img {
+.product_card.swiper-slide .image_slider img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-
-.product_card .tags {
-  display: flex;
-  gap: 5px;
-  color: var(--text-light);
-}
-
-.product_card .summary {
+.product_card.swiper-slide .image_slider .actions {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  z-index: 5;
+  pointer-events: none;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 5px;
+  justify-content: space-between;
 }
-
-.product_card .name {
+.product_card.swiper-slide .image_slider .actions .top,
+.product_card.swiper-slide .image_slider .actions .slider_btns,
+.product_card.swiper-slide .image_slider .actions .bottom {
+  display: flex;
+  width: 90%;
+  justify-content: space-between;
+  pointer-events: auto;
+}
+.product_card.swiper-slide .image_slider .actions .badge {
+  color: var(--gradient);
+  /*box-shadow: 0px 0px 10px 0px #8c7ccd; */
+  font-size: 16px;
   font-weight: bold;
+  font-style: italic;
 }
-
-.product_card .price {
-  color: var(--primary);
+.product_card.swiper-slide .image_slider .actions .whish_btn {
+  padding: 0 3px;
 }
-
-.product_card .ar_btn {
-  background: var(--primary);
-  color: var(--surface-bg);
-  padding: 2px 8px;
-  border-radius: 999px;
-  font-size: 12px;
-}
-
-.product_card .image_slider img {
-  /* 내 코드 기준 .product_thumb */
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.product_keyword {
-  display: flex;
-  gap: 5px;
-  color: var(--text-light);
-  list-style: none;
-}
-
-.product_ar_btn,
-.product_like_btn,
-.product_cart_btn,
-.color_dot {
-  border: none;
-}
-
-.product_ar_btn {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  z-index: 2;
-  display: flex;
-  gap: 5px;
-  color: var(--surface-bg);
-  background: var(--primary);
-  border-radius: 999px;
-  padding: 0 7px;
-}
-
-.product_like_btn {
-  z-index: 2;
-  position: absolute;
-  bottom: 5px;
-  right: 5px;
-  color: var(--secondary);
+.product_card.swiper-slide .image_slider .actions .whish_btn,
+.product_card.swiper-slide .image_slider .actions .ar_btn,
+.product_card.swiper-slide .image_slider .actions .image_prev,
+.product_card.swiper-slide .image_slider .actions .image_next {
+  cursor: pointer;
   background: var(--surface-tint);
+  border-radius: 50%;
+  color: var(--secondary);
+}
+.product_card.swiper-slide .image_slider .actions .ar_btn {
+  background: var(--primary);
+  color: var(--surface-bg);
   border-radius: 999px;
+  padding: 4px 10px;
+  margin-bottom: 10px;
 }
-
-.product_card .info {
-  /* 내 코드 기준.product_content */
+.product_card.swiper-slide {
+  /* 2. 정보 영역 (info) */
 }
-.product_card .info .product_card .image_slider img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.product_card.swiper-slide .info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
-
-.product_color {
+.product_card.swiper-slide .info .tags {
+  display: flex;
+  gap: 4px;
+}
+.product_card.swiper-slide .info .tags .tag {
+  background: #eee;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 11px;
+}
+.product_card.swiper-slide .info .details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.product_card.swiper-slide .info .details .purchase {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.product_card.swiper-slide .info .details .purchase .color_options {
   display: flex;
   gap: 10px;
 }
-
-.color_dot {
-  width: 18px;
-  height: 18px;
+.product_card.swiper-slide .info .details .purchase .color_options .color {
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
+  background: var(--gradient-light);
 }
-
-.color_dot_black {
-  background: var(--text-default);
-}
-
-.color_dot_gray {
-  background: var(--text-light);
-}
-
-.product_info_row {
-  text-align: right;
-}
-
-.product_cart_btn {
+.product_card.swiper-slide .info .details .purchase .cart_btn {
+  cursor: pointer;
   color: var(--secondary);
-  background: var(--surface-tint);
-  border-radius: 50%;
-  aspect-ratio: 1/1;
 }
-
-.product_price {
-  margin: var(--unit-row) 0;
+.product_card.swiper-slide .info .details .summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.product_card.swiper-slide .info .details .summary .name {
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 1; /* 보여주고 싶은 최대 줄 수 */
+  -webkit-box-orient: vertical; /* 정렬 방향 세로고정 */
+  overflow: hidden; /* 넘치는 글자는 화면에서 숨김 */
+  text-overflow: ellipsis;
 }
 
 @media (min-width: 768px) {
@@ -481,7 +473,7 @@
   flex-direction: column;
   align-items: center;
   gap: var(--unit-row);
-  background: #2868f7 url("/images/m_ar_bg.png") no-repeat top center/100% auto;
+  background: #2868f7 url("../images/m_ar_bg.png") no-repeat top center/100% auto;
 }
 
 .main_ar_con_title {
@@ -555,7 +547,7 @@
     grid-template-columns: 1.4fr 1fr;
     grid-template-rows: 1fr;
     position: relative;
-    background: #2868f7 url("/images/t_ar_bg.png") no-repeat top center/100% auto;
+    background: #2868f7 url("../images/t_ar_bg.png") no-repeat top center/100% auto;
     overflow: visible;
   }
   .main_ar_con_title {
@@ -600,7 +592,7 @@
 }
 @media (min-width: 1024px) {
   .main_ar_content {
-    background: #2868f7 url("/images/pc_ar_bg.png") no-repeat top center/100% auto;
+    background: #2868f7 url("../images/pc_ar_bg.png") no-repeat top center/100% auto;
     grid-template-columns: 1.8fr 1fr;
     padding: 0;
   }
@@ -866,7 +858,7 @@
   position: relative;
   text-align: center;
   padding: calc(var(--unit-row) * 6) 0;
-  background: url(/images/rzstore.png) no-repeat top center/100% auto;
+  background: url(../images/rzstore.png) no-repeat top center/100% auto;
 }
 .main_rzstore::before {
   content: "ROUNZ";

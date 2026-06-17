@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 베스트 프레임(상품 목록) 슬라이드
   const productSection = document.querySelector('.product_list_container');
-  const productListWrapper = document.querySelector('#product_list_wrapper');
+  const productListWrapper = document.getElementById('product_list_wrapper');
 
   if (productSection && productListWrapper) {
     fetch('./data/products.json')
@@ -57,6 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const inner = card.querySelector('.image_slider');
           if (inner) {
             new Swiper(inner, {
+              nested: true,
               navigation: {
                 nextEl: card.querySelector('.image_next'),
                 prevEl: card.querySelector('.image_prev'),
@@ -66,13 +67,39 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         new Swiper('.product_list_container', {
-          slidesPerView: 2.2,
-          spaceBetween: 15,
+          slidesPerView: 2,
+          spaceBetween: 20,
           grabCursor: true,
+
           breakpoints: {
-            1024: { slidesPerView: 4, spaceBetween: 20 },
+            // 1024px 이상 (데스크탑)
+            1024: {
+              slidesPerView: 4,
+              spaceBetween: 24,
+            },
           },
         });
+        const guide = productSection.querySelector('.drag_guide');
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting && guide) {
+                guide.classList.add('active');
+
+                setTimeout(() => {
+                  guide.classList.remove('active');
+                  // ★ 중요: 완전히 사라진 후 자리를 차지하지 않게 제거
+                  setTimeout(() => {
+                    guide.style.display = 'none';
+                  }, 500);
+                }, 2000);
+
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.5 },
+        );
       });
   }
 });
