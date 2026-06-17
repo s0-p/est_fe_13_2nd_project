@@ -1,73 +1,69 @@
 document.addEventListener('DOMContentLoaded', function () {
-  // 1. 지도를 표시할 div (샵 '#' 제거 완료)
   var mapContainer = document.getElementById('map');
-
-  // 라운즈 강남역점 좌표 (37.4935506, 127.0310534)
-  var storePosition = new kakao.maps.LatLng(37.4935506, 127.0310534);
+  var storePosition = new kakao.maps.LatLng(37.4935506, 127.0310534); // 라운즈 강남점
 
   var mapOption = {
-    center: storePosition, // 지도의 중심좌표를 라운즈로 설정
-    level: 3, // 지도의 확대 레벨
+    center: storePosition,
+    level: 3,
   };
 
-  // 지도를 생성합니다
   var map = new kakao.maps.Map(mapContainer, mapOption);
 
-  // 마커를 생성하고 지도 위에 표시합니다
+  // 1. 마커 생성
   var marker = new kakao.maps.Marker({
     position: storePosition,
   });
   marker.setMap(map);
 
-  // 2. 인포윈도우(말풍선) 콘텐츠를 라운즈 디자인/정보에 맞게 수정
-  // 카카오맵 길찾기 링크에도 라운즈 좌표를 정확히 주입했습니다.
-  var iwContent = `
-    <div class="map-overlay-card" style="padding:10px; min-width:200px;">
-      <strong style="display:block; font-size:14px; margin-bottom:4px;">라운즈 강남역점</strong>
-      <span style="display:block; font-size:12px; color:#666; margin-bottom:8px;">서울 강남구 역삼로 109 1층</span>
-      <div style="font-size:12px;">
-        <a href="https://map.kakao.com/link/map/라운즈 강남역점,37.4935506,127.0310534" style="color:blue; margin-right:8px;" target="_blank">큰지도보기</a>
-        <a href="https://map.kakao.com/link/to/라운즈 강남역점,37.4935506,127.0310534" style="color:blue;" target="_blank">길찾기</a>
+  var content = `
+    <div class="map-overlay-card">
+      <div class="card-body">
+        <button type="button" class="btn-favorite" aria-label="관심 매장 등록"></button>
+        <strong class="store-name">라운즈 강남역점</strong>
+        <address class="store-address">서울 강남구 역삼로 109 1층</address>
+        <span class="store-tel">0507-1387-1041</span>
       </div>
+      <a href="https://map.kakao.com/link/to/라운즈 강남역점,37.4935506,127.0310534" class="btn-detail-blue" target="_blank">상세보기</a>
     </div>
   `;
 
-  // 인포윈도우를 생성합니다 (위치는 마커와 동일하게 storePosition 설정)
-  var infowindow = new kakao.maps.InfoWindow({
+  // 3. 커스텀 오버레이 생성 및 지도에 표시
+  var customOverlay = new kakao.maps.CustomOverlay({
     position: storePosition,
-    content: iwContent,
+    content: content,
+    yAnchor: 1.2, // 마커 정중앙 살짝 위에 안착하도록 높이 조절
   });
 
-  // 마커 위에 인포윈도우를 표시합니다
-  infowindow.open(map, marker);
-
-  /* =================================================================
-     아래는 줌 인/아웃 및 레벨 표시 함수입니다. 
-     HTML에 id="maplevel"을 가진 엘리먼트가 없다면 displayLevel()에서 
-     에러가 날 수 있으니, 필요 없다면 이 아랫부분은 지우셔도 됩니다.
-  ==================================================================== */
-  displayLevel();
-
-  function zoomIn() {
-    var level = map.getLevel();
-    map.setLevel(level - 1);
-    displayLevel();
-  }
-
-  function zoomOut() {
-    var level = map.getLevel();
-    map.setLevel(level + 1);
-    displayLevel();
-  }
-
-  function displayLevel() {
-    var levelEl = document.getElementById('maplevel');
-    if (levelEl) {
-      // 엘리먼트가 존재할 때만 실행되도록 안전장치 추가
-      levelEl.innerHTML = '현재 지도 레벨은 ' + map.getLevel() + ' 레벨 입니다.';
-    }
-  }
+  customOverlay.setMap(map);
 });
+
+/* 
+     줌 인/아웃 및 레벨 표시 함수. 
+     HTML에 id="maplevel"을 가진 엘리먼트가 없다면 displayLevel()에서 
+     에러가 날 수 있음.
+ */
+displayLevel();
+
+function zoomIn() {
+  var level = map.getLevel();
+  map.setLevel(level - 1);
+  displayLevel();
+}
+
+function zoomOut() {
+  var level = map.getLevel();
+  map.setLevel(level + 1);
+  displayLevel();
+}
+
+function displayLevel() {
+  var levelEl = document.getElementById('maplevel');
+  if (levelEl) {
+    // 엘리먼트가 존재할 때만 실행되도록 안전장치 추가
+    levelEl.innerHTML = '현재 지도 레벨은 ' + map.getLevel() + ' 레벨 입니다.';
+  }
+}
+
 // var mapContainer = document.getElementById('#map'), // 지도를 표시할 div
 //   mapOption = {
 //     center: new kakao.maps.LatLng(37.4935506, 127.0310534), // 지도의 중심좌표

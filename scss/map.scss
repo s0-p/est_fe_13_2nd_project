@@ -18,6 +18,62 @@
   }
 }
 
+/* kakao map infowindow */
+// 카카오맵 커스텀 오버레이 기본 배경/테두리 초기화
+.customoverlay {
+  position: relative;
+  bottom: 10px;
+  border-radius: 6px;
+  background: var(--surface-bg);
+  border: none;
+}
+
+.map-overlay-card {
+  width: 212px;
+  background-color: var(--surface-bg);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  position: relative;
+
+  .card-body {
+    padding: 20px 16px;
+    position: relative;
+
+    .btn-favorite {
+      position: absolute;
+      top: 20px;
+      left: 16px;
+      width: 20px;
+      height: 20px;
+      background: url('../images/icon-heart.svg') no-repeat center / contain; // 하트 아이콘 경로
+      border: none;
+      cursor: pointer;
+    }
+
+    .store-name {
+      margin-bottom: 8px;
+      padding-left: 26px;
+    }
+
+    .store-address {
+      margin-bottom: 4px;
+      padding-left: 26px;
+    }
+
+    .store-tel {
+      padding-left: 26px;
+    }
+  }
+
+  // 하단 파란색 버튼 스타일
+  .btn-detail-blue {
+    width: 100%;
+    height: 44px;
+    background-color: var(--primary);
+    color: var(--surface-bg);
+    text-decoration: none;
+  }
+}
 // 태블릿
 @media (min-width: 768px) {
 }
