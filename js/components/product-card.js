@@ -87,6 +87,7 @@ function createProductCard(p) {
     addToCart(p);
 
     toastProductName.textContent = p.title;
+    toastCart.style.visibility = 'visible';
 
     toastCart.style.animation = 'none';
     void toastCart.offsetWidth;
@@ -95,6 +96,7 @@ function createProductCard(p) {
 
   toastCart.addEventListener('animationend', () => {
     toastCart.style.animation = 'none';
+    toastCart.style.visibility = 'hidden';
   });
 
   if (p.isSoldOut) {

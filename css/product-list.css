@@ -249,6 +249,7 @@ body {
   padding: var(--unit-m-gutter);
   pointer-events: auto;
   opacity: 0;
+  visibility: hidden;
 }
 .toast_cart .message {
   gap: 5px;
