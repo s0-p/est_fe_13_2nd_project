@@ -1,5 +1,6 @@
-document.addEventListener("DOMContentLoaded", () => {
-
+// 외부에서 이 함수를 쓸 수 있도록 export 합니다.
+export function floatingSidebar() {
+  
   const menuData = [
     {
       icon: "../images/img_try_store 1.png",
@@ -19,28 +20,26 @@ document.addEventListener("DOMContentLoaded", () => {
   ];
 
   const container = document.getElementById("floating_sidebar");
+  
+  // 예외 처리: 만약 HTML에 #floating_sidebar 박스가 없다면 에러 방지를 위해 실행을 멈춤
+  if (!container) return;
 
   container.innerHTML = `
     <div class="side_bar">
-
       <button class="top_btn">
         <img src="../images/icon_info_arrow 1.png" alt="">
       </button>
 
       ${menuData.map(item => `
         <div class="menu_item">
-
           <button type="button" class="icon">
             <img src="${item.icon}" alt="">
           </button>
-
           <a href="${item.link}" class="text pre_bold_14">
             ${item.text}
           </a>
-
         </div>
       `).join("")}
-
     </div>
   `;
 
@@ -51,26 +50,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 맨 위 이동
   topBtn.addEventListener("click", () => {
-
     window.scrollTo({
       top: 0,
       behavior: "smooth"
     });
-
   });
 
   // 메뉴 열기 / 닫기
   icons.forEach((icon, index) => {
-
     icon.addEventListener("click", () => {
-
       const currentMenu = menuItems[index];
 
       if(currentMenu.classList.contains("active")){
-
         currentMenu.classList.remove("active");
         return;
-
       }
 
       menuItems.forEach(item => {
@@ -78,37 +71,21 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       currentMenu.classList.add("active");
-
     });
-
   });
 
   // 스크롤 방향 감지
   let lastScroll = window.scrollY;
 
   window.addEventListener("scroll", () => {
-
     const currentScroll = window.scrollY;
 
     if(currentScroll > lastScroll){
-
       sidebar.classList.add("hide");
-    }else{
-
+    } else {
       sidebar.classList.remove("hide");
     }
 
     lastScroll = currentScroll;
-
   });
-
-});
-
-
-/*
-<link rel="stylesheet" href="../css/side-bar-test.css" />
-
-<div id="floating_sidebar"></div>
-
-<script type="module" src="../js/components/side-bar-test.js"></script>
-*/
+}
