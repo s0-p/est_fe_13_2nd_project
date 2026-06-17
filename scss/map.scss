@@ -7,6 +7,7 @@
 /* Keyword filters */
 .keyword_filters {
   gap: var(--unit-m-gutter);
+  color: var(--primary-subtle);
   .keyword {
     background: var(--surface-bg);
     padding: 3px 7px;
@@ -77,6 +78,7 @@
 .store_sidebar {
   position: absolute;
   inset: 0;
+  z-index: 100;
 }
 
 fieldset {
@@ -207,6 +209,7 @@ fieldset {
   }
   .search_box {
     width: 100%;
+    z-index: auto;
   }
   .store_list_wrapper {
     position: static;
