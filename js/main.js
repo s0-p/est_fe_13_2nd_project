@@ -88,7 +88,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 setTimeout(() => {
                   guide.classList.remove('active');
-                  // ★ 중요: 완전히 사라진 후 자리를 차지하지 않게 제거
                   setTimeout(() => {
                     guide.style.display = 'none';
                   }, 500);

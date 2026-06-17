@@ -1,4 +1,3 @@
-@charset "UTF-8";
 .filters {
   background-color: var(--surface-tint);
   gap: calc(var(--unit-row));
@@ -23,32 +22,41 @@
 .customoverlay {
   position: relative;
   bottom: 10px;
-  border-radius: 6px;
+  overflow: hidden;
   background: var(--surface-bg);
   border: none;
 }
 
+.customoverlay::after {
+  display: none;
+}
+
 .map-overlay-card {
   width: 212px;
+  box-sizing: border-box;
   background-color: var(--surface-bg);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
   overflow: hidden;
   position: relative;
 }
-.map-overlay-card .card-body {
+
+.card-body {
   position: relative;
   padding: 20px 16px 0;
 }
-.map-overlay-card .card-body .wish_btn {
+
+.wish_btn {
   color: var(--secondary);
   background: var(--surface-tint);
   cursor: pointer;
 }
-.map-overlay-card .card-body .card_header {
+
+.card_header {
   gap: 10px;
 }
-.map-overlay-card .btn_detail_blue {
-  width: 212px;
+
+.btn_detail_blue {
+  width: 100%;
   height: 40px;
   background: var(--primary);
   color: var(--surface-bg);
@@ -94,7 +102,6 @@ fieldset {
 
 .list_toggle_bar {
   position: fixed;
-  /* 또는 absolute */
   bottom: 32px;
   left: 50%;
   transform: translateX(-50%);
@@ -104,6 +111,66 @@ fieldset {
 .btn_toggle_list {
   height: 40px;
   padding: 0 24px;
+}
+
+.store_list_wrapper {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-height: 70vh;
+  overflow-y: auto;
+  background: var(--surface-tint);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(100%);
+  transition: 0.3s;
+}
+
+.store_list_wrapper.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.bottom_sheet_handle {
+  width: 48px;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--text-light);
+  margin: 12px auto;
+}
+
+.btn_detail {
+  position: absolute;
+  bottom: 40%;
+  right: 20px;
+  transform: translateY(-50%);
+}
+
+.store_list {
+  height: calc(100% - 28px);
+  overflow-y: auto;
+}
+.store_list .store_item {
+  position: relative;
+  padding: 24px 20px;
+  border-bottom: 1px solid var(--stroke);
+}
+.store_list .store_item .store_address {
+  margin-bottom: 12px;
+}
+.store_list .store_item .store_header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.store_list .store_item .store_header .wish_btn {
+  color: var(--secondary);
+  background: var(--surface-tint);
+  cursor: pointer;
 }
 
 @media (min-width: 1200px) {

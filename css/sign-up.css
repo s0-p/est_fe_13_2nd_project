@@ -171,7 +171,7 @@ button {
      height: 460px;
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: 1280px) {
   .sign_up{
     width: 535px;
   }
