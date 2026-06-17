@@ -66,8 +66,12 @@ body {
 }
 .filters .sort_panel > li {
   padding: 10px;
+  cursor: pointer;
 }
-.filters .sort_panel > li > input {
+.filters .sort_panel > li label {
+  cursor: pointer;
+}
+.filters .sort_panel > li input {
   width: 1px;
   height: 1px;
   padding: 0;
