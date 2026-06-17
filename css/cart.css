@@ -560,13 +560,10 @@ a {
     min-width: 60px;
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: 1280px) {
   .cart_page {
     max-width: 1920px;
     margin: 20px auto 0;
-  }
-  .shopping_bag {
-    min-height: 1700px;
   }
   .shopping_bag_tab {
     margin-bottom: calc(var(--unit-row) * 3);
@@ -576,7 +573,6 @@ a {
     grid-template-columns: 760px 448px;
     justify-content: center;
     gap: 112px;
-    min-height: 1600px;
   }
   .cart_product {
     gap: 80px;

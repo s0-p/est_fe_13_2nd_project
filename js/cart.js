@@ -34,7 +34,7 @@ function renderCart() {
                     <span class="quantity" aria-live="polite">${item.quantity}</span>
                     <button type="button" class="plus_btn" aria-label="수량 증가">+</button>
                   </div>
-                  <p class="product_price pre_bold_14">₩${item.price}</p>
+                  <p class="product_price pre_bold_14">₩${Number(item.price.toString().replaceAll(',', '')).toLocaleString('ko-KR')}</p>
                 </div>
               </div>
               <button class="delete_icon" type="button" aria-label="상품 삭제" aria-haspopup="dialog">
