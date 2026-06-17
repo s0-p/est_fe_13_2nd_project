@@ -61,16 +61,15 @@ button {
   cursor: pointer;
 }
 
-.sign_in .sing_sns button:nth-child(1) {
-  background-color: #FAE000;
+.sign_in .sing_sns a:nth-child(1) button {
+  background-color: #fae000;
 }
 
-.sign_in .sing_sns button:nth-child(2) {
-  background-color: #2DB400;
-  color: var(--surface-bg);
+.sign_in .sing_sns a:nth-child(2) button {
+  background-color: #2db400;
 }
 
-.sign_in .sing_sns button:nth-child(3) {
+.sign_in .sing_sns a:nth-child(3) button {
   background-color: var(--surface-bg);
 }
 
