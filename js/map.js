@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var customOverlay = new kakao.maps.CustomOverlay({
     position: storePosition,
     content: content,
-    yAnchor: 2.5, // 높이 조절
+    yAnchor: 1.5, // 높이 조절
   });
 
   customOverlay.setMap(map);
@@ -49,4 +49,19 @@ wishBtn.addEventListener('click', () => {
   wishBtn.textContent = isFavorite ? 'favorite' : 'favorite_border';
 
   wishBtn.setAttribute('aria-label', isFavorite ? '관심 매장 해제' : '관심 매장 등록');
+});
+
+// 매장 목록 열고 닫기
+const toggleBtn = document.querySelector('.btn_toggle_list');
+const storeListWrapper = document.querySelector('.store_list_wrapper');
+const arrow = toggleBtn.querySelector('.arrow');
+
+toggleBtn.addEventListener('click', () => {
+  const isOpen = storeListWrapper.classList.toggle('active');
+
+  toggleBtn.setAttribute('aria-expanded', isOpen);
+
+  toggleBtn.childNodes[2].textContent = isOpen ? '매장 목록 닫기' : '매장 목록 열기';
+
+  arrow.textContent = isOpen ? 'expand_less' : 'expand_more';
 });

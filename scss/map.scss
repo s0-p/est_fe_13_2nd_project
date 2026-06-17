@@ -97,19 +97,80 @@ fieldset {
 // 매장 목록 열기
 .list_toggle_bar {
   position: fixed;
-  /* 또는 absolute */
-
   bottom: 32px;
   left: 50%;
-
   transform: translateX(-50%);
-
   z-index: 20;
 }
 .btn_toggle_list {
   height: 40px;
   padding: 0 24px;
 }
+// 매장 목록
+.store_list_wrapper {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  max-height: 70vh;
+
+  overflow-y: auto;
+
+  background: var(--surface-tint);
+
+  z-index: 100;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(100%);
+  transition: 0.3s;
+}
+.store_list_wrapper.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(100%);
+}
+
+.bottom_sheet_handle {
+  width: 48px;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--text-light);
+  margin: 12px auto;
+}
+.btn_detail {
+  position: absolute;
+  bottom: 40%;
+  right: 20px;
+
+  transform: translateY(-50%);
+}
+
+.store_list {
+  height: calc(100% - 28px);
+  overflow-y: auto;
+  .store_item {
+    position: relative;
+    padding: 24px 20px;
+    border-bottom: 1px solid var(--stroke);
+    .store_address {
+      margin-bottom: 12px;
+    }
+    .store_header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      .wish_btn {
+        color: var(--secondary);
+        background: var(--surface-tint);
+        cursor: pointer;
+      }
+    }
+  }
+}
+
 // 태블릿
 @media (min-width: 768px) {
 }

@@ -69,22 +69,33 @@
             </form>
           </div>
 
-          <div class="list_toggle_bar">
+          <div class="list_toggle_bar display_flex align_items_center">
             <button type="button" class="btn_toggle_list glassmorphism border_round pre_reg_16" aria-expanded="false">
+              <span class="material-icons icon_16">menu</span>
               매장 목록 열기
+              <span class="material-icons icon_16 arrow">expand_more</span>
             </button>
           </div>
 
-          <div class="store_list_wrapper" id="storeList" hidden>
+          <div class="store_list_wrapper">
+            <div class="bottom_sheet_handle"></div>
+
             <ul class="store_list">
-              <li class="store_item active">
-                <button type="button" class="wish_btn material-icons icon_24 border_round" aria-label="관심 매장 등록">
-                  favorite_border
-                </button>
-                <strong class="store_name">라운즈 강남역점</strong>
-                <address class="store_address">서울 강남구 역삼로 109 1층</address>
-                <span class="store_tel">0507-1387-1041</span>
-                <a href="#" class="btn_detail">상세보기</a>
+              <li class="store_item">
+                <div class="store_header">
+                  <button
+                    type="button"
+                    class="wish_btn border_round material-icons icon_24"
+                    aria-label="관심 매장 등록"
+                  >
+                    favorite_border
+                  </button>
+                  <strong class="store_name display_block pre_bold_14">라운즈 강남역점</strong>
+                </div>
+
+                <address class="store_address pre_reg_12">서울 강남구 역삼로 109 1층</address>
+                <span class="store_tel pre_reg_12">0507-1387-1041</span>
+                <a href="#" class="btn_detail material-icons icon_16" aria-label="상세보기"> chevron_right </a>
               </li>
             </ul>
           </div>
