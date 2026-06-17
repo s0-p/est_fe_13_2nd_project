@@ -1,4 +1,5 @@
-import { addToCart } from './common.js';
+import { addToCart, parseNumber } from './common.js';
+
 function createProductCard(p) {
   const productCard = document.createElement('div');
   productCard.className = 'product_card display_flex flex_column';
@@ -69,7 +70,7 @@ function createProductCard(p) {
 
   const actionTop = productCard.querySelector('.actions .top');
   const badge = actionTop.querySelector('.badge');
-  if (p.reviewCount >= 500) {
+  if (parseNumber(p.reviewCount) >= 500) {
     badge.classList.remove('display_none');
     actionTop.classList.remove('justify_content_end');
     actionTop.classList.add('justify_content_between');
@@ -106,7 +107,5 @@ function createProductCard(p) {
 
   return productCard;
 }
-
-function renderSkeleton() {}
 
 export default createProductCard;

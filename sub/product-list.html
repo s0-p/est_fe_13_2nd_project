@@ -30,7 +30,7 @@
           <div class="btns_wrapper display_flex align_items_center col_gutter_gap">
             <button class="display_flex sort_btn display_inline_flex align_items_center">
               <div class="material-icons icon_24">sort</div>
-              <div class="pre_reg_16 display_none">인기순</div>
+              <div class="pre_reg_16 display_none">최신순</div>
             </button>
             <button class="filter_btn display_inline_flex align_items_center">
               <div class="material-icons icon_24">tune</div>
@@ -39,12 +39,16 @@
           </div>
           <ul class="sort_panel glassmorphism display_none">
             <li class="gradient_light_border">
-              <input type="radio" id="popularity" name="sort" value="popularity" checked />
+              <input type="radio" id="latest" name="sort" value="latest" checked />
+              <label for="latest" class="pre_reg_14">최신순</label>
+            </li>
+            <li class="gradient_light_border">
+              <input type="radio" id="popularity" name="sort" value="popularity" />
               <label for="popularity" class="pre_reg_14">인기순</label>
             </li>
             <li class="gradient_light_border">
-              <input type="radio" id="latest" name="sort" value="latest" />
-              <label for="latest" class="pre_reg_14">최신순</label>
+              <input type="radio" id="most_reviews" name="sort" value="most_reviews" />
+              <label for="most_reviews" class="pre_reg_14">후기순</label>
             </li>
             <li class="gradient_light_border">
               <input type="radio" id="lowest_price" name="sort" value="lowest_price" />
@@ -53,10 +57,6 @@
             <li class="gradient_light_border">
               <input type="radio" id="highest_price" name="sort" value="highest_price" />
               <label for="highest_price" class="pre_reg_14">높은 가격순</label>
-            </li>
-            <li class="gradient_light_border">
-              <input type="radio" id="most_reviews" name="sort" value="most_reviews" />
-              <label for="most_reviews" class="pre_reg_14">후기순</label>
             </li>
           </ul>
         </div>
