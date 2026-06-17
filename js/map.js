@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
   marker.setMap(map);
 
   var content = `
+  <div class="customoverlay">
     <div class="map-overlay-card">
       <div class="card-body display_flex flex_column">
         <div class="card_header display_flex align_items_center">
@@ -23,19 +24,20 @@ document.addEventListener('DOMContentLoaded', function () {
           favorite_border
           </button>
           <strong class="store_name pre_bold_14">라운즈 강남역점</strong>
-        /div>
+        </div>
         <address class="store_address pre_reg_12">서울 강남구 역삼로 109 1층</address>
         <span class="store-tel pre_reg_12">0507-1387-1041</span>
         </div>
       <a href="https://map.kakao.com/link/to/라운즈 강남역점,37.4935506,127.0310534" class="btn_detail_blue display_flex justify_content_center align_items_center pre_reg_14" target="_blank">상세보기</a>
     </div>
+  </div>
   `;
 
   // 커스텀 오버레이 생성 및 지도에 표시
   var customOverlay = new kakao.maps.CustomOverlay({
     position: storePosition,
     content: content,
-    yAnchor: 1.5, // 높이 조절
+    yAnchor: 1.2, // 높이 조절
   });
 
   customOverlay.setMap(map);
