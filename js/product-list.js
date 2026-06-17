@@ -65,20 +65,33 @@ filterApplyBtn.addEventListener('click', () => {
   filterModal.classList.remove('display_flex');
   filterModal.classList.add('display_none');
 });
+
 const productList = document.querySelector('.product_list');
 const DATA_PATH = `../data/products.json`;
 const LIMIT = 12;
 let total = 0;
 let skip = 0;
+let isLoading = false;
+
+// More Load Products
+const moreBtn = document.querySelector('.more_btn');
+moreBtn.addEventListener('click', loadProducts);
 
 async function loadProducts() {
+  if (isLoading) return;
+  isLoading = true;
+  renderSkeleton();
   try {
     const res = await fetch(DATA_PATH);
     if (!res.ok) throw new Error(`DATA_PATH:${res.status}`);
     const products = await res.json();
     total = products.length;
-    for (let i = skip; i < skip + LIMIT; i++) {
+    clearSkeleton();
+
+    const count = Math.min(skip + LIMIT, total);
+    for (let i = skip; i < count; i++) {
       let card = createProductCard(products[i]);
+      productList.append(card);
 
       // Swiper Slide
       let swiper = new Swiper(card.querySelector('.image_slider'), {
@@ -100,13 +113,37 @@ async function loadProducts() {
         mousewheel: true,
         keyboard: true,
       });
-      productList.append(card);
     }
-
     skip += LIMIT;
+    if (total != 0 && count >= total) {
+      moreBtn.disabled = true;
+    }
   } catch (err) {
     console.log(err);
   } finally {
+    isLoading = false;
   }
 }
 loadProducts();
+
+function renderSkeleton(count = LIMIT) {
+  for (let i = 0; i < count; i++) {
+    const skeletonCard = document.createElement('article');
+    skeletonCard.className = 'skeleton_card display_flex flex_column';
+    skeletonCard.innerHTML = `
+      <div class="media skeleton"></div>
+      <div class="content display_flex flex_column">
+        <div class="skeleton line" style="width: 40%"></div>
+        <div class="skeleton line" style="width: 55%"></div>
+        <div class="skeleton line" style="width: 70%"></div>
+      </div>
+    `;
+    productList.appendChild(skeletonCard);
+  }
+}
+function clearSkeleton() {
+  const skeletonCardList = productList.querySelectorAll('.skeleton_card');
+  skeletonCardList.forEach((card) => {
+    card.remove();
+  });
+}
