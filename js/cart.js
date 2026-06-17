@@ -1,5 +1,13 @@
+import renderHeader from './components/header.js';
+import renderFooter from './components/footer.js';
+import renderSidebar from './components/side-bar-test.js';
 import { getCartItems, saveCartItems } from './components/common.js';
 
+renderHeader();
+renderSidebar();
+renderFooter();
+
+// 로컬스토리지 데이터 가져오기
 let cartItems = getCartItems();
 
 // 장바구니 상품 로드
