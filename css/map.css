@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .filters {
   background-color: var(--surface-tint);
   gap: calc(var(--unit-row));
@@ -29,42 +30,81 @@
 
 .map-overlay-card {
   width: 212px;
+  height: 100%;
   background-color: var(--surface-bg);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
   overflow: hidden;
   position: relative;
 }
 .map-overlay-card .card-body {
-  padding: 20px 16px;
   position: relative;
+  padding: 20px 16px 0;
 }
-.map-overlay-card .card-body .btn-favorite {
+.map-overlay-card .card-body .wish_btn {
+  color: var(--secondary);
+  background: var(--surface-tint);
+  cursor: pointer;
+}
+.map-overlay-card .card-body .card_header {
+  gap: 10px;
+}
+.map-overlay-card .btn_detail_blue {
+  width: 212px;
+  height: 40px;
+  background: var(--primary);
+  color: var(--surface-bg);
+  text-decoration: none;
+}
+
+.map_view_area {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+}
+
+.store_sidebar {
   position: absolute;
   top: 20px;
   left: 16px;
-  width: 20px;
-  height: 20px;
-  background: url("../images/icon-heart.svg") no-repeat center/contain;
-  border: none;
-  cursor: pointer;
+  right: 16px;
+  z-index: 10;
 }
-.map-overlay-card .card-body .store-name {
-  margin-bottom: 8px;
-  padding-left: 26px;
+
+fieldset {
+  position: relative;
 }
-.map-overlay-card .card-body .store-address {
-  margin-bottom: 4px;
-  padding-left: 26px;
+
+.search_icon {
+  position: absolute;
+  left: 16px;
+  top: 37%;
+  transform: translateY(-50%);
+  z-index: 20;
 }
-.map-overlay-card .card-body .store-tel {
-  padding-left: 26px;
-}
-.map-overlay-card .btn-detail-blue {
+
+.input_search {
   width: 100%;
-  height: 44px;
-  background-color: var(--primary);
-  color: var(--surface-bg);
-  text-decoration: none;
+  height: 40px;
+  padding: 0 var(--unit-m-gutter);
+}
+
+.list_toggle_bar {
+  position: fixed;
+  /* 또는 absolute */
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+}
+
+.btn_toggle_list {
+  height: 40px;
+  padding: 0 24px;
 }
 
 @media (min-width: 1200px) {

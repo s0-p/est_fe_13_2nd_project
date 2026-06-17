@@ -30,49 +30,86 @@
 
 .map-overlay-card {
   width: 212px;
+  height: 100%;
   background-color: var(--surface-bg);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
   overflow: hidden;
   position: relative;
 
   .card-body {
-    padding: 20px 16px;
     position: relative;
+    padding: 20px 16px 0;
 
-    .btn-favorite {
-      position: absolute;
-      top: 20px;
-      left: 16px;
-      width: 20px;
-      height: 20px;
-      background: url('../images/icon-heart.svg') no-repeat center / contain; // 하트 아이콘 경로
-      border: none;
+    .wish_btn {
+      color: var(--secondary);
+      background: var(--surface-tint);
       cursor: pointer;
     }
 
-    .store-name {
-      margin-bottom: 8px;
-      padding-left: 26px;
-    }
-
-    .store-address {
-      margin-bottom: 4px;
-      padding-left: 26px;
-    }
-
-    .store-tel {
-      padding-left: 26px;
+    .card_header {
+      gap: 10px;
     }
   }
-
-  // 하단 파란색 버튼 스타일
-  .btn-detail-blue {
-    width: 100%;
-    height: 44px;
-    background-color: var(--primary);
+  // 상세보기 버튼
+  .btn_detail_blue {
+    width: 212px;
+    height: 40px;
+    background: var(--primary);
     color: var(--surface-bg);
     text-decoration: none;
   }
+}
+
+//검색창
+.map_view_area {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+#map {
+  width: 100%;
+  height: 100%;
+}
+.store_sidebar {
+  position: absolute;
+  top: 20px;
+  left: 16px;
+  right: 16px;
+
+  z-index: 10;
+}
+fieldset {
+  position: relative;
+}
+
+.search_icon {
+  position: absolute;
+  left: 16px;
+  top: 37%;
+  transform: translateY(-50%);
+  z-index: 20;
+}
+
+.input_search {
+  width: 100%;
+  height: 40px;
+  padding: 0 var(--unit-m-gutter);
+}
+// 매장 목록 열기
+.list_toggle_bar {
+  position: fixed;
+  /* 또는 absolute */
+
+  bottom: 32px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  z-index: 20;
+}
+.btn_toggle_list {
+  height: 40px;
+  padding: 0 24px;
 }
 // 태블릿
 @media (min-width: 768px) {
