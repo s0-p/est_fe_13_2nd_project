@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/common.css" />
     <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="../css/side-bar-test.css" />
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <title>ROUNZ</title>
@@ -31,8 +32,12 @@
       <div class="mainpage">
         <section class="mainhero swiper">
           <div class="swiper-wrapper" id="mainhero-wrapper"></div>
-
           <div class="swiper-pagination pre_reg_14"></div>
+
+          <div class="swipe_hint">
+            <span class="hint_text pre_reg_14">넘기기</span>
+            <span class="hint_arrow pre_reg_14">&#8594;</span>
+          </div>
         </section>
 
         <section class="main_bf section_inner" id="main_bf" aria-labelledby="main_bf_title">
@@ -41,74 +46,50 @@
             <p class="main_bf_more pre_reg_12">더보기</p>
           </div>
 
-          <div class="product_list" data-render-target="best_fit_products">
-            <article class="product_card" data-product-id="sample_01">
-              <div class="product_visual">
-                <div class="thumb_box">
-                  <div class="product_thumb"></div>
-                  <button class="product_ar_btn" aria-label="ar써보기">
-                    <span class="material-symbols-outlined material-icons icon_16">fullscreen</span>
-                    <span class="like_count mont_reg_14">AR</span>
-                  </button>
-                  <button class="product_like_btn" aria-label="좋아요">
-                    <span class="material-symbols-outlined icon_24">favorite</span>
-                  </button>
+          <div class="product_list_container swiper" data-render-target="best_fit_products">
+            <div class="swiper-wrapper" id="product_list_wrapper">
+              <!-- <article class="product_card" data-product-id="sample_01">
+              
+                <div class="product_visual">
+                  <div class="thumb_box">
+                    <div class="product_thumb"></div>
+                    <button class="product_ar_btn" aria-label="ar써보기">
+                      <span class="material-symbols-outlined material-icons icon_16">fullscreen</span>
+                      <span class="like_count mont_reg_14">AR</span>
+                    </button>
+                    <button class="product_like_btn" aria-label="좋아요">
+                      <span class="material-symbols-outlined icon_24">favorite</span>
+                    </button>
+                  </div>
+                  <ul class="product_keyword pre_reg_10">
+                    <li>라운드베이직</li>
+                    <li>모델</li>
+                    <li>선글라스</li>
+                  </ul>
                 </div>
-                <ul class="product_keyword pre_reg_10">
-                  <li>라운드베이직</li>
-                  <li>모델</li>
-                  <li>선글라스</li>
-                </ul>
-              </div>
 
-              <div class="product_content">
-                <div class="product_color">
-                  <button class="color_dot color_dot_black" aria-label="검은색"></button>
-                  <button class="color_dot color_dot_gray" aria-label="회색"></button>
+                <div class="product_content">
+                  <div class="product_color">
+                    <button class="color_dot color_dot_black" aria-label="검은색"></button>
+                    <button class="color_dot color_dot_gray" aria-label="회색"></button>
+                  </div>
+                  <h3 class="product_name pre_reg_14">ROUNZ BASIC TR90-12 C18 라운즈...</h3>
+                  <div class="product_info_row">
+                    <p class="product_price pre_reg_14">₩ 39,000</p>
+                    <button class="product_cart_btn" aria-label="장바구니 추가">
+                      <span class="material-symbols-outlined material-icons icon_24">add_shopping_cart</span>
+                    </button>
+                  </div>
                 </div>
-                <h3 class="product_name pre_reg_14">ROUNZ BASIC TR90-12 C18 라운즈...</h3>
-                <div class="product_info_row">
-                  <p class="product_price pre_reg_14">₩ 39,000</p>
-                  <button class="product_cart_btn" aria-label="장바구니 추가">
-                    <span class="material-symbols-outlined material-icons icon_24">add_shopping_cart</span>
-                  </button>
-                </div>
-              </div>
-            </article>
+              </article> -->
+            </div>
 
-            <article class="product_card" data-product-id="sample_02">
-              <div class="product_visual">
-                <div class="thumb_box">
-                  <div class="product_thumb"></div>
-                  <button class="product_ar_btn" aria-label="ar써보기">
-                    <span class="material-symbols-outlined material-icons icon_16">fullscreen</span>
-                    <span class="like_count mont_reg_14">AR</span>
-                  </button>
-                  <button class="product_like_btn" aria-label="좋아요">
-                    <span class="material-symbols-outlined icon_24">favorite</span>
-                  </button>
-                </div>
-                <ul class="product_keyword pre_reg_10">
-                  <li>라운드베이직</li>
-                  <li>모델</li>
-                  <li>선글라스</li>
-                </ul>
+            <div class="drag_guide">
+              <div class="guide_content">
+                <span class="material-icons">swipe</span>
+                <p>옆으로 밀어서 더 보기</p>
               </div>
-
-              <div class="product_content">
-                <div class="product_color">
-                  <button class="color_dot color_dot_black" aria-label="검은색"></button>
-                  <button class="color_dot color_dot_gray" aria-label="회색"></button>
-                </div>
-                <h3 class="product_name pre_reg_14">ROUNZ BASIC TR90-12 C18 라운즈...</h3>
-                <div class="product_info_row">
-                  <p class="product_price pre_reg_14">₩ 39,000</p>
-                  <button class="product_cart_btn" aria-label="장바구니 추가">
-                    <span class="material-symbols-outlined icon_2">add_shopping_cart</span>
-                  </button>
-                </div>
-              </div>
-            </article>
+            </div>
           </div>
         </section>
 
@@ -317,7 +298,8 @@
         </div>
       </footer>
     </section>
-    ]
+
     <script src="./js/main.js" type="module"></script>
+    <script type="module" src="../js/components/side-bar-test.js"></script>
   </body>
 </html>

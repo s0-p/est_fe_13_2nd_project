@@ -24,16 +24,16 @@ export function addToCart(product, qty = 1) {
 
   if (existingItem) {
     //그 상품 수량 증가
-    existingItem.qty += qty;
+    existingItem.quantity += qty;
   } else {
     //새 상품 추가, 수량 1
     cartItems.push({
-      productIndex: currentProduct.productIndex,
-      title: currentProduct.title,
-      brand: currentProduct.brand,
-      price: Number(currentProduct.price.replaceAll(',', '')),
-      thumbnail: currentProduct.thumbnail,
-      qty: qty,
+      productIndex: product.productIndex,
+      title: product.title,
+      brand: product.brand,
+      price: Number(product.price.replaceAll(',', '')),
+      thumbnail: product.thumbnail,
+      quantity: qty,
     });
   }
   saveCartItems(cartItems);
