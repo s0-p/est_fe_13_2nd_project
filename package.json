@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/s0-p/est_fe_13_2nd_project#readme",
   "dependencies": {
-    "axios": "^1.17.0",
+    "axios": "^1.18.0",
     "cheerio": "^1.2.0"
   }
 }
