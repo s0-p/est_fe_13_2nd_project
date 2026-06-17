@@ -1,8 +1,12 @@
 .filters {
+  background-color: var(--surface-tint);
+  gap: calc(var(--unit-row));
+  padding: 20px;
 }
 
 /* Keyword filters */
 .keyword_filters {
+  gap: var(--unit-m-gutter);
   .keyword {
     background: var(--surface-bg);
     padding: 3px 7px;
@@ -11,5 +15,16 @@
   .active {
     color: var(--surface-bg);
     background: var(--primary);
+  }
+}
+
+// 태블릿
+@media (min-width: 768px) {
+}
+
+// 데스크탑
+@media (min-width: 1200px) {
+  .filters {
+    align-items: center;
   }
 }
