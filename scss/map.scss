@@ -23,40 +23,45 @@
 .customoverlay {
   position: relative;
   bottom: 10px;
-  border-radius: 6px;
+  overflow: hidden;
   background: var(--surface-bg);
   border: none;
+}
+.customoverlay::after {
+  display: none;
 }
 
 .map-overlay-card {
   width: 212px;
+  box-sizing: border-box;
   background-color: var(--surface-bg);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
   overflow: hidden;
   position: relative;
+}
 
-  .card-body {
-    position: relative;
-    padding: 20px 16px 0;
+.card-body {
+  position: relative;
+  padding: 20px 16px 0;
+}
 
-    .wish_btn {
-      color: var(--secondary);
-      background: var(--surface-tint);
-      cursor: pointer;
-    }
+.wish_btn {
+  color: var(--secondary);
+  background: var(--surface-tint);
+  cursor: pointer;
+}
 
-    .card_header {
-      gap: 10px;
-    }
-  }
-  // 상세보기 버튼
-  .btn_detail_blue {
-    width: 212px;
-    height: 40px;
-    background: var(--primary);
-    color: var(--surface-bg);
-    text-decoration: none;
-  }
+.card_header {
+  gap: 10px;
+}
+
+// 상세보기 버튼
+.btn_detail_blue {
+  width: 100%;
+  height: 40px;
+  background: var(--primary);
+  color: var(--surface-bg);
+  text-decoration: none;
 }
 
 //검색창
@@ -114,12 +119,11 @@ fieldset {
   bottom: 0;
 
   max-height: 70vh;
-
   overflow-y: auto;
 
   background: var(--surface-tint);
 
-  z-index: 100;
+  z-index: 999;
 
   opacity: 0;
   visibility: hidden;
@@ -129,7 +133,7 @@ fieldset {
 .store_list_wrapper.active {
   opacity: 1;
   visibility: visible;
-  transform: translateY(100%);
+  transform: translateY(0);
 }
 
 .bottom_sheet_handle {
