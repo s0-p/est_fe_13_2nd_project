@@ -1,7 +1,9 @@
 import headerModule from './components/header.js';
+import renderFooter from './components/footer.js';
 import createProductCard from './components/product-card.js';
 import { parseNumber } from './components/common.js';
 headerModule();
+renderFooter();
 
 const productList = document.querySelector('.product_list');
 const DATA_PATH = `../data/products.json`;
@@ -77,6 +79,8 @@ function renderProducts(data) {
       slidesPerView: 1,
       spaceBetween: 1,
       loop: true,
+      observer: true,
+      observeParents: true,
       navigation: {
         nextEl: card.querySelector('.image_next'),
         prevEl: card.querySelector('.image_prev'),
