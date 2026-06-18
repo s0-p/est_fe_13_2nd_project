@@ -107,7 +107,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const thumbImages = targetProduct?.detailImages ? targetProduct.detailImages.slice(0, 3) : [];
 
         collections.forEach((collection) => {
-          // 🌟 개별 카드를 swiper-slide로 만듭니다.
           const card = document.createElement('article');
           card.className = 'collect_card swiper-slide';
           card.innerHTML = `
@@ -157,53 +156,38 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // [4] 셀럽픽 섹션 슬라이드
-  document.addEventListener('DOMContentLoaded', () => {
-    const celebWrapper = document.getElementById('celeb-wrapper');
+  const celebWrapper = document.getElementById('celeb-wrapper');
 
-    if (celebWrapper) {
-      fetch('./data/celeb.json')
-        .then((res) => res.json())
-        .then((data) => {
-          celebWrapper.innerHTML = '';
+  if (celebWrapper) {
+    fetch('./data/celeb.json')
+      .then((res) => res.json())
+      .then((data) => {
+        celebWrapper.innerHTML = '';
 
-          data.celebPicks.forEach((item) => {
-            const slide = document.createElement('li');
-            slide.className = 'swiper-slide celeb_image';
-            const linkHref = item.href ? item.href : 'javascript:void(0);';
+        data.celebPicks.forEach((item) => {
+          const slide = document.createElement('div');
+          slide.className = 'swiper-slide celeb_image';
+          const linkHref = item.href ? item.href : 'javascript:void(0);';
 
-            slide.innerHTML = `
-            <a href="${linkHref}">
-              <img src="${item.image}" alt="${item.celeb || '셀럽 선택 제품'}" />
-            </a>
-          `;
-            celebWrapper.appendChild(slide);
-          });
+          slide.innerHTML = `
+          <a href="${linkHref}">
+            <img src="${item.image}" alt="${item.celeb || '셀럽 선택 제품'}" />
+          </a>
+        `;
+          celebWrapper.appendChild(slide);
+        });
 
-          // Swiper 초기화 (가장 표준적이고 안정적인 무한루프 옵션)
-          new Swiper('.main-celeb-swiper', {
-            loop: true,
-            autoplay: {
-              delay: 2500,
-              disableOnInteraction: false,
-            },
-            speed: 500,
-            breakpoints: {
-              0: {
-                slidesPerView: 3,
-                spaceBetween: 12,
-              },
-              768: {
-                slidesPerView: 3,
-                spaceBetween: 16,
-              },
-              1024: {
-                slidesPerView: 5,
-                spaceBetween: 20,
-              },
-            },
-          });
-        })
-        .catch((err) => console.error('Celeb Slider Error:', err));
-    }
-  });
+        new Swiper('.main-celeb-swiper', {
+          loop: true,
+          autoplay: { delay: 2500, disableOnInteraction: false },
+          speed: 500,
+          breakpoints: {
+            0: { slidesPerView: 3, spaceBetween: 12 },
+            768: { slidesPerView: 3, spaceBetween: 16 },
+            1024: { slidesPerView: 5, spaceBetween: 20 },
+          },
+        });
+      })
+      .catch((err) => console.error('Celeb Slider Error:', err));
+  }
 });
