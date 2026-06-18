@@ -28,7 +28,7 @@ button {
 }
 
 .sign_header h1 {
-  font-family: 'Pretendard', sans-serif;
+  font-family: "Pretendard", sans-serif;
   font-size: 24px;
   font-weight: 700;
   line-height: 20px;
@@ -36,9 +36,11 @@ button {
   left: 50%;
   transform: translateX(-50%);
 }
+
 .sign_contents {
   padding: 0 0 40px 0;
 }
+
 .sign_box img {
   max-width: 767px;
   width: 100%;
@@ -88,20 +90,20 @@ button {
   justify-content: space-between;
 }
 
-.sing_text {
+.sign_text {
   padding: 0 0 20px 0;
   display: grid;
   gap: 20px;
   width: calc(100% - 114px);
 }
 
-.sing_text > input {
+.input_wrap > input {
   width: 100%;
   height: 40px;
   padding: 0;
   border: 1px solid var(--text-light);
 }
-.sing_text > input::placeholder {
+.input_wrap > input::placeholder {
   text-indent: 10px;
 }
 
@@ -132,6 +134,24 @@ button {
   width: 170px;
 }
 
+.input_wrap {
+  position: relative;
+  width: 100%;
+}
+
+.error_msg {
+  position: absolute;
+  left: 0;
+  top: calc(100% + 4px);
+  display: none;
+  color: #ff4d4f;
+  line-height: 1;
+}
+
+.input_error {
+  border: 1px solid #ff4d4f !important;
+}
+
 @media (min-width: 768px) {
   .sign_contents {
     display: grid;
@@ -148,9 +168,7 @@ button {
   .login {
     display: block;
   }
-  .sing_text {
-    padding: 0 0 20px 0;
-    gap: 20px;
+  .sign_text {
     width: 100%;
   }
   .sing_sns {

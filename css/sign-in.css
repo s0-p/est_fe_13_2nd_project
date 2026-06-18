@@ -44,7 +44,8 @@ button {
 .sign_box img {
   max-width: 767px;
   width: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .sign_in {
@@ -90,21 +91,25 @@ button {
   justify-content: space-between;
 }
 
-.sing_text {
+.sign_text {
   padding: 0 0 20px 0;
   display: grid;
   gap: 20px;
   width: calc(100% - 114px);
 }
 
-.sing_text > input {
+.input_wrap > input {
   width: 100%;
   height: 40px;
   padding: 0;
   border: 1px solid var(--text-light);
 }
 
-.sing_text > input::placeholder {
+.input_wrap > input::-moz-placeholder {
+  text-indent: 10px;
+}
+
+.input_wrap > input::placeholder {
   text-indent: 10px;
 }
 
@@ -135,6 +140,24 @@ button {
   width: 170px;
 }
 
+.input_wrap {
+  position: relative;
+  width: 100%;
+}
+
+.error_msg {
+  position: absolute;
+  left: 0;
+  top: calc(100% + 4px);
+  display: none;
+  color: #ff4d4f;
+  line-height: 1;
+}
+
+.input_error {
+  border: 1px solid #ff4d4f !important;
+}
+
 @media (min-width: 768px) {
   .sign_contents {
     display: grid;
@@ -151,9 +174,7 @@ button {
   .login {
     display: block;
   }
-  .sing_text {
-    padding: 0 0 20px 0;
-    gap: 20px;
+  .sign_text {
     width: 100%;
   }
   .sing_sns {
@@ -181,7 +202,8 @@ button {
   .sign_box > img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    -o-object-fit: cover;
+       object-fit: cover;
   }
   .sign_box {
     max-width: 1320px;
@@ -192,4 +214,4 @@ button {
   .login_bt {
     height: 60px;
   }
-}
+}/*# sourceMappingURL=sign-in.css.map */
