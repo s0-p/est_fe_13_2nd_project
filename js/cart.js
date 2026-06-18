@@ -40,11 +40,19 @@ function renderCart() {
                 </div>
                 <div class="product_footer">
                   <div class="quantity_control pre_reg_12">
-                    <button type="button" class="minus_btn" aria-label="수량 감소">-</button>
+                    <button 
+                    type="button" 
+                    class="minus_btn" 
+                    ${isSoldOut ? 'disabled' : ''}
+                    aria-label="수량 감소">-</button>
                     <span class="quantity" aria-live="polite">${item.quantity}</span>
-                    <button type="button" class="plus_btn" aria-label="수량 증가">+</button>
+                    <button 
+                    type="button" 
+                    class="plus_btn" 
+                    ${isSoldOut ? 'disabled' : ''}
+                    aria-label="수량 증가">+</button>
                   </div>
-                  <p class="product_price pre_bold_14">₩${Number(item.price.toString().replaceAll(',', '')).toLocaleString('ko-KR')}</p>
+                  <p class="product_price pre_bold_14">₩${item.price === 0 ? '일시 품절' : Number(item.price.toString().replaceAll(',', '')).toLocaleString('ko-KR')}</p>
                 </div>
               </div>
               <button class="delete_icon" type="button" aria-label="상품 삭제" aria-haspopup="dialog">
@@ -56,6 +64,22 @@ function renderCart() {
   cartList.insertAdjacentHTML('beforeend', cartHTML.join(''));
 }
 renderCart();
+
+// 예송 배송일
+const today = new Date();
+const date = new Date();
+const deliveryDateEl = document.querySelector('.delivery_date');
+
+date.setDate(date.getDate() + 3);
+today.setDate(today.getDate() + 3);
+
+const deliveryDate = `
+${today.getFullYear()}.${String(today.getMonth() + 1).padStart(2, '0')}.${String(today.getDate()).padStart(2, '0')}`;
+
+deliveryDateEl.textContent = `배송 예정일: ${date.getFullYear()}.${String(date.getMonth() + 1).padStart(
+  2,
+  '0',
+)}.${String(date.getDate()).padStart(2, '0')} 발송 예정`;
 
 // 쿠폰 임시 데이터
 const coupons = [
@@ -116,6 +140,7 @@ totalCartCount();
 cartList.addEventListener('click', (e) => {
   const plusBtn = e.target.closest('.plus_btn');
   const minusBtn = e.target.closest('.minus_btn');
+  const idSolout = item.price === 0;
 
   if (!plusBtn && !minusBtn) return;
 
@@ -251,4 +276,13 @@ deleteItemBtn.addEventListener('click', () => {
   closeModal(deleteModal);
 });
 
-///////test
+// 품절 상품 주문 시
+const hasSoldOut = cartItems.some((item) => item.price === 0);
+const orderBtn = document.querySelectorAll('.checkout_button');
+
+orderBtn.forEach((btn) => {
+  btn.addEventListener('click', () => {
+    if (hasSoldOut) alert('일시 품절 상품이 있습니다.');
+    return;
+  });
+});
