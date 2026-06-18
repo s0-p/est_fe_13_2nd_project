@@ -18,19 +18,19 @@ function renderCart() {
   let cartHTML = [];
   if (cartItems.length === 0) {
     cartHTML.push(
-      `<article class="empty_cart">
+      `<article class="empty_cart text_center">
         장바구니가 비어있습니다.
         </article>`,
     );
   } else {
     cartHTML = cartItems.map(
       (item) =>
-        `<article class="product_item" data-product-index="${item.productIndex}">
+        `<article class="product_item display_grid" data-product-index="${item.productIndex}">
               <a href="./product-detail.html?id=${item.productIndex}">
               <img class="product_image" src="${item.thumbnail}" alt="${item.title}" fetchpriority="high" />
               </a>
-              <div class="product_content">
-                <div class="product_info">
+              <div class="product_content display_flex flex_column justify_content_between">
+                <div class="product_info display_grid">
                   <p class="product_brand pre_bold_14">${item.brand}</p>
                   <h2 class="product_name pre_reg_12">${item.title}</h2>
                   <p class="product_option pre_reg_12">
@@ -38,8 +38,8 @@ function renderCart() {
                     <button class="option_edit" type="button" aria-haspopup="dialog">수정</button>
                   </p>
                 </div>
-                <div class="product_footer">
-                  <div class="quantity_control pre_reg_12">
+                <div class="product_footer display_grid align_items_center justify_content_between">
+                  <div class="quantity_control display_grid align_items_center text_center pre_reg_12">
                     <button 
                     type="button" 
                     class="minus_btn" 
@@ -55,7 +55,7 @@ function renderCart() {
                   <p class="product_price pre_bold_14">₩${item.price === 0 ? '일시 품절' : Number(item.price.toString().replaceAll(',', '')).toLocaleString('ko-KR')}</p>
                 </div>
               </div>
-              <button class="delete_icon" type="button" aria-label="상품 삭제" aria-haspopup="dialog">
+              <button class="delete_icon display_inline_flex align_items_center justify_content_center" type="button" aria-label="상품 삭제" aria-haspopup="dialog">
                 <span class="material-icons icon_20 close_button" aria-hidden="true">close</span>
               </button>
         </article>`,
