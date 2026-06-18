@@ -26,6 +26,7 @@ let ctaTotalPrice = null;
 let ctaCartBtn = null;
 let ctaPurchaseBtn = null;
 let moreReviewBtns = null;
+let otherColorLinks = null;
 let tabItems = [];
 let contentItems = [];
 
@@ -63,10 +64,18 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+  otherColorLinks = slideOtherColorWrapper.querySelectorAll('a');
+  if (otherColorLinks) {
+    otherColorLinks.forEach((link) => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+      });
+    });
+  }
 
   initSwiper();
-  initProduct();
   initSeries();
+  initProduct();
   initTabMenu();
   initResponsiveLayout();
   /**call import functions */
@@ -129,19 +138,12 @@ function initCTA(data) {
   ctaPurchaseBtn.addEventListener('click', (e) => {
     e.preventDefault();
 
-    let currentQuantity = parseInt(ctaQuantityInput.value, 10);
-    if (isNaN(currentQuantity)) currentQuantity = 1;
-
-    addToCart(data, currentQuantity);
     // 1. 상품 구매 페이지로 이동합니다. << 메세지창 팝업
     alert('상품 구매 페이지로 이동합니다.');
     // 2. 페이지 새로고침
     // window.location.reload();
     ctaQuantityInput.value = '1';
     updateTotalPrice(data, 1);
-
-    window.location.href = 'https://s0-p.github.io/est_fe_13_2nd_project/sub/cart.html';
-    // window.location.href = 'http://127.0.0.1:5500/sub/cart.html';
   });
 }
 
@@ -424,27 +426,53 @@ function initSwiper() {
 }
 
 /**
+ * fetch 'productIndex' from URL
+ */
+function getProductIdFromURL() {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get('id');
+}
+
+/**
  * fetch product
  */
 let productsJson = null;
 let productsList = null;
+let currentProduct = null;
 async function initProduct() {
+  const targetId = getProductIdFromURL();
+
+  // 예외 처리: 만약 URL에 productIndex 파라미터가 없다면 메인으로 리다이렉트
+  if (!targetId) {
+    alert('올바르지 않은 접근입니다. 메인으로 이동합니다.');
+    window.location.href = '../index.html';
+    return;
+  }
+
   try {
     const response = await fetch('../data/products.json');
     productsJson = await response.json();
     productsList = Array.isArray(productsJson) ? productsJson : [productsJson];
 
     /******* test *******/
-    let testIdx = Math.floor(Math.random() * productsList.length);
-    const currentProduct = productsList[testIdx];
+    // let testIdx = Math.floor(Math.random() * productsList.length);
+    // const currentProduct = productsList[testIdx];
     /******* test *******/
+    currentProduct = productsJson.find((product) => String(product.productIndex) === String(targetId));
 
+    if (!currentProduct) {
+      alert('해당 상품 존재하지 않거나 품절된 상품입니다.');
+      window.location.href = '../index.html';
+      return;
+    }
+
+    renderInfo(currentProduct);
     renderSpec(currentProduct);
     renderSlide(currentProduct, 0);
     renderSlide(currentProduct, 1);
     const similarProducts = getSimilarProducts(currentProduct);
+    console.log(similarProducts);
     renderSlide(similarProducts, 2);
-    renderInfo(currentProduct);
     initInfoAccordion();
     initCTA(currentProduct);
   } catch (error) {
@@ -465,13 +493,11 @@ async function initSeries() {
     seriesList = Array.isArray(seriesJson) ? seriesJson : [seriesJson];
 
     /******* test *******/
-    console.log(seriesList.length);
     let testIdx = Math.floor(Math.random() * seriesList.length);
     let seriesDisplayList = [];
     for (let i = 0; i < MAX_SERIES; i++) {
       seriesDisplayList.push(seriesList[testIdx++ % seriesList.length]);
     }
-    console.log(seriesDisplayList);
     /******* test *******/
 
     renderSlide(seriesDisplayList, 3);
@@ -682,16 +708,16 @@ function renderSlide(data, code) {
           (product) => `
           <article class="swiper-slide card_ui display_flex flex_column">
                 <div class="card_ui_img_wrapper">
-                  <a href="${product.url || '#'}">
+                  <a href="${createProductParamURL(product)}">
                     <img
                       src="${product.image}"
-                      alt="${product.title || 'null'}"
+                      alt="${product.colorName || '다른 색상 제품'} 이미지"
                     />
                   </a>
                 </div>
                 <div class="card_ui_info_wrapper">
                   <strong class="info_code mont_bold_14">${product.colorName}</strong>
-                  <p class="info_description mont_reg_14">레이밴 선글라스 클럽마스터 RB3016 W0366 51mm</p>
+                  <p class="info_description mont_reg_14">${currentProduct.title}</p>
                 </div>
               </article>`,
         )
@@ -720,16 +746,16 @@ function renderSlide(data, code) {
           (product) => `
           <article class="swiper-slide card_ui display_flex flex_column">
                 <div class="card_ui_img_wrapper">
-                  <a href="${product.url || '#'}">
+                  <a href="${createProductParamURL(product)}">
                     <img
                       src="${product.thumbnail}"
-                      alt="${product.title || 'null'}"
+                      alt="${product.title || '유사 제품'} 이미지"
                     />
                   </a>
                 </div>
                 <div class="card_ui_info_wrapper">
                   <strong class="info_code mont_bold_14">${parseBrandWithLineBreak(product.brand, product.thumbnail)}</strong>
-                  <p class="info_description mont_reg_14">${product.title || 'null'}</p>
+                  <p class="info_description mont_reg_14">${product.title || '유사 제품'} 타이틀</p>
                 </div>
               </article>`,
         )
@@ -789,7 +815,7 @@ function createProductParamURL(product) {
 
   /**final url */
   // https://s0-p.github.io/est_fe_13_2nd_project/sub/product-detail.html?id=3003222
-  const baseUrl = 'https://s0-p.github.io/est_fe_13_2nd_project/sub/product-detail.html';
+  const baseUrl = "https://s0-p.github.io/est_fe_13_2nd_project/sub/product-detail.html";
   /**test url */
   // http://127.0.0.1:5500/sub/product-detail.html?id=3003222
   // const baseUrl = 'http://127.0.0.1:5500/sub/product-detail.html';
@@ -801,19 +827,18 @@ function createProductParamURL(product) {
 /**
  * filter similar products
  *
- * @param {Object} currentProduct
+ * @param {Object} targetProduct
  * @returns {Array}
  */
-function getSimilarProducts(currentProduct) {
-  if (!productsList || productsList.length === 0) return [];
+function getSimilarProducts(targetProduct) {
+  if (!productsJson || !productsList) return [];
 
   return (
     productsList
       // 1. [필터링] 카테고리 인덱스가 일치하면서, 현재 보고 있는 상품 본인은 제외
       .filter(
         (product) =>
-          product.categoryIndex === currentProduct.categoryIndex &&
-          product.productIndex !== currentProduct.productIndex,
+          product.categoryIndex === targetProduct.categoryIndex && product.productIndex !== targetProduct.productIndex,
       )
       // 2. [정렬] likeCount 많은 순
       .sort((a, b) => {
