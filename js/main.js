@@ -1,9 +1,9 @@
 import headerModule from './components/header.js';
 import createProductCard from './components/product-card.js';
-/* import * as footerModule from './components/footer.js'; */
+import renderFooter from './components/footer.js';
 
 headerModule();
-/* renderFooter(); */
+renderFooter();
 
 document.addEventListener('DOMContentLoaded', () => {
   // [1] 히어로 섹션 슬라이드
@@ -40,22 +40,49 @@ document.addEventListener('DOMContentLoaded', () => {
       .catch((err) => console.error('Hero Slider Error:', err));
   }
 
-  // [2] 베스트 프레임 섹션 슬라이드
+  // [2] 베스트 프레임 섹션
   const productSection = document.querySelector('.product_list_container');
   const productListWrapper = document.getElementById('product_list_wrapper');
+
   if (productSection && productListWrapper) {
     fetch('./data/products.json')
       .then((res) => res.json())
       .then((data) => {
         const products = Array.isArray(data) ? data : [];
         productListWrapper.innerHTML = '';
-        products.slice(0, 4).forEach((p) => {
+
+        products.slice(0, 4).forEach((p, index) => {
+          console.log(index, p.title);
+
           const card = createProductCard(p);
-          card.classList.add('swiper-slide');
+          const tags = card.querySelector('.tags');
+
+          if (tags) {
+            tags.innerHTML = `
+            <div class="tag pre_reg_12">${p.brand}</div>
+            <div class="tag pre_reg_12">${p.category}</div>
+            <div class="tag pre_reg_12">
+              ${parseInt(p.reviewCount.replace(/,/g, '')) >= 500 ? 'BEST' : '추천'}
+            </div>
+          `;
+          }
+
           productListWrapper.appendChild(card);
-        });
-      })
-      .catch((err) => console.error('Product List Error:', err));
+
+          const imageSlider = card.querySelector('.image_slider');
+
+          if (imageSlider) {
+            new Swiper(imageSlider, {
+              slidesPerView: 1,
+              loop: false,
+              navigation: {
+                nextEl: card.querySelector('.image_next'),
+                prevEl: card.querySelector('.image_prev'),
+              },
+            });
+          }
+        }); // 1. products.slice(0, 4).forEach( ... 의 닫는 태그
+      }); // 2. .then((data) => { ... 의 닫는 태그
   }
 
   // [3] 컬렉션(기획전) 섹션 로드
@@ -66,7 +93,6 @@ document.addEventListener('DOMContentLoaded', () => {
   let swiper = null;
   let guideShownOnce = false;
 
-  // 가이드 DOM
   const dragGuide = document.getElementById('collect_drag_guide');
 
   function showGuide() {
