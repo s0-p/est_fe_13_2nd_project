@@ -4,12 +4,22 @@ body {
   box-sizing: border-box;
   background-color: var(--surface-bg);
   color: var(--text-default);
+  padding-bottom: 160px;
 
   @media (min-width: 1440px) {
     & {
       background-color: var(--surface-bg-beige);
+      padding-bottom: 0;
     }
   }
+}
+
+header {
+  position: sticky !important;
+  background-color: var(--surface-bg-beige);
+  left: 0;
+  top: 0;
+  z-index: 999999;
 }
 
 main {
@@ -118,6 +128,7 @@ main {
 
       max-width: 1320px;
       margin: 0 auto;
+      margin-bottom: calc(var(--unit-row) * 4);
       padding: 0;
     }
 
@@ -420,8 +431,15 @@ h1 {
 }
 
 .product_similar {
-  margin-top: 0 !important;
-  margin-bottom: 0 !important;
+  > div {
+    &:first-child {
+      margin-bottom: var(--unit-row);
+    }
+  }
+
+  .slider_pagination_controls {
+    margin-top: 0 !important;
+  }
 }
 
 .slider_pagination_controls {
@@ -452,12 +470,18 @@ h1 {
 
   .content_tab_menu {
     position: sticky;
-    top: 0; // GNB(헤더)가 있다면 그 높이만큼 지정 (ex: 80px)
-    z-index: 100;
+    top: 80px; // GNB(헤더)가 있다면 그 높이만큼 지정 (ex: 80px)
+    z-index: 3;
 
     width: 100%;
     border-bottom: 1.5px solid var(--stroke);
     background-color: var(--surface-bg-beige);
+
+    @media (min-width: 768px) {
+      & {
+        top: 60px;
+      }
+    }
 
     .tab_item {
       flex: 1;
@@ -559,6 +583,23 @@ h1 {
       gap: calc(var(--unit-row) * 4);
 
       .review_photo_section {
+        h2 {
+          margin-bottom: 0 !important;
+        }
+
+        > div {
+          margin-bottom: calc(var(--unit-row) * 2);
+          &:first-child {
+            div {
+              gap: var(--unit-m-gutter);
+            }
+          }
+        }
+
+        .slider_pagination_controls {
+          margin-top: 0 !important;
+        }
+
         .swiper {
           width: 100%;
         }
@@ -714,6 +755,14 @@ h1 {
       }
 
       .review_normal_section {
+        > div {
+          &:first-child {
+            div {
+              gap: var(--unit-m-gutter);
+            }
+          }
+        }
+
         .card_slide_container {
           // margin-top: calc(var(--unit-row) * 1.5);
           width: 100%;
@@ -754,6 +803,17 @@ h1 {
             width: 100%;
             text-decoration: none;
             gap: 0;
+            cursor: pointer;
+
+            &:hover,
+            &:focus-within {
+              .review_text_content {
+                display: block;
+                line-clamp: unset;
+                -webkit-line-clamp: unset;
+                max-height: 400px;
+              }
+            }
 
             .review_meta_box {
               display: flex;
@@ -797,8 +857,25 @@ h1 {
 
             .review_text_content {
               margin-top: calc(var(--unit-row) * 0.5);
+              max-height: 3em;
+
+              overflow: hidden;
+              text-overflow: ellipsis;
+              display: -webkit-box;
+              line-clamp: 2;
+              -webkit-line-clamp: 2;
+              -webkit-box-orient: vertical;
+              word-break: break-all;
+
+              transition: max-height 0.75s ease-in-out;
             }
           }
+        }
+      }
+
+      .btn_more_review {
+        &:hover {
+          opacity: 0.5;
         }
       }
     }

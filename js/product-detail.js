@@ -25,8 +25,14 @@ let ctaQuantityMinusBtn = null;
 let ctaTotalPrice = null;
 let ctaCartBtn = null;
 let ctaPurchaseBtn = null;
+let moreReviewBtns = null;
 let tabItems = [];
 let contentItems = [];
+
+let reviewPhotoPrevBtn = null;
+let reviewPhotoNextBtn = null;
+let similarPrevBtn = null;
+let similarNextBtn = null;
 
 document.addEventListener('DOMContentLoaded', () => {
   slideHeroWrapper = document.querySelector('.hero .swiper-wrapper');
@@ -44,6 +50,19 @@ document.addEventListener('DOMContentLoaded', () => {
   ctaTotalPrice = document.querySelector('.total_price');
   ctaCartBtn = document.getElementById('addcart');
   ctaPurchaseBtn = document.querySelector('.btn_purchase');
+  reviewPhotoPrevBtn = document.querySelector('.review_photo_section .prev');
+  reviewPhotoNextBtn = document.querySelector('.review_photo_section .next');
+  similarPrevBtn = document.querySelector('.product_similar .prev');
+  similarNextBtn = document.querySelector('.product_similar .next');
+
+  moreReviewBtns = document.querySelectorAll('.detail_review .btn_more_review');
+  if (moreReviewBtns) {
+    moreReviewBtns.forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+      });
+    });
+  }
 
   initSwiper();
   initProduct();
@@ -266,6 +285,7 @@ function renderTabMenu(tabs, contents, targetIndex) {
  * init swiper parameters
  */
 function initSwiper() {
+  /**init swiper */
   slideHero = new Swiper('.slide_hero', {
     direction: 'horizontal',
     slidesPerView: 1,
@@ -367,6 +387,8 @@ function initSwiper() {
     grabCursor: true,
     centeredSlides: true,
     slidesPerView: 'auto',
+    initialSlide: 2,
+    loop: true,
     coverflowEffect: {
       rotate: 50,
       stretch: 0,
@@ -377,6 +399,20 @@ function initSwiper() {
 
     observer: true,
     observeParents: true,
+  });
+
+  /**init pagination button */
+  reviewPhotoPrevBtn.addEventListener('click', () => {
+    slideReviewPhoto.slidePrev();
+  });
+  reviewPhotoNextBtn.addEventListener('click', () => {
+    slideReviewPhoto.slideNext();
+  });
+  similarPrevBtn.addEventListener('click', () => {
+    slideSimilar.slidePrev();
+  });
+  similarNextBtn.addEventListener('click', () => {
+    slideSimilar.slideNext();
   });
 }
 
