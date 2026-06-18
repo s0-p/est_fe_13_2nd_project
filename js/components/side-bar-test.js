@@ -38,13 +38,13 @@ function createSidebar() {
   if (screenWidth < 1280) {
     newSidebar.innerHTML = `
       <div class="side_bar mobile_version">
-        <button class="top_btn">
+        <button class="top_btn" aria-label="위로 가기">
           <img src="../images/side_bar_1.png" alt="위로 가기">
         </button>
 
         ${menuData.map(item => `
           <div class="menu_item">
-            <button type="button" class="icon">
+            <button type="button" class="icon" aria-label="${item.text}">
               <img src="${item.icon}" alt="">
             </button>
             <a href="${item.link}" class="text pre_bold_14">
@@ -57,13 +57,13 @@ function createSidebar() {
   } else {
     newSidebar.innerHTML = `
       <div class="side_bar pc_version">
-        <button class="top_btn">
+        <button class="top_btn" aria-label="위로 가기">
           <img src="../images/side_bar_1.png" alt="위로 가기">
         </button>
 
         ${menuData.map(item => `
           <div class="menu_item">
-            <button type="button" class="icon">
+            <button type="button" class="icon" aria-label="${item.text}">
               <img src="${item.icon}" alt="">
             </button>
             <a href="${item.link}" class="text pre_bold_14">
