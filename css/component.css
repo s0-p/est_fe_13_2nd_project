@@ -85,7 +85,6 @@ footer {
 }
 
 .footer_box {
-  padding: 20px 0;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -469,6 +468,7 @@ nav .type_wrapper .type_square .type_image {
 
 /* 활성화 */
 .side_bar .menu_item.active {
+  width: -moz-fit-content;
   width: fit-content;
   transform: translateX(calc(-100% + 46px));
   background: linear-gradient(90deg, var(--primary-muted), var(--secondary));
@@ -535,13 +535,15 @@ nav .type_wrapper .type_square .type_image {
   overflow: hidden;
 }
 .product_card ul {
+  width: -moz-max-content;
   width: max-content;
   height: 100%;
 }
 .product_card li img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .product_card .actions {
   position: absolute;
@@ -646,4 +648,4 @@ nav .type_wrapper .type_square .type_image {
 
 /* Product Card */
 /* Skeleton Card*/
-/* Skeleton Card*/
+/* Skeleton Card*//*# sourceMappingURL=component.css.map */
