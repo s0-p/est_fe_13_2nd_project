@@ -22,15 +22,20 @@
     <header class="site_header"></header>
 
     <main class="contents cart_page">
-      <section class="shopping_bag" aria-labelledby="shopping_bag_title">
-        <h1 id="shopping_bag_title" class="shopping_bag_tab pre_reg_14">장바구니(<span>0</span>)</h1>
+      <section class="shopping_bag display_flex align_items_center flex_column" aria-labelledby="shopping_bag_title">
+        <h1
+          id="shopping_bag_title"
+          class="shopping_bag_tab display_flex align_items_center justify_content_center pre_reg_14"
+        >
+          장바구니(<span>0</span>)
+        </h1>
 
-        <div class="cart_container">
-          <section class="cart_product" aria-label="장바구니 상품 목록"></section>
+        <div class="cart_container display_flex flex_column">
+          <section class="cart_product display_grid" aria-label="장바구니 상품 목록"></section>
 
           <aside class="order_info" aria-label="주문 정보">
-            <div class="order_info_content">
-              <section class="delivery_info" aria-labelledby="delivery_title">
+            <div class="order_info_content display_grid">
+              <section class="delivery_info display_grid" aria-labelledby="delivery_title">
                 <h2 id="delivery_title" class="summary_label pre_bold_14">배송 정보</h2>
                 <div class="summary_row pre_reg_14">
                   <span class="delivery_date"></span>
@@ -40,7 +45,7 @@
 
               <section class="order_summary" aria-labelledby="order_summary_title">
                 <h2 id="order_summary_title" class="sr_only">주문 금액</h2>
-                <dl>
+                <dl class="display_grid">
                   <div class="summary_row">
                     <dt class="summary_label pre_bold_14">상품 금액</dt>
                     <dd class="pre_reg_14 before_discount_price">₩ ---,---</dd>
@@ -51,8 +56,10 @@
                   </div>
                   <div class="discount_row">
                     <dt class="summary_label pre_bold_14">할인 금액</dt>
-                    <dd>
-                      <button class="coupon_button pre_reg_12" type="button" aria-haspopup="dialog">쿠폰 적용</button>
+                    <dd class="display_grid">
+                      <button class="coupon_button text_center pre_reg_12" type="button" aria-haspopup="dialog">
+                        쿠폰 적용
+                      </button>
                       <span class="pre_reg_14 discount_price">₩ ---,---</span>
                     </dd>
                   </div>
@@ -64,7 +71,10 @@
                 <p class="pre_bold_16 total_price" aria-live="polite">₩ ---,---</p>
               </section>
 
-              <button class="checkout_button desktop_checkout pre_bold_20" type="button">
+              <button
+                class="checkout_button desktop_checkout align_items_center justify_content_center pre_bold_20"
+                type="button"
+              >
                 <span>결제하기</span>
                 <span class="total_price" aria-live="polite">₩ ---,---</span>
               </button>
@@ -72,12 +82,16 @@
           </aside>
         </div>
 
-        <div class="mobile_cta">
-          <button class="checkout_button pre_bold_20" type="button">
+        <div class="mobile_cta display_grid">
+          <button class="checkout_button align_items_center justify_content_center pre_bold_20" type="button">
             <span>결제하기</span>
             <span class="total_price" aria-live="polite">₩ ---,---</span>
           </button>
-          <button class="ask_button" type="button" aria-label="Try on">
+          <button
+            class="ask_button display_inline_flex align_items_center justify_content_center"
+            type="button"
+            aria-label="Try on"
+          >
             <img src="../images/side_bar_4.png" alt="문의하기 버튼" aria-label="문의하기 버튼" />
           </button>
         </div>
@@ -88,7 +102,7 @@
 
     <!-- 바텀 시트 , 모달 -->
     <section
-      class="option_modal modal contents"
+      class="option_modal modal contents display_flex justify_content_center align_items_center"
       role="dialog"
       aria-modal="true"
       aria-labelledby="option_modal_title"
@@ -96,7 +110,7 @@
     >
       <div class="modal_dim"></div>
       <article class="modal_panel option_panel">
-        <span class="bottom_sheet_bar" aria-hidden="true"></span>
+        <span class="bottom_sheet_bar display_block" aria-hidden="true"></span>
         <header class="modal_header pre_reg_24">
           <h2 id="option_modal_title">옵션 변경</h2>
           <button class="modal_close" type="button" aria-label="닫기">
@@ -104,7 +118,7 @@
           </button>
         </header>
         <!-- 모바일 옵션 수정 바텀시트 -->
-        <div class="option_select_container">
+        <div class="option_select_container display_grid">
           <button class="option_select pre_reg_16" type="button">프레임 색상을 선택해주세요.</button>
           <ul class="select_list">
             <li class="select_item">
@@ -191,7 +205,7 @@
     </section>
     <!-- 쿠폰 바텀 시트 (모바일, 태블릿) / 모달 (데스크탑) -->
     <section
-      class="coupon_modal modal contents"
+      class="coupon_modal modal contents display_flex justify_content_center align_items_center"
       role="dialog"
       aria-modal="true"
       aria-labelledby="coupon_modal_title"
@@ -199,7 +213,7 @@
     >
       <div class="modal_dim"></div>
       <article class="modal_panel coupon_panel">
-        <span class="bottom_sheet_bar" aria-hidden="true"></span>
+        <span class="bottom_sheet_bar display_block" aria-hidden="true"></span>
         <header class="modal_header pre_reg_24">
           <h2 id="coupon_modal_title">쿠폰 적용</h2>
           <button class="modal_close" type="button" aria-label="닫기">
@@ -219,7 +233,7 @@
 
     <!-- 상품 삭제 모달 -->
     <section
-      class="delete_modal modal contents"
+      class="delete_modal modal contents display_flex justify_content_center align_items_center"
       role="dialog"
       aria-modal="true"
       aria-labelledby="delete_modal_title"
@@ -229,8 +243,8 @@
       <article class="delete_panel">
         <span class="material-icons icon_24">remove_shopping_cart</span>
         <h2 id="delete_modal_title" class="pre_bold_14">상품을 삭제 하시겠습니까?</h2>
-        <p class="pre_reg_14">삭제한 상품은 장바구니에서 사라집니다.</p>
-        <div class="delete_actions">
+        <p class="text_center pre_reg_14">삭제한 상품은 장바구니에서 사라집니다.</p>
+        <div class="delete_actions display_grid">
           <button class="cancel_button pre_reg_16" type="button">취소</button>
           <button class="confirm_delete_button pre_reg_16" type="button">삭제</button>
         </div>
