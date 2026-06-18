@@ -94,8 +94,9 @@ footer {
 .footer_cta {
   text-align: center;
   width: 100%;
-  padding: 20px;
-  border: 1px solid var(--text-default);
+  padding: 20px 0;
+  border-top: 1px solid var(--text-default);
+  border-bottom: 1px solid var(--text-default);
 }
 
 .footer_content {
@@ -209,8 +210,8 @@ footer {
   .footer_info_item .pre_reg_12 {
     font-size: 14px;
   }
-  .footer_cta .pre_bold_14 {
-    font-size: 24px;
+  .footer_cta .pre_reg_14 {
+    font-size: 20px;
   }
   .footer_sns img {
     width: 40px;
