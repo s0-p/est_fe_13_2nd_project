@@ -1,3 +1,11 @@
+import renderHeader from './components/header.js';
+import renderFooter from './components/footer.js';
+import renderSidebar from './components/side-bar-test.js';
+
+renderHeader();
+renderSidebar();
+renderFooter();
+
 let map;
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -17,12 +25,17 @@ let customOverlay;
 function storeOverlay(store) {
   const position = new kakao.maps.LatLng(Number(store.latitude), Number(store.longitude));
   var content = `
-  <div class="customoverlay">
+  <div class="customoverlay" onclick="event.stopPropagation()"
+     ondblclick="event.stopPropagation()">
     <div class="map-overlay-card">
       <div class="card-body display_flex flex_column">
         <div class="card_header display_flex align_items_center">
-          <button type="button" class="wish_btn material-icons icon_24 border_round" aria-label="관심 매장 등록">
-          favorite_border
+          <button 
+          type="button" 
+          class="wish_btn material-icons icon_24 border_round" 
+          data-store-name="${store.name}"
+          aria-label="관심 매장 등록">
+          ${favoriteStores.has(store.name) ? 'favorite' : 'favorite_border'}
           </button>
           <strong class="store_name pre_bold_14">${store.name}</strong>
         </div>
@@ -57,15 +70,6 @@ keywordFilters.forEach((keyword) => {
   });
 });
 
-// 관심 매장 등록 클릭 이벤트
-document.addEventListener('click', (e) => {
-  const wishBtn = e.target.closest('.wish_btn');
-  if (!wishBtn) return;
-  const isFavorite = wishBtn.textContent.trim() === 'favorite_border';
-  wishBtn.textContent = isFavorite ? 'favorite' : 'favorite_border';
-  wishBtn.setAttribute('aria-label', isFavorite ? '관심 매장 해제' : '관심 매장 등록');
-});
-
 // 매장 목록 열고 닫기
 const toggleArea = document.querySelector('.list_toggle_bar');
 const toggleBtn = document.querySelector('.btn_toggle_list');
@@ -84,8 +88,12 @@ toggleBtn.addEventListener('click', () => {
 
   arrow.textContent = isOpen ? 'expand_less' : 'expand_more';
 });
+
 /* 데이터 불러오기 */
 let stores = [];
+let currentStore = null;
+
+const favoriteStores = new Set();
 
 async function loadStores() {
   try {
@@ -100,10 +108,32 @@ async function loadStores() {
 
 loadStores();
 
+// 관심 매장 등록 클릭 이벤트
+document.addEventListener('click', (e) => {
+  const wishBtn = e.target.closest('.wish_btn');
+  if (!wishBtn) return;
+
+  const storeName = wishBtn.dataset.storeName;
+  if (!storeName) return;
+
+  if (favoriteStores.has(storeName)) {
+    favoriteStores.delete(storeName);
+  } else {
+    favoriteStores.add(storeName);
+  }
+
+  renderStoreList();
+
+  if (currentStore) {
+    storeOverlay(currentStore);
+  }
+});
+
 // 목록 렌더링
 const storeList = document.querySelector('.store_list');
-function renderStoreList() {
-  storeList.innerHTML = stores
+
+function renderStoreList(list = stores) {
+  storeList.innerHTML = list
     .map(
       (store, index) => `
       <li class="store_item" data-index="${index}">
@@ -111,9 +141,10 @@ function renderStoreList() {
           <button
             type="button"
             class="wish_btn border_round material-icons icon_24"
+            data-store-name="${store.name}"
             aria-label="관심 매장 등록"
           >
-            favorite_border
+            ${favoriteStores.has(store.name) ? 'favorite' : 'favorite_border'}
           </button>
 
           <strong class="store_name display_block pre_bold_14">
@@ -137,13 +168,27 @@ function renderStoreList() {
 
 // 클릭한 매장으로 이동
 storeList.addEventListener('click', (e) => {
+  if (e.target.closest('.wish_btn')) return;
+
   const item = e.target.closest('.store_item');
   if (!item) return;
 
   const store = stores[item.dataset.index];
+  currentStore = store;
 
   const position = new kakao.maps.LatLng(Number(store.latitude), Number(store.longitude));
 
   map.panTo(position);
   storeOverlay(store);
+});
+
+// 검색 기능
+const searchInput = document.querySelector('#storeSearch');
+
+searchInput.addEventListener('input', () => {
+  const keyword = searchInput.value.trim().toLowerCase();
+
+  const filteredStores = stores.filter((store) => store.name.toLowerCase().includes(keyword));
+
+  renderStoreList(filteredStores);
 });

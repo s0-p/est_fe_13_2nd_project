@@ -63,7 +63,6 @@ button {
   height: 40px;
   border: 1px solid var(--text-light);
   cursor: pointer;
-  color: var(--text-default);
 }
 
 .sign_in .sing_sns button:nth-child(1) {
@@ -139,7 +138,6 @@ button {
   .sign_contents {
     display: grid;
     justify-items: center;
-    padding: 50px 0;
   }
   .sign_box {
     display: flex;

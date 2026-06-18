@@ -37,7 +37,6 @@
   box-sizing: border-box;
   background-color: var(--surface-bg);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-  overflow: hidden;
   position: relative;
 }
 
@@ -170,11 +169,15 @@ fieldset {
   align-items: center;
   gap: 12px;
   margin-bottom: 20px;
+  cursor: pointer;
 }
 .store_list .store_item .store_header .wish_btn {
   color: var(--secondary);
   background: var(--surface-tint);
-  cursor: pointer;
+}
+
+.mobile_version {
+  display: none;
 }
 
 @media (min-width: 1280px) {
@@ -227,4 +230,7 @@ fieldset {
     min-width: 0;
     max-height: 544px;
   }
+}
+.side_bar .pc_version {
+  display: flex;
 }
