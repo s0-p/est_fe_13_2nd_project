@@ -111,6 +111,10 @@ function createNav() {
     const hamberger = document.querySelector('header .hamberger');
     hamberger.addEventListener('click', () => {
       newNav.classList.toggle('display_none');
+      const lines = hamberger.querySelectorAll('div');
+      lines.forEach((line) => {
+        line.classList.toggle('active');
+      });
     });
   } else {
   }
