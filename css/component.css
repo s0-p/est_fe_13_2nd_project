@@ -16,7 +16,7 @@ header {
   background: var(--surface-tint);
 }
 header h1 {
-  font-family: 'Pretendard';
+  font-family: "Pretendard";
   font-size: 24px;
   font-weight: 700;
   line-height: 30px;
@@ -66,7 +66,7 @@ header a:hover {
   position: relative;
   padding: 0 calc(var(--unit-row) * 3);
 }
-.header_pc a[href='/index.html'] {
+.header_pc a[href="/index.html"] {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -150,9 +150,7 @@ footer {
   max-height: 0;
   overflow: hidden;
   opacity: 0;
-  transition:
-    max-height 0.4s ease,
-    opacity 0.3s ease;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
 }
 
 .footer_menu_item .pre_bold_14,
@@ -176,7 +174,7 @@ footer {
 
 @media (min-width: 768px) {
   .footer_cta h2::after {
-    content: ' 통합 맵 바로가기';
+    content: " 통합 맵 바로가기";
   }
   .footer_menu {
     gap: 16px;
@@ -411,9 +409,7 @@ nav .type_wrapper .type_square .type_image {
   flex-direction: column;
   gap: 16px;
   z-index: 9999;
-  transition:
-    opacity 0.3s ease,
-    transform 0.3s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 /* 스크롤 숨김 */
@@ -444,9 +440,7 @@ nav .type_wrapper .type_square .type_image {
   align-items: center;
   overflow: hidden;
   border-radius: 999px;
-  transition:
-    width 0.35s ease,
-    transform 0.35s ease;
+  transition: width 0.35s ease, transform 0.35s ease;
 }
 
 .side_bar .menu_item .icon {
@@ -532,6 +526,7 @@ nav .type_wrapper .type_square .type_image {
 /* Product Card */
 .product_card {
   width: 100%;
+  /* Image Slider */
 }
 .product_card .image_slider {
   width: 100%;
@@ -545,8 +540,10 @@ nav .type_wrapper .type_square .type_image {
 .product_card .image_slider:hover {
   box-shadow: 0 4px 15px var(--primary-muted);
 }
-.product_card {
-  /* Image Slider */
+.product_card .image_slider > a {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
 }
 .product_card ul {
   width: max-content;
@@ -557,13 +554,17 @@ nav .type_wrapper .type_square .type_image {
   height: 100%;
   object-fit: cover;
 }
+.product_card {
+  /* Image Slider */
+  /* Actions */
+}
 .product_card .actions {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 5;
+  z-index: 1;
   padding: 5px 10px;
   box-sizing: border-box;
   pointer-events: none;
@@ -579,7 +580,7 @@ nav .type_wrapper .type_square .type_image {
   width: 100%;
 }
 .product_card .actions .top .badge {
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-weight: 700;
   font-style: italic;
   animation: pulse 0.5s 0s alternate infinite;

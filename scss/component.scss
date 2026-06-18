@@ -492,6 +492,7 @@ nav {
 .product_card {
   width: 100%;
 
+  /* Image Slider */
   .image_slider {
     width: 100%;
     height: 260px;
@@ -504,8 +505,12 @@ nav {
       box-shadow: 0 4px 15px var(--primary-muted);
     }
   }
+  .image_slider > a {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+  }
 
-  /* Image Slider */
   ul {
     width: max-content;
     height: 100%;
@@ -524,7 +529,7 @@ nav {
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 5;
+    z-index: 1;
     padding: 5px 10px;
     box-sizing: border-box;
     pointer-events: none;
