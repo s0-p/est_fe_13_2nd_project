@@ -136,7 +136,7 @@ main .hero {
 main .sticky {
   width: 100%;
   margin-bottom: 80px;
-  gap: var(--unit-row);
+  gap: calc(var(--unit-row) * 1.5);
 }
 @media (min-width: 1440px) {
   main .sticky {
@@ -341,6 +341,61 @@ h1 {
 }
 .hero .slide_basic .swiper-slide img {
   width: 100%;
+}
+
+.product_series .slide_series {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+.product_series .slide_series .swiper-wrapper {
+  transition-timing-function: linear !important;
+}
+.product_series .slide_series .swiper-wrapper .swiper-slide {
+  width: auto;
+  height: 400px;
+}
+.product_series .slide_series .swiper-wrapper .swiper-slide img {
+  width: auto;
+  height: 100%;
+  object-fit: cover;
+}
+.product_series .grid_series {
+  display: none !important;
+}
+@media (min-width: 1440px) {
+  .product_series .slide_series {
+    display: none !important;
+  }
+  .product_series .grid_series {
+    position: relative;
+    overflow: hidden;
+    height: 450px;
+    width: 100%;
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-auto-rows: 150px;
+    grid-auto-flow: dense;
+  }
+  .product_series .grid_series a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .product_series .grid_series a img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .product_series .grid_series .span_horizontal {
+    grid-column: span 2;
+  }
+  .product_series .grid_series .span_vertical {
+    grid-row: span 2;
+  }
+  .product_series .grid_series .span_both {
+    grid-area: span 2/span 2;
+  }
 }
 
 .slide_basic {
@@ -599,14 +654,14 @@ h1 {
   text-overflow: ellipsis;
   white-space: normal;
 }
-.product_content .content_details .detail_review .review_photo_section .card_ui:hover .card_ui_info_wrapper, .product_content .content_details .detail_review .review_photo_section .card_ui:active .card_ui_info_wrapper, .product_content .content_details .detail_review .review_photo_section .card_ui:focus .card_ui_info_wrapper {
+.product_content .content_details .detail_review .review_photo_section .card_ui:active .card_ui_info_wrapper, .product_content .content_details .detail_review .review_photo_section .card_ui:focus .card_ui_info_wrapper {
   height: 100%;
   background-color: rgba(245, 245, 245, 0.9333333333);
 }
-.product_content .content_details .detail_review .review_photo_section .card_ui:hover .card_ui_info_wrapper .review_meta_box_wrapper, .product_content .content_details .detail_review .review_photo_section .card_ui:active .card_ui_info_wrapper .review_meta_box_wrapper, .product_content .content_details .detail_review .review_photo_section .card_ui:focus .card_ui_info_wrapper .review_meta_box_wrapper {
+.product_content .content_details .detail_review .review_photo_section .card_ui:active .card_ui_info_wrapper .review_meta_box_wrapper, .product_content .content_details .detail_review .review_photo_section .card_ui:focus .card_ui_info_wrapper .review_meta_box_wrapper {
   top: 25%;
 }
-.product_content .content_details .detail_review .review_photo_section .card_ui:hover .review_text_content, .product_content .content_details .detail_review .review_photo_section .card_ui:active .review_text_content, .product_content .content_details .detail_review .review_photo_section .card_ui:focus .review_text_content {
+.product_content .content_details .detail_review .review_photo_section .card_ui:active .review_text_content, .product_content .content_details .detail_review .review_photo_section .card_ui:focus .review_text_content {
   display: block;
   overflow-y: auto;
   line-clamp: unset;

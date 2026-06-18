@@ -25,7 +25,7 @@ main {
   .sticky {
     width: 100%;
     margin-bottom: 80px;
-    gap: var(--unit-row);
+    gap: calc(var(--unit-row) * 1.5);
 
     @media (min-width: 1440px) {
       margin-bottom: 0;
@@ -282,6 +282,75 @@ h1 {
 
       img {
         width: 100%;
+      }
+    }
+  }
+}
+
+.product_series {
+  .slide_series {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+
+    .swiper-wrapper {
+      transition-timing-function: linear !important;
+
+      .swiper-slide {
+        width: auto;
+        height: 400px;
+
+        img {
+          width: auto; // 너비는 고정하지 않고
+          height: 100%; // 부모(.swiper-slide) 높이에 100% 맞춤
+          object-fit: cover;
+        }
+      }
+    }
+  }
+
+  .grid_series {
+    display: none !important;
+  }
+
+  @media (min-width: 1440px) {
+    .slide_series {
+      display: none !important;
+    }
+
+    .grid_series {
+      position: relative;
+      overflow: hidden;
+      height: 450px;
+      width: 100%;
+
+      display: grid !important;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      grid-auto-rows: 150px;
+      grid-auto-flow: dense;
+
+      a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .span_horizontal {
+        grid-column: span 2;
+      }
+
+      .span_vertical {
+        grid-row: span 2;
+      }
+
+      .span_both {
+        grid-area: span 2 / span 2;
       }
     }
   }
@@ -606,7 +675,7 @@ h1 {
             }
           }
 
-          &:hover,
+          // &:hover,
           &:active,
           &:focus {
             // 하단 박스를 카드 전체 높이(100%)로 부드럽게 채움
