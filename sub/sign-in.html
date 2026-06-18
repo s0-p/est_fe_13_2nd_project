@@ -43,11 +43,17 @@
           </div>
           
           <form action="#" method="POST" class="login">
-            <div class="sing_text">
-              <input type="text" name="username" class="text_box pre_reg_16" placeholder="이름을 입력해주세요" required />
-              <input type="password" name="password" class="password_box pre_reg_16" placeholder="비밀번호를 입력해주세요." required />
+            <div class="sign_text">
+              <div class="input_wrap">
+                <input type="text"name="userid" class="text_box pre_reg_16" placeholder="아이디를 입력해주세요"/>
+                <p class="error_msg id_error pre_reg_12">아이디를 입력해주세요.</p>
+              </div>
+              <div class="input_wrap">
+                <input type="password"name="password" class="password_box pre_reg_16" placeholder="비밀번호를 입력해주세요."/>
+                <p class="error_msg pw_error pre_reg_12">비밀번호를 입력해주세요.</p>
+              </div>
               <div class="check_box">
-                <input type="checkbox" name="check_box" id="check_box" />
+                <input type="checkbox" id="check_box" />
                 <label for="check_box" class="pre_reg_16">로그인 유지</label>
               </div>
             </div>
@@ -62,6 +68,6 @@
         </div>
       </div>
     </section>
-    <script type="module" src="../js/sign_up.js"></script>
+    <script type="module" src="../js/sign_in.js"></script>
   </body>
 </html>
