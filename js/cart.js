@@ -23,9 +23,9 @@ function renderCart() {
         </article>`,
     );
   } else {
-    cartHTML = cartItems.map(
-      (item) =>
-        `<article class="product_item display_grid" data-product-index="${item.productIndex}">
+    cartHTML = cartItems.map((item) => {
+      const isSoldOut = item.price === 0;
+      return `<article class="product_item display_grid" data-product-index="${item.productIndex}">
               <a href="./product-detail.html?id=${item.productIndex}">
               <img class="product_image" src="${item.thumbnail}" alt="${item.title}" fetchpriority="high" />
               </a>
@@ -58,8 +58,8 @@ function renderCart() {
               <button class="delete_icon display_inline_flex align_items_center justify_content_center" type="button" aria-label="상품 삭제" aria-haspopup="dialog">
                 <span class="material-icons icon_20 close_button" aria-hidden="true">close</span>
               </button>
-        </article>`,
-    );
+        </article>`;
+    });
   }
   cartList.insertAdjacentHTML('beforeend', cartHTML.join(''));
 }
@@ -140,7 +140,6 @@ totalCartCount();
 cartList.addEventListener('click', (e) => {
   const plusBtn = e.target.closest('.plus_btn');
   const minusBtn = e.target.closest('.minus_btn');
-  const idSolout = item.price === 0;
 
   if (!plusBtn && !minusBtn) return;
 
@@ -241,10 +240,6 @@ document.querySelectorAll('.modal_close, .cancel_button').forEach((btn) => {
 // 쿠폰 모달 닫고 할인가 계산
 applyBtn.forEach((btn) => {
   btn.addEventListener('click', () => {
-    // if (!selectedCoupon) {
-    //   alert('쿠폰을 선택해주세요');
-    //   return;
-    // }
     closeModal(couponModal);
     closeModal(optionModal);
     updateTotalAmount();
@@ -259,7 +254,6 @@ cartList.addEventListener('click', (e) => {
   if (!deleteBtn) return;
 
   const productItem = deleteBtn.closest('.product_item');
-  // const productIndex = Number(productItem.dataset.productIndex);
   const productIndex = productItem.dataset.productIndex;
 
   deleteModal.removeAttribute('hidden');

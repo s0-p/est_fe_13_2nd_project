@@ -45,9 +45,6 @@ a {
 .option_modal,
 .coupon_modal {
   margin: 0 auto;
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
 }
 
 //Cart Page
@@ -57,19 +54,12 @@ a {
 }
 
 .shopping_bag {
-  // display: flex;
-  // align-items: center;
-  // flex-direction: column;
   min-height: 680px;
   margin-top: 0;
 }
 
 .shopping_bag_tab {
   width: fit-content;
-
-  // display: flex;
-  // align-items: center;
-  // justify-content: center;
 
   min-width: 119px;
   height: 40px;
@@ -82,20 +72,16 @@ a {
 }
 
 .cart_container {
-  // display: flex;
-  // flex-direction: column;
   width: 100%;
 }
 
 .cart_product {
-  // display: grid;
   gap: 20px;
 }
 
 // 카트 아이템
 .product_item {
   position: relative;
-  // display: grid;
   grid-template-columns: 159px minmax(0, 1fr);
   column-gap: 30px;
   width: 100%;
@@ -110,16 +96,11 @@ a {
 }
 
 .product_content {
-  // display: flex;
-  // flex-direction: column;
-  // justify-content: space-between;
-  // min-width: 0;
   height: 100px;
   padding-right: 42px;
 }
 
 .product_info {
-  // display: grid;
   gap: 0;
 }
 
@@ -143,16 +124,10 @@ a {
 }
 
 .product_footer {
-  // display: flex;
-  // align-items: center;
-  // justify-content: space-between;
   gap: 16px;
 }
 
 .quantity_control {
-  // display: grid;
-  // text-align: center;
-  // align-items: center;
   grid-template-columns: repeat(3, 1fr);
   width: 76px;
   height: 20px;
@@ -174,9 +149,6 @@ a {
   position: absolute;
   top: 0;
   right: 10px;
-  // display: inline-flex;
-  // align-items: center;
-  // justify-content: center;
   width: 20px;
   height: 20px;
 }
@@ -188,10 +160,6 @@ a {
 .order_info {
   margin-top: 40px;
 }
-
-// .order_info_content {
-//   display: grid;
-// }
 
 .delivery_info,
 .order_summary {
@@ -231,12 +199,10 @@ a {
 }
 
 .order_summary dl {
-  // display: grid;
   gap: 20px;
 }
 
 .discount_row dd {
-  // display: grid;
   grid-template-columns: 72px auto;
   gap: 40px;
   align-items: start;
@@ -248,7 +214,6 @@ a {
   height: 20px;
   background-color: var(--primary-muted);
   color: var(--surface-bg);
-  // text-align: center;
   box-shadow: 2px 2px 4px 0 var(--surface-bg);
 }
 .coupon_button:hover {
@@ -267,7 +232,6 @@ a {
 
 // CTA 버튼
 .mobile_cta {
-  // display: grid;
   grid-template-columns: minmax(0, 1fr) 60px;
 
   gap: 5px;
@@ -282,8 +246,6 @@ a {
 }
 
 .checkout_button {
-  // align-items: center;
-  // justify-content: center;
   gap: 16px;
   min-height: 60px;
   color: #ffffff;
@@ -296,9 +258,6 @@ a {
 }
 
 .ask_button {
-  // display: inline-flex;
-  // align-items: center;
-  // justify-content: center;
   width: 60px;
   height: 60px;
   color: var(--text-default);
@@ -346,7 +305,6 @@ a {
 }
 
 .bottom_sheet_bar {
-  // display: block;
   width: 60px;
   height: 2px;
   margin: 0 auto 20px;
@@ -358,7 +316,6 @@ a {
 }
 
 .option_select_container {
-  // display: grid;
   gap: 20px;
 }
 
@@ -420,9 +377,9 @@ a {
 // 삭제 모달
 .delete_modal {
   margin: 0 auto;
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .delete_panel {
   position: relative;
@@ -436,14 +393,12 @@ a {
 }
 
 .delete_panel p {
-  // text-align: center;
   margin-top: 20px;
 }
 .delete_panel > span {
   margin: 10px 0;
 }
 .delete_actions {
-  // display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 0px;
   width: 100%;
@@ -729,7 +684,6 @@ a {
     justify-content: space-between;
     border: none;
     padding: 0 24px;
-    margin-bottom: 20px;
     @include set-font(24px, $lh: 40px);
   }
 
