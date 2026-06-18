@@ -11,6 +11,11 @@ const modalTitle = modal.querySelector('h3');
 const modalBody = modal.querySelector('.modal_body');
 const closeBtn = modal.querySelector('.close_btn');
 
+const nameError = document.querySelector('.name_error');
+const idError = document.querySelector('.id_error');
+const pwError = document.querySelector('.pw_error');
+const pwConfirmError = document.querySelector('.pw_confirm_error');
+const pwMatchError = document.querySelector('.pw_match_error');
 
 
 allCheck.addEventListener('change', () => {
@@ -25,57 +30,75 @@ subChecks.forEach(check => {
   });
 });
 
-signupBtn.addEventListener('click', () => {
-  const name = document.getElementById('name').value.trim();
-  const userId = document.getElementById('user_id').value.trim();
-  const password = document.getElementById('password').value;
-  const passwordConfirm = document.getElementById('password_confirm').value;
+signupBtn.addEventListener('click', (e) => {
+  e.preventDefault();
 
-  // 이름 검사
-  if (!name) {
-    alert('이름을 입력해주세요.');
-    return;
+  const name = document.getElementById('name');
+  const userId = document.getElementById('user_id');
+  const password = document.getElementById('password');
+  const passwordConfirm = document.getElementById('password_confirm');
+
+  let isValid = true;
+
+  document.querySelectorAll('.error_msg').forEach(error => {
+    error.style.display = 'none';
+  });
+
+  document.querySelectorAll('.input_error').forEach(input => {
+    input.classList.remove('input_error');
+  });
+
+  if (!name.value.trim()) {
+    nameError.style.display = 'block';
+    name.classList.add('input_error');
+    isValid = false;
   }
 
-  // 아이디 검사
-  if (!userId) {
-    alert('아이디를 입력해주세요.');
-    return;
+  if (!userId.value.trim()) {
+    idError.style.display = 'block';
+    userId.classList.add('input_error');
+    isValid = false;
   }
 
-  // 비밀번호 검사
-  if (!password) {
-    alert('비밀번호를 입력해주세요.');
-    return;
+  if (!password.value.trim()) {
+    pwError.style.display = 'block';
+    password.classList.add('input_error');
+    isValid = false;
   }
 
-  // 비밀번호 확인 검사
-  if (!passwordConfirm) {
-    alert('비밀번호 확인을 입력해주세요.');
-    return;
+  if (!passwordConfirm.value.trim()) {
+    pwConfirmError.style.display = 'block';
+    passwordConfirm.classList.add('input_error');
+    isValid = false;
   }
 
-  // 비밀번호 일치 검사
-  if (password !== passwordConfirm) {
-    alert('비밀번호가 일치하지 않습니다.');
-    return;
+  if (
+    password.value &&
+    passwordConfirm.value &&
+    password.value !== passwordConfirm.value
+  ) {
+    pwMatchError.style.display = 'block';
+
+    password.classList.add('input_error');
+    passwordConfirm.classList.add('input_error');
+
+    isValid = false;
   }
 
-  // 필수 약관 검사
   const requiredChecks = [
     document.getElementById('terms_check'),
     document.getElementById('privacy_check'),
     document.getElementById('age_check')
   ];
 
-  const isValid = requiredChecks.every(check => check.checked);
-
-  if (!isValid) {
+  if (!requiredChecks.every(check => check.checked)) {
     alert('필수 약관에 모두 동의해주세요.');
-    return;
+    isValid = false;
   }
 
-  // 회원가입 완료 화면
+  if (!isValid) return;
+
+  // 회원가입 완료
   const signUp = document.querySelector('.sign_up');
 
   signUp.innerHTML = `
@@ -84,12 +107,22 @@ signupBtn.addEventListener('click', () => {
       <button
         type="button"
         class="login_bt pre_bold_20"
-        onclick="location.href='./sign-in.html'"
+        onclick="location.href='../index.html'"
       >
-       홈으로 이동
+        홈으로 이동
       </button>
     </div>
   `;
+});
+
+document.querySelectorAll('input').forEach(input => {
+  input.addEventListener('input', () => {
+    input.classList.remove('input_error');
+
+    document.querySelectorAll('.error_msg').forEach(msg => {
+      msg.style.display = 'none';
+    });
+  });
 });
 
 

@@ -47,11 +47,13 @@ button {
   font-weight: 700;
   line-height: 20px;
   text-align: center;
+  height: 20px;
 }
 
 .sign_box img {
   max-width: 767px;
   width: 100%;
+  -o-object-fit: cover;
   object-fit: cover;
   display: none;
 }
@@ -63,6 +65,7 @@ button {
 
 .sign_up_box {
   display: grid;
+  gap: 20px;
   padding: 40px 0;
 }
 
@@ -76,18 +79,18 @@ button {
   height: 20px;
 }
 
-.sign_up_box .sign_id {
+.input_wrap .sign_id {
   display: flex;
   gap: 16px;
 }
 
-.sign_up_box .sign_id input {
+.input_wrap .sign_id input {
   width: calc(100% - 114px);
 }
 
-.sign_up_box .sign_id button {
+.input_wrap .sign_id button {
   width: 98px;
-  height: 100%;
+  height: 43px;
   background-color: var(--surface-bg);
   border: 1px solid var(--text-light);
 }
@@ -113,6 +116,10 @@ button {
   padding: 0 0 40px 0;
   display: grid;
   gap: 20px;
+}
+
+.sign_up_box input::-moz-placeholder {
+  text-indent: 10px;
 }
 
 .sign_up_box input::placeholder {
@@ -150,7 +157,25 @@ button {
 .signup_complete img {
   height: calc(80% - 60px);
   display: block;
+  -o-object-fit: cover;
   object-fit: cover;
+}
+
+.input_wrap {
+  position: relative;
+}
+
+.error_msg {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: calc(100% + 4px);
+  color: #ff4d4f;
+  line-height: 1;
+}
+
+.input_error {
+  border: 1px solid #ff4d4f !important;
 }
 
 @media (min-width: 768px) {
@@ -158,14 +183,16 @@ button {
     display: grid;
     justify-items: center;
     gap: 40px;
+    margin: 200px 0;
   }
   .sign_box {
     display: flex;
   }
   .sign_box > img {
     display: block;
-    width: 335px;
-    height: 460px;
+    width: 437px;
+    height: 560px;
+    /* object-fit: cover; */
   }
   .sign_up_box {
     padding: 0;
@@ -210,7 +237,7 @@ button {
   .signup_complete img {
     height: 510px;
   }
-} 
+}
 .sign_modal {
   display: none;
   position: fixed;
@@ -274,4 +301,4 @@ button {
   background: none;
   font-size: 28px;
   cursor: pointer;
-}
+}/*# sourceMappingURL=sign-up.css.map */
