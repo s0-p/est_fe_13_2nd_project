@@ -175,7 +175,7 @@ main .sticky .product_cta .quantity_box .quantity_controller {
   border: 1px solid var(--text-muted);
 }
 main .sticky .product_cta .quantity_box .quantity_controller button {
-  width: 20px;
+  width: 24px;
 }
 main .sticky .product_cta .quantity_box .quantity_controller input {
   width: 20px;
