@@ -70,6 +70,7 @@ function renderProducts(data) {
   productCount.textContent = `${data.length} 개 상품`;
   const count = Math.min(skip + LIMIT, data.length);
   let frag = document.createDocumentFragment();
+
   for (let i = skip; i < count; i++) {
     let card = createProductCard(data[i]);
     frag.appendChild(card);
@@ -97,6 +98,7 @@ function renderProducts(data) {
       keyboard: true,
     });
   }
+
   productList.appendChild(frag);
   skip += LIMIT;
   moreBtn.disabled = count >= data.length;
@@ -136,27 +138,6 @@ function sortData(data, option) {
       break;
   }
   return sortedData;
-}
-function renderSkeleton(count = LIMIT) {
-  for (let i = 0; i < count; i++) {
-    const skeletonCard = document.createElement('article');
-    skeletonCard.className = 'skeleton_card display_flex flex_column';
-    skeletonCard.innerHTML = `
-      <div class="media skeleton"></div>
-      <div class="content display_flex flex_column">
-        <div class="skeleton line" style="width: 40%"></div>
-        <div class="skeleton line" style="width: 55%"></div>
-        <div class="skeleton line" style="width: 70%"></div>
-      </div>
-    `;
-    productList.appendChild(skeletonCard);
-  }
-}
-function clearSkeleton() {
-  const skeletonCardList = productList.querySelectorAll('.skeleton_card');
-  skeletonCardList.forEach((card) => {
-    card.remove();
-  });
 }
 
 // Keyword filters

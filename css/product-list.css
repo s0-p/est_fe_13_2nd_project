@@ -125,6 +125,8 @@ body {
 }
 .filter_modal .filter_options_wrapper {
   gap: var(--unit-m-gutter);
+  max-height: 30vh;
+  overflow-y: auto;
 }
 .filter_modal .filter_option {
   width: max-content;

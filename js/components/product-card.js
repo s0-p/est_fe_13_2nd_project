@@ -6,32 +6,33 @@ function createProductCard(p) {
   productCard.className = 'product_card display_flex flex_column';
   productCard.innerHTML = `
       <div class="swiper image_slider">
-          <ul class="swiper-wrapper">
-          </ul>
+        <a href="./product-detail.html?id=${p.productIndex}"></a>
+        <ul class="swiper-wrapper">
+        </ul>
+        
+        <div class="actions display_flex flex_column justify_content_between align_items_end">
+          <div class="top display_flex justify_content_start align_items_center">
+            <div class="wish_btn display_flex align_items_center">
+              <button class="wish_icon material-icons icon_24 border_round">favorite_border</button>
+              <p class="like_count pre_reg_14">${p.likeCount}</p>
+            </div>
+            <div class="badge display_none">BEST</div>
           
-          <div class="actions display_flex flex_column justify_content_between align_items_end">
-            <div class="top display_flex justify_content_start align_items_center">
-              <div class="wish_btn display_flex align_items_center">
-                <button class="wish_icon material-icons icon_24 border_round">favorite_border</button>
-                <p class="like_count pre_reg_14">${p.likeCount}</p>
-              </div>
-              <div class="badge display_none">BEST</div>
-             
-            </div>
-            <div class="slider_btns display_none justify_content_between">
-              <button class="image_prev material-icons">chevron_left</button>
-              <button class="image_next material-icons">chevron_right</button>
-            </div>
-            <div class="bottom display_flex justify_content_between">
-              <div class="read_only_pagers"></div>
-              <a href="https://abr.ge/fd5dbs" class="ar_btn border_round display_inline_flex align_items_center">
-                <span class="material-icons icon_16">fullscreen</span>
-                <span class="mont_reg_14">AR</span>
-              </a>
-            </div>
           </div>
-          
+          <div class="slider_btns display_none justify_content_between">
+            <button class="image_prev material-icons">chevron_left</button>
+            <button class="image_next material-icons">chevron_right</button>
+          </div>
+          <div class="bottom display_flex justify_content_between">
+            <div class="read_only_pagers"></div>
+            <a href="https://abr.ge/fd5dbs" class="ar_btn border_round display_inline_flex align_items_center">
+              <span class="material-icons icon_16">fullscreen</span>
+              <span class="mont_reg_14">AR</span>
+            </a>
+          </div>
         </div>
+        
+      </div>
 
       <div class="info display_flex flex_column">
         <div class="tags display_flex">
@@ -125,19 +126,6 @@ function createProductCard(p) {
     price.textContent = '일시품절';
   }
   // Info
-  eventTypes.forEach((event) => {
-    document.addEventListener(event, (e) => {
-      const slider = e.target.closest('.image_slider');
-
-      if (slider) {
-        if (e.target.closest('.wish_btn') || e.target.closest('.ar_btn') || e.target.closest('.slider_btns')) {
-          return;
-        }
-
-        location.href = `product-detail.html?id=${p.productIndex}`;
-      }
-    });
-  });
   return productCard;
 }
 
