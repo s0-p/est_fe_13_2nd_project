@@ -1,3 +1,6 @@
+import { getBasePath } from './common.js';
+const base = getBasePath();
+
 function renderHeader() {
   createHeader();
   window.addEventListener('resize', createHeader);
@@ -20,10 +23,10 @@ function createHeader() {
         </button>
         <button class="material-icons icon_24">search</button>
       </div>
-      <a href="/index.html"><h1>ROUNZ</h1></a>
+      <a href="${base}index.html"><h1>ROUNZ</h1></a>
       <div class="display_flex align_items_center col_gutter_gap">
-        <a href="/sub/sign-in.html" class="material-icons icon_24">person</a>
-        <a href="/sub/cart.html" class="material-icons icon_24">local_mall</a>
+        <a href="${base}sub/sign-in.html" class="material-icons icon_24">person</a>
+        <a href="${base}sub/cart.html" class="material-icons icon_24">local_mall</a>
       </div>
     `;
   } else {
@@ -36,14 +39,14 @@ function createHeader() {
         <div class="pre_reg_16">라운즈 <span class="mont_reg_16">Only</span></div>
         <div class="pre_reg_16">더 알아보기</div>
       </div>
-      <a href="/index.html"><h1>ROUNZ</h1></a>
+      <a href="${base}index.html"><h1>ROUNZ</h1></a>
       <div class="display_flex align_items_center col_gutter_gap">
         <div class="display_flex align_items_center">
           <div class="pre_reg_16">검색어</div>
           <a class="material-icons icon_24">search</a>
         </div>
-        <a href="/sub/sign-in.html" class="material-icons icon_24">person</a>
-        <a href="/sub/cart.html" class="material-icons icon_24">local_mall</a>
+        <a href="${base}sub/sign-in.html" class="material-icons icon_24">person</a>
+        <a href="${base}sub/cart.html" class="material-icons icon_24">local_mall</a>
       </div>
       `;
   }
@@ -87,12 +90,12 @@ function createNav() {
           </li>
         </ul>
         <div class="links display_flex flex_column">
-          <a href="/sub/map.html" class="pre_reg_14 gradient_text display_flex align_items_center">안경원<span class="material-icons icon_16">arrow_forward</span></a>
-          <a href="" class="pre_reg_14 gradient_text display_flex align_items_center">신상품<span class="material-icons icon_16">arrow_forward</span></a>
-          <a href="" class="pre_reg_14 gradient_text display_flex align_items_center">기획전<span class="material-icons icon_16">arrow_forward</span></a>
-          <a href="" class="pre_reg_14 gradient_text display_flex align_items_center">시리즈<span class="material-icons icon_16">arrow_forward</span></a>
-          <a href="" class="pre_reg_14 gradient_text display_flex align_items_center">라운즈 소개<span class="material-icons icon_16">arrow_forward</span></a>
-          <a href="" class="pre_reg_14 gradient_text display_flex align_items_center">고객센터<span class="material-icons icon_16">arrow_forward</span></a>
+          <a href="${base}sub/map.html" class="pre_reg_14 gradient_text display_flex align_items_center">안경원<span class="material-icons icon_16">arrow_forward</span></a>
+          <a href="https://rounz.com/product_new.php" class="pre_reg_14 gradient_text display_flex align_items_center">신상품<span class="material-icons icon_16">arrow_forward</span></a>
+          <a href="https://rounz.com/collection_list.php" class="pre_reg_14 gradient_text display_flex align_items_center">기획전<span class="material-icons icon_16">arrow_forward</span></a>
+          <a href="https://rounz.com/series_list.php" class="pre_reg_14 gradient_text display_flex align_items_center">시리즈<span class="material-icons icon_16">arrow_forward</span></a>
+          <a href="https://rounz.com/etc_introduce.php" class="pre_reg_14 gradient_text display_flex align_items_center">라운즈 소개<span class="material-icons icon_16">arrow_forward</span></a>
+          <a href="https://rounz.com/board.php" class="pre_reg_14 gradient_text display_flex align_items_center">고객센터<span class="material-icons icon_16">arrow_forward</span></a>
         </div>
       </div>
       <div class="tab display_flex flex_column">
@@ -104,7 +107,7 @@ function createNav() {
             </div>
             <div class="pre_reg_14">브랜드</div>
           </div>
-          <a href="/sub/product-list.html" class="pre_reg_14">전체보기</a>
+          <a href="${base}sub/product-list.html" class="pre_reg_14">전체보기</a>
         </div>
         <div class="type_wrapper display_grid justify_content_between">
           <div class="type_round display_flex flex_column align_items_center">
