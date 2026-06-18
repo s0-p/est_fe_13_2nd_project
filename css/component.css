@@ -533,6 +533,14 @@ nav .type_wrapper .type_square .type_image {
   aspect-ratio: 440/260;
   position: relative;
   overflow: hidden;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease-out;
+}
+.product_card .image_slider:hover {
+  box-shadow: 0 4px 15px var(--primary-muted);
+}
+.product_card {
+  /* Image Slider */
 }
 .product_card ul {
   width: max-content;
@@ -550,8 +558,15 @@ nav .type_wrapper .type_square .type_image {
   right: 0;
   bottom: 0;
   z-index: 5;
-  padding: 5px;
+  padding: 5px 10px;
   box-sizing: border-box;
+  pointer-events: none;
+}
+.product_card .ar_btn,
+.product_card .wish_icon,
+.product_card .image_next,
+.product_card .image_prev {
+  pointer-events: auto;
 }
 .product_card .actions .bottom,
 .product_card .actions .top {
@@ -578,9 +593,24 @@ nav .type_wrapper .type_square .type_image {
   }
 }
 .product_card .actions .top .wish_btn {
-  padding: 3px;
+  gap: 5px;
+}
+@media (min-width: 768px) {
+  .product_card .actions .top .wish_btn {
+    gap: 3px;
+  }
+}
+.product_card .actions .top .wish_btn {
   color: var(--secondary);
+}
+.product_card .actions .top .wish_btn .wish_icon {
+  padding: 0 3px;
   background: var(--surface-tint);
+}
+@media (min-width: 768px) {
+  .product_card .actions .top .wish_btn .like_count {
+    font-size: 12px;
+  }
 }
 .product_card .actions .ar_btn {
   padding: 0 7px;
@@ -618,12 +648,21 @@ nav .type_wrapper .type_square .type_image {
 .product_card .actions .read_only_pagers .read_only_pager_active {
   background: var(--primary-muted);
 }
+.product_card {
+  /* Actions */
+  /* Info */
+}
 .product_card .info {
   gap: var(--unit-row);
 }
 .product_card .info .tags {
   gap: 5px;
   color: var(--text-muted);
+}
+.product_card .info .tags .tag {
+  background: var(--stroke);
+  padding: 2px 6px;
+  border-radius: 4px;
 }
 .product_card .info .details {
   gap: var(--unit-row);
@@ -642,6 +681,9 @@ nav .type_wrapper .type_square .type_image {
 }
 .product_card .info .details .name {
   max-width: 50%;
+}
+.product_card {
+  /* Info */
 }
 
 /* Product Card */
