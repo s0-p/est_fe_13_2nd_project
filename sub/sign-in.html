@@ -41,17 +41,19 @@
                 구글로 로그인
               </button>
           </div>
-          <div class="login">
+          
+          <form action="#" method="POST" class="login">
             <div class="sing_text">
-              <input type="text" class="text_box pre_reg_16" placeholder="이름을 입력해주세요" />
-              <input type="password" class="password_box pre_reg_16" placeholder="비밀번호를 입력해주세요." />
+              <input type="text" name="username" class="text_box pre_reg_16" placeholder="이름을 입력해주세요" required />
+              <input type="password" name="password" class="password_box pre_reg_16" placeholder="비밀번호를 입력해주세요." required />
               <div class="check_box">
                 <input type="checkbox" name="check_box" id="check_box" />
-                <p class="pre_reg_16">로그인 유지</p>
+                <label for="check_box" class="pre_reg_16">로그인 유지</label>
               </div>
             </div>
-            <button class="login_bt pre_bold_20">로그인</button>
-          </div>
+            <button type="submit" class="login_bt pre_bold_20">로그인</button>
+          </form>
+
           <div class="login_box pre_reg_16">
             <a href="" class="text">아이디 / 비밀번호 찾기</a>
             <p>|</p>
