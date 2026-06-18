@@ -30,6 +30,8 @@
 
     <div class="mainpage">
       <section class="mainhero swiper">
+        <h2 class="visually-hidden">메인 배너 슬라이드</h2>
+
         <div class="swiper-wrapper" id="mainhero-wrapper"></div>
         <div class="swiper-pagination pre_reg_14"></div>
       </section>
@@ -40,15 +42,8 @@
           <a href="/sub/product-list.html"><p class="main_bf_more pre_reg_12">더보기</p></a>
         </div>
 
-        <div class="product_list_container swiper" data-render-target="best_fit_products">
-          <div class="swiper-wrapper" id="product_list_wrapper"></div>
-
-          <div class="drag_guide">
-            <div class="guide_content">
-              <span class="material-icons">swipe</span>
-              <span class="pre_reg_14">드래그해서 더 보기</span>
-            </div>
-          </div>
+        <div class="product_list_container" data-render-target="best_fit_products">
+          <div id="product_list_wrapper"></div>
         </div>
 
         <div class="toast_cart">
@@ -62,10 +57,18 @@
         <div class="main_ar_head contents">
           <h2 class="main_ar_title mont_reg_18">AR & FACE ANALYSIS</h2>
           <div class="main_ar_btn">
-            <a href="#" class="app_button apple_btn" aria-label="App Store에서 다운로드">
+            <a
+              href="https://apps.apple.com/kr/app/%EB%9D%BC%EC%9A%B4%EC%A6%88-%EC%8B%A4%EC%8B%9C%EA%B0%84-%EA%B0%80%EC%83%81%ED%94%BC%ED%8C%85-%EC%95%88%EA%B2%BD-%EC%84%A0%EA%B8%80%EB%9D%BC%EC%8A%A4-%EC%87%BC%ED%95%91%EC%95%B1/id1375822406"
+              class="app_button apple_btn"
+              aria-label="App Store에서 다운로드"
+            >
               <img src="images/apple_store.png" alt="앱스토어에서 다운받기" />
             </a>
-            <a href="#" class="app_button google_btn" aria-label="Google Play에서 다운로드">
+            <a
+              href="https://play.google.com/store/search?q=%EB%9D%BC%EC%9A%B4%EC%A6%88&c=apps&hl=ko"
+              class="app_button google_btn"
+              aria-label="Google Play에서 다운로드"
+            >
               <img src="images/google_store.png" alt=" 구글스토어에서 다운받기" />
             </a>
           </div>
@@ -116,9 +119,15 @@
         <div class="collect_container">
           <h2 class="main_collect_title" id="collect_title">COLLECTION</h2>
 
+          <div class="drag_guide" id="collect_drag_guide">
+            <div class="guide_content pre_reg_1">
+              <span class="material-icons material-icons icon_16">swipe</span>
+              <span class="pre_reg_12">드래그해서 <br />더보기</span>
+            </div>
+          </div>
+
           <div class="collect_list_wrap swiper">
             <div class="swiper-wrapper" id="collect_swiper_wrapper">
-              <!-- 컬렉션 카드 1개 (JS로 반복 렌더링될 단위) -->
               <!-- <article class="collect_card">
               <div class="collect_card_head">
                 <div class="collect_card_info">
@@ -153,12 +162,12 @@
       <!--  </section> -->
 
       <section class="main_celeb section_inner" id="main_celeb" aria-labelledby="main_celeb_title">
-        <div class="main_celeb_head">
+        <div class="main_celeb_head contents">
           <div class="main_celeb_text">
-            <p class="main_section_title mont_reg_18">CELEBRITY'S PICK</p>
+            <h2 class="main_section_title mont_reg_18">CELEBRITY'S PICK</h2>
             <a href="https://rounz.com/collection.php?collectionIndex=4059" class="celeb_more pre_reg_12">더보기</a>
           </div>
-          <h2 class="main_celeb_title pre_reg_18">셀럽들이 선택한 <br />트렌디한 아이웨어</h2>
+          <p class="main_celeb_title pre_reg_18">셀럽들이 선택한 <br />트렌디한 아이웨어</p>
         </div>
 
         <div class="celeb_swiper_container">
@@ -191,7 +200,7 @@
           </div>
           <div class="main_rzstore_btn pre_reg_12">
             <a href="sub/map.html" class="main_rz_btn">
-              <span class="main_butn_label0.">라운즈 방문 예약하기</span>
+              <span class="main_butn_label">라운즈 방문 예약하기</span>
             </a>
             <a href="sub/map.html" class="main_rz_btn">
               <span class="main_butn_label">가까운 파트너 안경원 찾기</span>
