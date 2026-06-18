@@ -3,7 +3,10 @@ function renderHeader() {
   window.addEventListener('resize', createHeader);
 }
 function createHeader() {
-  const header = document.querySelector('header');
+  const oldHeader = document.querySelector('header');
+  oldHeader?.remove();
+  const oldNav = document.querySelector('nav');
+  oldNav?.remove();
 
   const newHeader = document.createElement('header');
   newHeader.className = 'header_default display_flex justify_content_between align_items_center';
@@ -44,46 +47,66 @@ function createHeader() {
       </div>
       `;
   }
-  header?.remove();
   document.body.prepend(newHeader);
 
   createNav();
 }
 function createNav() {
   const header = document.querySelector('header');
-  const nav = document.querySelector('nav');
-  nav?.remove();
 
   const newNav = document.createElement('nav');
   newNav.className = 'glassmorphism display_none';
   newNav.innerHTML = `
     <div class="container display_flex justify_content_center">
       <div class="menu_wrapper display_flex flex_column">
-        <div class="navs display_flex flex_column">
-          <div class="pre_reg_14">선글라스</div>
-          <div class="pre_reg_14">안경테</div>
-          <div class="pre_reg_14">BEST</div>
-          <div class="pre_reg_14">브랜드</div>
-          <div class="pre_reg_14">라운즈 <span class="mont_reg_14">Only</span></div>
-        </div>
+        <ul class="navs display_flex flex_column">
+          <li class="display_flex align_items_center">
+            <div class="circle border_round"></div>
+            <input type="radio" id="sunglass" name="menu" value="sunglass" checked />
+            <label for="sunglass" class="pre_reg_14 active">선글라스</label>
+          </li>
+          <li class="display_flex align_items_center">
+            <div class="circle border_round display_none"></div>
+            <input type="radio" id="galsses_frame" name="menu" value="galsses_frame" />
+            <label for="galsses_frame" class="pre_reg_14">안경테</label>
+          </li>
+          <li class="display_flex align_items_center">
+            <div class="circle border_round display_none"></div>
+            <input type="radio" id="best" name="menu" value="best" />
+            <label for="best" class="mont_reg_14">BEST</label>
+          </li>
+          <li class="display_flex align_items_center">
+            <div class="circle border_round display_none"></div>
+            <input type="radio" id="brand" name="menu" value="brand" />
+            <label for="brand" class="mont_reg_14">브랜드</label>
+          </li>
+          <li class="display_flex align_items_center">
+            <div class="circle border_round display_none"></div>
+            <input type="radio" id="rounz_only" name="menu" value="rounz_only" />
+            <label for="rounz_only" class="pre_reg_14">라운즈 <span class="mont_reg_14">Only</span></label>
+          </li>
+        </ul>
         <div class="links display_flex flex_column">
-          <div class="pre_reg_14 gradient_text">안경원<span class="material-icons icon_16">arrow_forward</span></div>
-          <div class="pre_reg_14 gradient_text">안경원<span class="material-icons icon_16">arrow_forward</span></div>
-          <div class="pre_reg_14 gradient_text">안경원<span class="material-icons icon_16">arrow_forward</span></div>
-          <div class="pre_reg_14 gradient_text">안경원<span class="material-icons icon_16">arrow_forward</span></div>
-          <div class="pre_reg_14 gradient_text">안경원<span class="material-icons icon_16">arrow_forward</span></div>
-          <div class="pre_reg_14 gradient_text">안경원<span class="material-icons icon_16">arrow_forward</span></div>
+          <a href="/sub/map.html" class="pre_reg_14 gradient_text display_flex align_items_center">안경원<span class="material-icons icon_16">arrow_forward</span></a>
+          <a href="" class="pre_reg_14 gradient_text display_flex align_items_center">신상품<span class="material-icons icon_16">arrow_forward</span></a>
+          <a href="" class="pre_reg_14 gradient_text display_flex align_items_center">기획전<span class="material-icons icon_16">arrow_forward</span></a>
+          <a href="" class="pre_reg_14 gradient_text display_flex align_items_center">시리즈<span class="material-icons icon_16">arrow_forward</span></a>
+          <a href="" class="pre_reg_14 gradient_text display_flex align_items_center">라운즈 소개<span class="material-icons icon_16">arrow_forward</span></a>
+          <a href="" class="pre_reg_14 gradient_text display_flex align_items_center">고객센터<span class="material-icons icon_16">arrow_forward</span></a>
         </div>
       </div>
       <div class="tab display_flex flex_column">
         <div class="categories_wrapper display_flex justify_content_between">
           <div class="categories display_flex col_gutter_gap">
-            <div class="pre_reg_14">모양</div>
+            <div class="pre_reg_14">
+              모양
+              <div></div>
+            </div>
             <div class="pre_reg_14">브랜드</div>
           </div>
           <a href="/sub/product-list.html" class="pre_reg_14">전체보기</a>
         </div>
-        <div class="type_wrapper display_grid">
+        <div class="type_wrapper display_grid justify_content_between">
           <div class="type_round display_flex flex_column align_items_center">
             <div class="type_image border_round"></div>
             <div class="type_text pre_reg_12">유형</div>
@@ -118,5 +141,24 @@ function createNav() {
     });
   } else {
   }
+
+  const currentNav = document.querySelector('nav');
+  const navs = currentNav.querySelectorAll('.menu_wrapper .navs li input');
+  navs.forEach((nav) => {
+    nav.addEventListener('click', () => {
+      navs.forEach((nav) => {
+        if (nav.nextElementSibling.classList.contains('active')) {
+          const circle = nav.previousElementSibling;
+          circle.classList.toggle('display_none');
+          const label = nav.nextElementSibling;
+          label.classList.toggle('active');
+        }
+      });
+      const circle = nav.previousElementSibling;
+      circle.classList.toggle('display_none');
+      const label = nav.nextElementSibling;
+      label.classList.toggle('active');
+    });
+  });
 }
 export default renderHeader;

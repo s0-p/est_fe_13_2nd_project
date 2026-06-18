@@ -224,6 +224,7 @@ nav {
     }
   }
   .menu_wrapper {
+    width: 10%;
     gap: calc(var(--unit-row) * 2);
     @media (min-width: 768px) {
       gap: var(--unit-row);
@@ -238,29 +239,76 @@ nav {
     padding-bottom: calc(var(--unit-row) * 2);
     border-bottom: 1px solid var(--stroke);
   }
+  .menu_wrapper .navs li {
+    gap: 5px;
+    cursor: pointer;
+  }
+  .menu_wrapper .navs .circle {
+    width: 5px;
+    height: 5px;
+    background: var(--gradient);
+  }
+  .menu_wrapper .navs input {
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    border: 0;
+  }
+  .menu_wrapper .navs label {
+    cursor: pointer;
+  }
+  .active {
+    color: var(--text-default);
+    font-weight: 700;
+  }
+
   .menu_wrapper .links {
     @media (min-width: 1280px) {
       display: none;
     }
   }
+
+  .menu_wrapper .links a {
+    gap: 0;
+    transition: 0.3s ease-out;
+    @media (min-width: 1280px) {
+      font-size: 18px;
+    }
+    &:hover {
+      font-weight: 700;
+      gap: 10px;
+    }
+  }
   .tab {
+    width: 60%;
     gap: calc(var(--unit-row) * 2);
   }
   .tab .categories_wrapper {
-    padding: 0 38;
-    @include set-grid(20px, 114px);
-  }
-  .type_wrapper {
     width: 100%;
     // padding: 0 38px;
-    @include set-grid(var(--unit-row), 114px, repeat(2, 1fr));
+    @include set-grid(20px, 114px);
+  }
+  .tab .categories_wrapper > a {
+    color: var(--secondary-muted);
+    font-style: underline;
+    &:hover {
+      font-weight: 700;
+    }
+  }
+  .type_wrapper {
+    // width: 100%;
+    // padding: 0 38px;
+    @include set-grid($tbGap: var(--unit-row), $columns: repeat(2, 1fr));
     @media (min-width: 768px) {
       // padding: 0 79px;
-      @include set-grid(calc(var(--unit-row) * 2), 64px, repeat(3, 1fr));
+      @include set-grid($tbGap: calc(var(--unit-row) * 2), $columns: repeat(3, 1fr));
     }
     @media (min-width: 1280px) {
-      padding: 0 98px;
-      @include set-grid(calc(var(--unit-row) * 2), 54px, repeat(4, 1fr));
+      // padding: 0 98px;
+      @include set-grid($tbGap: calc(var(--unit-row) * 2), $columns: repeat(4, 1fr));
     }
     .type_round {
       gap: 5px;
