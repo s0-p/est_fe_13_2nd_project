@@ -551,10 +551,6 @@ nav .type_wrapper .type_square .type_image {
   height: 100%;
   object-fit: cover;
 }
-.product_card {
-  /* Image Slider */
-  /* Actions */
-}
 .product_card .actions {
   position: absolute;
   top: 0;
