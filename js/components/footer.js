@@ -16,7 +16,7 @@ function createFooter() {
   newFooter.innerHTML = `
     <div class="footer_box">
       <div class="footer_cta">
-        <h2 class="pre_bold_14">라운즈 플래그십 스토어</h2>
+        <a href="../sub/map.html" class="pre_reg_14">라운즈 플래그십 스토어</a>
       </div>
       <div class="footer_content">
         <div class="footer_menu_container">
