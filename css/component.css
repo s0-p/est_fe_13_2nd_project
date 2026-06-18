@@ -2,6 +2,7 @@
 /* Header */
 header {
   position: sticky;
+  top: 0;
   height: calc(var(--unit-row) * 4);
 }
 @media (min-width: 768px) {
@@ -11,6 +12,8 @@ header {
 }
 header {
   padding: 0 var(--unit-row);
+  z-index: 5;
+  background: var(--surface-tint);
 }
 header h1 {
   font-family: "Pretendard";
@@ -19,6 +22,11 @@ header h1 {
   line-height: 30px;
   text-align: center;
   color: var(--primary);
+}
+header > a {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 header a:hover {
   color: var(--primary);
@@ -42,14 +50,14 @@ header a:hover {
   background: var(--text-default);
   transition: all 0.5s;
 }
-.header_default .hamberger:active > div {
+.header_default .hamberger > div.active {
   background: var(--primary);
 }
-.header_default .hamberger:active > div:first-child {
+.header_default .hamberger > div.active:first-child {
   transform-origin: top left;
   rotate: 45deg;
 }
-.header_default .hamberger:active > div:last-child {
+.header_default .hamberger > div.active:last-child {
   transform-origin: bottom left;
   rotate: -45deg;
 }
@@ -216,14 +224,14 @@ footer {
 /* Footer */
 /* Navigation */
 nav {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   position: fixed;
   top: calc(var(--unit-row) * 4);
   left: 0;
   z-index: 10;
 }
-@media (min-width: 786px) {
+@media (min-width: 768px) {
   nav {
     top: calc(var(--unit-row) * 3);
   }
@@ -233,16 +241,17 @@ nav .container {
   padding: calc(var(--unit-row) * 2) 0;
   gap: 22px;
 }
-@media (min-width: 786px) {
+@media (min-width: 768px) {
   nav .container {
     padding: calc(var(--unit-row) * 3) 0;
     gap: 95px;
   }
 }
 nav .menu_wrapper {
+  width: 10%;
   gap: calc(var(--unit-row) * 2);
 }
-@media (min-width: 786px) {
+@media (min-width: 768px) {
   nav .menu_wrapper {
     gap: var(--unit-row);
   }
@@ -258,37 +267,79 @@ nav .menu_wrapper .navs {
   padding-bottom: calc(var(--unit-row) * 2);
   border-bottom: 1px solid var(--stroke);
 }
+nav .menu_wrapper .navs li {
+  gap: 5px;
+  cursor: pointer;
+}
+nav .menu_wrapper .navs .circle {
+  width: 5px;
+  height: 5px;
+  background: var(--gradient);
+}
+nav .menu_wrapper .navs input {
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  border: 0;
+}
+nav .menu_wrapper .navs label {
+  cursor: pointer;
+}
+nav .active {
+  color: var(--text-default);
+  font-weight: 700;
+}
 @media (min-width: 1280px) {
   nav .menu_wrapper .links {
     display: none;
   }
 }
+nav .menu_wrapper .links a {
+  gap: 0;
+  transition: 0.3s ease-out;
+}
+@media (min-width: 1280px) {
+  nav .menu_wrapper .links a {
+    font-size: 18px;
+  }
+}
+nav .menu_wrapper .links a:hover {
+  font-weight: 700;
+  gap: 10px;
+}
 nav .tab {
+  width: 60%;
   gap: calc(var(--unit-row) * 2);
 }
 nav .tab .categories_wrapper {
-  padding: 0 38;
+  width: 100%;
   gap: 20px 114px;
   grid-template-columns: none;
 }
+nav .tab .categories_wrapper > a {
+  color: var(--secondary-muted);
+  font-style: underline;
+}
+nav .tab .categories_wrapper > a:hover {
+  font-weight: 700;
+}
 nav .type_wrapper {
-  width: 100%;
-  padding: 38px;
-  gap: var(--unit-row) 114px;
-  grid-template-columns: repeat(2, auto);
+  gap: var(--unit-row) 0;
+  grid-template-columns: repeat(2, 1fr);
 }
 @media (min-width: 768px) {
   nav .type_wrapper {
-    padding: 79px;
-    gap: calc(var(--unit-row) * 2) 64px;
-    grid-template-columns: repeat(3, auto);
+    gap: calc(var(--unit-row) * 2) 0;
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 @media (min-width: 1280px) {
   nav .type_wrapper {
-    padding: 98px;
-    gap: calc(var(--unit-row) * 2) 54px;
-    grid-template-columns: repeat(4, auto);
+    gap: calc(var(--unit-row) * 2) 0;
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 nav .type_wrapper .type_round {
