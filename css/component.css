@@ -469,7 +469,6 @@ nav .type_wrapper .type_square .type_image {
 
 /* 활성화 */
 .side_bar .menu_item.active {
-  width: -moz-fit-content;
   width: fit-content;
   transform: translateX(calc(-100% + 46px));
   background: linear-gradient(90deg, var(--primary-muted), var(--secondary));
@@ -536,15 +535,13 @@ nav .type_wrapper .type_square .type_image {
   overflow: hidden;
 }
 .product_card ul {
-  width: -moz-max-content;
   width: max-content;
   height: 100%;
 }
 .product_card li img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .product_card .actions {
   position: absolute;
@@ -628,6 +625,11 @@ nav .type_wrapper .type_square .type_image {
   gap: 5px;
   color: var(--text-muted);
 }
+.product_card .info .tags .tag {
+  background: var(--stroke);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
 .product_card .info .details {
   gap: var(--unit-row);
   padding: 0 5px;
@@ -649,4 +651,4 @@ nav .type_wrapper .type_square .type_image {
 
 /* Product Card */
 /* Skeleton Card*/
-/* Skeleton Card*//*# sourceMappingURL=component.css.map */
+/* Skeleton Card*/

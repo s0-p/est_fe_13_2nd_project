@@ -592,6 +592,11 @@ nav {
     gap: 5px;
     color: var(--text-muted);
   }
+  .info .tags .tag {
+    background: var(--stroke);
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
   .info .details {
     gap: var(--unit-row);
     padding: 0 5px;

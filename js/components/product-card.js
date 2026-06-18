@@ -32,12 +32,7 @@ function createProductCard(p) {
           <div class="tag pre_reg_12">키워드</div>
         </div>
         <div class="details display_flex flex_column">
-          <div class="purchase display_flex justify_content_between">
-            <div class="color_options display_flex">
-              <div class="color border_round"></div>
-              <div class="color border_round"></div>
-              <div class="color border_round"></div>
-            </div>
+          <div class="purchase display_flex justify_content_end">
             <button class="cart_btn material-icons icon_24">add_shopping_cart</button>
           </div>
           <div class="summary display_flex justify_content_between">
@@ -80,6 +75,11 @@ function createProductCard(p) {
     wishBtn.textContent = wishBtn.textContent === 'favorite_border' ? 'favorite' : 'favorite_border';
   });
 
+  const keywordArr = p.title.split(' ');
+  const tags = productCard.querySelectorAll('.info .tags .tag');
+  tags.forEach((tag, index) => {
+    tag.textContent = keywordArr[index];
+  });
   const details = productCard.querySelector('.details');
   const cartBtn = details.querySelector('.cart_btn');
   const toastCart = document.querySelector('.toast_cart');
