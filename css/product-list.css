@@ -43,10 +43,24 @@ body {
 .filters .keyword_filters .keyword {
   background: var(--surface-bg);
   padding: 3px 7px;
+  cursor: pointer;
 }
 .filters .keyword_filters .active {
   color: var(--surface-bg);
   background: var(--primary);
+}
+.filters .keyword_filters .keyword label {
+  user-select: none;
+  cursor: pointer;
+}
+.filters .keyword_filters .keyword input {
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  border: 0;
 }
 .filters {
   /* Sort */

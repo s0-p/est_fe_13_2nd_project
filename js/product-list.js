@@ -11,20 +11,23 @@ let isLoading = false;
 
 let products = null;
 let filteredData = [];
-let productCategory = [];
-let sortCategory = [];
+let brands = [];
+let origins = [];
+let selectedCategory = [];
 
 // Fillters
 const filters = document.querySelector('.filters');
 
 // keyword filters
-const keywordFilters = filters.querySelectorAll('.keyword');
-
+const keywordInputs = filters.querySelectorAll(`.keyword_filters input[name$='category'`);
+const available = filters.querySelector(`.keyword_filters input[name$='available'`);
+let isAvailable = false;
 // Sort
 const sortBtn = filters.querySelector('.sort_btn');
 const currentSortOption = sortBtn.querySelector('div:last-child');
 const sortOptionsWrapper = filters.querySelector('.sort_panel');
 const sortOptions = sortOptionsWrapper.querySelectorAll('li');
+let seletedSortOption = 'latest';
 
 // Detailed filter
 const filterBtn = filters.querySelector('.filter_btn');
@@ -50,8 +53,8 @@ async function fetchData() {
     products = await res.json();
     filteredData = products;
 
-    productCategory = [...new Set(products.map((p) => p.category))];
-    console.log(productCategory);
+    brands = [...new Set(products.map((p) => p.brand))];
+    origins = [...new Set(products.map((p) => p.specifications['원산지']))];
   } catch (err) {
     console.log(err);
   } finally {
@@ -92,13 +95,15 @@ function renderProducts(data) {
   moreBtn.disabled = count >= data.length;
 }
 function clearProductList() {
+  skip = 0;
+  moreBtn.disabled = false;
   productList.innerHTML = ``;
 }
 function sortData(data, option) {
   let sortedData = [...data];
   switch (option) {
     case 'latest':
-      sortedData = products;
+      sortedData = data;
       break;
     case 'popularity':
       sortedData.sort((a, b) => parseNumber(b.likeCount) - parseNumber(a.likeCount));
@@ -147,12 +152,43 @@ function clearSkeleton() {
   });
 }
 
-keywordFilters.forEach((keyword) => {
-  keyword.addEventListener('click', () => {
-    keyword.classList.toggle('active');
+// Keyword filters
+keywordInputs.forEach((input) => {
+  input.addEventListener('click', () => {
+    input.parentElement.classList.toggle('active');
+    const value = input.nextElementSibling.textContent;
+    if (input.parentElement.classList.contains('active')) {
+      selectedCategory.push(value);
+    } else {
+      selectedCategory = selectedCategory.filter((e) => e !== value);
+    }
+    filterData(filteredData);
   });
 });
 
+available.addEventListener('click', () => {
+  available.parentElement.classList.toggle('active');
+  isAvailable = !isAvailable;
+
+  filterData();
+});
+function filterData() {
+  console.log(selectedCategory);
+  let filteredResult = [...products.filter((p) => selectedCategory.includes(p.category))];
+  filteredData = filteredResult.length ? filteredResult : products;
+  console.log(filteredData);
+  if (isAvailable) {
+    filteredResult = [...filteredData.filter((p) => !p.isSoldOut)];
+    filteredData = filteredResult.length ? filteredResult : products;
+  }
+
+  filteredData = sortData(filteredData, seletedSortOption);
+
+  clearProductList();
+  renderProducts(filteredData);
+}
+
+// Sort
 sortBtn.addEventListener('click', () => {
   sortOptionsWrapper.style.display = 'block';
 });
@@ -166,14 +202,11 @@ sortOptions.forEach((option) => {
     });
     const selectedOption = option.querySelector('input');
     selectedOption.checked = true;
-
+    seletedSortOption = selectedOption.value;
     sortOptionsWrapper.style.display = 'none';
 
-    filteredData = sortData(products, selectedOption.getAttribute('value'));
-    clearProductList();
-    skip = 0;
-    moreBtn.disabled = false;
-    renderProducts(filteredData);
+    filterData(filteredData);
+    console.log(filteredData);
   });
 });
 

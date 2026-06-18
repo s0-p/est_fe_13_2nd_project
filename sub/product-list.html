@@ -22,10 +22,20 @@
   <body>
     <section class="contents display_flex flex_column align_items_center">
       <div class="filters display_flex justify_content_between">
-        <div class="keyword_filters display_flex col_gutter_gap">
-          <button class="keyword pre_reg_16 border_round">키워드</button>
-          <button class="keyword pre_reg_16 border_round">키워드</button>
-        </div>
+        <ul class="keyword_filters display_flex col_gutter_gap">
+          <li class="keyword border_round display_flex align_items_center">
+            <input type="checkbox" id="sunglass" name="category" value="sunglass" />
+            <label for="sunglass" class="pre_reg_16">선글라스</label>
+          </li>
+          <li class="keyword border_round display_flex align_items_center">
+            <input type="checkbox" id="glasses_frame" name="category" value="glasses_frame" />
+            <label for="glasses_frame" class="pre_reg_16">안경테</label>
+          </li>
+          <li class="keyword border_round display_flex align_items_center">
+            <input type="checkbox" id="available" name="available" value="available" />
+            <label for="available" class="pre_reg_16">품절 제외</label>
+          </li>
+        </ul>
         <div>
           <div class="btns_wrapper display_flex align_items_center col_gutter_gap">
             <button class="display_flex sort_btn display_inline_flex align_items_center">
@@ -48,7 +58,7 @@
             </li>
             <li class="gradient_light_border">
               <input type="radio" id="most_reviews" name="sort" value="most_reviews" />
-              <label for="most_reviews" class="pre_reg_14">후기순</label>
+              <label for="most_reviews" class="pre_reg_14">리뷰 많은 순</label>
             </li>
             <li class="gradient_light_border">
               <input type="radio" id="lowest_price" name="sort" value="lowest_price" />
