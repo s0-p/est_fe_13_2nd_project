@@ -57,6 +57,22 @@ function renderCart() {
 }
 renderCart();
 
+// 예송 배송일
+const today = new Date();
+const date = new Date();
+const deliveryDateEl = document.querySelector('.delivery_date');
+
+date.setDate(date.getDate() + 3);
+today.setDate(today.getDate() + 3);
+
+const deliveryDate = `
+${today.getFullYear()}.${String(today.getMonth() + 1).padStart(2, '0')}.${String(today.getDate()).padStart(2, '0')}`;
+
+deliveryDateEl.textContent = `배송 예정일: ${date.getFullYear()}.${String(date.getMonth() + 1).padStart(
+  2,
+  '0',
+)}.${String(date.getDate()).padStart(2, '0')} 발송 예정`;
+
 // 쿠폰 임시 데이터
 const coupons = [
   {
