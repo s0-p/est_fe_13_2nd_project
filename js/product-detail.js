@@ -1,4 +1,6 @@
 import renderHeader from './components/header.js';
+import renderFooter from './components/footer.js';
+import renderSidebar from './components/side-bar-test.js';
 import { getCartItems, saveCartItems, addToCart } from './components/common.js';
 
 let productInfoSection = null;
@@ -10,6 +12,9 @@ let slideSimilar = null;
 let slideSimilarWrapper = null;
 let slideReviewPhoto = null;
 let slideReviewPhotoWrapper = null;
+let slideSeries = null;
+let slideSeriesWrapper = null;
+let gridSeriesWrapper = null;
 let imgSpecSizeWrapper = null;
 let imgSpecMainWrapper = null;
 let infoAccordionHeader = null;
@@ -28,6 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
   slideOtherColorWrapper = document.querySelector('.product_other_color .swiper-wrapper');
   slideSimilarWrapper = document.querySelector('.product_similar .swiper-wrapper');
   slideReviewPhotoWrapper = document.querySelector('.review_photo_section .swiper-wrapper');
+  slideSeriesWrapper = document.querySelector('.product_series .swiper-wrapper');
+  gridSeriesWrapper = document.querySelector('.product_series .grid_series');
   productInfoSection = document.querySelector('.product_info');
   imgSpecSizeWrapper = document.querySelector('.spec_image_wrapper > figure');
   imgSpecMainWrapper = document.querySelector('.spec_photos');
@@ -40,10 +47,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   initSwiper();
   initProduct();
+  initSeries();
   initTabMenu();
   initResponsiveLayout();
   /**call import functions */
   renderHeader();
+  renderFooter();
+  renderSidebar();
 });
 
 /**
@@ -92,7 +102,9 @@ function initCTA(data) {
 
     addToCart(data, currentQuantity);
     alert('장바구니에 상품을 추가하였습니다.');
-    window.location.reload();
+    // window.location.reload();
+    ctaQuantityInput.value = '1';
+    updateTotalPrice(data, 1);
   });
 
   ctaPurchaseBtn.addEventListener('click', (e) => {
@@ -101,7 +113,9 @@ function initCTA(data) {
     // 1. 상품 구매 페이지로 이동합니다. << 메세지창 팝업
     alert('상품 구매 페이지로 이동합니다.');
     // 2. 페이지 새로고침
-    window.location.reload();
+    // window.location.reload();
+    ctaQuantityInput.value = '1';
+    updateTotalPrice(data, 1);
   });
 }
 
@@ -273,6 +287,28 @@ function initSwiper() {
 
     observer: true,
     observeParents: true,
+    resizeObserver: true,
+  });
+
+  slideSeries = new Swiper('.slide_series', {
+    direction: 'horizontal',
+    slidesPerView: 'auto',
+    loop: true,
+    speed: 5000,
+
+    autoplay: {
+      delay: 0,
+      disableOnInteraction: false,
+    },
+
+    freeMode: {
+      enabled: true,
+      momentum: false, // 유저 드래그 후 관성으로 미끄러지는 현상 방지
+    },
+
+    observer: true,
+    observeParents: true,
+    resizeObserver: true,
   });
 
   slideOtherColor = new Swiper('.slide_other_color', {
@@ -355,13 +391,10 @@ async function initProduct() {
     productsJson = await response.json();
     productsList = Array.isArray(productsJson) ? productsJson : [productsJson];
 
-    /**test */
+    /******* test *******/
     let testIdx = Math.floor(Math.random() * productsList.length);
-    console.log(testIdx);
     const currentProduct = productsList[testIdx];
-    /**test */
-
-    // filterCmsDescriptionImages(currentProduct.cmsDescriptionImages);
+    /******* test *******/
 
     renderSpec(currentProduct);
     renderSlide(currentProduct, 0);
@@ -374,6 +407,76 @@ async function initProduct() {
   } catch (error) {
     console.error('제품 데이터를 로드 중 오류가 발생했습니다: ', error);
   }
+}
+
+/**
+ * fetch series images
+ */
+let seriesJson = null;
+let seriesList = null;
+const MAX_SERIES = 7;
+async function initSeries() {
+  try {
+    const response = await fetch('../data/collections_list.json');
+    seriesJson = await response.json();
+    seriesList = Array.isArray(seriesJson) ? seriesJson : [seriesJson];
+
+    /******* test *******/
+    console.log(seriesList.length);
+    let testIdx = Math.floor(Math.random() * seriesList.length);
+    let seriesDisplayList = [];
+    for (let i = 0; i < MAX_SERIES; i++) {
+      seriesDisplayList.push(seriesList[testIdx++ % seriesList.length]);
+    }
+    console.log(seriesDisplayList);
+    /******* test *******/
+
+    renderSlide(seriesDisplayList, 3);
+    renderGrid(seriesDisplayList);
+  } catch (error) {
+    console.error('기획전 데이터를 로드 중 오류가 발생했습니다: ', error);
+  }
+}
+
+/**
+ * render image grid
+ *
+ * @param {*} data
+ */
+function renderGrid(data) {
+  if (!gridSeriesWrapper) return;
+  if (!data || !Array.isArray(data)) return;
+
+  let gridParam = '';
+  let gridTemplate = data
+    .slice(0, 7)
+    .map((series, idx) => {
+      switch (idx) {
+        case 0:
+        case 2:
+        case 3:
+          gridParam = 'span_both';
+          break;
+        case 2:
+          gridParam = 'span_vertical';
+          break;
+        case 1:
+        case 4:
+          gridParam = 'span_horizontal';
+          break;
+        default:
+          gridParam = '';
+          break;
+      }
+
+      return `
+      <div class=${gridParam}>
+      <a href=${series.href}><img src=${series.image} alt="${series.title || '기획전'} 그리드 이미지"/></a>
+      </div>
+      `;
+    })
+    .join('');
+  gridSeriesWrapper.innerHTML = gridTemplate;
 }
 
 /**
@@ -498,6 +601,7 @@ function renderSpec(data) {
  * 0: slide(hero)
  * 1: slide(other color)
  * 2: slide(similar)
+ * 3: slide(series)
  */
 function renderSlide(data, code) {
   let slideTemplate = [];
@@ -507,18 +611,22 @@ function renderSlide(data, code) {
       if (!slideHeroWrapper) return;
       if (!data || !data.detailImages) return;
 
-      const textAlt = `${data.title} 히어로 슬라이드 이미지`;
       slideTemplate = data.detailImages
         .map(
           (product, idx) => `<div class="swiper-slide">
               <img
                 src=${data.detailImages[idx]}
-                alt="RB3774D 001/87(55) 골드 메탈 선글라스"
+                alt="${data.title || '상품'} 히어로 슬라이드 이미지"
               />
             </div>`,
         )
         .join('');
       slideHeroWrapper.innerHTML = slideTemplate;
+
+      if (typeof slideHero !== 'undefined' && slideHero) {
+        slideHero.update();
+        slideHero.autoplay.start();
+      }
 
       break;
 
@@ -598,6 +706,27 @@ function renderSlide(data, code) {
       }
       break;
 
+    case 3:
+      if (!slideSeriesWrapper) return;
+      if (!data || !Array.isArray(data)) return;
+
+      slideTemplate = data
+        .map(
+          (series) => `
+          <div class="swiper-slide">
+            <a href="${series.href || '#'}"
+              ><img src="${series.image}" alt="${series.title || '기획전'} 슬라이드 이미지"
+            /></a>
+          </div> `,
+        )
+        .join('');
+      slideSeriesWrapper.innerHTML = slideTemplate;
+
+      if (typeof slideSeries !== 'undefined' && slideSeries) {
+        slideSeries.update();
+        slideSeries.autoplay.start();
+      }
+      break;
     default:
       break;
   }
