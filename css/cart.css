@@ -381,6 +381,9 @@ a {
 
 .delete_modal {
   margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .delete_panel {
@@ -649,7 +652,6 @@ a {
     justify-content: space-between;
     border: none;
     padding: 0 24px;
-    margin-bottom: 20px;
     font-family: "Pretendard", sans-serif;
     font-size: 24px;
     font-weight: 400;
