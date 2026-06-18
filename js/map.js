@@ -202,7 +202,7 @@ storeList.addEventListener('click', (e) => {
   const item = e.target.closest('.store_item');
   if (!item) return;
 
-  const store = currentStore[item.dataset.index];
+  const store = currentStores[item.dataset.index];
 
   const position = new kakao.maps.LatLng(Number(store.latitude), Number(store.longitude));
 
