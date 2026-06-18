@@ -18,6 +18,11 @@ header {
     text-align: center;
     color: var(--primary);
   }
+  & > a {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
   a:hover {
     color: var(--primary);
   }

@@ -23,6 +23,11 @@ header h1 {
   text-align: center;
   color: var(--primary);
 }
+header > a {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
 header a:hover {
   color: var(--primary);
 }
