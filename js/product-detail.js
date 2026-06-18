@@ -125,12 +125,22 @@ function initCTA(data) {
   });
 
   ctaCartBtn.addEventListener('click', (e) => {
+    if (!data) return;
+
+    if (data.isSoldOut) {
+      alert('품절된 상품입니다.');
+      // initialize section
+      ctaQuantityInput.value = '1';
+      updateTotalPrice(data, 1);
+      return;
+    }
+
     let currentQuantity = parseInt(ctaQuantityInput.value, 10);
     if (isNaN(currentQuantity)) currentQuantity = 1;
 
     addToCart(data, currentQuantity);
     alert('장바구니에 상품을 추가하였습니다.');
-    // window.location.reload();
+    // initialize section
     ctaQuantityInput.value = '1';
     updateTotalPrice(data, 1);
   });
@@ -138,12 +148,29 @@ function initCTA(data) {
   ctaPurchaseBtn.addEventListener('click', (e) => {
     e.preventDefault();
 
-    // 1. 상품 구매 페이지로 이동합니다. << 메세지창 팝업
+    if (!data) return;
+
+    if (data.isSoldOut) {
+      alert('품절된 상품입니다.');
+      // initialize section
+      ctaQuantityInput.value = '1';
+      updateTotalPrice(data, 1);
+      return;
+    }
+
+    let currentQuantity = parseInt(ctaQuantityInput.value, 10);
+    if (isNaN(currentQuantity)) currentQuantity = 1;
+
+    addToCart(data, currentQuantity);
     alert('상품 구매 페이지로 이동합니다.');
-    // 2. 페이지 새로고침
-    // window.location.reload();
+    // initialize section
     ctaQuantityInput.value = '1';
     updateTotalPrice(data, 1);
+
+    /**final */
+    window.location.href = 'https://s0-p.github.io/est_fe_13_2nd_project/sub/cart.html';
+    /**test */
+    // window.location.href = 'http://127.0.0.1:5500/sub/cart.html';
   });
 }
 
@@ -815,7 +842,7 @@ function createProductParamURL(product) {
 
   /**final url */
   // https://s0-p.github.io/est_fe_13_2nd_project/sub/product-detail.html?id=3003222
-  const baseUrl = "https://s0-p.github.io/est_fe_13_2nd_project/sub/product-detail.html";
+  const baseUrl = 'https://s0-p.github.io/est_fe_13_2nd_project/sub/product-detail.html';
   /**test url */
   // http://127.0.0.1:5500/sub/product-detail.html?id=3003222
   // const baseUrl = 'http://127.0.0.1:5500/sub/product-detail.html';
