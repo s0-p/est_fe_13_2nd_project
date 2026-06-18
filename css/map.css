@@ -170,11 +170,11 @@ fieldset {
   align-items: center;
   gap: 12px;
   margin-bottom: 20px;
+  cursor: pointer;
 }
 .store_list .store_item .store_header .wish_btn {
   color: var(--secondary);
   background: var(--surface-tint);
-  cursor: pointer;
 }
 
 @media (min-width: 1280px) {
@@ -227,4 +227,7 @@ fieldset {
     min-width: 0;
     max-height: 544px;
   }
+}
+.side_bar .pc_version {
+  display: flex;
 }

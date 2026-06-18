@@ -1,3 +1,11 @@
+// import renderHeader from './components/header.js';
+// // import renderFooter from './components/footer.js';
+// import renderSidebar from './components/side-bar-test.js';
+
+// renderHeader();
+// renderSidebar();
+// // renderFooter();
+
 let map;
 
 document.addEventListener('DOMContentLoaded', function () {

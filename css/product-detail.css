@@ -88,11 +88,11 @@
 /* Apply Gradient Color */
 /* Glassmorphism */
 .glassmorphism {
-  background: color-mix(in srgb, var(--surface-bg) 30%, transparent);
+  background: color-mix(in oklab, var(--surface-bg) 30%, transparent);
   -webkit-backdrop-filter: blur(15px);
   backdrop-filter: blur(15px);
-  border: 1px solid color-mix(in srgb, var(--surface-bg) 30%, transparent);
-  box-shadow: 0 8px 32px 0 color-mix(in srgb, var(--text-default) 15%, transparent);
+  border: 1px solid color-mix(in oklab, var(--surface-bg) 30%, transparent);
+  box-shadow: 0 8px 32px 0 color-mix(in oklab, var(--text-default) 15%, transparent);
 }
 
 /* Glassmorphism */
@@ -102,6 +102,12 @@
 
 .text_center {
   text-align: center;
+}
+
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 body {
