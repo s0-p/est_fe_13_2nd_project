@@ -34,16 +34,31 @@ body {
 
 /* Filter */
 .filters {
+  width: 100%;
   color: var(--primary-subtle);
   /* Keyword filters */
   .keyword_filters {
     .keyword {
       background: var(--surface-bg);
       padding: 3px 7px;
+      cursor: pointer;
     }
     .active {
       color: var(--surface-bg);
       background: var(--primary);
+    }
+    .keyword label {
+      user-select: none;
+      cursor: pointer;
+    }
+    .keyword input {
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip-path: inset(50%);
+      border: 0;
     }
   }
 
@@ -63,8 +78,12 @@ body {
   }
   .sort_panel > li {
     padding: 10px;
+    cursor: pointer;
   }
-  .sort_panel > li > input {
+  .sort_panel > li label {
+    cursor: pointer;
+  }
+  .sort_panel > li input {
     width: 1px;
     height: 1px;
     padding: 0;
@@ -150,6 +169,65 @@ body {
     gap: calc(var(--unit-row) * 5) var(--unit-pc-gutter);
   }
 }
+.more_btn {
+  width: max-content;
+  padding: 10px;
+  color: var(--primary-subtle);
+  background: var(--surface-bg);
+  &:active {
+    background: var(--primary-subtle);
+    color: var(--surface-bg);
+  }
+  &:disabled {
+    color: var(--text-light);
+    background: var(--stroke);
+    cursor: not-allowed;
+  }
+}
+
+.skeleton_card {
+  gap: 8px;
+  padding: var(--unit-row) var(--unit-m-gutter);
+  background: var(--surface-bg);
+  .skeleton {
+    position: relative;
+    overflow: hidden;
+    background: #eef1f6;
+    &:after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to right,
+        transparent 0%,
+        color-mix(in oklab, #e3e8f1 80%, transparent) 50%,
+        transparent 100%
+      );
+      animation: shimmer 1.2s infinite;
+    }
+  }
+  .content {
+    gap: 8px;
+  }
+  .skeleton.media {
+    aspect-ratio: 4/3;
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    background: linear-gradient(#eef1f6, #e3e8f1);
+  }
+  .skeleton.line {
+    height: 12px;
+  }
+}
+@keyframes shimmer {
+  from {
+    transform: translate(-100%);
+  }
+  to {
+    transform: translate(100%);
+  }
+}
 /* Product List */
 
 /* Toast Cart */
@@ -178,6 +256,7 @@ body {
   padding: var(--unit-m-gutter);
   pointer-events: auto;
   opacity: 0;
+  visibility: hidden;
   .message {
     gap: 5px;
   }

@@ -21,61 +21,93 @@
   </head>
   <body>
     <header></header>
+
     <main class="display_flex flex_column">
       <section class="hero">
         <div class="swiper slide_basic slide_hero">
           <div class="swiper-wrapper">
             <!-- <div class="swiper-slide">
-              <img
-                src="https://image.rounz.com/_data/product/RAYBAN/RB3774D-001_87(55)/RB3774D-001_87(55)_03.JPG"
-                alt="RB3774D 001/87(55) 골드 메탈 선글라스"
-              />
-            </div> -->
+                <img
+                  src="https://image.rounz.com/_data/product/RAYBAN/RB3774D-001_87(55)/RB3774D-001_87(55)_03.JPG"
+                  alt="RB3774D 001/87(55) 골드 메탈 선글라스"
+                />
+              </div> -->
           </div>
         </div>
       </section>
-
-      <section class="main_contents display_flex flex_column">
+      <section class="sticky display_flex flex_column">
         <section class="product_info contents display_flex flex_column">
           <!-- <div class="info_badge align_items_center pre_bold_10_auto">당일배송</div>
-          <a href="#" class="info_brand display_flex align_items_center mont_reg_16">
-            Ray-Ban
-            <span class="material-icons icon_16">chevron_right</span>
-          </a>
-          <h1 class="info_title mont_bold_20">실버 메탈 RB3774D 003/87 55MM 레이밴 선글라스</h1>
-          <div class="info_meta display_flex pre_reg_12">
-            <div class="meta_item display_flex align_items_center">
-              <span class="material-icons icon_20">favorite_border</span>
-              <span>찜 23</span>
-            </div>
-            <div class="meta_item display_flex align_items_center">
-              <span class="material-icons icon_20">chat</span>
-              <span>후기 23</span>
-            </div>
-          </div>
-          <div class="info_price_row display_flex justify_content_between align_items_center">
-            <div class="price_discount_group display_flex align_items_center">
-              <span class="price_original pre_reg_14">999,999원</span>
-              <span class="price_discount pre_bold_14">10%</span>
-            </div>
-            <div class="price_current mont_bold_20">899,999원</div>
-          </div>
-          <div class="info_benefit_accordion">
-            <div class="info_benefit_heading display_flex justify_content_between">
-              <div class="display_flex align_items_center pre_reg_12">
-                신규 회원님 최대 할인 가격 <span class="material-icons icon_20">expand_more</span>
+            <a href="#" class="info_brand display_flex align_items_center mont_reg_16">
+              Ray-Ban
+              <span class="material-icons icon_16">chevron_right</span>
+            </a>
+            <h1 class="info_title mont_bold_20">실버 메탈 RB3774D 003/87 55MM 레이밴 선글라스</h1>
+            <div class="info_meta display_flex pre_reg_12">
+              <div class="meta_item display_flex align_items_center">
+                <span class="material-icons icon_20">favorite_border</span>
+                <span>찜 23</span>
               </div>
-              <div class="mont_bold_16">999,999원</div>
+              <div class="meta_item display_flex align_items_center">
+                <span class="material-icons icon_20">chat</span>
+                <span>후기 23</span>
+              </div>
             </div>
-            <div class="panel_body display_none">
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad aliquid voluptate fugit quaerat non molestiae
-                quo magni soluta minima corporis! Soluta, ipsa et.
-              </p>
-              <p>Quos quibusdam, nesciunt totam ullam quasi neque!</p>
+            <div class="info_price_row display_flex justify_content_between align_items_center">
+              <div class="price_discount_group display_flex align_items_center">
+                <span class="price_original pre_reg_14">999,999원</span>
+                <span class="price_discount pre_bold_14">10%</span>
+              </div>
+              <div class="price_current mont_bold_20">899,999원</div>
             </div>
-          </div> -->
+            <div class="info_benefit_accordion">
+              <div class="info_benefit_heading display_flex justify_content_between">
+                <div class="display_flex align_items_center pre_reg_12">
+                  신규 회원님 최대 할인 가격 <span class="material-icons icon_20">expand_more</span>
+                </div>
+                <div class="mont_bold_16">999,999원</div>
+              </div>
+              <div class="panel_body display_none">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad aliquid voluptate fugit quaerat non molestiae
+                  quo magni soluta minima corporis! Soluta, ipsa et.
+                </p>
+                <p>Quos quibusdam, nesciunt totam ullam quasi neque!</p>
+              </div>
+            </div> -->
         </section>
+
+        <div class="product_cta contents display_flex flex_column">
+          <div class="display_flex justify_content_between">
+            <div class="quantity_box display_flex flex_column justify_content_between">
+              <label class="pre_reg_12" for="quantity">수량</label>
+              <div class="quantity_controller display_flex align_items_center">
+                <button id="minus" type="button" aria-label="수량 줄이기">
+                  <span class="material-icons icon_16">remove</span>
+                </button>
+                <input id="quantity" type="text" value="1" aria-label="수량" class="mont_bold_14" />
+                <button id="plus" type="button" aria-label="수량 늘리기">
+                  <span class="material-icons icon_16">add</span>
+                </button>
+              </div>
+            </div>
+            <div class="total_price_box display_flex flex_column align_items_end">
+              <label class="pre_reg_12">총 상품금액</label>
+              <div class="total_price mont_bold_16">239,000원</div>
+            </div>
+          </div>
+          <div class="cta_box display_flex justify_content_between">
+            <button id="addcart" type="button" class="btn_cart">
+              <span class="material-icons icon_16">local_mall</span>
+            </button>
+            <a
+              type="button"
+              href="#"
+              class="btn_purchase display_flex justify_content_center align_items_center pre_bold_16"
+              >구매하기</a
+            >
+          </div>
+        </div>
 
         <section class="product_other_color contents">
           <h2 class="pre_bold_20">이 상품의 다른 컬러</h2>
@@ -83,19 +115,19 @@
             <div class="swiper-wrapper">
               <!-- JSON: ADD '다른 컬러 상품' HERE -->
               <!-- <article class="swiper-slide card_ui display_flex flex_column">
-                <div class="card_ui_img_wrapper">
-                  <a href="#">
-                    <img
-                      src="https://image.rounz.com/_data/product/RAYBAN/RB3774D-001_87(55)/RB3774D-001_87(55)_03.JPG"
-                      alt="RB3774D 001/87(55) 골드 메탈 선글라스"
-                    />
-                  </a>
-                </div>
-                <div class="card_ui_info_wrapper">
-                  <strong class="info_code mont_bold_14">RB3774D 001/87(55)</strong>
-                  <p class="info_description mont_reg_14">골드 메탈 RB3774D 001/87 55 골드 메탈 RB3774D 001/87 55</p>
-                </div>
-              </article> -->
+                  <div class="card_ui_img_wrapper">
+                    <a href="#">
+                      <img
+                        src="https://image.rounz.com/_data/product/RAYBAN/RB3774D-001_87(55)/RB3774D-001_87(55)_03.JPG"
+                        alt="RB3774D 001/87(55) 골드 메탈 선글라스"
+                      />
+                    </a>
+                  </div>
+                  <div class="card_ui_info_wrapper">
+                    <strong class="info_code mont_bold_14">RB3774D 001/87(55)</strong>
+                    <p class="info_description mont_reg_14">골드 메탈 RB3774D 001/87 55 골드 메탈 RB3774D 001/87 55</p>
+                  </div>
+                </article> -->
             </div>
           </div>
           <div class="slider_pagination_controls display_flex align_items_center justify_content_center">
@@ -112,26 +144,27 @@
             </button>
           </div>
         </section>
-
+      </section>
+      <section class="main_contents display_flex flex_column">
         <section class="product_content">
           <div class="content_tab_menu">
             <ul class="tab_menu_list display_flex mont_reg_14">
               <li class="tab_item text_center is_active">
-                <button type="button" class="tab_button">상세정보</button>
+                <a type="button" href="#tab_menu" class="tab_button">상세정보</a>
               </li>
               <li class="tab_item text_center">
-                <button type="button" class="tab_button">후기<span class="count">(99+)</span></button>
+                <a type="button" href="#tab_menu" class="tab_button">후기<span class="count">(99+)</span></a>
               </li>
               <li class="tab_item text_center">
-                <button type="button" class="tab_button">문의<span class="count">(99+)</span></button>
+                <a type="button" href="#tab_menu" class="tab_button">문의<span class="count">(99+)</span></a>
               </li>
               <li class="tab_item text_center">
-                <button type="button" class="tab_button">구매정보</button>
+                <a type="button" href="#tab_menu" class="tab_button">구매정보</a>
               </li>
             </ul>
           </div>
           <!-- 탭에 따라 바뀌는 컨텐츠 영역 -->
-          <ul class="content_details display_flex flex_column">
+          <ul id="tab_menu" class="content_details display_flex flex_column">
             <li class="detail_spec">
               <div class="spec_image_container display_flex justify_content_center">
                 <div class="spec_image_wrapper">
@@ -155,135 +188,164 @@
               </div>
             </li>
 
-            <li class="detail_review contents display_flex flex_column">
-              <!-- 
-              <section class="card_slide">
+            <li class="display_none_priority detail_review contents flex_column">
+              <section class="review_photo_section">
                 <h2 class="pre_bold_20">포토후기(99+)</h2>
-                <div class="card_slide_container">
-                  <div class="swiper-wrapper card_group display_flex">
-                    <article class="swiper-slide card_item display_flex flex_column">
-                      <div class="card_visual_wrapper">
-                        <a href="#" class="card_image_link">
-                          <img
-                            src="https://image.rounz.com/_data/product/RAYBAN/RB3774D-001_87(55)/RB3774D-001_87(55)_03.JPG"
-                            alt="RB3774D 001/87(55) 골드 메탈 선글라스 후기 이미지"
-                            class="card_product_img"
-                          />
-                        </a>
+                <div class="swiper slide_review_photo">
+                  <div class="swiper-wrapper">
+                    <!-- JSON: ADD 더미 후기 HERE -->
+                    <article class="swiper-slide card_ui display_flex flex_column">
+                      <div class="card_ui_img_wrapper">
+                        <img
+                          src="https://image.rounz.com/_data/product/RAYBAN/RB3774D-001_87(55)/RB3774D-001_87(55)_03.JPG"
+                          alt="RB3774D 001/87(55) 골드 메탈 선글라스 후기 이미지"
+                        />
                       </div>
 
-                      <div class="card_info_wrapper display_flex flex_column">
-                        <div class="review_meta_box display_flex justify_content_between align_items_center">
-                          <div class="avatar_box">
-                            <img
-                              src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80"
-                              alt="리뷰어 프로필"
-                              class="avatar_img"
-                            />
-                          </div>
-                          <div class="review_heading display_flex flex_column">
-                            <strong class="model_code mont_bold_14">RB3774D 001/87(55)</strong>
-                            <div class="rating_box mont_bold_12 display_flex align_items_center">
-                              <span class="material-icons icon_20 star_icon">star</span>
-                              <span class="score mont_reg_14">(5.0)</span>
+                      <div class="card_ui_info_wrapper">
+                        <div class="review_meta_box_wrapper">
+                          <div class="review_meta_box display_flex justify_content_between align_items_center">
+                            <div class="avatar_box">
+                              <img
+                                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80"
+                                alt="리뷰어 프로필"
+                                class="avatar_img"
+                              />
+                            </div>
+                            <div class="review_heading display_flex flex_column">
+                              <strong class="info_code mont_bold_14">RB3774D 001/87(55)</strong>
+                              <div class="rating_box mont_bold_12 display_flex align_items_center">
+                                <span class="material-icons icon_20 star_icon">star</span>
+                                <span class="rate mont_reg_14">(5.0)</span>
+                              </div>
                             </div>
                           </div>
+                          <p class="review_text_content pre_reg_14">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat.
+                          </p>
                         </div>
-                        <p class="review_text_content pre_reg_14">
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                          labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                          laboris nisi ut aliquip ex ea commodo consequat.
-                        </p>
                       </div>
                     </article>
-                    <article class="swiper-slide card_item display_flex flex_column">
-                      <div class="card_visual_wrapper">
-                        <a href="#" class="card_image_link">
-                          <img
-                            src="https://image.rounz.com/_data/product/RAYBAN/RB3774D-001_87(55)/RB3774D-001_87(55)_03.JPG"
-                            alt="RB3774D 001/87(55) 골드 메탈 선글라스 후기 이미지"
-                            class="card_product_img"
-                          />
-                        </a>
+                    <article class="swiper-slide card_ui display_flex flex_column">
+                      <div class="card_ui_img_wrapper">
+                        <img
+                          src="https://image.rounz.com/_data/product/RAYBAN/RB3774D-001_87(55)/RB3774D-001_87(55)_03.JPG"
+                          alt="RB3774D 001/87(55) 골드 메탈 선글라스 후기 이미지"
+                        />
                       </div>
 
-                      <div class="card_info_wrapper display_flex flex_column">
-                        <div class="review_meta_box display_flex justify_content_between align_items_center">
-                          <div class="avatar_box">
-                            <img
-                              src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80"
-                              alt="리뷰어 프로필"
-                              class="avatar_img"
-                            />
-                          </div>
-                          <div class="review_heading display_flex flex_column">
-                            <strong class="model_code mont_bold_14">RB3774D 001/87(55)</strong>
-                            <div class="rating_box mont_bold_12 display_flex align_items_center">
-                              <span class="material-icons icon_20 star_icon">star</span>
-                              <span class="score mont_reg_14">(5.0)</span>
+                      <div class="card_ui_info_wrapper">
+                        <div class="review_meta_box_wrapper">
+                          <div class="review_meta_box display_flex justify_content_between align_items_center">
+                            <div class="avatar_box">
+                              <img
+                                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80"
+                                alt="리뷰어 프로필"
+                                class="avatar_img"
+                              />
+                            </div>
+                            <div class="review_heading display_flex flex_column">
+                              <strong class="info_code mont_bold_14">RB3774D 001/87(55)</strong>
+                              <div class="rating_box mont_bold_12 display_flex align_items_center">
+                                <span class="material-icons icon_20 star_icon">star</span>
+                                <span class="rate mont_reg_14">(5.0)</span>
+                              </div>
                             </div>
                           </div>
+                          <p class="review_text_content pre_reg_14">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat.
+                          </p>
                         </div>
-                        <p class="review_text_content pre_reg_14">
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                          labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                          laboris nisi ut aliquip ex ea commodo consequat.
-                        </p>
                       </div>
                     </article>
-                    <article class="swiper-slide card_item display_flex flex_column">
-                      <div class="card_visual_wrapper">
-                        <a href="#" class="card_image_link">
-                          <img
-                            src="https://image.rounz.com/_data/product/RAYBAN/RB3774D-001_87(55)/RB3774D-001_87(55)_03.JPG"
-                            alt="RB3774D 001/87(55) 골드 메탈 선글라스 후기 이미지"
-                            class="card_product_img"
-                          />
-                        </a>
+                    <article class="swiper-slide card_ui display_flex flex_column">
+                      <div class="card_ui_img_wrapper">
+                        <img
+                          src="https://image.rounz.com/_data/product/RAYBAN/RB3774D-001_87(55)/RB3774D-001_87(55)_03.JPG"
+                          alt="RB3774D 001/87(55) 골드 메탈 선글라스 후기 이미지"
+                        />
                       </div>
 
-                      <div class="card_info_wrapper display_flex flex_column">
-                        <div class="review_meta_box display_flex justify_content_between align_items_center">
-                          <div class="avatar_box">
-                            <img
-                              src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80"
-                              alt="리뷰어 프로필"
-                              class="avatar_img"
-                            />
-                          </div>
-                          <div class="review_heading display_flex flex_column">
-                            <strong class="model_code mont_bold_14">RB3774D 001/87(55)</strong>
-                            <div class="rating_box mont_bold_12 display_flex align_items_center">
-                              <span class="material-icons icon_20 star_icon">star</span>
-                              <span class="score mont_reg_14">(5.0)</span>
+                      <div class="card_ui_info_wrapper">
+                        <div class="review_meta_box_wrapper">
+                          <div class="review_meta_box display_flex justify_content_between align_items_center">
+                            <div class="avatar_box">
+                              <img
+                                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80"
+                                alt="리뷰어 프로필"
+                                class="avatar_img"
+                              />
+                            </div>
+                            <div class="review_heading display_flex flex_column">
+                              <strong class="info_code mont_bold_14">RB3774D 001/87(55)</strong>
+                              <div class="rating_box mont_bold_12 display_flex align_items_center">
+                                <span class="material-icons icon_20 star_icon">star</span>
+                                <span class="rate mont_reg_14">(5.0)</span>
+                              </div>
                             </div>
                           </div>
+                          <p class="review_text_content pre_reg_14">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat.
+                          </p>
                         </div>
-                        <p class="review_text_content pre_reg_14">
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                          labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                          laboris nisi ut aliquip ex ea commodo consequat.
-                        </p>
                       </div>
                     </article>
-                  </div>
+                    <article class="swiper-slide card_ui display_flex flex_column">
+                      <div class="card_ui_img_wrapper">
+                        <img
+                          src="https://image.rounz.com/_data/product/RAYBAN/RB3774D-001_87(55)/RB3774D-001_87(55)_03.JPG"
+                          alt="RB3774D 001/87(55) 골드 메탈 선글라스 후기 이미지"
+                        />
+                      </div>
 
-                  <div class="slider_pagination_controls display_flex align_items_center justify_content_center">
-                    <button type="button" class="ctrl_btn prev_btn" aria-label="이전 슬라이드">
-                      <span class="material-icons">chevron_left</span>
-                    </button>
-                    <div class="page_number_indicator mont_reg_16">
-                      <span class="current">1</span>
-                      <span class="divider">/</span>
-                      <span class="total">1</span>
-                    </div>
-                    <button type="button" class="ctrl_btn next_btn" aria-label="다음 슬라이드">
-                      <span class="material-icons">chevron_right</span>
-                    </button>
+                      <div class="card_ui_info_wrapper">
+                        <div class="review_meta_box_wrapper">
+                          <div class="review_meta_box display_flex justify_content_between align_items_center">
+                            <div class="avatar_box">
+                              <img
+                                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80"
+                                alt="리뷰어 프로필"
+                                class="avatar_img"
+                              />
+                            </div>
+                            <div class="review_heading display_flex flex_column">
+                              <strong class="info_code mont_bold_14">RB3774D 001/87(55)</strong>
+                              <div class="rating_box mont_bold_12 display_flex align_items_center">
+                                <span class="material-icons icon_20 star_icon">star</span>
+                                <span class="rate mont_reg_14">(5.0)</span>
+                              </div>
+                            </div>
+                          </div>
+                          <p class="review_text_content pre_reg_14">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat.
+                          </p>
+                        </div>
+                      </div>
+                    </article>
                   </div>
                 </div>
+                <div class="slider_pagination_controls display_flex align_items_center justify_content_center">
+                  <button type="button" class="ctrl_btn prev_other_color" aria-label="이전 슬라이드">
+                    <span class="material-icons">chevron_left</span>
+                  </button>
+                  <div class="page_number_indicator mont_reg_16">
+                    <span class="current">1</span>
+                    <span class="divider">/</span>
+                    <span class="total">1</span>
+                  </div>
+                  <button type="button" class="ctrl_btn next_other_color" aria-label="다음 슬라이드">
+                    <span class="material-icons">chevron_right</span>
+                  </button>
+                </div>
               </section>
-               -->
 
               <section class="review_normal_section display_flex flex_column">
                 <h2 class="pre_bold_20">일반후기(99+)</h2>
@@ -443,7 +505,7 @@
               </section>
             </li>
 
-            <li class="detail_qna contents display_flex flex_column">
+            <li class="display_none_priority detail_qna contents flex_column">
               <h2 class="pre_bold_20">상품문의(99+)</h2>
 
               <div class="qna_accordion_container">
@@ -561,7 +623,7 @@
               </div>
             </li>
 
-            <li class="detail_purchase_info contents display_flex flex_column">
+            <li class="display_none_priority detail_purchase_info contents flex_column">
               <h2 class="purchase_main_title pre_bold_20">구매 정보</h2>
 
               <div class="purchase_sub_section_container display_flex flex_column mont_reg_12">
@@ -775,6 +837,6 @@
         </section>
       </section>
     </main>
-    <script src="../js/product-detail.js"></script>
+    <script type="module" src="../js/product-detail.js"></script>
   </body>
 </html>
