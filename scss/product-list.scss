@@ -101,17 +101,16 @@ body {
 /* Detailed Filter Modal*/
 .filter_modal_wrapper {
   position: fixed;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   top: 0;
   left: 0;
   z-index: 10;
   background-color: var(--dim-bg);
 }
 .filter_modal {
+  max-width: 70%;
   position: relative;
-  width: max-content;
-  height: max-content;
   gap: var(--unit-row);
   padding-bottom: var(--unit-row);
   background: var(--surface-bg);
@@ -122,8 +121,7 @@ body {
     border-bottom: 1px solid var(--surface-tint);
   }
   .filter_options_wrapper {
-    grid-template-columns: repeat(auto-fill, auto);
-    grid-gap: var(--unit-m-gutter);
+    gap: var(--unit-m-gutter);
   }
   .filter_option {
     width: max-content;
@@ -133,7 +131,8 @@ body {
     background: var(--surface-tint);
   }
   .filter_option.active {
-    border: 1px solid var(--secondary-muted);
+    box-sizing: border-box;
+    border: 2px solid var(--secondary-muted);
   }
   .close_btn {
     position: absolute;
@@ -156,7 +155,9 @@ body {
     }
   }
 }
-
+.product_count_wrapper {
+  margin-bottom: var(--unit-row);
+}
 /* Product List */
 .product_list {
   @include set-grid(calc(var(--unit-row) * 2), 0);
