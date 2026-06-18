@@ -59,13 +59,21 @@ function storeOverlay(store) {
   customOverlay.setMap(map);
 }
 
-// 키워드 필터
+// 키워드 버튼 클릭 이벤트
 const filters = document.querySelector('.filters');
+const keywordBtn = filters.querySelectorAll('.keyword');
 
-const keywordFilters = filters.querySelectorAll('.keyword');
-keywordFilters.forEach((keyword) => {
+keywordBtn.forEach((keyword) => {
   keyword.addEventListener('click', () => {
-    keyword.classList.toggle('active');
+    keywordBtn.forEach((item) => {
+      item.classList.remove('active');
+    });
+
+    keyword.classList.add('active');
+
+    currentFilter = keyword.dataset.filter;
+
+    applyFilter();
   });
 });
 
@@ -92,8 +100,6 @@ toggleBtn.addEventListener('click', () => {
 let stores = [];
 let currentStore = null;
 
-const favoriteStores = new Set();
-
 async function loadStores() {
   try {
     const response = await fetch('../data/stores.json');
@@ -107,12 +113,29 @@ async function loadStores() {
 
 loadStores();
 
-// 관심 매장 등록 클릭 이벤트
+// 필터 함수
+const favoriteStores = new Set(JSON.parse(localStorage.getItem('favoriteStores')) || []);
+
+let currentFilter = 'all';
+
+function applyFilter() {
+  let filteredStores = stores;
+
+  if (currentFilter === 'favorite') {
+    filteredStores = stores.filter((store) => favoriteStores.has(store.name));
+  }
+
+  if (currentFilter === 'reserve') {
+    filteredStores = stores.filter((store) => store.reservation === true);
+  }
+
+  renderStoreList(filteredStores);
+}
+
+// 로컬 스토리지에 관심 매장 저장
 document.addEventListener('click', (e) => {
   const wishBtn = e.target.closest('.wish_btn');
   if (!wishBtn) return;
-
-  e.stopPropagation();
 
   const storeName = wishBtn.dataset.storeName;
   if (!storeName) return;
@@ -123,7 +146,9 @@ document.addEventListener('click', (e) => {
     favoriteStores.add(storeName);
   }
 
-  renderStoreList();
+  localStorage.setItem('favoriteStores', JSON.stringify([...favoriteStores]));
+
+  applyFilter();
 
   if (currentStore) {
     storeOverlay(currentStore);
