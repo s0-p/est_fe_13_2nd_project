@@ -12,17 +12,17 @@ function createSidebar() {
   // 1. 데이터 정의
   const menuData = [
     {
-      icon: "../images/img_try_store 1.png",
+      icon: "../images/side_bar_2.png",
       text: "라운즈 플래그십 스토어",
       link: "#"
     },
     {
-      icon: "../images/icon_try 2.png",
+      icon: "../images/side_bar_3.png",
       text: "내 주변 안경원 찾기",
       link: "#"
     },
     {
-      icon: "../images/icon_try 1.png",
+      icon: "../images/side_bar_4.png",
       text: "채팅 바로가기",
       link: "#"
     }
@@ -39,7 +39,7 @@ function createSidebar() {
     newSidebar.innerHTML = `
       <div class="side_bar mobile_version">
         <button class="top_btn">
-          <img src="../images/icon_info_arrow 1.png" alt="위로 가기">
+          <img src="../images/side_bar_1.png" alt="위로 가기">
         </button>
 
         ${menuData.map(item => `
@@ -58,7 +58,7 @@ function createSidebar() {
     newSidebar.innerHTML = `
       <div class="side_bar pc_version">
         <button class="top_btn">
-          <img src="../images/icon_info_arrow 1.png" alt="위로 가기">
+          <img src="../images/side_bar_1.png" alt="위로 가기">
         </button>
 
         ${menuData.map(item => `
