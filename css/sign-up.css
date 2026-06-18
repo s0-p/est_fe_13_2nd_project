@@ -38,7 +38,17 @@ button {
 }
 
 .sign_contents {
-  padding-top: 60px;
+  padding: 60px 0 20px 0;
+  align-content: center;
+  min-height: calc(100vh - 140px);
+}
+
+.sign_contents_box {
+  height: -moz-fit-content;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
 }
 
 .sign_contents h2 {
@@ -47,7 +57,12 @@ button {
   font-weight: 700;
   line-height: 20px;
   text-align: center;
-  height: 20px;
+  /* height: 20px; */
+}
+
+.sign_box {
+  height: -moz-fit-content;
+  height: fit-content;
 }
 
 .sign_box img {
@@ -183,7 +198,6 @@ button {
     display: grid;
     justify-items: center;
     gap: 40px;
-    margin: 200px 0;
   }
   .sign_box {
     display: flex;
