@@ -157,9 +157,12 @@ document.addEventListener('click', (e) => {
 
 // 목록 렌더링
 const storeList = document.querySelector('.store_list');
+let currentStores = [];
 
 function renderStoreList(list = stores) {
-  storeList.innerHTML = list
+  currentStores = list; // 현재 화면에 렌더링된 배열을 기억
+
+  storeList.innerHTML = list // 화면에 출력
     .map(
       (store, index) => `
       <li class="store_item" data-index="${index}">
@@ -199,8 +202,7 @@ storeList.addEventListener('click', (e) => {
   const item = e.target.closest('.store_item');
   if (!item) return;
 
-  const store = stores[item.dataset.index];
-  currentStore = store;
+  const store = currentStore[item.dataset.index];
 
   const position = new kakao.maps.LatLng(Number(store.latitude), Number(store.longitude));
 
