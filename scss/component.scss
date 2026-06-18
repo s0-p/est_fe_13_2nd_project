@@ -2,11 +2,14 @@
 /* Header */
 header {
   position: sticky;
+  top: 0;
   height: calc(var(--unit-row) * 4);
   @media (min-width: 768px) {
     height: calc(var(--unit-row) * 3);
   }
   padding: 0 var(--unit-row);
+  z-index: 5;
+  background: var(--surface-tint);
   h1 {
     font-family: 'Pretendard';
     font-size: 24px;
