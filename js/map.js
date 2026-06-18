@@ -59,10 +59,9 @@ function storeOverlay(store) {
   customOverlay.setMap(map);
 }
 
-// Fillters
+// 키워드 필터
 const filters = document.querySelector('.filters');
 
-// keyword filters
 const keywordFilters = filters.querySelectorAll('.keyword');
 keywordFilters.forEach((keyword) => {
   keyword.addEventListener('click', () => {
@@ -84,7 +83,7 @@ toggleBtn.addEventListener('click', () => {
 
   toggleBtn.setAttribute('aria-expanded', isOpen);
 
-  toggleText.childNodes[2].textContent = isOpen ? '매장 목록 닫기' : '매장 목록 열기';
+  toggleText.textContent = isOpen ? '매장 목록 닫기' : '매장 목록 열기';
 
   arrow.textContent = isOpen ? 'expand_less' : 'expand_more';
 });
