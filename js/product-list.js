@@ -14,6 +14,8 @@ let filteredData = [];
 let brands = [];
 let origins = [];
 let selectedCategory = [];
+let selectedBrands = [];
+let selectedOrigin = [];
 
 // Fillters
 const filters = document.querySelector('.filters');
@@ -27,12 +29,11 @@ const sortBtn = filters.querySelector('.sort_btn');
 const currentSortOption = sortBtn.querySelector('div:last-child');
 const sortOptionsWrapper = filters.querySelector('.sort_panel');
 const sortOptions = sortOptionsWrapper.querySelectorAll('li');
-let seletedSortOption = 'latest';
+let selectedSortOption = 'latest';
 
 // Detailed filter
 const filterBtn = filters.querySelector('.filter_btn');
 const filterModal = document.querySelector('.filter_modal_wrapper');
-const filterOptions = filterModal.querySelectorAll('.filter_option');
 const filterModalClosebtn = filterModal.querySelector('.close_btn');
 const filterBtnsWrapper = filterModal.querySelector('.btns_wrapper');
 const filterResetBtn = filterBtnsWrapper.querySelector('.reset_btn');
@@ -63,6 +64,8 @@ async function fetchData() {
 }
 // renderProducts
 function renderProducts(data) {
+  const productCount = document.querySelector('.product_count');
+  productCount.textContent = `${data.length} 개 상품`;
   const count = Math.min(skip + LIMIT, data.length);
   let frag = document.createDocumentFragment();
   for (let i = skip; i < count; i++) {
@@ -103,7 +106,7 @@ function sortData(data, option) {
   let sortedData = [...data];
   switch (option) {
     case 'latest':
-      sortedData = data;
+      sortedData.sort((a, b) => products.indexOf(a) - products.indexOf(b));
       break;
     case 'popularity':
       sortedData.sort((a, b) => parseNumber(b.likeCount) - parseNumber(a.likeCount));
@@ -173,16 +176,36 @@ available.addEventListener('click', () => {
   filterData();
 });
 function filterData() {
-  console.log(selectedCategory);
-  let filteredResult = [...products.filter((p) => selectedCategory.includes(p.category))];
-  filteredData = filteredResult.length ? filteredResult : products;
-  console.log(filteredData);
-  if (isAvailable) {
-    filteredResult = [...filteredData.filter((p) => !p.isSoldOut)];
-    filteredData = filteredResult.length ? filteredResult : products;
+  console.log('선택된 카테고리:', selectedCategory);
+  console.log('선택된 브랜드:', selectedBrands);
+  console.log('선택된 원산지:', selectedOrigin);
+
+  filteredData = [...products];
+
+  // Category filter
+  if (selectedCategory && selectedCategory.length > 0) {
+    filteredData = filteredData.filter((p) => selectedCategory.includes(p.category));
   }
 
-  filteredData = sortData(filteredData, seletedSortOption);
+  // Brand filter
+  if (selectedBrands && selectedBrands.length > 0) {
+    filteredData = filteredData.filter((p) => selectedBrands.includes(p.brand));
+  }
+
+  // Origin filter
+  if (selectedOrigin && selectedOrigin.length > 0) {
+    filteredData = filteredData.filter((p) => selectedOrigin.includes(p.specifications['원산지']));
+  }
+
+  // isAvailable filter (품절 제외)
+  if (isAvailable) {
+    filteredData = filteredData.filter((p) => !p.isSoldOut);
+  }
+
+  // sort
+  filteredData = sortData(filteredData, selectedSortOption);
+
+  console.log('최종 필터링된 데이터:', filteredData);
 
   clearProductList();
   renderProducts(filteredData);
@@ -202,7 +225,7 @@ sortOptions.forEach((option) => {
     });
     const selectedOption = option.querySelector('input');
     selectedOption.checked = true;
-    seletedSortOption = selectedOption.value;
+    selectedSortOption = selectedOption.value;
     sortOptionsWrapper.style.display = 'none';
 
     filterData(filteredData);
@@ -210,11 +233,63 @@ sortOptions.forEach((option) => {
   });
 });
 
+function createDetailFilterOptions() {
+  const brandFilter = filterModal
+    .querySelector('.filter_type.brand')
+    .closest('.filter_set')
+    .querySelector('.filter_options_wrapper');
+
+  brands.forEach((b) => {
+    const optionElem = document.createElement('div');
+    optionElem.className = 'filter_option pre_reg_18 border_round display_inline_block';
+    optionElem.textContent = `${b}`;
+    brandFilter.appendChild(optionElem);
+  });
+  const brandFilterOptions = brandFilter.querySelectorAll('.filter_option');
+  brandFilterOptions.forEach((brandOption) => {
+    brandOption.addEventListener('click', () => {
+      brandOption.classList.toggle('active');
+      if (brandOption.classList.contains('active')) {
+        selectedBrands.push(brandOption.textContent);
+      } else {
+        selectedBrands = selectedBrands.filter((e) => e !== brandOption.textContent);
+      }
+    });
+  });
+
+  const originFilter = filterModal
+    .querySelector('.filter_type.origin')
+    .closest('.filter_set')
+    .querySelector('.filter_options_wrapper');
+
+  origins.forEach((o) => {
+    const optionElem = document.createElement('div');
+    optionElem.className = 'filter_option pre_reg_18 border_round display_inline_block';
+    optionElem.textContent = `${o}`;
+    originFilter.appendChild(optionElem);
+  });
+  const originFilterOptions = originFilter.querySelectorAll('.filter_option');
+  originFilterOptions.forEach((originOption) => {
+    originOption.addEventListener('click', () => {
+      originOption.classList.toggle('active');
+      if (originOption.classList.contains('active')) {
+        selectedOrigin.push(originOption.textContent);
+      } else {
+        selectedOrigin = selectedOrigin.filter((e) => e !== originOption.textContent);
+      }
+    });
+  });
+}
+
+let isFilterOptionsCreated = false;
 filterBtn.addEventListener('click', () => {
   filterModal.classList.remove('display_none');
   filterModal.classList.add('display_flex');
+  !isFilterOptionsCreated && createDetailFilterOptions();
+  isFilterOptionsCreated = true;
 });
 
+const filterOptions = filterModal.querySelectorAll('.filter_option');
 filterOptions.forEach((option) => {
   option.addEventListener('click', () => {
     option.classList.toggle('active');
@@ -234,6 +309,7 @@ filterResetBtn.addEventListener('click', () => {
 filterApplyBtn.addEventListener('click', () => {
   filterModal.classList.remove('display_flex');
   filterModal.classList.add('display_none');
+  filterData();
 });
 
 // More Load Products

@@ -24,8 +24,8 @@
       <div class="filters display_flex justify_content_between">
         <ul class="keyword_filters display_flex col_gutter_gap">
           <li class="keyword border_round display_flex align_items_center">
-            <input type="checkbox" id="sunglass" name="category" value="sunglass" />
-            <label for="sunglass" class="pre_reg_16">선글라스</label>
+            <input type="checkbox" id="sunglass_category" name="category" value="sunglass" />
+            <label for="sunglass_category" class="pre_reg_16">선글라스</label>
           </li>
           <li class="keyword border_round display_flex align_items_center">
             <input type="checkbox" id="glasses_frame" name="category" value="glasses_frame" />
@@ -71,24 +71,34 @@
           </ul>
         </div>
       </div>
-      <h2 class="list_category pre_bold_20 text_center">카테고리</h2>
-      <div class="product_list display_grid flex_column align_items_center"></div>
+      <div>
+        <div class="product_count_wrapper display_flex justify_content_end">
+          <h2 class="product_count pre_reg_12">--개 상품</h2>
+        </div>
+        <div class="product_list display_grid flex_column align_items_center"></div>
+      </div>
       <button class="more_btn text_center border_round pre_reg_18">더보기</button>
     </section>
     <div class="filter_modal_wrapper display_none justify_content_center align_items_center">
       <div class="filter_modal display_flex flex_column">
         <div class="close_btn material-icons">close</div>
-        <div>
+        <div class="filter_sets_wrapper display_flex flex_column">
           <div class="filter_set display_flex flex_column display_flex flex_wrap">
             <div class="display_flex">
-              <div class="filter_type pre_bold_14">모양</div>
+              <div class="filter_type brand pre_bold_14">브랜드</div>
               <div class="material-icons icon_20">keyboard_arrow_down</div>
             </div>
-            <div class="filter_options_wrapper">
-              <div class="filter_option pre_reg_18 border_round display_inline_block">라운드</div>
-              <div class="filter_option pre_reg_18 border_round display_inline_block">라운드</div>
-              <div class="filter_option pre_reg_18 border_round display_inline_block">라운드</div>
-              <div class="filter_option pre_reg_18 border_round display_inline_block">라운드</div>
+            <div class="filter_options_wrapper display_flex flex_wrap">
+              <!-- <div class="filter_option pre_reg_18 border_round display_inline_block">라운드</div> -->
+            </div>
+          </div>
+          <div class="filter_set display_flex flex_column display_flex flex_wrap">
+            <div class="display_flex">
+              <div class="filter_type origin pre_bold_14">원산지</div>
+              <div class="material-icons icon_20">keyboard_arrow_down</div>
+            </div>
+            <div class="filter_options_wrapper display_flex flex_wrap">
+              <!-- <div class="filter_option pre_reg_18 border_round display_inline_block">라운드</div> -->
             </div>
           </div>
         </div>
