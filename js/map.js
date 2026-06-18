@@ -25,7 +25,7 @@ let customOverlay;
 function storeOverlay(store) {
   const position = new kakao.maps.LatLng(Number(store.latitude), Number(store.longitude));
   var content = `
-  <div class="customoverlay" onclick="event.stopPropagation()"
+  <div class="customoverlay""
      ondblclick="event.stopPropagation()">
     <div class="map-overlay-card">
       <div class="card-body display_flex flex_column">
@@ -112,6 +112,8 @@ loadStores();
 document.addEventListener('click', (e) => {
   const wishBtn = e.target.closest('.wish_btn');
   if (!wishBtn) return;
+
+  e.stopPropagation();
 
   const storeName = wishBtn.dataset.storeName;
   if (!storeName) return;
