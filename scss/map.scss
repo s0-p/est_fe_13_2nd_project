@@ -37,7 +37,7 @@
   box-sizing: border-box;
   background-color: var(--surface-bg);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-  overflow: hidden;
+  // overflow: hidden;
   position: relative;
 }
 
@@ -171,10 +171,11 @@ fieldset {
     }
   }
 }
-//모바일 사이드바
-// .mobile_version {
-//   display: none;
-// }
+
+// 모바일 사이드바
+.mobile_version {
+  display: none;
+}
 
 // 태블릿
 @media (min-width: 768px) {

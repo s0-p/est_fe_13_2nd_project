@@ -1,10 +1,10 @@
-// import renderHeader from './components/header.js';
-// // import renderFooter from './components/footer.js';
-// import renderSidebar from './components/side-bar-test.js';
+import renderHeader from './components/header.js';
+import renderFooter from './components/footer.js';
+import renderSidebar from './components/side-bar-test.js';
 
-// renderHeader();
-// renderSidebar();
-// // renderFooter();
+renderHeader();
+renderSidebar();
+renderFooter();
 
 let map;
 
@@ -25,7 +25,8 @@ let customOverlay;
 function storeOverlay(store) {
   const position = new kakao.maps.LatLng(Number(store.latitude), Number(store.longitude));
   var content = `
-  <div class="customoverlay">
+  <div class="customoverlay" onclick="event.stopPropagation()"
+     ondblclick="event.stopPropagation()">
     <div class="map-overlay-card">
       <div class="card-body display_flex flex_column">
         <div class="card_header display_flex align_items_center">
@@ -145,6 +146,8 @@ function renderStoreList() {
 
 // 클릭한 매장으로 이동
 storeList.addEventListener('click', (e) => {
+  if (e.target.closest('.wish_btn')) return;
+
   const item = e.target.closest('.store_item');
   if (!item) return;
 
