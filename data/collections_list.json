@@ -1,50 +1,64 @@
 [
   {
     "collectionId": "8988",
-    "title": "라운즈 기획전 8988",
-    "subtitle": "",
+    "title": "스타일워크",
+    "subtitle": " Your Style, Your Story",
+    "description": "스타일 워크는 현대인의 다양한 라이프스타일을 반영한 혁신적인 디자인을 제공합니다. 세련됨과 편안함을 동시에 갖춰 어떤 상황에서도 스타일리시한 모습을 연출 할 수 있도록 도와주며 특히, 눈의 피로를 최소화하는 라운즈만의 독창적인 기술이 더해져 장시간 착용에도 최상의 편안함을 보장한다.",
+    "brandName": "RAY-BAN",
     "image": "https://image.rounz.com/newrounz/banner/only/stylework_img.jpg",
     "href": "https://rounz.com//collection.php?collectionIndex=8988"
   },
   {
     "collectionId": "13332",
-    "title": "라운즈 기획전 13332",
-    "subtitle": "",
+    "title": "세니아",
+    "subtitle": "SENIA",
+    "description": "우아한 시선, 세니아(SENIA). 시간이 흐를수록 깊어지는 아름다움을 선사하는 섬세하고 우아한 프리미엄 아이웨어입니다.",
+    "brandName": "SENIA",
     "image": "https://image.rounz.com/newrounz/banner/only/img_senia%E2%80%8B.jpg",
     "href": "https://rounz.com//collection.php?collectionIndex=13332"
   },
   {
     "collectionId": "3086",
-    "title": "라운즈 기획전 3086",
-    "subtitle": "",
+    "title": "파라노이드",
+    "subtitle": "PARANOID USGI",
+    "description": "파라노이드(PARANOID) 브랜드명은 그리스어로 '바깥'을 의미하는 'para'와 '마음'을 의미하는 'nous'에서 온 단어이며, 'noid'는 '광적인 사람'을 뜻합니다. 하나의 작품을 만들더라도 아주 사소하고 작은 디테일까지 놓치지 않고 집착한다는 뜻입니다.",
+    "brandName": "PARANOID",
     "image": "https://image.rounz.com/newrounz/banner/only/img_paranoid_usgi_1.jpg",
     "href": "https://rounz.com//collection.php?collectionIndex=3086"
   },
   {
     "collectionId": "3890",
-    "title": "라운즈 기획전 3890",
-    "subtitle": "",
+    "title": "파라노이드",
+    "subtitle": "PARANOID HAWK",
+    "description": "파라노이드(PARANOID) 브랜드명은 그리스어로 '바깥'을 의미하는 'para'와 '마음'을 의미하는 'nous'에서 온 단어이며, 'noid'는 '광적인 사람'을 뜻합니다. 하나의 작품을 만들더라도 아주 사소하고 작은 디테일까지 놓치지 않고 집착한다는 뜻입니다.",
+    "brandName": "PARANOID",
     "image": "https://image.rounz.com/newrounz/banner/only/img_paranoid_hawk.jpg",
     "href": "https://rounz.com/collection.php?collectionIndex=3890"
   },
   {
     "collectionId": "5135",
-    "title": "라운즈 기획전 5135",
-    "subtitle": "",
+    "title": "라운즈 베이직",
+    "subtitle": "BASIC FOR ALL",
+    "description": "'모두가.부담 없이. 좋은안경을 누릴 수 있도록' 고급안경은 가격이 부담되고, 저가 안경은 퀄리티가 실망스러웠나요? 기본은 탄탄하게, 하지만 가격 부담은 적게. 라운즈 베이직으로 더 나은 안경라이프를 누리세요.",
+    "brandName": "ROUNZ BASIC",
     "image": "https://image.rounz.com/newrounz/banner/gnb/img_rounzbasic_sun.jpg",
     "href": "https://m.rounz.com/collection.php?collectionIndex=5135"
   },
   {
     "collectionId": "3825",
-    "title": "라운즈 기획전 3825",
-    "subtitle": "",
+    "title": "MELT",
+    "subtitle": "새로운 퓨전 아이웨어",
+    "description": "황금비율로 완성된 조각처럼. 1.618은 안정적인 밸런스와 각이 살아있는 디테일한 디자인이 특징인 프리미엄 아이웨어 브랜드입니다.",
+    "brandName": "MELT",
     "image": "https://image.rounz.com/newrounz/banner/only/img_melt.jpg",
     "href": "https://rounz.com//collection.php?collectionIndex=3825"
   },
   {
     "collectionId": "3585",
-    "title": "라운즈 기획전 3585",
-    "subtitle": "",
+    "title": "1.618",
+    "subtitle": "우주에서 가장 아름다운 비율",
+    "description": "클래식한 디자인에 다양한 소재를 더해 MIX & MATCH의 즐거움을 전하는 컴템포러리 명품 아이웨어 브랜드 입니다.",
+    "brandName": "ROUNZ BASIC",
     "image": "https://image.rounz.com/newrounz/banner/only/img_1618.jpg",
     "href": "https://m.rounz.com/collection.php?collectionIndex=3585"
   },

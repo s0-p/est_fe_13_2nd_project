@@ -12,35 +12,6 @@
   }
 }
 
-// ! /* 헤더 header */
-.main_header {
-  position: fixed;
-  inset: 0 0 auto;
-  z-index: 50;
-  height: calc(var(--unit-row) * 4);
-  border-bottom: 1px solid transparent;
-  border-image: var(--gradient);
-  background: var(--surface-tint);
-  width: 100%;
-}
-.main_header_inner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-}
-
-@media (min-width: 768px) {
-  .main_header {
-    height: calc(var(--unit-row) * 3);
-  }
-}
-@media (min-width: 1024px) {
-  .main_header {
-    height: calc(var(--unit-row) * 3);
-  }
-}
-
 // ! /* 메인히어로 mainhero */
 .mainhero {
   position: relative;
@@ -105,7 +76,6 @@
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
-  max-width: 1200px;
   padding: 0 var(--unit-m-gutter) calc(var(--unit-row) * 2);
   box-sizing: border-box;
   display: flex;
@@ -151,7 +121,6 @@
   }
   .mainhero_inner {
     margin: 0 auto;
-    max-width: 1320px;
     padding: 0 var(--unit-pc-gutter) calc(var(--unit-row) * 2);
   }
 }
@@ -450,6 +419,9 @@
   max-width: 196px;
   aspect-ratio: 49 / 100;
   background: none;
+  grid-column: 2;
+  width: 100%;
+  z-index: 11;
   .video_box {
     width: 100%;
     height: 100%;
@@ -525,12 +497,6 @@
     gap: var(--unit-row);
     z-index: 10;
   }
-  .main_ar_phone {
-    grid-column: 2;
-    max-width: 196px;
-    width: 100%;
-    z-index: 11;
-  }
   .feature_card {
     border-radius: 999px;
     padding: 10px calc(var(--unit-t-gutter) * 2);
@@ -580,21 +546,16 @@
 
 //! * 컬렉션 모음 main_collect */
 .main_collect {
-  padding: calc(var(--unit-row) * 4) 0;
-
   .collect_container {
     width: 100%;
     margin: 0 auto;
   }
   .main_collect_title {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 20px;
+    margin-bottom: var(--unit-row);
   }
   .collect_list_wrap {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 30px;
   }
   .collect_card {
     display: flex;
@@ -608,26 +569,27 @@
       margin-bottom: 12px;
 
       .collect_card_info {
+        margin-bottom: var(--unit-row);
         .collect_name {
           font-size: 20px;
           font-weight: bold;
-          margin-bottom: 4px;
+          margin-bottom: 5px;
         }
         .collect_meta {
           font-size: 13px;
-          color: #666;
+          color: var(--text-muted);
         }
       }
       .collect_more {
         font-size: 12px;
-        color: #333;
+        color: var(--text-default);
         text-decoration: underline;
+        margin-bottom: var(--unit-row);
       }
     }
     .collect_main_image {
       width: 100%;
-      aspect-ratio: 1 / 0.75;
-      border-radius: 8px;
+      aspect-ratio: 1 / 1;
       overflow: hidden;
       margin-bottom: 10px;
 
@@ -644,15 +606,13 @@
       ul {
         display: flex;
         gap: 8px;
-        list-style: none;
+
         padding: 0;
         margin: 0;
 
         li {
           flex: 1;
           aspect-ratio: 1 / 1;
-          background-color: #f5f5f5;
-          border-radius: 4px;
           overflow: hidden;
 
           img {
@@ -662,69 +622,82 @@
           }
         }
       }
-
-      .collect_brand {
-        .collect_brand_name {
-          font-size: 15px;
-          font-weight: bold;
-          margin-bottom: 6px;
-          text-transform: uppercase;
-        }
-        .collect_brand_desc {
-          font-size: 13px;
-          line-height: 1.5;
-          display: -webkit-box;
-          -webkit-line-clamp: 2;
-          -webkit-box-orient: vertical;
-          overflow: hidden;
-        }
-      }
+    }
+  }
+  .collect_brand {
+    width: 100%;
+    min-width: 0;
+    .collect_brand_name {
+      margin-bottom: var(--unit-row);
+    }
+    .collect_brand_desc {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+      width: 100%;
+      word-break: break-all;
+      white-space: normal;
+      height: auto;
     }
   }
 }
 
 @media (min-width: 768px) {
-  .main_collect {
-    .collect_list_wrap {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-    }
+  .collect_list_wrap {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
   }
 }
 @media (min-width: 1024px) {
-  .main_collect {
-    .collect_list_wrap {
-      grid-template-columns: repeat(3, 1fr);
-      max-width: 1320px;
-      margin: 0 auto;
-    }
+  .collect_list_wrap {
+    grid-template-columns: repeat(3, 1fr);
+    margin: 0 auto;
   }
 }
 
 // ! /* 셀럽 픽 main_celeb */
 .main_celeb {
   width: 100%;
-  padding-left: 0;
+  overflow: hidden;
   background-color: #050b53;
 }
 .celeb_swiper_container {
   width: 100%;
   padding: 0 var(--unit-t-gutter);
   box-sizing: border-box;
+  overflow: hidden;
 }
-.swiper-wrapper {
+.main-celeb-swiper {
+  width: 100%;
+  overflow: visible !important;
+}
+.main-celeb-swiper .swiper-wrapper {
   display: flex !important;
   flex-direction: row !important;
+  transition-timing-function: linear !important;
 }
 .celeb_image {
   height: 240px;
+  flex-shrink: 0;
 }
+
 @media (min-width: 768px) {
+  .main_celeb_head {
+    margin-left: var(--unit-t-gutter);
+  }
   .celeb_image {
     height: 300px;
   }
 }
 @media (min-width: 1024px) {
+  .main_celeb_head {
+    margin-left: var(--unit-pc-gutter);
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: var(--unit-row);
+  }
   .celeb_image {
     height: 360px;
   }
@@ -745,7 +718,7 @@
 .main_celeb_head {
   display: flex;
   flex-direction: column;
-  margin: 0 0 var(--unit-row) var(--unit-m-gutter);
+  margin: 0 0 var(--unit-row) calc(var(--unit-m-gutter) * 2);
   color: var(--surface-bg);
 }
 .main_celeb_text {
@@ -782,8 +755,9 @@
 .celeb_tag_list {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--unit-m-gutter);
-  padding: 0 var(--unit-m-gutter);
+  justify-content: space-between;
+  gap: 10px;
+  padding: 0 calc(var(--unit-m-gutter) * 2);
   box-sizing: border-box;
 
   &::before {
@@ -962,20 +936,4 @@
 .main_footer_inner {
   text-align: center;
   padding: calc(var(--unit-row) * 2) 0;
-}
-
-.main_footer::before {
-  content: '라운즈 플래그십 스토어 통합 앱 바로가기';
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: calc(var(--unit-row) * 3);
-  border-bottom: 1px solid #b8bfce;
-  font-size: 14px;
-  font-weight: 700;
-}
-@media (min-width: 1024px) {
-  .main_footer::before {
-    font-size: 24px;
-  }
 }
