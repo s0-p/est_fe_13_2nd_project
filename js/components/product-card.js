@@ -53,7 +53,7 @@ function createProductCard(p) {
   for (let i = 0; i < Math.min(p.detailImages.length, MAX_IMAGES); i++) {
     const li = document.createElement('li');
     li.className = 'swiper-slide';
-    li.innerHTML = `<img src="${p.detailImages[i]}" alt="" />`;
+    li.innerHTML = `<img src="${p.detailImages[i]}" alt="${p.title}" />`;
     // <li class="swiper-slide"><img src="" alt="" /></li>
     images_wrapper.append(li);
 
