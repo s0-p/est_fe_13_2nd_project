@@ -212,7 +212,7 @@ fieldset {
     inset: auto;
     width: 508px;
     padding: 20px 24px;
-    max-height: 544px;
+    min-height: 544px;
     border: 1px solid var(--stroke);
     overflow-y: auto;
   }
