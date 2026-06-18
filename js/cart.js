@@ -26,7 +26,9 @@ function renderCart() {
     cartHTML = cartItems.map(
       (item) =>
         `<article class="product_item" data-product-index="${item.productIndex}">
+              <a href="./product-detail.html?id=${item.productIndex}">
               <img class="product_image" src="${item.thumbnail}" alt="${item.title}" fetchpriority="high" />
+              </a>
               <div class="product_content">
                 <div class="product_info">
                   <p class="product_brand pre_bold_14">${item.brand}</p>
