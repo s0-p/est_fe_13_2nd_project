@@ -23,78 +23,80 @@
       <h1><a href="../index.html">ROUNZ</a></h1>
     </header>
     <section class="contents sign_contents">
-      <h2>회원가입</h2>
-      <div class="sign_box">
-        <img src="../images/promotion.jpg" alt="">
-        
-        <form action="#" method="POST" class="sign_up">
-          <div class="sign_up_box">
-            <div class="input_wrap">
-              <p class="pre_reg_10">이름</p>
-              <input type="text" id="name" class="text_box pre_reg_16" placeholder="이름을 입력해주세요">
-              <p class="error_msg name_error pre_reg_12">이름을 입력해주세요.</p>
-            </div>
-
-            <div class="input_wrap">
-              <p class="pre_reg_10">아이디</p>
-              <div class="sign_id">
-                <input type="text" id="user_id" class="text_box pre_reg_16" placeholder="아이디를 입력해주세요">
-                <button type="button">중복 확인</button>
+      <div class="sign_contents_box">
+        <h2>회원가입</h2>
+        <div class="sign_box">
+          <img src="../images/promotion.jpg" alt="">
+          
+          <form action="#" method="POST" class="sign_up">
+            <div class="sign_up_box">
+              <div class="input_wrap">
+                <p class="pre_reg_10">이름</p>
+                <input type="text" id="name" class="text_box pre_reg_16" placeholder="이름을 입력해주세요">
+                <p class="error_msg name_error pre_reg_12">이름을 입력해주세요.</p>
               </div>
-              <p class="error_msg id_error pre_reg_12">아이디를 입력해주세요.</p>
+  
+              <div class="input_wrap">
+                <p class="pre_reg_10">아이디</p>
+                <div class="sign_id">
+                  <input type="text" id="user_id" class="text_box pre_reg_16" placeholder="아이디를 입력해주세요">
+                  <button type="button">중복 확인</button>
+                </div>
+                <p class="error_msg id_error pre_reg_12">아이디를 입력해주세요.</p>
+              </div>
+  
+              <div class="input_wrap">
+                <p class="pre_reg_10">비밀번호</p>
+                <input type="password" id="password" class="password_box pre_reg_16" placeholder="비밀번호를 입력해주세요.">
+                <p class="error_msg pw_error pre_reg_12">비밀번호를 입력해주세요.</p>
+              </div>
+  
+              <div class="input_wrap">
+                <p class="pre_reg_10">비밀번호 확인</p>
+                <input type="password" id="password_confirm" class="password_box pre_reg_16" placeholder="비밀번호를 다시 입력해주세요.">
+                <p class="error_msg pw_confirm_error pre_reg_12">비밀번호를 다시 입력해주세요.</p>
+                <p class="error_msg pw_match_error pre_reg_12">비밀번호가 일치하지 않습니다.</p>
+              </div>
             </div>
-
-            <div class="input_wrap">
-              <p class="pre_reg_10">비밀번호</p>
-              <input type="password" id="password" class="password_box pre_reg_16" placeholder="비밀번호를 입력해주세요.">
-              <p class="error_msg pw_error pre_reg_12">비밀번호를 입력해주세요.</p>
+  
+            <div class="sing_text">
+              <div class="check_box">
+                <input type="checkbox" id="all_check">
+                <label for="all_check" class="pre_bold_14">전체 동의합니다</label>
+              </div>
+  
+              <div class="check_box">
+                <input type="checkbox" name="terms_check" class="sub_check" id="terms_check" required>
+                <label for="terms_check" class="pre_reg_12">이용약관 동의</label>
+                <span class="pre_reg_12">(필수)</span>
+                <button type="button" class="view_btn pre_reg_14" data-type="terms">보기</button>
+              </div>
+  
+              <div class="check_box">
+                <input type="checkbox" name="privacy_check" class="sub_check" id="privacy_check" required>
+                <label for="privacy_check" class="pre_reg_12">개인정보 처리방침 동의</label>
+                <span class="pre_reg_12">(필수)</span>
+                <button type="button" class="view_btn pre_reg_14" data-type="privacy">보기</button>
+              </div>
+  
+              <div class="check_box">
+                <input type="checkbox" name="marketing_check" class="sub_check" id="marketing_check">
+                <label for="marketing_check" class="pre_reg_12">마케팅 정보 수신 동의</label>
+                <span class="pre_reg_12">(선택)</span>
+                <button type="button" class="view_btn pre_reg_14" data-type="marketing">보기</button>
+              </div>
+              
+              <div class="check_box">
+                <input type="checkbox" name="age_check" class="sub_check" id="age_check" required>
+                <label for="age_check" class="pre_reg_12">만 14세 이상입니다</label>
+                <span class="pre_reg_12">(필수)</span>
+              </div>
+              
+              <button type="submit" class="login_bt pre_bold_20">회원가입</button>
             </div>
-
-            <div class="input_wrap">
-              <p class="pre_reg_10">비밀번호 확인</p>
-              <input type="password" id="password_confirm" class="password_box pre_reg_16" placeholder="비밀번호를 다시 입력해주세요.">
-              <p class="error_msg pw_confirm_error pre_reg_12">비밀번호를 다시 입력해주세요.</p>
-              <p class="error_msg pw_match_error pre_reg_12">비밀번호가 일치하지 않습니다.</p>
-            </div>
-          </div>
-
-          <div class="sing_text">
-            <div class="check_box">
-              <input type="checkbox" id="all_check">
-              <label for="all_check" class="pre_bold_14">전체 동의합니다</label>
-            </div>
-
-            <div class="check_box">
-              <input type="checkbox" name="terms_check" class="sub_check" id="terms_check" required>
-              <label for="terms_check" class="pre_reg_12">이용약관 동의</label>
-              <span class="pre_reg_12">(필수)</span>
-              <button type="button" class="view_btn pre_reg_14" data-type="terms">보기</button>
-            </div>
-
-            <div class="check_box">
-              <input type="checkbox" name="privacy_check" class="sub_check" id="privacy_check" required>
-              <label for="privacy_check" class="pre_reg_12">개인정보 처리방침 동의</label>
-              <span class="pre_reg_12">(필수)</span>
-              <button type="button" class="view_btn pre_reg_14" data-type="privacy">보기</button>
-            </div>
-
-            <div class="check_box">
-              <input type="checkbox" name="marketing_check" class="sub_check" id="marketing_check">
-              <label for="marketing_check" class="pre_reg_12">마케팅 정보 수신 동의</label>
-              <span class="pre_reg_12">(선택)</span>
-              <button type="button" class="view_btn pre_reg_14" data-type="marketing">보기</button>
-            </div>
-            
-            <div class="check_box">
-              <input type="checkbox" name="age_check" class="sub_check" id="age_check" required>
-              <label for="age_check" class="pre_reg_12">만 14세 이상입니다</label>
-              <span class="pre_reg_12">(필수)</span>
-            </div>
-            
-            <button type="submit" class="login_bt pre_bold_20">회원가입</button>
-          </div>
-        </form>
-        
+          </form>
+          
+        </div>
       </div>
     </section>
     

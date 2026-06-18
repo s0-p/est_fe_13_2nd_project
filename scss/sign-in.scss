@@ -39,8 +39,12 @@ button {
 
 .sign_contents {
   padding: 0 0 40px 0;
+  align-content: center;
+  min-height: calc(100vh - 80px);
 }
-
+.sign_box{
+  height: fit-content;
+}
 .sign_box img {
   max-width: 767px;
   width: 100%;
@@ -164,7 +168,7 @@ button {
   }
   .sign_box {
     display: flex;
-    margin: 200px 0;
+    /* margin: 200px 0; */
   }
   .sign_box > img {
     width: 335px;
@@ -192,6 +196,9 @@ button {
   }
 }
 @media (min-width: 1200px) {
+  .sign_contents {
+    height: 100%;
+  }
   .sign_in {
     width: 535px;
   }

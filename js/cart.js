@@ -38,7 +38,7 @@ function renderCart() {
                     <button class="option_edit" type="button" aria-haspopup="dialog">수정</button>
                   </p>
                 </div>
-                <div class="product_footer display_grid align_items_center justify_content_between">
+                <div class="product_footer display_flex align_items_center justify_content_between">
                   <div class="quantity_control display_grid align_items_center text_center pre_reg_12">
                     <button 
                     type="button" 
@@ -74,12 +74,12 @@ date.setDate(date.getDate() + 3);
 today.setDate(today.getDate() + 3);
 
 const deliveryDate = `
-${today.getFullYear()}.${String(today.getMonth() + 1).padStart(2, '0')}.${String(today.getDate()).padStart(2, '0')}`;
+${String(today.getMonth() + 1).padStart(2, '0')}.${String(today.getDate()).padStart(2, '0')}`;
 
-deliveryDateEl.textContent = `배송 예정일: ${date.getFullYear()}.${String(date.getMonth() + 1).padStart(
+deliveryDateEl.textContent = `배송 예정일: ${String(date.getMonth() + 1).padStart(
   2,
   '0',
-)}.${String(date.getDate()).padStart(2, '0')} 발송 예정`;
+)}월 ${String(date.getDate()).padStart(2, '0')}일 발송 예정`;
 
 // 쿠폰 임시 데이터
 const coupons = [
