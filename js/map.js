@@ -59,13 +59,21 @@ function storeOverlay(store) {
   customOverlay.setMap(map);
 }
 
-// 키워드 필터
+// 키워드 버튼 클릭 이벤트
 const filters = document.querySelector('.filters');
+const keywordBtn = filters.querySelectorAll('.keyword');
 
-const keywordFilters = filters.querySelectorAll('.keyword');
-keywordFilters.forEach((keyword) => {
+keywordBtn.forEach((keyword) => {
   keyword.addEventListener('click', () => {
-    keyword.classList.toggle('active');
+    keywordBtn.forEach((item) => {
+      item.classList.remove('active');
+    });
+
+    keyword.classList.add('active');
+
+    currentFilter = keyword.dataset.filter;
+
+    applyFilter();
   });
 });
 
@@ -104,9 +112,27 @@ async function loadStores() {
 }
 
 loadStores();
+
+// 필터 함수
 const favoriteStores = new Set(JSON.parse(localStorage.getItem('favoriteStores')) || []);
 
-// 관심 매장 등록 클릭 이벤트
+let currentFilter = 'all';
+
+function applyFilter() {
+  let filteredStores = stores;
+
+  if (currentFilter === 'favorite') {
+    filteredStores = stores.filter((store) => favoriteStores.has(store.name));
+  }
+
+  if (currentFilter === 'reserve') {
+    filteredStores = stores.filter((store) => store.reservation === true);
+  }
+
+  renderStoreList(filteredStores);
+}
+
+// 로컬 스토리지에 관심 매장 저장
 document.addEventListener('click', (e) => {
   const wishBtn = e.target.closest('.wish_btn');
   if (!wishBtn) return;
@@ -122,7 +148,7 @@ document.addEventListener('click', (e) => {
 
   localStorage.setItem('favoriteStores', JSON.stringify([...favoriteStores]));
 
-  renderStoreList();
+  applyFilter();
 
   if (currentStore) {
     storeOverlay(currentStore);
@@ -165,15 +191,6 @@ function renderStoreList(list = stores) {
     )
     .join('');
 }
-
-// 필터링 기능
-const favoriteFilterBtn = document.querySelector('.store_fav');
-
-favoriteFilterBtn.addEventListener('click', () => {
-  const favoriteList = stores.filter((store) => favoriteStores.has(store.name));
-
-  renderStoreList(favoriteList);
-});
 
 // 클릭한 매장으로 이동
 storeList.addEventListener('click', (e) => {
