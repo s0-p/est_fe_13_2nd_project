@@ -65,7 +65,7 @@
 .map_view_area {
   position: relative;
   width: 100%;
-  height: calc(100dvh - 60px - 72px);
+  height: calc(100dvh - 210px);
 }
 
 #map {
@@ -76,7 +76,7 @@
 .store_sidebar {
   position: absolute;
   inset: 0;
-  z-index: 100;
+  z-index: 7;
 }
 
 fieldset {
@@ -85,10 +85,10 @@ fieldset {
 
 .search_icon {
   position: absolute;
-  left: 16px;
+  left: 18px;
   top: 37%;
   transform: translateY(-50%);
-  z-index: 20;
+  z-index: 9;
 }
 
 .input_search {
@@ -97,17 +97,21 @@ fieldset {
   padding: 0 var(--unit-m-gutter);
 }
 
+.input_search::placeholder {
+  text-indent: 10px;
+}
+
 .list_toggle_bar {
   position: absolute;
   bottom: 32px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 200;
+  z-index: 9;
   transition: 0.3s;
 }
 
 .list_toggle_bar.active {
-  bottom: calc(70vh + 20px);
+  bottom: calc(100vh - 300px);
 }
 
 .btn_toggle_list {
@@ -116,14 +120,14 @@ fieldset {
 }
 
 .store_list_wrapper {
-  position: fixed;
+  position: sticky;
   left: 0;
   right: 0;
-  bottom: 72px;
+  bottom: 0px;
   width: 100%;
-  height: 70vh;
+  height: 65vh;
   background: var(--surface-tint);
-  z-index: 100;
+  z-index: 8;
   opacity: 0;
   visibility: hidden;
   transform: translateY(100%);
@@ -172,13 +176,23 @@ fieldset {
 }
 .store_list .store_item .store_header .wish_btn {
   color: var(--secondary);
-  background: var(--surface-tint);
 }
 
 .mobile_version {
   display: none;
 }
 
+@media (min-width: 768px) {
+  .map_view_area {
+    height: calc(100dvh - 190px);
+  }
+  .list_toggle_bar.active {
+    bottom: calc(100vh - 280px);
+  }
+  .store_list_wrapper {
+    bottom: 0px;
+  }
+}
 @media (min-width: 1280px) {
   .filters {
     align-items: center;
@@ -189,6 +203,7 @@ fieldset {
     margin: 0 auto;
     padding: 40px 0;
     justify-content: center;
+    align-items: center;
     gap: 112px;
     background-color: var(--surface-bg);
   }
