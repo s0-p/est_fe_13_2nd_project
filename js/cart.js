@@ -240,10 +240,6 @@ document.querySelectorAll('.modal_close, .cancel_button').forEach((btn) => {
 // 쿠폰 모달 닫고 할인가 계산
 applyBtn.forEach((btn) => {
   btn.addEventListener('click', () => {
-    // if (!selectedCoupon) {
-    //   alert('쿠폰을 선택해주세요');
-    //   return;
-    // }
     closeModal(couponModal);
     closeModal(optionModal);
     updateTotalAmount();
@@ -258,7 +254,6 @@ cartList.addEventListener('click', (e) => {
   if (!deleteBtn) return;
 
   const productItem = deleteBtn.closest('.product_item');
-  // const productIndex = Number(productItem.dataset.productIndex);
   const productIndex = productItem.dataset.productIndex;
 
   deleteModal.removeAttribute('hidden');
