@@ -29,20 +29,33 @@
         
         <form action="#" method="POST" class="sign_up">
           <div class="sign_up_box">
-            <p class="pre_reg_10">이름</p>
-            <input type="text" id="name" name="name" class="text_box pre_reg_16" placeholder="이름을 입력해주세요" required>
-            
-            <p class="pre_reg_10">아이디</p>
-            <div class="sign_id">
-              <input type="text" id="user_id" name="user_id" class="text_box pre_reg_16" placeholder="아이디를 입력해주세요" required>
-              <button type="button">중복 확인</button>
+            <div class="input_wrap">
+              <p class="pre_reg_10">이름</p>
+              <input type="text" id="name" class="text_box pre_reg_16" placeholder="이름을 입력해주세요">
+              <p class="error_msg name_error pre_reg_12">이름을 입력해주세요.</p>
             </div>
-            
-            <p class="pre_reg_10">비밀번호</p>
-            <input type="password" id="password" name="password" class="password_box pre_reg_16" placeholder="비밀번호를 입력해주세요." required> 
-            
-            <p class="pre_reg_10">비밀번호 확인</p>
-            <input type="password" id="password_confirm" name="password_confirm" class="password_box pre_reg_16" placeholder="비밀번호를 다시 입력해주세요." required> 
+
+            <div class="input_wrap">
+              <p class="pre_reg_10">아이디</p>
+              <div class="sign_id">
+                <input type="text" id="user_id" class="text_box pre_reg_16" placeholder="아이디를 입력해주세요">
+                <button type="button">중복 확인</button>
+              </div>
+              <p class="error_msg id_error pre_reg_12">아이디를 입력해주세요.</p>
+            </div>
+
+            <div class="input_wrap">
+              <p class="pre_reg_10">비밀번호</p>
+              <input type="password" id="password" class="password_box pre_reg_16" placeholder="비밀번호를 입력해주세요.">
+              <p class="error_msg pw_error pre_reg_12">비밀번호를 입력해주세요.</p>
+            </div>
+
+            <div class="input_wrap">
+              <p class="pre_reg_10">비밀번호 확인</p>
+              <input type="password" id="password_confirm" class="password_box pre_reg_16" placeholder="비밀번호를 다시 입력해주세요.">
+              <p class="error_msg pw_confirm_error pre_reg_12">비밀번호를 다시 입력해주세요.</p>
+              <p class="error_msg pw_match_error pre_reg_12">비밀번호가 일치하지 않습니다.</p>
+            </div>
           </div>
 
           <div class="sing_text">
