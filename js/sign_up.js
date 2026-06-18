@@ -1,3 +1,7 @@
+
+import renderFooter from './components/footer.js';
+renderFooter();
+
 const allCheck = document.getElementById('all_check');
 const subChecks = document.querySelectorAll('.sub_check');
 
