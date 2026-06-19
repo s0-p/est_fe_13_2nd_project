@@ -168,7 +168,7 @@ function initCTA(data) {
     updateTotalPrice(data, 1);
 
     /**final */
-    window.location.href = 'https://s0-p.github.io/est_fe_13_2nd_project/sub/cart.html';
+    window.location.href = 'https://s0-p.github.io/est_fe_13_2nd_project/cart.html';
     /**test */
     // window.location.href = 'http://127.0.0.1:5500/sub/cart.html';
   });
@@ -472,7 +472,7 @@ async function initProduct() {
   // 예외 처리: 만약 URL에 productIndex 파라미터가 없다면 메인으로 리다이렉트
   if (!targetId) {
     alert('올바르지 않은 접근입니다. 메인으로 이동합니다.');
-    window.location.href = '../index.html';
+    window.location.href = './index.html';
     return;
   }
 
@@ -489,7 +489,7 @@ async function initProduct() {
 
     if (!currentProduct) {
       alert('해당 상품 존재하지 않거나 품절된 상품입니다.');
-      window.location.href = '../index.html';
+      window.location.href = './index.html';
       return;
     }
 
@@ -515,7 +515,7 @@ let seriesList = null;
 const MAX_SERIES = 7;
 async function initSeries() {
   try {
-    const response = await fetch('../data/collections_list.json');
+    const response = await fetch('./data/collections_list.json');
     seriesJson = await response.json();
     seriesList = Array.isArray(seriesJson) ? seriesJson : [seriesJson];
 
@@ -842,7 +842,7 @@ function createProductParamURL(product) {
 
   /**final url */
   // https://s0-p.github.io/est_fe_13_2nd_project/sub/product-detail.html?id=3003222
-  const baseUrl = 'https://s0-p.github.io/est_fe_13_2nd_project/sub/product-detail.html';
+  const baseUrl = 'https://s0-p.github.io/est_fe_13_2nd_project/product-detail.html';
   /**test url */
   // http://127.0.0.1:5500/sub/product-detail.html?id=3003222
   // const baseUrl = 'http://127.0.0.1:5500/sub/product-detail.html';
