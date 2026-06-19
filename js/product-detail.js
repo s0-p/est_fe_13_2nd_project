@@ -477,7 +477,7 @@ async function initProduct() {
   }
 
   try {
-    const response = await fetch('../data/products.json');
+    const response = await fetch('./data/products.json');
     productsJson = await response.json();
     productsList = Array.isArray(productsJson) ? productsJson : [productsJson];
 
