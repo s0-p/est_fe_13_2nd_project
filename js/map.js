@@ -102,7 +102,7 @@ let currentStore = null;
 
 async function loadStores() {
   try {
-    const response = await fetch('../data/stores.json');
+    const response = await fetch('./data/stores.json');
     stores = await response.json();
 
     renderStoreList();
