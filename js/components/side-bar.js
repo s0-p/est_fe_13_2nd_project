@@ -39,7 +39,7 @@ function createSidebar() {
     newSidebar.innerHTML = `
       <div class="side_bar mobile_version">
         <button class="top_btn" aria-label="위로 가기">
-          <img src="../images/side_bar_1.png" alt="위로 가기">
+          <img src="./images/side_bar_1.png" alt="위로 가기">
         </button>
 
         ${menuData
@@ -62,7 +62,7 @@ function createSidebar() {
     newSidebar.innerHTML = `
       <div class="side_bar pc_version">
         <button class="top_btn" aria-label="위로 가기">
-          <img src="../images/side_bar_1.png" alt="위로 가기">
+          <img src="./images/side_bar_1.png" alt="위로 가기">
         </button>
 
         ${menuData
