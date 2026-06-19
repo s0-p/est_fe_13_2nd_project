@@ -8,7 +8,7 @@ renderFooter();
 renderSidebar();
 
 const productList = document.querySelector('.product_list');
-const DATA_PATH = `../data/products.json`;
+const DATA_PATH = `./data/products.json`;
 const LIMIT = 12;
 let skip = 0;
 let isLoading = false;
