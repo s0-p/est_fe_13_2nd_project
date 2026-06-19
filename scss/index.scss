@@ -156,6 +156,9 @@
 //! /* 베스트 프레임 main_bf */
 #main_bf {
   overflow: hidden;
+  .toast_cart {
+    display: none !important;
+  }
 
   .main_bf_head {
     display: flex;
@@ -256,7 +259,7 @@
     .image_next {
       cursor: pointer;
       background: var(--surface-tint);
-      border-radius: 50%;
+      border-radius: 999px;
       color: var(--secondary);
     }
     .ar_btn {

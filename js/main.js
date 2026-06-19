@@ -2,12 +2,12 @@ import headerModule from './components/header.js';
 import renderFooter from './components/footer.js';
 import createProductCard from './components/product-card.js';
 import renderSidebar from './components/side-bar.js';
+import { addToCart } from './components/common.js';
 
 headerModule();
 renderFooter();
 renderSidebar();
 
-// [A] 페이지가 로드된 후 실행될 화면 렌더링 코드들
 document.addEventListener('DOMContentLoaded', () => {
   // [1] 히어로 섹션 슬라이드
   const heroWrapper = document.getElementById('mainhero-wrapper');
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .catch((err) => console.error('Hero Slider Error:', err));
   }
 
-  // [2] ベ스트 프레임 섹션
+  // [2] 베스트 프레임 섹션
   const productSection = document.querySelector('.product_list_container');
   const productListWrapper = document.getElementById('product_list_wrapper');
 
@@ -70,8 +70,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
           productListWrapper.appendChild(card);
 
-          const imageSlider = card.querySelector('.image_slider');
+          const cartBtn =
+            card.querySelector('.btn_cart') || card.querySelector('.cart_btn') || card.querySelector('button');
+          if (cartBtn) {
+            cartBtn.addEventListener('click', (e) => {
+              e.preventDefault();
+              e.stopPropagation();
 
+              addToCart(p, 1);
+
+              alert('장바구니에 상품을 추가하였습니다.');
+            });
+          }
+
+          const imageSlider = card.querySelector('.image_slider');
           if (imageSlider) {
             new Swiper(imageSlider, {
               slidesPerView: 1,
@@ -117,17 +129,39 @@ document.addEventListener('DOMContentLoaded', () => {
 
         collections.forEach((collection, index) => {
           const targetProduct = Array.isArray(products) ? products[index % products.length] : products;
+
+          // ---------------- 여기서부터 바뀐 코드 삽입 ----------------
           let thumbImages = [];
 
-          if (targetProduct?.detailImages && targetProduct.detailImages.length >= 3) {
-            thumbImages = targetProduct.detailImages.slice(0, 3);
-          } else {
-            thumbImages = [
-              targetProduct?.thumbnail || collection.image,
-              targetProduct?.detailImages?.[0] || collection.image,
-              targetProduct?.detailImages?.[1] || collection.image,
-            ];
+          // 1. 해당 상품에서 쓸 수 있는 모든 이미지 주소를 한 바구니에 다 모읍니다.
+          const allAvailableImages = [];
+
+          if (targetProduct?.thumbnail) {
+            allAvailableImages.push(targetProduct.thumbnail);
           }
+          if (Array.isArray(targetProduct?.detailImages)) {
+            allAvailableImages.push(...targetProduct.detailImages);
+          }
+
+          // 만약 모아둔 이미지가 하나도 없다면 기획전 대표 이미지를 기본값으로 지정
+          if (allAvailableImages.length === 0) {
+            allAvailableImages.push(collection.image);
+          }
+
+          // 2. 피셔-예이츠(Fisher-Yates) 셔플 알고리즘으로 이미지 배열을 무작위로 뒤섞습니다.
+          for (let i = allAvailableImages.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [allAvailableImages[i], allAvailableImages[j]] = [allAvailableImages[j], allAvailableImages[i]];
+          }
+
+          // 3. 뒤섞인 배열에서 앞에서부터 딱 3개만 잘라옵니다.
+          thumbImages = allAvailableImages.slice(0, 3);
+
+          // 4. 만약 전체 이미지 종류가 부족해서 3개가 안 채워졌다면, 채워질 때까지 첫 번째 이미지를 복사해서 채웁니다 (에러 방지)
+          while (thumbImages.length < 3) {
+            thumbImages.push(thumbImages[0] || collection.image);
+          }
+          // ---------------- 여기까지 바뀐 코드 삽입 ----------------
 
           const finalBrandName = collection.brandName || targetProduct?.brand || 'RAY-BAN';
           const finalBrandDesc = collection.description || '선글라스 브랜드 설명입니다.';
@@ -203,7 +237,6 @@ document.addEventListener('DOMContentLoaded', () => {
       })
       .catch((err) => console.error('Collection Render Error:', err));
   }
-
   // [4] 셀럽픽 섹션 슬라이드
   const celebWrapper = document.getElementById('celeb-wrapper');
   if (celebWrapper) {
@@ -248,54 +281,3 @@ document.addEventListener('DOMContentLoaded', () => {
       .catch((err) => console.error('Celeb Slider Error:', err));
   }
 });
-
-// 로컬스토리지에서 장바구니 읽기
-export function getCartItems() {
-  try {
-    return JSON.parse(localStorage.getItem('cartItems')) || [];
-  } catch (error) {
-    console.error('장바구니 데이터를 읽는 중 오류 발생', error);
-    return [];
-  }
-}
-
-// 로컬스토리지에서 장바구니 쓰기
-export function saveCartItems(cartItems) {
-  window.localStorage.setItem('cartItems', JSON.stringify(cartItems));
-}
-
-// 장바구니 버튼 클릭 시 장바구니 추가
-export function addToCart(product, qty = 1) {
-  if (!product) {
-    alert('올바르지 않은 접근입니다. 메인으로 이동합니다.');
-    window.location.href = './index.html';
-    return;
-  }
-
-  // 품절 체크
-  if (product.stock === 0 || product.isSoldOut === true || String(product.price).includes('품절')) {
-    alert('품절된 상품입니다.');
-    return;
-  }
-
-  // 데이터 추가
-  const cartItems = getCartItems();
-  const existingItem = cartItems.find((item) => item.productIndex === product.productIndex);
-
-  if (existingItem) {
-    existingItem.quantity += qty;
-  } else {
-    cartItems.push({
-      productIndex: product.productIndex,
-      title: product.title,
-      brand: product.brand,
-      price: Number(String(product.price).replaceAll(',', '')),
-      thumbnail: product.thumbnail,
-      quantity: qty,
-    });
-  }
-  saveCartItems(cartItems);
-
-  alert('장바구니에 상품을 추가하였습니다.');
-}
-scroll;

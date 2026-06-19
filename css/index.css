@@ -159,6 +159,9 @@
 #main_bf {
   overflow: hidden;
 }
+#main_bf .toast_cart {
+  display: none !important;
+}
 #main_bf .main_bf_head {
   display: flex;
   justify-content: space-between;
@@ -271,7 +274,7 @@
 .image_slider .actions .image_next {
   cursor: pointer;
   background: var(--surface-tint);
-  border-radius: 50%;
+  border-radius: 999px;
   color: var(--secondary);
 }
 .product_image_container .actions .ar_btn,
