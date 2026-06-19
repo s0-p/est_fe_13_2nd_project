@@ -19,7 +19,7 @@ function createSidebar() {
     {
       icon: './images/side_bar_3.png',
       text: '내 주변 안경원 찾기',
-      link: '#',
+      link: './map.html',
     },
     {
       icon: './images/side_bar_4.png',
