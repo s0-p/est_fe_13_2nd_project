@@ -40,15 +40,16 @@
   white-space: nowrap;
   border: 0;
 }
-.mainhero .mainhero .swiper-wrapper {
-  display: flex;
-  width: 100%;
-  height: 100% !important;
+.mainhero {
+  /*   .mainhero .swiper-wrapper {
+    display: flex;
+    width: 100%;
+    /*     height: 100% !important;
+  } */
 }
 .mainhero .mainhero .swiper-slide {
   flex-shrink: 0;
   width: 100%;
-  height: 100% !important;
 }
 .mainhero .swiper-pagination-fraction {
   position: absolute;
@@ -177,6 +178,7 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
+  min-width: 100%;
 }
 
 .product_card:nth-child(n+3) {
@@ -186,6 +188,7 @@
 .product_card {
   display: flex;
   flex-direction: column;
+  min-width: 0;
   position: relative;
   text-decoration: none;
   box-sizing: border-box;
@@ -201,7 +204,7 @@
 }
 .product_image_container .image_slider .swiper-wrapper,
 .image_slider .image_slider .swiper-wrapper {
-  height: 100%;
+  width: 100%;
 }
 .product_image_container .image_slider .swiper-slide,
 .image_slider .image_slider .swiper-slide {
@@ -397,7 +400,7 @@
 
 .main_ar_con_title {
   color: var(--surface-bg);
-  width: 100%;
+  width: fit-content;
   text-align: left;
   margin-top: calc(var(--unit-row) * 2);
 }
@@ -473,7 +476,7 @@
     overflow: visible;
   }
   .main_ar_con_title {
-    width: 100%;
+    width: fit-content;
     position: absolute;
     top: calc(var(--unit-row) * 2);
     left: calc(var(--unit-t-gutter) * 3);
@@ -798,7 +801,9 @@
 .celeb_slider {
   display: flex;
   list-style: none;
+  margin: 0;
   padding: 0;
+  min-width: 0;
   margin: 0 0 0 var(--unit-m-gutter);
   gap: var(--unit-m-gutter);
 }
@@ -809,6 +814,7 @@
   flex-shrink: 0;
   aspect-ratio: 3/4;
   overflow: hidden;
+  min-width: 0;
 }
 
 .celeb_image img {
@@ -895,6 +901,7 @@
   text-align: center;
   padding: calc(var(--unit-row) * 6) 0;
   background: url(../images/rzstore.png) no-repeat top center/100% auto;
+  overflow: hidden;
 }
 .main_rzstore::before {
   content: "ROUNZ";
@@ -936,8 +943,6 @@
 .main_rzstore_btn {
   display: flex;
   justify-content: space-between;
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
   padding: 0 30px;
   box-sizing: border-box;
   gap: var(--unit-m-gutter);
