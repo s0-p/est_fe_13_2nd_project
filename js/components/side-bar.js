@@ -13,17 +13,17 @@ function createSidebar() {
   const menuData = [
     {
       icon: './images/side_bar_2.png',
-      text: '라운즈 플래그십 스토어',
-      link: '#',
-    },
-    {
-      icon: './images/side_bar_3.png',
       text: '내 주변 안경원 찾기',
       link: './map.html',
     },
     {
+      icon: './images/side_bar_3.png',
+      text: '지금 바로 써보기',
+      link: '#',
+    },
+    {
       icon: './images/side_bar_4.png',
-      text: '채팅 바로가기',
+      text: '고객센터 문의하기',
       link: '#',
     },
   ];
