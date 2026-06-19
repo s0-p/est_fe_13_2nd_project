@@ -6,7 +6,7 @@ function createProductCard(p) {
   productCard.className = 'product_card display_flex flex_column';
   productCard.innerHTML = `
       <div class="swiper image_slider">
-        <a href="sub/product-detail.html?id=${p.productIndex}"></a>
+        <a href="./product-detail.html?id=${p.productIndex}"></a>
         <ul class="swiper-wrapper">
         </ul>
         

@@ -17,16 +17,15 @@ const pwError = document.querySelector('.pw_error');
 const pwConfirmError = document.querySelector('.pw_confirm_error');
 const pwMatchError = document.querySelector('.pw_match_error');
 
-
 allCheck.addEventListener('change', () => {
-  subChecks.forEach(check => {
+  subChecks.forEach((check) => {
     check.checked = allCheck.checked;
   });
 });
 
-subChecks.forEach(check => {
+subChecks.forEach((check) => {
   check.addEventListener('change', () => {
-    allCheck.checked = [...subChecks].every(item => item.checked);
+    allCheck.checked = [...subChecks].every((item) => item.checked);
   });
 });
 
@@ -40,11 +39,11 @@ signupBtn.addEventListener('click', (e) => {
 
   let isValid = true;
 
-  document.querySelectorAll('.error_msg').forEach(error => {
+  document.querySelectorAll('.error_msg').forEach((error) => {
     error.style.display = 'none';
   });
 
-  document.querySelectorAll('.input_error').forEach(input => {
+  document.querySelectorAll('.input_error').forEach((input) => {
     input.classList.remove('input_error');
   });
 
@@ -72,11 +71,7 @@ signupBtn.addEventListener('click', (e) => {
     isValid = false;
   }
 
-  if (
-    password.value &&
-    passwordConfirm.value &&
-    password.value !== passwordConfirm.value
-  ) {
+  if (password.value && passwordConfirm.value && password.value !== passwordConfirm.value) {
     pwMatchError.style.display = 'block';
 
     password.classList.add('input_error');
@@ -88,10 +83,10 @@ signupBtn.addEventListener('click', (e) => {
   const requiredChecks = [
     document.getElementById('terms_check'),
     document.getElementById('privacy_check'),
-    document.getElementById('age_check')
+    document.getElementById('age_check'),
   ];
 
-  if (!requiredChecks.every(check => check.checked)) {
+  if (!requiredChecks.every((check) => check.checked)) {
     alert('필수 약관에 모두 동의해주세요.');
     isValid = false;
   }
@@ -115,16 +110,15 @@ signupBtn.addEventListener('click', (e) => {
   `;
 });
 
-document.querySelectorAll('input').forEach(input => {
+document.querySelectorAll('input').forEach((input) => {
   input.addEventListener('input', () => {
     input.classList.remove('input_error');
 
-    document.querySelectorAll('.error_msg').forEach(msg => {
+    document.querySelectorAll('.error_msg').forEach((msg) => {
       msg.style.display = 'none';
     });
   });
 });
-
 
 const termsData = {
   terms: {
@@ -171,7 +165,7 @@ const termsData = {
         회사는 천재지변, 시스템 장애 등 불가항력적인 사유로 인하여 서비스를
         제공할 수 없는 경우 책임을 지지 않습니다.
       </p>
-    `
+    `,
   },
 
   privacy: {
@@ -221,7 +215,7 @@ const termsData = {
         이용자는 언제든지 자신의 개인정보를 조회, 수정, 삭제 요청할 수 있으며,
         회원 탈퇴를 통해 개인정보 처리 동의를 철회할 수 있습니다.
       </p>
-    `
+    `,
   },
 
   marketing: {
@@ -259,11 +253,11 @@ const termsData = {
         회원은 마이페이지 또는 고객센터를 통해 언제든지 마케팅 정보 수신
         동의를 철회할 수 있습니다.
       </p>
-    `
-  }
+    `,
+  },
 };
 
-document.querySelectorAll('.view_btn').forEach(btn => {
+document.querySelectorAll('.view_btn').forEach((btn) => {
   btn.addEventListener('click', () => {
     const type = btn.dataset.type;
 
@@ -278,7 +272,7 @@ closeBtn.addEventListener('click', () => {
   modal.classList.remove('active');
 });
 
-modal.addEventListener('click', e => {
+modal.addEventListener('click', (e) => {
   if (e.target === modal) {
     modal.classList.remove('active');
   }

@@ -16,7 +16,7 @@ function createFooter() {
   newFooter.innerHTML = `
     <div class="footer_box">
       <div class="footer_cta">
-        <a href="sub/map.html" class="pre_reg_14">라운즈 플래그십 스토어</a>
+        <a href="./map.html" class="pre_reg_14">라운즈 플래그십 스토어</a>
       </div>
       <div class="footer_content">
         <div class="footer_menu_container">
@@ -36,10 +36,10 @@ function createFooter() {
             <p class="pre_reg_12">사업자 정보 확인</p>
           </div>
           <div class="footer_sns">
-            <img src="images/footer_1.png" alt="">
-            <img src="images/footer_2.png" alt="">
-            <img src="images/footer_3.png" alt="">
-            <img src="images/footer_4.png" alt="">
+            <img src="../images/footer_1.png" alt="">
+            <img src="../images/footer_2.png" alt="">
+            <img src="../images/footer_3.png" alt="">
+            <img src="../images/footer_4.png" alt="">
           </div>
         </div>
         <div class="footer_info">
