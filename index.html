@@ -11,16 +11,31 @@
     />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-    <title>ROUNZ</title>
-    <link rel="stylesheet" href="./css/reset.css" />
-    <link rel="stylesheet" href="./css/normalize.css" />
-    <link rel="stylesheet" href="./css/common.css" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/common.css" />
     <link rel="stylesheet" href="./css/utilities.css" />
+    <link rel="stylesheet" href="css/index.css" />
     <link rel="stylesheet" href="./css/component.css" />
-    <link rel="stylesheet" href="./css/index.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <title>ROUNZ</title>
+
+    <!-- SEO -->
+    <meta
+      name="description"
+      content="ROUNZ 아이웨어 쇼핑몰. 안경, 선글라스, AR 얼굴 분석으로 나에게 맞는 프레임 추천 서비스"
+    />
+    <meta name="keywords" content="안경, 선글라스, 아이웨어, 라운즈, AR안경, 얼굴형 분석, 온라인 안경 쇼핑" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="ROUNZ | 나에게 맞는 아이웨어 찾기" />
+    <meta property="og:description" content="AR 얼굴 분석으로 내 얼굴에 딱 맞는 안경을 추천받아보세요." />
+    <meta property="og:image" content="https://your-domain.com/images/og-image.jpg" />
+    <meta property="og:url" content="https://s0-p.github.io/est_fe_13_2nd_project/" />
   </head>
   <body>
     <!-- <section class="contents"> -->
@@ -37,7 +52,7 @@
       <section class="main_bf section_inner contents" id="main_bf" aria-labelledby="main_bf_title">
         <div class="main_bf_head">
           <h2 class="main_bf_title mont_reg_18" id="main_bf_title">BEST FRAME</h2>
-          <a href="./product-list.html"><p class="main_bf_more pre_reg_12">더보기</p></a>
+          <a href="/sub/product-list.html"><p class="main_bf_more pre_reg_12">더보기</p></a>
         </div>
 
         <div class="product_list_container" data-render-target="best_fit_products">
@@ -60,14 +75,14 @@
               class="app_button apple_btn"
               aria-label="App Store에서 다운로드"
             >
-              <img src="./images/apple_store.png" alt="앱스토어에서 다운받기" />
+              <img src="images/apple_store.png" alt="앱스토어에서 다운받기" />
             </a>
             <a
               href="https://play.google.com/store/search?q=%EB%9D%BC%EC%9A%B4%EC%A6%88&c=apps&hl=ko"
               class="app_button google_btn"
               aria-label="Google Play에서 다운로드"
             >
-              <img src="./images/google_store.png" alt=" 구글스토어에서 다운받기" />
+              <img src="images/google_store.png" alt=" 구글스토어에서 다운받기" />
             </a>
           </div>
         </div>
@@ -79,7 +94,7 @@
 
           <div class="main_ar_phone">
             <div class="video_box">
-              <video src="./images/ar_video.mp4" autoplay loop muted playsinline controls aria-label="ar 소개 영상">
+              <video src="images/ar_video.mp4" autoplay loop muted playsinline controls aria-label="ar 소개 영상">
                 브라우저가 비디오를 지원하지 않습니다.
               </video>
             </div>
@@ -91,7 +106,7 @@
             rel="noopener noreferrer"
             aria-label="AR 분석 바로가기 QR코드"
           >
-            <img src="./images/ar_qr.png" alt="QR 코드와 캐릭터 아이콘" />
+            <img src="images/ar_qr.png" alt="QR 코드와 캐릭터 아이콘" />
           </a>
 
           <div class="main_ar_features">
@@ -197,10 +212,10 @@
             <p class="main_rzstore_polic pre_reg_12">(라운즈는 온/오프라인 스토어의 가격 정책이 동일합니다.)</p>
           </div>
           <div class="main_rzstore_btn pre_reg_12">
-            <a href="./sub/map.html" class="main_rz_btn">
+            <a href="sub/map.html" class="main_rz_btn">
               <span class="main_butn_label">라운즈 방문 예약하기</span>
             </a>
-            <a href="./sub/map.html" class="main_rz_btn">
+            <a href="sub/map.html" class="main_rz_btn">
               <span class="main_butn_label">가까운 파트너 안경원 찾기</span>
             </a>
           </div>
@@ -208,9 +223,7 @@
       </section>
     </div>
 
-    <footer class="main_footer">
-      <div class="main_footer_inner"></div>
-    </footer>
+    <footer class="main_footer"></footer>
 
     <script src="./js/main.js" type="module"></script>
   </body>
