@@ -162,7 +162,7 @@ body {
 }
 /* Product List */
 .product_list {
-  @include set-grid(calc(var(--unit-row) * 2), 0);
+  @include set-grid(calc(var(--unit-row) * 2), 0, repeat(1, minmax(0, 1fr)));
 
   @media (min-width: 768px) {
     @include set-grid(calc(var(--unit-row) * 2), var(--unit-t-gutter), repeat(2, minmax(0, 1fr)));
