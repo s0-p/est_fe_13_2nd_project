@@ -44,7 +44,6 @@ button {
 }
 
 .sign_contents_box {
-  height: -moz-fit-content;
   height: fit-content;
   display: flex;
   flex-direction: column;
@@ -61,7 +60,6 @@ button {
 }
 
 .sign_box {
-  height: -moz-fit-content;
   height: fit-content;
 }
 
@@ -315,4 +313,4 @@ button {
   background: none;
   font-size: 28px;
   cursor: pointer;
-}/*# sourceMappingURL=sign-up.css.map */
+}

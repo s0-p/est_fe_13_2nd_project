@@ -44,7 +44,6 @@ button {
 }
 
 .sign_box {
-  height: -moz-fit-content;
   height: fit-content;
 }
 
@@ -223,4 +222,4 @@ button {
   .login_bt {
     height: 60px;
   }
-}/*# sourceMappingURL=sign-in.css.map */
+}

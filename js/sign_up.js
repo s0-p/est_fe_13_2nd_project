@@ -98,11 +98,11 @@ signupBtn.addEventListener('click', (e) => {
 
   signUp.innerHTML = `
     <div class="signup_complete">
-      <img src="../images/Completion.png" alt="">
+      <img src="./images/Completion.png" alt="">
       <button
         type="button"
         class="login_bt pre_bold_20"
-        onclick="location.href='../index.html'"
+        onclick="location.href='./index.html'"
       >
         홈으로 이동
       </button>
