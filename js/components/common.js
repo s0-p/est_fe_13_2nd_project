@@ -43,9 +43,3 @@ export function addToCart(product, qty = 1) {
 export function parseNumber(value) {
   return Number(String(value).replaceAll(',', ''));
 }
-
-// path depth 구하기
-export function getBasePath() {
-  const depth = location.pathname.split('/').filter(Boolean).length;
-  return depth <= 1 ? './' : '../';
-}

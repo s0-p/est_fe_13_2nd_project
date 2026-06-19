@@ -1,6 +1,6 @@
 import renderHeader from './components/header.js';
 import renderFooter from './components/footer.js';
-import renderSidebar from './components/side-bar-test.js';
+import renderSidebar from './components/side-bar.js';
 
 renderHeader();
 renderSidebar();

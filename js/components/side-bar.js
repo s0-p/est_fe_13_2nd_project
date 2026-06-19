@@ -12,25 +12,25 @@ function createSidebar() {
   // 1. 데이터 정의
   const menuData = [
     {
-      icon: "../images/side_bar_2.png",
-      text: "라운즈 플래그십 스토어",
-      link: "#"
+      icon: '/images/side_bar_2.png',
+      text: '라운즈 플래그십 스토어',
+      link: '#',
     },
     {
-      icon: "../images/side_bar_3.png",
-      text: "내 주변 안경원 찾기",
-      link: "#"
+      icon: '/images/side_bar_3.png',
+      text: '내 주변 안경원 찾기',
+      link: '#',
     },
     {
-      icon: "../images/side_bar_4.png",
-      text: "채팅 바로가기",
-      link: "#"
-    }
+      icon: '/images/side_bar_4.png',
+      text: '채팅 바로가기',
+      link: '#',
+    },
   ];
 
   // 2. 새 사이드바 컨테이너 생성
-  const newSidebar = document.createElement("div");
-  newSidebar.id = "floating_sidebar";
+  const newSidebar = document.createElement('div');
+  newSidebar.id = 'floating_sidebar';
 
   const screenWidth = window.innerWidth;
 
@@ -42,7 +42,9 @@ function createSidebar() {
           <img src="../images/side_bar_1.png" alt="위로 가기">
         </button>
 
-        ${menuData.map(item => `
+        ${menuData
+          .map(
+            (item) => `
           <div class="menu_item">
             <button type="button" class="icon" aria-label="${item.text}">
               <img src="${item.icon}" alt="">
@@ -51,7 +53,9 @@ function createSidebar() {
               ${item.text}
             </a>
           </div>
-        `).join("")}
+        `,
+          )
+          .join('')}
       </div>
     `;
   } else {
@@ -61,7 +65,9 @@ function createSidebar() {
           <img src="../images/side_bar_1.png" alt="위로 가기">
         </button>
 
-        ${menuData.map(item => `
+        ${menuData
+          .map(
+            (item) => `
           <div class="menu_item">
             <button type="button" class="icon" aria-label="${item.text}">
               <img src="${item.icon}" alt="">
@@ -70,7 +76,9 @@ function createSidebar() {
               ${item.text}
             </a>
           </div>
-        `).join("")}
+        `,
+          )
+          .join('')}
       </div>
     `;
   }
@@ -84,54 +92,54 @@ function createSidebar() {
 
 // 이벤트 핸들러 통합 함수
 function bindSidebarEvents(container) {
-  const sidebar = container.querySelector(".side_bar");
-  const topBtn = container.querySelector(".top_btn");
-  const menuItems = container.querySelectorAll(".menu_item");
-  const icons = container.querySelectorAll(".icon");
+  const sidebar = container.querySelector('.side_bar');
+  const topBtn = container.querySelector('.top_btn');
+  const menuItems = container.querySelectorAll('.menu_item');
+  const icons = container.querySelectorAll('.icon');
 
   // [공통기능] 맨 위로 부드럽게 스크롤 이동
-  topBtn?.addEventListener("click", () => {
+  topBtn?.addEventListener('click', () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth"
+      behavior: 'smooth',
     });
   });
 
   // [모든 사이즈 적용] 메뉴 열기 / 닫기 아코디언 토글
   icons.forEach((icon, index) => {
-    icon.addEventListener("click", () => {
+    icon.addEventListener('click', () => {
       const currentMenu = menuItems[index];
 
       // 이미 열려있다면 닫기
-      if (currentMenu.classList.contains("active")) {
-        currentMenu.classList.remove("active");
+      if (currentMenu.classList.contains('active')) {
+        currentMenu.classList.remove('active');
         return;
       }
 
       // 다른 열려있는 메뉴들은 닫아주기 (싱글 아코디언 모드)
-      menuItems.forEach(item => {
-        item.classList.remove("active");
+      menuItems.forEach((item) => {
+        item.classList.remove('active');
       });
 
       // 현재 선택한 메뉴 활성화
-      currentMenu.classList.add("active");
+      currentMenu.classList.add('active');
     });
   });
 
   // [모든 사이즈 적용] 스크롤 방향 감지 (내리면 숨기고 올리면 보여주기)
   let lastScroll = window.scrollY;
 
-  window.addEventListener("scroll", () => {
+  window.addEventListener('scroll', () => {
     // 리사이즈로 인해 엘리먼트가 다시 그려져 소멸한 경우 에러 방지 처리
-    if (!document.body.contains(sidebar)) return; 
+    if (!document.body.contains(sidebar)) return;
 
     const currentScroll = window.scrollY;
 
     // 스크롤 방향 감지 후 클래스 제어
     if (currentScroll > lastScroll) {
-      sidebar.classList.add("hide");
+      sidebar.classList.add('hide');
     } else {
-      sidebar.classList.remove("hide");
+      sidebar.classList.remove('hide');
     }
 
     lastScroll = currentScroll;

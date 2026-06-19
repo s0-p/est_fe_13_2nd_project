@@ -1,5 +1,3 @@
-import { getBasePath } from './common.js';
-
 function renderFooter() {
   createFooter();
   // 화면 크기가 변할 때마다 푸터를 다시 그리도록 바인딩 (필요 시 반응형 분기 확장 가능)
@@ -7,8 +5,6 @@ function renderFooter() {
 }
 
 function createFooter() {
-  const base = getBasePath();
-
   // 기존에 생성되어 있던 푸터 엘리먼트 제거 (중복 생성 및 이벤트 중첩 방지)
   const oldFooter = document.querySelector('footer');
   oldFooter?.remove();
@@ -20,7 +16,7 @@ function createFooter() {
   newFooter.innerHTML = `
     <div class="footer_box">
       <div class="footer_cta">
-        <a href="${base}sub/map.html" class="pre_reg_14">라운즈 플래그십 스토어</a>
+        <a href="/sub/map.html" class="pre_reg_14">라운즈 플래그십 스토어</a>
       </div>
       <div class="footer_content">
         <div class="footer_menu_container">
@@ -40,10 +36,10 @@ function createFooter() {
             <p class="pre_reg_12">사업자 정보 확인</p>
           </div>
           <div class="footer_sns">
-            <img src="${base}images/footer_1.png" alt="">
-            <img src="${base}images/footer_2.png" alt="">
-            <img src="${base}images/footer_3.png" alt="">
-            <img src="${base}images/footer_4.png" alt="">
+            <img src="/images/footer_1.png" alt="">
+            <img src="/images/footer_2.png" alt="">
+            <img src="/images/footer_3.png" alt="">
+            <img src="/images/footer_4.png" alt="">
           </div>
         </div>
         <div class="footer_info">
