@@ -9,6 +9,7 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
@@ -22,1013 +23,193 @@
     <link rel="stylesheet" href="/css/component.css" />
   </head>
   <body>
-    <header></header>
+    <!-- <section class="contents"> -->
+    <header class="header_default"></header>
 
-    <main class="display_flex flex_column">
-      <section class="hero">
-        <div class="swiper slide_basic slide_hero">
-          <div class="swiper-wrapper">
-            <!-- <div class="swiper-slide">
-                <img
-                  src="https://image.rounz.com/_data/product/RAYBAN/RB3774D-001_87(55)/RB3774D-001_87(55)_03.JPG"
-                  alt="RB3774D 001/87(55) 골드 메탈 선글라스"
-                />
-              </div> -->
+    <div class="mainpage">
+      <section class="mainhero swiper">
+        <h2 class="visually-hidden">메인 배너 슬라이드</h2>
+
+        <div class="swiper-wrapper" id="mainhero-wrapper"></div>
+        <div class="swiper-pagination pre_reg_14"></div>
+      </section>
+
+      <section class="main_bf section_inner contents" id="main_bf" aria-labelledby="main_bf_title">
+        <div class="main_bf_head">
+          <h2 class="main_bf_title mont_reg_18" id="main_bf_title">BEST FRAME</h2>
+          <a href="/sub/product-list.html"><p class="main_bf_more pre_reg_12">더보기</p></a>
+        </div>
+
+        <div class="product_list_container" data-render-target="best_fit_products">
+          <div id="product_list_wrapper"></div>
+        </div>
+
+        <div class="toast_cart">
+          <div class="message">
+            <span class="product_name"></span>
           </div>
         </div>
       </section>
-      <section class="sticky display_flex flex_column">
-        <section class="product_info contents display_flex flex_column">
-          <!-- <div class="info_badge align_items_center pre_bold_10_auto">당일배송</div>
-            <a href="#" class="info_brand display_flex align_items_center mont_reg_16">
-              Ray-Ban
-              <span class="material-icons icon_16">chevron_right</span>
-            </a>
-            <h1 class="info_title mont_bold_20">실버 메탈 RB3774D 003/87 55MM 레이밴 선글라스</h1>
-            <div class="info_meta display_flex pre_reg_12">
-              <div class="meta_item display_flex align_items_center">
-                <span class="material-icons icon_20">favorite_border</span>
-                <span>찜 23</span>
-              </div>
-              <div class="meta_item display_flex align_items_center">
-                <span class="material-icons icon_20">chat</span>
-                <span>후기 23</span>
-              </div>
-            </div>
-            <div class="info_price_row display_flex justify_content_between align_items_center">
-              <div class="price_discount_group display_flex align_items_center">
-                <span class="price_original pre_reg_14">999,999원</span>
-                <span class="price_discount pre_bold_14">10%</span>
-              </div>
-              <div class="price_current mont_bold_20">899,999원</div>
-            </div>
-            <div class="info_benefit_accordion">
-              <div class="info_benefit_heading display_flex justify_content_between">
-                <div class="display_flex align_items_center pre_reg_12">
-                  신규 회원님 최대 할인 가격 <span class="material-icons icon_20">expand_more</span>
-                </div>
-                <div class="mont_bold_16">999,999원</div>
-              </div>
-              <div class="panel_body display_none">
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad aliquid voluptate fugit quaerat non molestiae
-                  quo magni soluta minima corporis! Soluta, ipsa et.
-                </p>
-                <p>Quos quibusdam, nesciunt totam ullam quasi neque!</p>
-              </div>
-            </div> -->
-        </section>
 
-        <div class="product_cta contents display_flex flex_column">
-          <div class="display_flex justify_content_between">
-            <div class="quantity_box display_flex flex_column justify_content_between">
-              <label class="pre_reg_12" for="quantity">수량</label>
-              <div class="quantity_controller display_flex align_items_center">
-                <button id="minus" type="button" aria-label="수량 줄이기">
-                  <span class="material-icons icon_16">remove</span>
-                </button>
-                <input id="quantity" type="text" value="1" aria-label="수량" class="mont_bold_14" />
-                <button id="plus" type="button" aria-label="수량 늘리기">
-                  <span class="material-icons icon_16">add</span>
-                </button>
-              </div>
-            </div>
-            <div class="total_price_box display_flex flex_column align_items_end">
-              <label class="pre_reg_12">총 상품금액</label>
-              <div class="total_price mont_bold_16">239,000원</div>
-            </div>
-          </div>
-          <div class="cta_box display_flex justify_content_between">
-            <button id="addcart" type="button" class="btn_cart">
-              <span class="material-icons icon_16">local_mall</span>
-            </button>
+      <section class="main_ar section_inner" id="main_ar" aria-labelledby="main_ar_title">
+        <div class="main_ar_head contents">
+          <h2 class="main_ar_title mont_reg_18">AR & FACE ANALYSIS</h2>
+          <div class="main_ar_btn">
             <a
-              type="button"
-              href="#"
-              class="btn_purchase display_flex justify_content_center align_items_center pre_bold_16"
-              >구매하기</a
+              href="https://apps.apple.com/kr/app/%EB%9D%BC%EC%9A%B4%EC%A6%88-%EC%8B%A4%EC%8B%9C%EA%B0%84-%EA%B0%80%EC%83%81%ED%94%BC%ED%8C%85-%EC%95%88%EA%B2%BD-%EC%84%A0%EA%B8%80%EB%9D%BC%EC%8A%A4-%EC%87%BC%ED%95%91%EC%95%B1/id1375822406"
+              class="app_button apple_btn"
+              aria-label="App Store에서 다운로드"
             >
+              <img src="images/apple_store.png" alt="앱스토어에서 다운받기" />
+            </a>
+            <a
+              href="https://play.google.com/store/search?q=%EB%9D%BC%EC%9A%B4%EC%A6%88&c=apps&hl=ko"
+              class="app_button google_btn"
+              aria-label="Google Play에서 다운로드"
+            >
+              <img src="images/google_store.png" alt=" 구글스토어에서 다운받기" />
+            </a>
           </div>
         </div>
 
-        <section class="product_other_color contents">
-          <h2 class="pre_bold_20">이 상품의 다른 컬러</h2>
-          <div class="swiper slide_basic slide_other_color">
-            <div class="swiper-wrapper">
-              <!-- JSON: ADD '다른 컬러 상품' HERE -->
-              <!-- <article class="swiper-slide card_ui display_flex flex_column">
-                  <div class="card_ui_img_wrapper">
-                    <a href="#">
-                      <img
-                        src="https://image.rounz.com/_data/product/RAYBAN/RB3774D-001_87(55)/RB3774D-001_87(55)_03.JPG"
-                        alt="RB3774D 001/87(55) 골드 메탈 선글라스"
-                      />
-                    </a>
-                  </div>
-                  <div class="card_ui_info_wrapper">
-                    <strong class="info_code mont_bold_14">RB3774D 001/87(55)</strong>
-                    <p class="info_description mont_reg_14">골드 메탈 RB3774D 001/87 55 골드 메탈 RB3774D 001/87 55</p>
-                  </div>
-                </article> -->
+        <div class="main_ar_content contents">
+          <div class="main_ar_con_title">
+            <h2 class="pre_bold_20">AR 얼굴형 분석 가능<br />: 내 얼굴형에 어울리는 안경은?</h2>
+          </div>
+
+          <div class="main_ar_phone">
+            <div class="video_box">
+              <video src="images/ar_video.mp4" autoplay loop muted playsinline controls aria-label="ar 소개 영상">
+                브라우저가 비디오를 지원하지 않습니다.
+              </video>
             </div>
           </div>
-          <!-- <div class="slider_pagination_controls display_flex align_items_center justify_content_center">
-            <button type="button" class="ctrl_btn prev_other_color" aria-label="이전 슬라이드">
-              <span class="material-icons">chevron_left</span>
-            </button>
-            <div class="page_number_indicator mont_reg_16">
-              <span class="current">1</span>
-              <span class="divider">/</span>
-              <span class="total">1</span>
+          <a
+            href="https://abr.ge/fd5dbs"
+            class="main_ar_qr"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="AR 분석 바로가기 QR코드"
+          >
+            <img src="images/ar_qr.png" alt="QR 코드와 캐릭터 아이콘" />
+          </a>
+
+          <div class="main_ar_features">
+            <div class="feature_card">
+              <p class="feature_title pre_bold_14">'FIT' 하게</p>
+              <p class="feature_desc pre_reg_14">
+                나의 얼굴형 67개의 정밀한 지표로 정확하게 분석해,<br />
+                나에게 가장 이상적인 아이웨어를 추천해 드립니다.
+              </p>
             </div>
-            <button type="button" class="ctrl_btn next_other_color" aria-label="다음 슬라이드">
-              <span class="material-icons">chevron_right</span>
-            </button>
-          </div> -->
-        </section>
+            <div class="feature_card">
+              <p class="feature_title pre_bold_14">'SMART' 하게</p>
+              <p class="feature_desc pre_reg_14">
+                방구석에서 스마트폰 하나로 끝내는 스마트한 안경 쇼핑! <br />
+                촬영된 얼굴은 어디에도 수집되지 않으니 안심하세요.
+              </p>
+            </div>
+          </div>
+        </div>
       </section>
-      <section class="main_contents display_flex flex_column">
-        <section class="product_content">
-          <div class="content_tab_menu">
-            <ul class="tab_menu_list display_flex mont_reg_14">
-              <li class="tab_item text_center is_active">
-                <a type="button" href="#tab_menu" class="tab_button">상세정보</a>
-              </li>
-              <li class="tab_item text_center">
-                <a type="button" href="#tab_menu" class="tab_button">후기<span class="count">(99+)</span></a>
-              </li>
-              <li class="tab_item text_center">
-                <a type="button" href="#tab_menu" class="tab_button">문의<span class="count">(99+)</span></a>
-              </li>
-              <li class="tab_item text_center">
-                <a type="button" href="#tab_menu" class="tab_button">구매정보</a>
-              </li>
-            </ul>
+
+      <section class="main_collect section_inner contents" id="main_collect">
+        <div class="collect_container">
+          <h2 class="main_collect_title" id="collect_title">COLLECTION</h2>
+
+          <div class="drag_guide" id="collect_drag_guide">
+            <div class="guide_content pre_reg_1">
+              <span class="material-icons material-icons icon_16">swipe</span>
+              <span class="pre_reg_12">드래그해서 <br />더보기</span>
+            </div>
           </div>
-          <!-- 탭에 따라 바뀌는 컨텐츠 영역 -->
-          <ul id="tab_menu" class="content_details display_flex flex_column">
-            <li class="detail_spec">
-              <div class="spec_image_container display_flex justify_content_center">
-                <div class="spec_image_wrapper">
-                  <figure>
-                    <!-- <img
-                      src="https://image.rounz.com/_data/detail/RAYBAN/SU/RB3774D-003_87(55)/RB3774D-003_87(55)_SIZE.jpg"
-                      alt="안경 상세 수치 가이드"
-                      class="spec_image"
-                    /> -->
-                  </figure>
-                  <ul class="spec_photos">
-                    <!-- <li>
-                      <img
-                        src="https://image.rounz.com/_data/detail/RAYBAN/SU/RB3774D-003_87(55)/RB3774D-003_87(55)_01.jpg"
-                        alt="레이밴 RB3774D 선글라스 정면 컷"
-                        class="spec_image"
-                      />
-                    </li> -->
-                  </ul>
+
+          <div class="collect_list_wrap swiper">
+            <div class="swiper-wrapper" id="collect_swiper_wrapper">
+              <!-- <article class="collect_card">
+              <div class="collect_card_head">
+                <div class="collect_card_info">
+                  <h3 class="collect_name">제니 컬렉션 🩷</h3>
+                  <span class="collect_meta mont_reg_16">JUST LIKE JENNIE</span>
                 </div>
+                <a href="#" class="collect_more pre_reg_12">더보기</a>
               </div>
-            </li>
 
-            <li class="display_none_priority detail_review contents flex_column">
-              <section class="review_photo_section">
-                <!-- <h2 class="pre_bold_20">포토후기(99+)</h2> -->
-                <div class="display_flex justify_content_between align_items_center">
-                  <div class="display_flex justify_content_center">
-                    <h2 class="pre_bold_20">포토후기(99+)</h2>
-                    <a type="button" href="#" class="btn_more_review" aria-label="포토후기 더보기">
-                      <span class="material-icons">chevron_right</span>
-                    </a>
-                  </div>
-                  <div class="slider_pagination_controls display_flex align_items_center justify_content_center">
-                    <button type="button" class="ctrl_btn prev" aria-label="이전 포토 후기">
-                      <span class="material-icons">chevron_left</span>
-                    </button>
-                    <!-- <div class="page_number_indicator mont_reg_16">
-                    <span class="current">1</span>
-                    <span class="divider">/</span>
-                    <span class="total">1</span>
-                  </div> -->
-                    <button type="button" class="ctrl_btn next" aria-label="다음 슬라이드">
-                      <span class="material-icons">chevron_right</span>
-                    </button>
-                  </div>
-                </div>
-                <div class="swiper slide_review_photo">
-                  <div class="swiper-wrapper">
-                    <!-- JSON: ADD 더미 후기 HERE -->
-                    <article class="swiper-slide card_ui display_flex flex_column">
-                      <div class="card_ui_img_wrapper">
-                        <img
-                          src="https://image.rounz.com/_data/product/RAYBAN/RB3774D-001_87(55)/RB3774D-001_87(55)_03.JPG"
-                          alt="RB3774D 001/87(55) 골드 메탈 선글라스 후기 이미지"
-                        />
-                      </div>
+              <div class="collect_main_image"></div>
 
-                      <div class="card_ui_info_wrapper">
-                        <div class="review_meta_box_wrapper">
-                          <div class="review_meta_box display_flex justify_content_between align_items_center">
-                            <div class="avatar_box">
-                              <img
-                                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80"
-                                alt="리뷰어 프로필"
-                                class="avatar_img"
-                              />
-                            </div>
-                            <div class="review_heading display_flex flex_column">
-                              <strong class="info_code mont_bold_14">RB3774D 001/87(55)</strong>
-                              <div class="rating_box mont_bold_12 display_flex align_items_center">
-                                <span class="material-icons icon_20 star_icon">star</span>
-                                <span class="rate mont_reg_14">(5.0)</span>
-                              </div>
-                            </div>
-                          </div>
-                          <p class="review_text_content pre_reg_14">
-                            하루 종일 모니터 보는 직업이라 가볍고 블루라이트 차단 잘 되는 안경 찾다가 구매했습니다.
-                            결론부터 말하자면 대만족입니다. 티타늄 테라 그런지 확실히 기존에 쓰던 뿔테랑 비교가 안 될
-                            정도로 가볍네요. 귀 뒷부분 통증이 고질병이었는데 피팅을 잘 해주신 건지 하루 종일 쓰고 있어도
-                            귀가 안 아픕니다. 안경 알 크기도 적당해서 시야가 시원시원해요. 디자인도 너무 튀지 않는
-                            무난한 웰링턴 스타일이라 데일리로 제격입니다. 가성비 최고의 직장인 안경으로 강추합니다.
-                          </p>
-                        </div>
-                      </div>
-                    </article>
-                    <article class="swiper-slide card_ui display_flex flex_column">
-                      <div class="card_ui_img_wrapper">
-                        <img
-                          src="https://image.rounz.com/_data/product/RAYBAN/RB3774D-001_87(55)/RB3774D-001_87(55)_03.JPG"
-                          alt="RB3774D 001/87(55) 골드 메탈 선글라스 후기 이미지"
-                        />
-                      </div>
-
-                      <div class="card_ui_info_wrapper">
-                        <div class="review_meta_box_wrapper">
-                          <div class="review_meta_box display_flex justify_content_between align_items_center">
-                            <div class="avatar_box">
-                              <img
-                                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80"
-                                alt="리뷰어 프로필"
-                                class="avatar_img"
-                              />
-                            </div>
-                            <div class="review_heading display_flex flex_column">
-                              <strong class="info_code mont_bold_14">RB3774D 001/87(55)</strong>
-                              <div class="rating_box mont_bold_12 display_flex align_items_center">
-                                <span class="material-icons icon_20 star_icon">star</span>
-                                <span class="rate mont_reg_14">(5.0)</span>
-                              </div>
-                            </div>
-                          </div>
-                          <p class="review_text_content pre_reg_14">
-                            하루 종일 모니터 보는 직업이라 가볍고 블루라이트 차단 잘 되는 안경 찾다가 구매했습니다.
-                            결론부터 말하자면 대만족입니다. 티타늄 테라 그런지 확실히 기존에 쓰던 뿔테랑 비교가 안 될
-                            정도로 가볍네요. 귀 뒷부분 통증이 고질병이었는데 피팅을 잘 해주신 건지 하루 종일 쓰고 있어도
-                            귀가 안 아픕니다. 안경 알 크기도 적당해서 시야가 시원시원해요. 디자인도 너무 튀지 않는
-                            무난한 웰링턴 스타일이라 데일리로 제격입니다. 가성비 최고의 직장인 안경으로 강추합니다.
-                          </p>
-                        </div>
-                      </div>
-                    </article>
-                    <article class="swiper-slide card_ui display_flex flex_column">
-                      <div class="card_ui_img_wrapper">
-                        <img
-                          src="https://image.rounz.com/_data/product/RAYBAN/RB3774D-001_87(55)/RB3774D-001_87(55)_03.JPG"
-                          alt="RB3774D 001/87(55) 골드 메탈 선글라스 후기 이미지"
-                        />
-                      </div>
-
-                      <div class="card_ui_info_wrapper">
-                        <div class="review_meta_box_wrapper">
-                          <div class="review_meta_box display_flex justify_content_between align_items_center">
-                            <div class="avatar_box">
-                              <img
-                                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80"
-                                alt="리뷰어 프로필"
-                                class="avatar_img"
-                              />
-                            </div>
-                            <div class="review_heading display_flex flex_column">
-                              <strong class="info_code mont_bold_14">RB3774D 001/87(55)</strong>
-                              <div class="rating_box mont_bold_12 display_flex align_items_center">
-                                <span class="material-icons icon_20 star_icon">star</span>
-                                <span class="rate mont_reg_14">(5.0)</span>
-                              </div>
-                            </div>
-                          </div>
-                          <p class="review_text_content pre_reg_14">
-                            하루 종일 모니터 보는 직업이라 가볍고 블루라이트 차단 잘 되는 안경 찾다가 구매했습니다.
-                            결론부터 말하자면 대만족입니다. 티타늄 테라 그런지 확실히 기존에 쓰던 뿔테랑 비교가 안 될
-                            정도로 가볍네요. 귀 뒷부분 통증이 고질병이었는데 피팅을 잘 해주신 건지 하루 종일 쓰고 있어도
-                            귀가 안 아픕니다. 안경 알 크기도 적당해서 시야가 시원시원해요. 디자인도 너무 튀지 않는
-                            무난한 웰링턴 스타일이라 데일리로 제격입니다. 가성비 최고의 직장인 안경으로 강추합니다.
-                          </p>
-                        </div>
-                      </div>
-                    </article>
-                    <article class="swiper-slide card_ui display_flex flex_column">
-                      <div class="card_ui_img_wrapper">
-                        <img
-                          src="https://image.rounz.com/_data/product/RAYBAN/RB3774D-001_87(55)/RB3774D-001_87(55)_03.JPG"
-                          alt="RB3774D 001/87(55) 골드 메탈 선글라스 후기 이미지"
-                        />
-                      </div>
-
-                      <div class="card_ui_info_wrapper">
-                        <div class="review_meta_box_wrapper">
-                          <div class="review_meta_box display_flex justify_content_between align_items_center">
-                            <div class="avatar_box">
-                              <img
-                                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80"
-                                alt="리뷰어 프로필"
-                                class="avatar_img"
-                              />
-                            </div>
-                            <div class="review_heading display_flex flex_column">
-                              <strong class="info_code mont_bold_14">RB3774D 001/87(55)</strong>
-                              <div class="rating_box mont_bold_12 display_flex align_items_center">
-                                <span class="material-icons icon_20 star_icon">star</span>
-                                <span class="rate mont_reg_14">(5.0)</span>
-                              </div>
-                            </div>
-                          </div>
-                          <p class="review_text_content pre_reg_14">
-                            하루 종일 모니터 보는 직업이라 가볍고 블루라이트 차단 잘 되는 안경 찾다가 구매했습니다.
-                            결론부터 말하자면 대만족입니다. 티타늄 테라 그런지 확실히 기존에 쓰던 뿔테랑 비교가 안 될
-                            정도로 가볍네요. 귀 뒷부분 통증이 고질병이었는데 피팅을 잘 해주신 건지 하루 종일 쓰고 있어도
-                            귀가 안 아픕니다. 안경 알 크기도 적당해서 시야가 시원시원해요. 디자인도 너무 튀지 않는
-                            무난한 웰링턴 스타일이라 데일리로 제격입니다. 가성비 최고의 직장인 안경으로 강추합니다.
-                          </p>
-                        </div>
-                      </div>
-                    </article>
-                    <article class="swiper-slide card_ui display_flex flex_column">
-                      <div class="card_ui_img_wrapper">
-                        <img
-                          src="https://image.rounz.com/_data/product/RAYBAN/RB3774D-001_87(55)/RB3774D-001_87(55)_03.JPG"
-                          alt="RB3774D 001/87(55) 골드 메탈 선글라스 후기 이미지"
-                        />
-                      </div>
-
-                      <div class="card_ui_info_wrapper">
-                        <div class="review_meta_box_wrapper">
-                          <div class="review_meta_box display_flex justify_content_between align_items_center">
-                            <div class="avatar_box">
-                              <img
-                                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80"
-                                alt="리뷰어 프로필"
-                                class="avatar_img"
-                              />
-                            </div>
-                            <div class="review_heading display_flex flex_column">
-                              <strong class="info_code mont_bold_14">RB3774D 001/87(55)</strong>
-                              <div class="rating_box mont_bold_12 display_flex align_items_center">
-                                <span class="material-icons icon_20 star_icon">star</span>
-                                <span class="rate mont_reg_14">(5.0)</span>
-                              </div>
-                            </div>
-                          </div>
-                          <p class="review_text_content pre_reg_14">
-                            하루 종일 모니터 보는 직업이라 가볍고 블루라이트 차단 잘 되는 안경 찾다가 구매했습니다.
-                            결론부터 말하자면 대만족입니다. 티타늄 테라 그런지 확실히 기존에 쓰던 뿔테랑 비교가 안 될
-                            정도로 가볍네요. 귀 뒷부분 통증이 고질병이었는데 피팅을 잘 해주신 건지 하루 종일 쓰고 있어도
-                            귀가 안 아픕니다. 안경 알 크기도 적당해서 시야가 시원시원해요. 디자인도 너무 튀지 않는
-                            무난한 웰링턴 스타일이라 데일리로 제격입니다. 가성비 최고의 직장인 안경으로 강추합니다.
-                          </p>
-                        </div>
-                      </div>
-                    </article>
-                    <article class="swiper-slide card_ui display_flex flex_column">
-                      <div class="card_ui_img_wrapper">
-                        <img
-                          src="https://image.rounz.com/_data/product/RAYBAN/RB3774D-001_87(55)/RB3774D-001_87(55)_03.JPG"
-                          alt="RB3774D 001/87(55) 골드 메탈 선글라스 후기 이미지"
-                        />
-                      </div>
-
-                      <div class="card_ui_info_wrapper">
-                        <div class="review_meta_box_wrapper">
-                          <div class="review_meta_box display_flex justify_content_between align_items_center">
-                            <div class="avatar_box">
-                              <img
-                                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80"
-                                alt="리뷰어 프로필"
-                                class="avatar_img"
-                              />
-                            </div>
-                            <div class="review_heading display_flex flex_column">
-                              <strong class="info_code mont_bold_14">RB3774D 001/87(55)</strong>
-                              <div class="rating_box mont_bold_12 display_flex align_items_center">
-                                <span class="material-icons icon_20 star_icon">star</span>
-                                <span class="rate mont_reg_14">(5.0)</span>
-                              </div>
-                            </div>
-                          </div>
-                          <p class="review_text_content pre_reg_14">
-                            하루 종일 모니터 보는 직업이라 가볍고 블루라이트 차단 잘 되는 안경 찾다가 구매했습니다.
-                            결론부터 말하자면 대만족입니다. 티타늄 테라 그런지 확실히 기존에 쓰던 뿔테랑 비교가 안 될
-                            정도로 가볍네요. 귀 뒷부분 통증이 고질병이었는데 피팅을 잘 해주신 건지 하루 종일 쓰고 있어도
-                            귀가 안 아픕니다. 안경 알 크기도 적당해서 시야가 시원시원해요. 디자인도 너무 튀지 않는
-                            무난한 웰링턴 스타일이라 데일리로 제격입니다. 가성비 최고의 직장인 안경으로 강추합니다.
-                          </p>
-                        </div>
-                      </div>
-                    </article>
-                    <article class="swiper-slide card_ui display_flex flex_column">
-                      <div class="card_ui_img_wrapper">
-                        <img
-                          src="https://image.rounz.com/_data/product/RAYBAN/RB3774D-001_87(55)/RB3774D-001_87(55)_03.JPG"
-                          alt="RB3774D 001/87(55) 골드 메탈 선글라스 후기 이미지"
-                        />
-                      </div>
-
-                      <div class="card_ui_info_wrapper">
-                        <div class="review_meta_box_wrapper">
-                          <div class="review_meta_box display_flex justify_content_between align_items_center">
-                            <div class="avatar_box">
-                              <img
-                                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80"
-                                alt="리뷰어 프로필"
-                                class="avatar_img"
-                              />
-                            </div>
-                            <div class="review_heading display_flex flex_column">
-                              <strong class="info_code mont_bold_14">RB3774D 001/87(55)</strong>
-                              <div class="rating_box mont_bold_12 display_flex align_items_center">
-                                <span class="material-icons icon_20 star_icon">star</span>
-                                <span class="rate mont_reg_14">(5.0)</span>
-                              </div>
-                            </div>
-                          </div>
-                          <p class="review_text_content pre_reg_14">
-                            하루 종일 모니터 보는 직업이라 가볍고 블루라이트 차단 잘 되는 안경 찾다가 구매했습니다.
-                            결론부터 말하자면 대만족입니다. 티타늄 테라 그런지 확실히 기존에 쓰던 뿔테랑 비교가 안 될
-                            정도로 가볍네요. 귀 뒷부분 통증이 고질병이었는데 피팅을 잘 해주신 건지 하루 종일 쓰고 있어도
-                            귀가 안 아픕니다. 안경 알 크기도 적당해서 시야가 시원시원해요. 디자인도 너무 튀지 않는
-                            무난한 웰링턴 스타일이라 데일리로 제격입니다. 가성비 최고의 직장인 안경으로 강추합니다.
-                          </p>
-                        </div>
-                      </div>
-                    </article>
-                    <article class="swiper-slide card_ui display_flex flex_column">
-                      <div class="card_ui_img_wrapper">
-                        <img
-                          src="https://image.rounz.com/_data/product/RAYBAN/RB3774D-001_87(55)/RB3774D-001_87(55)_03.JPG"
-                          alt="RB3774D 001/87(55) 골드 메탈 선글라스 후기 이미지"
-                        />
-                      </div>
-
-                      <div class="card_ui_info_wrapper">
-                        <div class="review_meta_box_wrapper">
-                          <div class="review_meta_box display_flex justify_content_between align_items_center">
-                            <div class="avatar_box">
-                              <img
-                                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80"
-                                alt="리뷰어 프로필"
-                                class="avatar_img"
-                              />
-                            </div>
-                            <div class="review_heading display_flex flex_column">
-                              <strong class="info_code mont_bold_14">RB3774D 001/87(55)</strong>
-                              <div class="rating_box mont_bold_12 display_flex align_items_center">
-                                <span class="material-icons icon_20 star_icon">star</span>
-                                <span class="rate mont_reg_14">(5.0)</span>
-                              </div>
-                            </div>
-                          </div>
-                          <p class="review_text_content pre_reg_14">
-                            하루 종일 모니터 보는 직업이라 가볍고 블루라이트 차단 잘 되는 안경 찾다가 구매했습니다.
-                            결론부터 말하자면 대만족입니다. 티타늄 테라 그런지 확실히 기존에 쓰던 뿔테랑 비교가 안 될
-                            정도로 가볍네요. 귀 뒷부분 통증이 고질병이었는데 피팅을 잘 해주신 건지 하루 종일 쓰고 있어도
-                            귀가 안 아픕니다. 안경 알 크기도 적당해서 시야가 시원시원해요. 디자인도 너무 튀지 않는
-                            무난한 웰링턴 스타일이라 데일리로 제격입니다. 가성비 최고의 직장인 안경으로 강추합니다.
-                          </p>
-                        </div>
-                      </div>
-                    </article>
-                  </div>
-                </div>
-                <!-- <div class="slider_pagination_controls display_flex align_items_center justify_content_center">
-                  <button type="button" class="ctrl_btn prev" aria-label="이전 포토 후기">
-                    <span class="material-icons">chevron_left</span>
-                  </button>
-                  <div class="page_number_indicator mont_reg_16">
-                    <span class="current">1</span>
-                    <span class="divider">/</span>
-                    <span class="total">1</span>
-                  </div>
-                  <button type="button" class="ctrl_btn next" aria-label="다음 슬라이드">
-                    <span class="material-icons">chevron_right</span>
-                  </button>
-                </div> -->
-              </section>
-
-              <section class="review_normal_section display_flex flex_column">
-                <div class="display_flex justify_content_between">
-                  <div class="display_flex justify_content_center">
-                    <h2 class="pre_bold_20">일반후기(99+)</h2>
-                    <a type="button" href="#" class="btn_more_review" aria-label="포토후기 더보기">
-                      <span class="material-icons">chevron_right</span>
-                    </a>
-                  </div>
-                </div>
-                <div class="card_slide_container">
-                  <div class="card_group display_flex flex_column">
-                    <article class="swiper-slide card_item display_flex flex_column">
-                      <div class="card_info_wrapper display_flex flex_column">
-                        <div class="review_meta_box display_flex align_items_center">
-                          <div class="avatar_box">
-                            <img
-                              src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80"
-                              alt="리뷰어 프로필"
-                              class="avatar_img"
-                            />
-                          </div>
-                          <div class="review_heading display_flex flex_column">
-                            <strong class="model_code mont_bold_14">RB3774D 001/87(55)</strong>
-                            <div class="rating_box mont_reg_14 display_flex align_items_center">
-                              <span class="material-icons icon_20 star_icon">star</span>
-                              <span class="score">(5.0)</span>
-                            </div>
-                          </div>
-                        </div>
-
-                        <p class="review_text_content pre_reg_14">
-                          하루 종일 모니터 보는 직업이라 가볍고 블루라이트 차단 잘 되는 안경 찾다가 구매했습니다.
-                          결론부터 말하자면 대만족입니다. 티타늄 테라 그런지 확실히 기존에 쓰던 뿔테랑 비교가 안 될
-                          정도로 가볍네요. 귀 뒷부분 통증이 고질병이었는데 피팅을 잘 해주신 건지 하루 종일 쓰고 있어도
-                          귀가 안 아픕니다. 안경 알 크기도 적당해서 시야가 시원시원해요. 디자인도 너무 튀지 않는 무난한
-                          웰링턴 스타일이라 데일리로 제격입니다. 가성비 최고의 직장인 안경으로 강추합니다.
-                        </p>
-                      </div>
-                    </article>
-                    <article class="swiper-slide card_item display_flex flex_column">
-                      <div class="card_info_wrapper display_flex flex_column">
-                        <div class="review_meta_box display_flex align_items_center">
-                          <div class="avatar_box">
-                            <img
-                              src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80"
-                              alt="리뷰어 프로필"
-                              class="avatar_img"
-                            />
-                          </div>
-                          <div class="review_heading display_flex flex_column">
-                            <strong class="model_code mont_bold_14">RB3774D 001/87(55)</strong>
-                            <div class="rating_box mont_reg_14 display_flex align_items_center">
-                              <span class="material-icons icon_20 star_icon">star</span>
-                              <span class="score">(5.0)</span>
-                            </div>
-                          </div>
-                        </div>
-
-                        <p class="review_text_content pre_reg_14">
-                          하루 종일 모니터 보는 직업이라 가볍고 블루라이트 차단 잘 되는 안경 찾다가 구매했습니다.
-                          결론부터 말하자면 대만족입니다. 티타늄 테라 그런지 확실히 기존에 쓰던 뿔테랑 비교가 안 될
-                          정도로 가볍네요. 귀 뒷부분 통증이 고질병이었는데 피팅을 잘 해주신 건지 하루 종일 쓰고 있어도
-                          귀가 안 아픕니다. 안경 알 크기도 적당해서 시야가 시원시원해요. 디자인도 너무 튀지 않는 무난한
-                          웰링턴 스타일이라 데일리로 제격입니다. 가성비 최고의 직장인 안경으로 강추합니다.
-                        </p>
-                      </div>
-                    </article>
-                    <article class="swiper-slide card_item display_flex flex_column">
-                      <div class="card_info_wrapper display_flex flex_column">
-                        <div class="review_meta_box display_flex align_items_center">
-                          <div class="avatar_box">
-                            <img
-                              src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80"
-                              alt="리뷰어 프로필"
-                              class="avatar_img"
-                            />
-                          </div>
-                          <div class="review_heading display_flex flex_column">
-                            <strong class="model_code mont_bold_14">RB3774D 001/87(55)</strong>
-                            <div class="rating_box mont_reg_14 display_flex align_items_center">
-                              <span class="material-icons icon_20 star_icon">star</span>
-                              <span class="score">(5.0)</span>
-                            </div>
-                          </div>
-                        </div>
-
-                        <p class="review_text_content pre_reg_14">
-                          하루 종일 모니터 보는 직업이라 가볍고 블루라이트 차단 잘 되는 안경 찾다가 구매했습니다.
-                          결론부터 말하자면 대만족입니다. 티타늄 테라 그런지 확실히 기존에 쓰던 뿔테랑 비교가 안 될
-                          정도로 가볍네요. 귀 뒷부분 통증이 고질병이었는데 피팅을 잘 해주신 건지 하루 종일 쓰고 있어도
-                          귀가 안 아픕니다. 안경 알 크기도 적당해서 시야가 시원시원해요. 디자인도 너무 튀지 않는 무난한
-                          웰링턴 스타일이라 데일리로 제격입니다. 가성비 최고의 직장인 안경으로 강추합니다.
-                        </p>
-                      </div>
-                    </article>
-                    <article class="swiper-slide card_item display_flex flex_column">
-                      <div class="card_info_wrapper display_flex flex_column">
-                        <div class="review_meta_box display_flex align_items_center">
-                          <div class="avatar_box">
-                            <img
-                              src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80"
-                              alt="리뷰어 프로필"
-                              class="avatar_img"
-                            />
-                          </div>
-                          <div class="review_heading display_flex flex_column">
-                            <strong class="model_code mont_bold_14">RB3774D 001/87(55)</strong>
-                            <div class="rating_box mont_reg_14 display_flex align_items_center">
-                              <span class="material-icons icon_20 star_icon">star</span>
-                              <span class="score">(5.0)</span>
-                            </div>
-                          </div>
-                        </div>
-
-                        <p class="review_text_content pre_reg_14">
-                          하루 종일 모니터 보는 직업이라 가볍고 블루라이트 차단 잘 되는 안경 찾다가 구매했습니다.
-                          결론부터 말하자면 대만족입니다. 티타늄 테라 그런지 확실히 기존에 쓰던 뿔테랑 비교가 안 될
-                          정도로 가볍네요. 귀 뒷부분 통증이 고질병이었는데 피팅을 잘 해주신 건지 하루 종일 쓰고 있어도
-                          귀가 안 아픕니다. 안경 알 크기도 적당해서 시야가 시원시원해요. 디자인도 너무 튀지 않는 무난한
-                          웰링턴 스타일이라 데일리로 제격입니다. 가성비 최고의 직장인 안경으로 강추합니다.
-                        </p>
-                      </div>
-                    </article>
-                  </div>
-
-                  <!-- <div class="slider_pagination_controls display_flex align_items_center justify_content_center">
-                    <button type="button" class="ctrl_btn prev_btn" aria-label="이전 슬라이드">
-                      <span class="material-icons">chevron_left</span>
-                    </button>
-                    <div class="page_number_indicator mont_reg_16">
-                      <span class="current">1</span>
-                      <span class="divider">/</span>
-                      <span class="total">1</span>
-                    </div>
-                    <button type="button" class="ctrl_btn next_btn" aria-label="다음 슬라이드">
-                      <span class="material-icons">chevron_right</span>
-                    </button>
-                  </div> -->
-                </div>
-              </section>
-            </li>
-
-            <li class="display_none_priority detail_qna contents flex_column">
-              <h2 class="pre_bold_20">상품문의(99+)</h2>
-
-              <div class="qna_accordion_container">
-                <ul class="qna_list display_flex flex_column">
-                  <li class="qna_item display_flex flex_column is_active">
-                    <div class="qna_trigger display_flex justify_content_between">
-                      <div class="qna_heading display_flex flex_column">
-                        <strong class="qna_question mont_bold_14">lorem ipsum dolor sit amet?</strong>
-                        <span class="qna_date mont_reg_14">2026/12/31</span>
-                      </div>
-                      <span class="material-icons icon_20 qna_arrow_icon">arrow_drop_up</span>
-                    </div>
-                    <div class="qna_content mont_reg_14">
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad aliquid voluptate fugit quaerat non
-                        molestiae quo magni soluta minima corporis! Soluta, ipsa et.
-                      </p>
-                    </div>
-                  </li>
-
-                  <li class="qna_item display_flex flex_column">
-                    <div class="qna_trigger display_flex justify_content_between">
-                      <div class="qna_heading display_flex flex_column">
-                        <strong class="qna_question mont_bold_14">lorem ipsum dolor sit amet?</strong>
-                        <span class="qna_date mont_reg_14">2026/12/31</span>
-                      </div>
-                      <span class="material-icons icon_20 qna_arrow_icon">arrow_drop_down</span>
-                    </div>
-                    <div class="qna_content mont_reg_14">
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad aliquid voluptate fugit quaerat non
-                        molestiae quo magni soluta minima corporis! Soluta, ipsa et.
-                      </p>
-                    </div>
-                  </li>
-
-                  <li class="qna_item display_flex flex_column">
-                    <div class="qna_trigger display_flex justify_content_between">
-                      <div class="qna_heading display_flex flex_column">
-                        <strong class="qna_question mont_bold_14">lorem ipsum dolor sit amet?</strong>
-                        <span class="qna_date mont_reg_14">2026/12/31</span>
-                      </div>
-                      <span class="material-icons icon_20 qna_arrow_icon">arrow_drop_down</span>
-                    </div>
-                    <div class="qna_content mont_reg_14">
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad aliquid voluptate fugit quaerat non
-                        molestiae quo magni soluta minima corporis! Soluta, ipsa et.
-                      </p>
-                    </div>
-                  </li>
-
-                  <li class="qna_item display_flex flex_column">
-                    <div class="qna_trigger display_flex justify_content_between">
-                      <div class="qna_heading display_flex flex_column">
-                        <strong class="qna_question mont_bold_14">lorem ipsum dolor sit amet?</strong>
-                        <span class="qna_date mont_reg_14">2026/12/31</span>
-                      </div>
-                      <span class="material-icons icon_20 qna_arrow_icon">arrow_drop_down</span>
-                    </div>
-                    <div class="qna_content mont_reg_14">
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad aliquid voluptate fugit quaerat non
-                        molestiae quo magni soluta minima corporis! Soluta, ipsa et.
-                      </p>
-                    </div>
-                  </li>
-
-                  <li class="qna_item display_flex flex_column">
-                    <div class="qna_trigger display_flex justify_content_between">
-                      <div class="qna_heading display_flex flex_column">
-                        <strong class="qna_question mont_bold_14">lorem ipsum dolor sit amet?</strong>
-                        <span class="qna_date mont_reg_14">2026/12/31</span>
-                      </div>
-                      <span class="material-icons icon_20 qna_arrow_icon">arrow_drop_down</span>
-                    </div>
-                    <div class="qna_content mont_reg_14">
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad aliquid voluptate fugit quaerat non
-                        molestiae quo magni soluta minima corporis! Soluta, ipsa et.
-                      </p>
-                    </div>
-                  </li>
-
-                  <li class="qna_item display_flex flex_column">
-                    <div class="qna_trigger display_flex justify_content_between">
-                      <div class="qna_heading display_flex flex_column">
-                        <strong class="qna_question mont_bold_14">lorem ipsum dolor sit amet?</strong>
-                        <span class="qna_date mont_reg_14">2026/12/31</span>
-                      </div>
-                      <span class="material-icons icon_20 qna_arrow_icon">arrow_drop_down</span>
-                    </div>
-                    <div class="qna_content mont_reg_14">
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad aliquid voluptate fugit quaerat non
-                        molestiae quo magni soluta minima corporis! Soluta, ipsa et.
-                      </p>
-                    </div>
-                  </li>
+              <div class="collect_thumb_list" data-render-target="collection_products">
+                <ul>
+                  <li><a href="#" class="collect_serve_image ">더보기</a></li>
+                  <li><a href="#" class="collect_serve_image ">더보기</a></li>
+                  <li><a href="#" class="collect_serve_image ">더보기</a></li>
                 </ul>
-
-                <div class="slider_pagination_controls display_flex align_items_center justify_content_center">
-                  <button type="button" class="ctrl_btn prev_btn" aria-label="이전 페이지">
-                    <span class="material-icons">chevron_left</span>
-                  </button>
-                  <div class="page_number_indicator mont_reg_16">
-                    <span class="current">1</span>
-                    <span class="divider">/</span>
-                    <span class="total">1</span>
-                  </div>
-                  <button type="button" class="ctrl_btn next_btn" aria-label="다음 페이지">
-                    <span class="material-icons">chevron_right</span>
-                  </button>
-                </div>
               </div>
-            </li>
 
-            <li class="display_none_priority detail_purchase_info contents flex_column">
-              <h2 class="purchase_main_title pre_bold_20">구매 정보</h2>
-
-              <div class="purchase_sub_section_container display_flex flex_column mont_reg_12">
-                <!-- 서브 섹션 01: 도수 렌즈 제작 -->
-                <section class="purchase_sub_section display_flex flex_column">
-                  <h3 class="purchase_sub_title pre_bold_14">도수 렌즈 제작</h3>
-                  <ul class="purchase_text_list">
-                    <li>- 도수렌즈는 온라인 판매가 허용되지 않아, 안경원에서만 구입이 가능합니다.</li>
-                    <li>- 라운즈 플래그십 스토어나 라운즈 파트너 안경원에서 도수렌즈를 제작하실 수 있습니다.</li>
-                    <li>- 특정 상품의 도수렌즈 삽입 가능여부는 고객센터를 통해 확인 가능합니다.(1522-0416)</li>
-                  </ul>
-                </section>
-
-                <!-- 서브 섹션 02: 교환/반품 안내 -->
-                <section class="purchase_sub_section display_flex flex_column">
-                  <h3 class="purchase_sub_title pre_bold_14">교환/반품 안내</h3>
-                  <strong class="purchase_highlight_text"
-                    >[EVENT] 라운즈 회원님은 10일 이내 무료(CJ대한통운/우체국) 교환/반품!</strong
-                  >
-                  <ul class="purchase_text_list">
-                    <li>- 라운즈 회원이라면 단순변심도 제품 수령 10일 내에 무료로 교환/반품 가능합니다.</li>
-                    <li>- ID당 1회 한정</li>
-                    <li>- 고객 부주의로 인한 파손이나 구성품 분실 시 교환/환불 불가</li>
-                    <li>- 렌즈 옵션을 추가한 상품은 교환/환불 불가</li>
-                  </ul>
-
-                  <strong class="purchase_detail_title">교환/반품 접수</strong>
-                  <ul class="purchase_text_list">
-                    <li>- ROUNZ.COM 마이페이지 → 주문내역 하단의 교환신청/반품신청 선택</li>
-                  </ul>
-
-                  <strong class="purchase_detail_title"
-                    >[RayNeo] 레이네오 스마트 안경은 전자제품 특성상 단순변심으로 인한 교환/반품은 불가합니다.</strong
-                  >
-                  <ul class="purchase_text_list">
-                    <li>- 레이네오 스마트 안경은 전자제품 특성상 단순변심으로 인한 교환/반품은 불가합니다.</li>
-                    <li>
-                      - 레이네오 스마트 안경은 구매일로부터 1년 동안 무상으로 A/S가능하며, 공식 AS 접수처로 문의
-                      부탁드립니다.
-                    </li>
-                    <li>- 단, 사용자 부주의로 인한 파손 및 고장은 유상처리 됩니다.</li>
-                    <li>- 레이네오 공식 AS 접수처: 031-205-4133</li>
-                  </ul>
-
-                  <strong class="purchase_detail_title pre_bold_14">꼭 확인해주세요!</strong>
-                  <ul class="purchase_text_list">
-                    <li>1. 온라인으로 구매하신 제품은 오프라인 매장에서 교환/반품하실 수 없습니다.</li>
-
-                    <li>
-                      2. 아래의 경우 교환/반품이 어렵습니다.
-                      <ul class="purchase_nested_list">
-                        <li>- 렌즈 옵션을 추가한 상품인 경우</li>
-                        <li>- 제품의 사용/하자 여부와 관계없이 수령 후 10일이 지난 경우</li>
-                        <li>- 제품 구성품이 분실/훼손된 경우</li>
-                        <li>- 개인 피팅을 받거나 렌즈를 교체한 경우</li>
-                      </ul>
-                    </li>
-
-                    <li>
-                      3. 아래의 경우는 불량이 아닙니다.
-                      <ul class="purchase_nested_list">
-                        <li>- 제조, 유통 시 발생하는 미세 스크레치</li>
-                        <li>- 제품의 컬러는 모니터에 따라 차이가 있을 수 있음</li>
-                        <li>- 제품의 사이즈는 측정 방법과 피팅 상태에 따라 오차가 있을 수 있음</li>
-                      </ul>
-                    </li>
-
-                    <li>
-                      4. 교환/반품 택배비를 확인해 주세요.
-                      <ul class="purchase_nested_list">
-                        <li>
-                          - 단순 변심: 왕복 택배비 6,000원 계좌이체 또는 차감 환불<br />
-                          (회원일 경우 ID당 1회 무료 교환/반품 가능)
-                        </li>
-                        <li>- 상품 하자: 택배비 무료(착불)</li>
-                      </ul>
-                    </li>
-                  </ul>
-
-                  <strong class="purchase_detail_title pre_bold_14">※ 교환/반품 보내실 주소</strong>
-                  <ul class="purchase_text_list">
-                    <li>- 서울특별시 강남구 강남대로 94길 34 K&Y 1층 (우편번호 06134)</li>
-                  </ul>
-                </section>
-
-                <!-- 서브 섹션 03: A/S 안내 -->
-                <section class="purchase_sub_section display_flex flex_column">
-                  <h3 class="purchase_sub_title mont_bold_14">A/S 안내</h3>
-                  <ul class="purchase_text_list">
-                    <li>- 라운즈에서 구매하신 상품에 한하여 가능합니다.</li>
-                    <li>
-                      - 제품 자체의 불량인 경우 1년 안에는 무상 처리되며, 단종이나 부품 수급이 어려운 경우 A/S가
-                      어렵습니다.
-                    </li>
-                    <li>
-                      - 고객님 과실에 의한 A/S는 비용이 청구되며, 단종이나 부품 수급이 어려운 경우 A/S가 어렵습니다.
-                    </li>
-                    <li>- A/S 기간은 보통 2~3주가 수입 제품의 경우 3~4주가 소요됩니다.</li>
-                    <li>- A/S 비용 및 수리 기간은 사전에 안내드립니다.</li>
-                  </ul>
-                </section>
-
-                <!-- 서브 섹션 04: 배송안내 -->
-                <section class="purchase_sub_section shipping_section display_flex flex_column">
-                  <h3 class="purchase_sub_title pre_bold_14">배송안내</h3>
-
-                  <div class="shipping_table_container display_flex flex_column">
-                    <div class="shipping_table_row table_header display_flex">
-                      <div class="table_cell cell_type mont_bold_12">종류</div>
-                      <div class="table_cell cell_info mont_bold_12">안내사항</div>
-                    </div>
-
-                    <div class="shipping_table_row display_flex">
-                      <div class="table_cell cell_type display_flex flex_column justify_content_center mont_bold_12">
-                        <span>우체국택배</span><span>CJ 대한통운</span>
-                      </div>
-                      <div class="table_cell cell_info mont_reg_12_auto">
-                        <ul class="cell_text_list">
-                          <li>- 배송비용: 전 상품 무료</li>
-                          <li>
-                            - 배송기간: 당일발송 상품의 경우 평일 오후 3시까지 결제 완료 시 당일 발송. 그 외 상품의 경우
-                            별도 안내를 드립니다.
-                          </li>
-                          <li>
-                            - 단, 렌즈 옵션을 추가한 상품인 경우, 렌즈 가공 후 발송되므로 배송기간이 영업일 기준 2~3일이
-                            추가 소요됩니다.
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-
-                    <div class="shipping_table_row display_flex">
-                      <div class="table_cell cell_type display_flex flex_column justify_content_center mont_bold_12">
-                        퀵서비스
-                      </div>
-                      <div class="table_cell cell_info mont_reg_12_auto">
-                        <ul class="cell_text_list">
-                          <li>- 배송비용: 고객부담(착불)</li>
-                          <li>- 서울지역만 가능</li>
-                          <li>- 주문 전 고객센터(1522-0416)로 신청 시 퀵배송 가능</li>
-                        </ul>
-                      </div>
-                    </div>
-
-                    <div class="shipping_table_row display_flex">
-                      <div class="table_cell cell_type display_flex flex_column justify_content_center mont_bold_12">
-                        해외배송
-                      </div>
-                      <div class="table_cell cell_info mont_reg_12_auto">
-                        <ul class="cell_text_list">
-                          <li>- 배송비용: 고객부담(선불)</li>
-                          <li>- 배송지역 및 배송기간: EMS 가능국가, 각 국가마다 배송일 상이</li>
-                          <li>- 주문 전 고객센터 문의 시 요금 등 상담 가능</li>
-                        </ul>
-                      </div>
-                    </div>
-
-                    <div class="shipping_table_row display_flex">
-                      <div class="table_cell cell_type display_flex flex_column justify_content_center mont_bold_12">
-                        방문수령
-                      </div>
-                      <div class="table_cell cell_info mont_reg_12_auto">
-                        <ul class="cell_text_list">
-                          <li>- 매장 방문수령을 원하실 경우 주문 시 배송방법에서 방문수령 선택</li>
-                          <li>- 플래그십스토어 방문수령 시 개인피팅 무료 제공</li>
-                          <li>- 라운즈 오프라인 매장 위치 확인하기</li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </section>
+              <div class="collect_brand">
+                <p class="collect_brand_name mont_bold_16">RAY-BAN</p>
+                <p class="collect_brand_desc pre_reg_16">
+                  '빛(Ray)을 차단(Ban)하다'라는 브랜드 네이밍처럼 선글라스 본연의 역할에 충실하면서도, 레트로한 감성과
+                  세련된 디자인을 함께 담아낸 브...
+                </p>
               </div>
-            </li>
-          </ul>
-        </section>
-
-        <section class="product_similar contents">
-          <!-- <h2 class="pre_bold_20">이 상품과 비슷한 상품</h2> -->
-          <div class="display_flex justify_content_between align_items_center">
-            <h2 class="pre_bold_20">이 상품과 비슷한 상품</h2>
-            <div class="slider_pagination_controls display_flex justify_content_center">
-              <button type="button" class="ctrl_btn prev" aria-label="이전 비슷한 상품 슬라이드">
-                <span class="material-icons">chevron_left</span>
-              </button>
-              <!-- <div class="page_number_indicator mont_reg_16">
-                    <span class="current">1</span>
-                    <span class="divider">/</span>
-                    <span class="total">1</span>
-                  </div> -->
-              <button type="button" class="ctrl_btn next" aria-label="다음 비슷한 상품 슬라이드">
-                <span class="material-icons">chevron_right</span>
-              </button>
+            </article> -->
             </div>
           </div>
-          <div class="swiper slide_basic slide_similar">
-            <div class="swiper-wrapper">
-              <!-- JSON: ADD '비슷한 상품' HERE -->
-              <!-- <article class="swiper-slide card_ui display_flex flex_column">
-                <div class="card_ui_img_wrapper">
-                  <a href="#">
-                    <img
-                      src="https://image.rounz.com/_data/product/RAYBAN/RB3774D-001_87(55)/RB3774D-001_87(55)_03.JPG"
-                      alt="RB3774D 001/87(55) 골드 메탈 선글라스"
-                    />
-                  </a>
-                </div>
-                <div class="card_ui_info_wrapper">
-                  <strong class="info_code mont_bold_14">RB3774D 001/87(55)</strong>
-                  <p class="info_description mont_reg_14">골드 메탈 RB3774D 001/87 55 골드 메탈 RB3774D 001/87 55</p>
-                </div>
-              </article> -->
-            </div>
-          </div>
-          <!-- <div class="slider_pagination_controls display_flex align_items_center justify_content_center">
-            <button type="button" class="ctrl_btn prev" aria-label="이전 슬라이드">
-              <span class="material-icons">chevron_left</span>
-            </button>
-            <div class="page_number_indicator mont_reg_16">
-              <span class="current">1</span>
-              <span class="divider">/</span>
-              <span class="total">1</span>
-            </div>
-            <button type="button" class="ctrl_btn next" aria-label="다음 슬라이드">
-              <span class="material-icons">chevron_right</span>
-            </button>
-          </div> -->
-        </section>
-
-        <section class="product_series">
-          <div class="swiper slide_basic slide_series">
-            <div class="swiper-wrapper">
-              <!-- <div class="swiper-slide">
-                <a href="#"
-                  ><img src="https://image.rounz.com/newrounz/banner/only/stylework_img.jpg" alt="기획전 이미지"
-                /></a>
-              </div> -->
-            </div>
-          </div>
-          <div class="grid_series">
-            <!-- <div class=""><img src="https://image.rounz.com/newrounz/banner/only/stylework_img.jpg" /></div> -->
-          </div>
-        </section>
+        </div>
       </section>
-    </main>
+      <!--  </section> -->
 
-    <footer></footer>
-    <script type="module" src="../js/product-detail.js"></script>
+      <section class="main_celeb section_inner" id="main_celeb" aria-labelledby="main_celeb_title">
+        <div class="main_celeb_head contents">
+          <div class="main_celeb_text">
+            <h2 class="main_section_title mont_reg_18">CELEBRITY'S PICK</h2>
+            <a href="https://rounz.com/collection.php?collectionIndex=4059" class="celeb_more pre_reg_12">더보기</a>
+          </div>
+          <p class="main_celeb_title pre_reg_18">셀럽들이 선택한 <br />트렌디한 아이웨어</p>
+        </div>
+
+        <div class="celeb_swiper_container">
+          <div class="celeb_showcase celeb_mobile swiper main-celeb-swiper">
+            <div class="swiper-wrapper" id="celeb-wrapper">
+              <!-- <p class="celeb_image"><img src="./images/celeb_1.png" alt="지디 사진" /></p> -->
+            </div>
+          </div>
+        </div>
+
+        <ul class="celeb_tag_list pre_reg_12">
+          <li class="celeb_tag">#지디</li>
+          <li class="celeb_tag">#신세경</li>
+          <li class="celeb_tag">#덱스</li>
+          <li class="celeb_tag">#하정우</li>
+          <li class="celeb_tag">#김우빈</li>
+          <li class="celeb_tag">#제니</li>
+          <li class="celeb_tag">#제시카</li>
+        </ul>
+      </section>
+
+      <section class="main_rzstore" id="main_rzstore" aria-labelledby="main_rzstore_title">
+        <div class="main_rzstore_inner">
+          <div class="main_rzstore_con">
+            <h2 class="main_rzstore_title" id="main_rzstore_title">ROUNZ STORE</h2>
+            <p class="main_rzstore_desc pre_bold_14">
+              라운즈 플래그십 스토어와 파트너 안경원에서 <br />아이웨어 쇼핑을 즐겨보세요.
+            </p>
+            <p class="main_rzstore_polic pre_reg_12">(라운즈는 온/오프라인 스토어의 가격 정책이 동일합니다.)</p>
+          </div>
+          <div class="main_rzstore_btn pre_reg_12">
+            <a href="sub/map.html" class="main_rz_btn">
+              <span class="main_butn_label">라운즈 방문 예약하기</span>
+            </a>
+            <a href="sub/map.html" class="main_rz_btn">
+              <span class="main_butn_label">가까운 파트너 안경원 찾기</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <footer class="main_footer"></footer>
+
+    <script src="./js/main.js" type="module"></script>
   </body>
 </html>
