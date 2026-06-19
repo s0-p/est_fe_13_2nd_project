@@ -12,17 +12,17 @@ function createSidebar() {
   // 1. 데이터 정의
   const menuData = [
     {
-      icon: '/images/side_bar_2.png',
+      icon: './images/side_bar_2.png',
       text: '라운즈 플래그십 스토어',
       link: '#',
     },
     {
-      icon: '/images/side_bar_3.png',
+      icon: './images/side_bar_3.png',
       text: '내 주변 안경원 찾기',
       link: '#',
     },
     {
-      icon: '/images/side_bar_4.png',
+      icon: './images/side_bar_4.png',
       text: '채팅 바로가기',
       link: '#',
     },
