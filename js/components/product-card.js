@@ -6,7 +6,7 @@ function createProductCard(p) {
   productCard.className = 'product_card display_flex flex_column';
   productCard.innerHTML = `
       <div class="swiper image_slider">
-        <a href="./product-detail.html?id=${p.productIndex}"></a>
+        <a href="./product-detail.html?id=${p.productIndex}" draggable="false"></a>
         <ul class="swiper-wrapper">
         </ul>
         
@@ -126,6 +126,7 @@ function createProductCard(p) {
     price.textContent = '일시품절';
   }
   // Info
+
   return productCard;
 }
 

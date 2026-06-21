@@ -544,6 +544,9 @@ nav .type_wrapper .type_square .type_image {
   position: absolute;
   inset: 0;
   z-index: 2;
+  -webkit-user-drag: none;
+  user-select: none;
+  pointer-events: none;
 }
 .product_card ul {
   width: max-content;
@@ -553,6 +556,8 @@ nav .type_wrapper .type_square .type_image {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  -webkit-user-drag: none;
+  user-select: none;
 }
 .product_card {
   /* Image Slider */
@@ -564,7 +569,7 @@ nav .type_wrapper .type_square .type_image {
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 1;
+  z-index: 3;
   padding: 5px 10px;
   box-sizing: border-box;
   pointer-events: none;
