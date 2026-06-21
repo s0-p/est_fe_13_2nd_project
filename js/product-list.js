@@ -98,6 +98,11 @@ function renderProducts(data) {
       simulateTouch: true,
       mousewheel: true,
       keyboard: true,
+      on: {
+        click: function () {
+          window.location.href = `./product-detail.html?id=${data[i].productIndex}`; // 추가
+        },
+      },
     });
   }
 
