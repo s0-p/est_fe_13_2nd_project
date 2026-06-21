@@ -126,6 +126,7 @@ function createProductCard(p) {
     price.textContent = '일시품절';
   }
   // Info
+
   return productCard;
 }
 
