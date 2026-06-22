@@ -1,9 +1,9 @@
-import headerModule from './components/header.js';
+import renderHeader from './components/header.js';
 import renderFooter from './components/footer.js';
 import renderSidebar from './components/side-bar.js';
 import createProductCard from './components/product-card.js';
 import { parseNumber } from './components/common.js';
-headerModule();
+renderHeader();
 renderFooter();
 renderSidebar();
 
